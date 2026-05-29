@@ -1,0 +1,8 @@
+interface:
+  display_name: "PaperSpine Intake"
+  short_description: "Collect PaperSpine task configuration"
+  brand_color: "#2563EB"
+  default_prompt: "Use $paper-spine-intake to create paper_spine_config.json for my writing task."
+
+policy:
+  allow_implicit_invocation: true

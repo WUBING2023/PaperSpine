@@ -212,6 +212,7 @@ class SuiteHardeningTests(unittest.TestCase):
             "dist/claude/skills",
             "dist/claude/commands",
             "dist/openclaw/skills",
+            "dist/hermesagent/skills/academic-writing",
             "install.ps1",
             "paper-spine-ui",
             "paper-spine-intake",
@@ -240,8 +241,10 @@ class SuiteHardeningTests(unittest.TestCase):
             "main.tex",
             "Restart Codex",
             "OpenClaw",
+            "HermesAgent",
             "/plugin marketplace add",
             "/plugin install paper-spine",
+            "/paper-spine",
             "artifact_check.py paper_rewriting_output --markdown --write",
             "paperspine_update.py",
             "install_state.json",
@@ -285,6 +288,14 @@ class SuiteHardeningTests(unittest.TestCase):
                 )
                 if skill != "paper-spine-citation":
                     self.assertTrue((host_dir / "agents" / "openai.yaml").exists(), f"{host}:{skill}:agents")
+            hermes_dir = ROOT / "dist" / "hermesagent" / "skills" / "academic-writing" / skill
+            self.assertEqual(
+                (hermes_dir / "SKILL.md").read_text(encoding="utf-8"),
+                (claude_dir / "SKILL.md").read_text(encoding="utf-8"),
+                f"hermesagent:{skill}:SKILL.md",
+            )
+            if skill != "paper-spine-citation":
+                self.assertTrue((hermes_dir / "agents" / "openai.yaml").exists(), f"hermesagent:{skill}:agents")
 
     def test_codex_release_layout_exposes_full_suite_and_legacy_bundle(self) -> None:
         for skill in SUITE_SKILLS:
@@ -299,6 +310,14 @@ class SuiteHardeningTests(unittest.TestCase):
         for skill in SUITE_SKILLS:
             self.assertTrue((ROOT / "dist" / "openclaw" / "skills" / skill / "SKILL.md").exists(), skill)
         self.assertFalse((ROOT / "dist" / "openclaw" / "SKILL.md").exists())
+
+    def test_hermesagent_release_layout_exposes_full_suite(self) -> None:
+        for skill in SUITE_SKILLS:
+            self.assertTrue(
+                (ROOT / "dist" / "hermesagent" / "skills" / "academic-writing" / skill / "SKILL.md").exists(),
+                skill,
+            )
+        self.assertFalse((ROOT / "dist" / "hermesagent" / "SKILL.md").exists())
 
     def test_sync_script_exports_expected_layouts_to_temp_dirs(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -321,6 +340,8 @@ class SuiteHardeningTests(unittest.TestCase):
                     str(base / "claude" / "commands"),
                     "--openclaw-skills-dir",
                     str(base / "openclaw" / "skills"),
+                    "--hermesagent-skills-dir",
+                    str(base / "hermesagent" / "skills" / "academic-writing"),
                     "--config-home",
                     str(base / "config"),
                 ],
@@ -340,6 +361,7 @@ class SuiteHardeningTests(unittest.TestCase):
             self.assertTrue((base / "desktop" / "PaperSpine" / "dist" / "claude" / "skills" / "paper-spine-ui" / "SKILL.md").exists())
             self.assertTrue((base / "desktop" / "PaperSpine" / "dist" / "claude" / "skills" / "paper-spine-citation" / "SKILL.md").exists())
             self.assertTrue((base / "desktop" / "PaperSpine" / "dist" / "openclaw" / "skills" / "paper-spine" / "SKILL.md").exists())
+            self.assertTrue((base / "desktop" / "PaperSpine" / "dist" / "hermesagent" / "skills" / "academic-writing" / "paper-spine" / "SKILL.md").exists())
             self.assertTrue((base / "desktop" / "PaperSpine" / "src" / "scripts" / "intake_wizard.py").exists())
             self.assertTrue((base / "desktop" / "PaperSpine" / "install.ps1").exists())
             self.assertFalse((base / "desktop" / "PaperSpine" / "SKILL.md").exists())
@@ -351,6 +373,8 @@ class SuiteHardeningTests(unittest.TestCase):
             self.assertTrue((base / "openclaw" / "skills" / "paper-spine" / "SKILL.md").exists())
             self.assertTrue((base / "openclaw" / "skills" / "paper-spine-audit" / "SKILL.md").exists())
             self.assertTrue((base / "openclaw" / "skills" / "paper-spine-update" / "SKILL.md").exists())
+            self.assertTrue((base / "hermesagent" / "skills" / "academic-writing" / "paper-spine" / "SKILL.md").exists())
+            self.assertTrue((base / "hermesagent" / "skills" / "academic-writing" / "paper-spine-update" / "SKILL.md").exists())
             self.assertTrue((base / "claude" / "commands" / "paperspine.md").exists())
             self.assertFalse((base / "claude" / "commands" / "paperspine-legacy.md").exists())
             self.assertTrue((base / "config" / "install_state.json").exists())
@@ -400,8 +424,12 @@ class SuiteHardeningTests(unittest.TestCase):
                     str(base / "codex" / "skills"),
                     "--claude-skills-dir",
                     str(base / "claude" / "skills"),
+                    "--claude-commands-dir",
+                    str(base / "claude" / "commands"),
                     "--openclaw-skills-dir",
                     str(base / "openclaw" / "skills"),
+                    "--hermesagent-skills-dir",
+                    str(base / "hermesagent" / "skills" / "academic-writing"),
                     "--config-home",
                     str(base / "config"),
                 ],
@@ -417,6 +445,7 @@ class SuiteHardeningTests(unittest.TestCase):
             self.assertTrue((base / "codex" / "skills" / "paper-spine-research" / "SKILL.md").exists())
             self.assertTrue((base / "claude" / "skills" / "paper-spine" / "SKILL.md").exists())
             self.assertTrue((base / "openclaw" / "skills" / "paper-spine" / "SKILL.md").exists())
+            self.assertTrue((base / "hermesagent" / "skills" / "academic-writing" / "paper-spine" / "SKILL.md").exists())
             self.assertTrue((base / "config" / "install_state.json").exists())
 
     def test_gitignore_blocks_user_and_generated_artifacts(self) -> None:
@@ -474,12 +503,11 @@ class SuiteHardeningTests(unittest.TestCase):
             self.assertTrue((dest / "src" / "scripts" / "launch_paperspine_ui.ps1").exists())
             self.assertTrue((dest / "dist" / "codex" / "skills" / "paper-spine-citation" / "SKILL.md").exists())
             self.assertTrue((dest / "dist" / "openclaw" / "skills" / "paper-spine-citation" / "SKILL.md").exists())
+            self.assertTrue((dest / "dist" / "hermesagent" / "skills" / "academic-writing" / "paper-spine-citation" / "SKILL.md").exists())
             self.assertTrue((dest / "dist" / "paperspine_version.json").exists())
 
 
 if __name__ == "__main__":
     unittest.main()
-
-
 
 

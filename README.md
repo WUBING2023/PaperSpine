@@ -4,7 +4,7 @@
 
 > The English and Chinese READMEs are maintained as content-equivalent versions. If one document changes, update the other in the same commit.
 
-PaperSpine is a motivation-driven paper and report writing skill suite for Codex, Claude Code, and OpenClaw.
+PaperSpine is a motivation-driven paper and report writing skill suite for Codex, Claude Code, OpenClaw, and HermesAgent.
 
 It is designed for writing tasks where the target format matters: journal papers, conference papers, course or technical reports, reviews, and competition papers. The workflow asks the agent to learn the target scene and strong examples before writing, then records why each manuscript unit is planned or changed.
 
@@ -36,6 +36,9 @@ PaperSpine/
         paperspine-legacy.md
     openclaw/
       skills/                   # OpenClaw flat skill suite
+    hermesagent/
+      skills/
+        academic-writing/        # HermesAgent default-category skill suite
   src/
     scripts/                    # shared deterministic helpers
     references/                 # shared workflow references
@@ -65,6 +68,7 @@ Use a narrower target when needed:
 .\install.ps1 -Target codex
 .\install.ps1 -Target claude
 .\install.ps1 -Target openclaw
+.\install.ps1 -Target hermesagent
 .\install.ps1 -Target all -CleanLegacy
 ```
 
@@ -75,6 +79,8 @@ After installing for Codex: **Restart Codex**. Then call the full workflow with 
 After installing for Claude Code: restart or reload Claude Code, then use `/paperspine`.
 
 After installing for OpenClaw: restart or reload OpenClaw, then invoke `paper-spine` for the full workflow or any `paper-spine-*` branch skill for a single stage.
+
+After installing for HermesAgent: restart or reload HermesAgent, then invoke `/paper-spine` for the full workflow or any `/paper-spine-*` branch skill for a single stage.
 
 The installer writes the installed version to `~/.paperspine/install_state.json`
 and preserves `~/.paperspine/config.json`, including UI language preferences.
@@ -153,6 +159,27 @@ The final OpenClaw layout should include:
 ~/.openclaw/skills/paper-spine-update/SKILL.md
 ```
 
+HermesAgent expects skill folders under a category in its default skill root:
+
+```text
+dist/hermesagent/skills/academic-writing/*
+```
+
+Copy them to:
+
+```text
+~/.hermes/skills/academic-writing/
+```
+
+The final HermesAgent layout should include:
+
+```text
+~/.hermes/skills/academic-writing/paper-spine/SKILL.md
+~/.hermes/skills/academic-writing/paper-spine-research/SKILL.md
+~/.hermes/skills/academic-writing/paper-spine-citation/SKILL.md
+~/.hermes/skills/academic-writing/paper-spine-update/SKILL.md
+```
+
 ## Claude Code Plugin Install
 
 Claude Code can also use the plugin metadata in `.claude-plugin`.
@@ -165,13 +192,14 @@ Claude Code can also use the plugin metadata in `.claude-plugin`.
 
 The plugin manifest points to the flat suite under `dist/claude/skills`, not to the Codex distribution.
 
-## Codex vs Claude Code vs OpenClaw
+## Codex vs Claude Code vs OpenClaw vs HermesAgent
 
 | Host | Installable unit | Typical entry | Reason |
 | --- | --- | --- | --- |
 | Codex | `dist/codex/skills/*` | `$paper-spine` or `$paper-spine-*` | Codex can discover flat skill folders, so the full workflow and branch skills are both callable. |
 | Claude Code | `dist/claude/skills/*` plus `dist/claude/commands/*` | `/paperspine` | Claude Code discovers skills as flat folders and supports slash-command helpers. |
 | OpenClaw | `dist/openclaw/skills/*` | `paper-spine` or `paper-spine-*` | OpenClaw skills are directories containing `SKILL.md`, so the same flat suite is used. |
+| HermesAgent | `dist/hermesagent/skills/academic-writing/*` | `/paper-spine` or `/paper-spine-*` | HermesAgent discovers `SKILL.md` folders under the default `~/.hermes/skills/<category>/` layout. |
 
 Do not copy the whole repository into a `skills` folder. That is the main cause of duplicated or missing skills.
 
@@ -252,7 +280,7 @@ It compares the local version recorded in `~/.paperspine/install_state.json`
 with the GitHub `main` manifest at `dist/paperspine_version.json`. If the local
 copy is already current, it reports that no update is needed. If an update is
 available, it downloads the GitHub archive, validates the PaperSpine layout,
-updates Codex, Claude Code, and OpenClaw skill folders, and keeps
+updates Codex, Claude Code, OpenClaw, and HermesAgent skill folders, and keeps
 `~/.paperspine/config.json` intact.
 
 For a non-mutating check:

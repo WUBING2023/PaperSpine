@@ -1,0 +1,8 @@
+interface:
+  display_name: "PaperSpine Audit"
+  short_description: "Audit artifacts, logic, and revisions"
+  brand_color: "#2563EB"
+  default_prompt: "Use $paper-spine-audit to check PaperSpine artifacts, revision depth, and unsupported claims."
+
+policy:
+  allow_implicit_invocation: true

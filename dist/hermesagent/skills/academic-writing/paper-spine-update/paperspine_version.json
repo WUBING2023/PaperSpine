@@ -1,0 +1,7 @@
+{
+  "version": "3.0.0",
+  "channel": "main",
+  "repository": "https://github.com/WUBING2023/PaperSpine",
+  "manifest_url": "https://raw.githubusercontent.com/WUBING2023/PaperSpine/main/dist/paperspine_version.json",
+  "archive_url": "https://github.com/WUBING2023/PaperSpine/archive/refs/heads/main.zip"
+}

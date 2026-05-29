@@ -67,6 +67,13 @@ def create_repo(root: Path, version: str, *, broken: bool = False) -> Path:
                 f"---\nname: {skill}\ndescription: {skill}\n---\n",
                 encoding="utf-8",
             )
+    for skill in skills:
+        skill_dir = root / "dist" / "hermesagent" / "skills" / "academic-writing" / skill
+        skill_dir.mkdir(parents=True)
+        (skill_dir / "SKILL.md").write_text(
+            f"---\nname: {skill}\ndescription: {skill}\n---\n",
+            encoding="utf-8",
+        )
     return root
 
 
@@ -87,6 +94,7 @@ class PaperSpineUpdateScriptTests(unittest.TestCase):
                 "PAPERSPINE_CLAUDE_SKILLS_DIR": str(base / "claude" / "skills"),
                 "PAPERSPINE_CLAUDE_COMMANDS_DIR": str(base / "claude" / "commands"),
                 "PAPERSPINE_OPENCLAW_SKILLS_DIR": str(base / "openclaw" / "skills"),
+                "PAPERSPINE_HERMESAGENT_SKILLS_DIR": str(base / "hermesagent" / "skills" / "academic-writing"),
             }
         )
         return subprocess.run(
@@ -132,10 +140,11 @@ class PaperSpineUpdateScriptTests(unittest.TestCase):
             self.assertTrue((base / "claude" / "skills" / "paper-spine-update" / "SKILL.md").exists())
             self.assertTrue((base / "claude" / "commands" / "paperspine.md").exists())
             self.assertTrue((base / "openclaw" / "skills" / "paper-spine-update" / "SKILL.md").exists())
+            self.assertTrue((base / "hermesagent" / "skills" / "academic-writing" / "paper-spine-update" / "SKILL.md").exists())
             self.assertEqual(json.loads((base / "config" / "config.json").read_text(encoding="utf-8")), config)
             state = json.loads((base / "config" / "install_state.json").read_text(encoding="utf-8"))
             self.assertEqual(state["installed_version"], "2.0.0-rc.3")
-            self.assertEqual(state["targets"], ["codex", "claude", "openclaw"])
+            self.assertEqual(state["targets"], ["codex", "claude", "openclaw", "hermesagent"])
 
     def test_broken_archive_fails_without_overwriting_existing_install(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

@@ -1,0 +1,8 @@
+interface:
+  display_name: "PaperSpine Research"
+  short_description: "Research target scenes and examples"
+  brand_color: "#2563EB"
+  default_prompt: "Use $paper-spine-research to research target requirements and learn strong examples."
+
+policy:
+  allow_implicit_invocation: true

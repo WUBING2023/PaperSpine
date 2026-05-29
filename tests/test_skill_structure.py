@@ -58,6 +58,7 @@ class SkillStructureTests(unittest.TestCase):
             "dist/codex/paper-spine/SKILL.md",
             "dist/codex/skills/paper-spine/SKILL.md",
             "dist/openclaw/skills/paper-spine/SKILL.md",
+            "dist/hermesagent/skills/academic-writing/paper-spine/SKILL.md",
             "dist/claude/commands/paperspine.md",
         ]
         missing = [path for path in required if not (ROOT / path).exists()]
@@ -79,6 +80,7 @@ class SkillStructureTests(unittest.TestCase):
                 "dist/claude/skills",
                 "dist/claude/commands",
                 "dist/openclaw/skills",
+                "dist/hermesagent/skills/academic-writing",
                 "install.ps1",
                 "paper-spine-ui",
                 "paper-spine-intake",
@@ -121,6 +123,12 @@ class SkillStructureTests(unittest.TestCase):
                 if not (ROOT / "dist" / host / "skills" / name / "SKILL.md").exists()
             ]
             self.assertEqual(missing, [])
+        missing = [
+            name
+            for name in SUITE_SKILLS
+            if not (ROOT / "dist" / "hermesagent" / "skills" / "academic-writing" / name / "SKILL.md").exists()
+        ]
+        self.assertEqual(missing, [])
 
     def test_suite_support_files_exist(self) -> None:
         required = [
@@ -201,6 +209,10 @@ class SkillStructureTests(unittest.TestCase):
         files = [ROOT / "dist" / "codex" / "paper-spine" / "SKILL.md"]
         for host in ("claude", "codex", "openclaw"):
             files.extend(ROOT / "dist" / host / "skills" / name / "SKILL.md" for name in SUITE_SKILLS)
+        files.extend(
+            ROOT / "dist" / "hermesagent" / "skills" / "academic-writing" / name / "SKILL.md"
+            for name in SUITE_SKILLS
+        )
         offenders = []
         for path in files:
             data = path.read_bytes()
@@ -211,6 +223,10 @@ class SkillStructureTests(unittest.TestCase):
         skill_files = []
         for host in ("claude", "codex", "openclaw"):
             skill_files.extend(ROOT / "dist" / host / "skills" / name / "SKILL.md" for name in SUITE_SKILLS)
+        skill_files.extend(
+            ROOT / "dist" / "hermesagent" / "skills" / "academic-writing" / name / "SKILL.md"
+            for name in SUITE_SKILLS
+        )
         offenders: list[str] = []
         for path in skill_files:
             text = path.read_text(encoding="utf-8")
@@ -224,5 +240,4 @@ class SkillStructureTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
 

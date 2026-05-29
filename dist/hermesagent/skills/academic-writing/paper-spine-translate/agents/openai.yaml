@@ -1,0 +1,3 @@
+display_name: PaperSpine Translate
+short_description: Produce translation_zh/ package
+default_prompt: Produce the complete Chinese translation package for this PaperSpine manuscript.

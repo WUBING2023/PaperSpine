@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync PaperSpine dist layouts into local Codex, Claude Code, and OpenClaw installs."""
+"""Sync PaperSpine dist layouts into local Codex, Claude Code, OpenClaw, and HermesAgent installs."""
 
 from __future__ import annotations
 
@@ -17,6 +17,7 @@ DIST_CODEX_SKILLS = ROOT / "dist" / "codex" / "skills"
 DIST_CLAUDE_SKILLS = ROOT / "dist" / "claude" / "skills"
 DIST_CLAUDE_COMMANDS = ROOT / "dist" / "claude" / "commands"
 DIST_OPENCLAW_SKILLS = ROOT / "dist" / "openclaw" / "skills"
+DIST_HERMESAGENT_SKILLS = ROOT / "dist" / "hermesagent" / "skills" / "academic-writing"
 DIST_VERSION_MANIFEST = ROOT / "dist" / "paperspine_version.json"
 
 SUITE_SKILLS = (
@@ -67,6 +68,12 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=home / ".openclaw" / "skills",
         help="OpenClaw skills directory. Receives dist/openclaw/skills/*.",
+    )
+    parser.add_argument(
+        "--hermesagent-skills-dir",
+        type=Path,
+        default=home / ".hermes" / "skills" / "academic-writing",
+        help="HermesAgent academic-writing skills directory. Receives dist/hermesagent/skills/academic-writing/*.",
     )
     parser.add_argument("--clean-legacy", action="store_true")
     parser.add_argument("--clean-legacy-claude-nested", action="store_true", help="Deprecated alias for --clean-legacy.")
@@ -119,6 +126,8 @@ def clean_legacy(args: argparse.Namespace) -> None:
         args.codex_skills_dir / "paper-spine",
         args.openclaw_skills_dir / "PaperSpine",
         args.openclaw_skills_dir / "PaperSpineV2",
+        args.hermesagent_skills_dir / "PaperSpine",
+        args.hermesagent_skills_dir / "PaperSpineV2",
         args.claude_skills_dir / "PaperSpine",
         args.claude_skills_dir / "PaperSpineV2",
         args.claude_skills_dir / "paper-writing-assistant",
@@ -129,6 +138,7 @@ def clean_legacy(args: argparse.Namespace) -> None:
     paths.extend(args.codex_skills_dir / skill for skill in SUITE_SKILLS)
     paths.extend(args.claude_skills_dir / skill for skill in SUITE_SKILLS)
     paths.extend(args.openclaw_skills_dir / skill for skill in SUITE_SKILLS)
+    paths.extend(args.hermesagent_skills_dir / skill for skill in SUITE_SKILLS)
     for path in paths:
         remove_path(path)
 
@@ -152,6 +162,7 @@ def sync_local_installs(args: argparse.Namespace) -> None:
     args.claude_skills_dir.mkdir(parents=True, exist_ok=True)
     args.claude_commands_dir.mkdir(parents=True, exist_ok=True)
     args.openclaw_skills_dir.mkdir(parents=True, exist_ok=True)
+    args.hermesagent_skills_dir.mkdir(parents=True, exist_ok=True)
 
     codex_source = DIST_CODEX_SKILLS if DIST_CODEX_SKILLS.exists() else None
     if codex_source:
@@ -168,6 +179,9 @@ def sync_local_installs(args: argparse.Namespace) -> None:
     for skill_dir in DIST_OPENCLAW_SKILLS.iterdir():
         if skill_dir.is_dir():
             copy_tree(skill_dir, args.openclaw_skills_dir / skill_dir.name)
+    for skill_dir in DIST_HERMESAGENT_SKILLS.iterdir():
+        if skill_dir.is_dir():
+            copy_tree(skill_dir, args.hermesagent_skills_dir / skill_dir.name)
 
 
 def sync_dist_only() -> None:
@@ -234,7 +248,7 @@ def write_install_state(args: argparse.Namespace) -> None:
             "manifest_url": manifest.get("manifest_url"),
             "archive_url": manifest.get("archive_url"),
         },
-        "targets": ["codex", "claude", "openclaw"],
+        "targets": ["codex", "claude", "openclaw", "hermesagent"],
         "preserved_config_path": str(args.config_home / "config.json"),
     }
     (args.config_home / "install_state.json").write_text(
@@ -278,7 +292,14 @@ def main() -> int:
         sync_skill_overrides(Path.home() / ".claude")
         return 0
 
-    for required in (DIST_CODEX_SKILL, DIST_CLAUDE_SKILLS, DIST_CLAUDE_COMMANDS, DIST_OPENCLAW_SKILLS, DIST_VERSION_MANIFEST):
+    for required in (
+        DIST_CODEX_SKILL,
+        DIST_CLAUDE_SKILLS,
+        DIST_CLAUDE_COMMANDS,
+        DIST_OPENCLAW_SKILLS,
+        DIST_HERMESAGENT_SKILLS,
+        DIST_VERSION_MANIFEST,
+    ):
         if not required.exists():
             raise FileNotFoundError(required)
 
@@ -296,6 +317,7 @@ def main() -> int:
     print(f"Claude skills install: {args.claude_skills_dir}")
     print(f"Claude commands install: {args.claude_commands_dir}")
     print(f"OpenClaw skills install: {args.openclaw_skills_dir}")
+    print(f"HermesAgent skills install: {args.hermesagent_skills_dir}")
     return 0
 
 

@@ -3,7 +3,7 @@
 ## Project Purpose
 
 PaperSpine is a motivation-driven paper and report writing skill suite (12 skills)
-for Claude Code, Codex, and OpenClaw.  The workflow researches the target scene,
+for Claude Code, Codex, OpenClaw, and HermesAgent.  The workflow researches the target scene,
 confirms the controlling motivation with the user, builds a writing rationale
 matrix, then writes/rewrites with LaTeX/PDF output.
 
@@ -14,9 +14,10 @@ matrix, then writes/rewrites with LaTeX/PDF output.
 - `dist/codex/skills/*`: Codex flat skill suite
 - `dist/codex/paper-spine`: legacy Codex bundled fallback
 - `dist/openclaw/skills/*`: OpenClaw flat skill suite
+- `dist/hermesagent/skills/academic-writing/*`: HermesAgent default-category skill suite
 - `src/scripts/*`: shared deterministic scripts (standard library only)
 - `.claude-plugin/*`: Claude Code plugin metadata
-- `tests/*`: 123 tests
+- `tests/*`: 134 tests
 
 ## Suite Skills
 
@@ -42,10 +43,10 @@ Canonical source: `dist/paperspine_version.json`.  Auto-propagated to
 ## Development Rules
 
 - Standard library only for Python scripts
-- Keep dist copies synchronized across Claude/Codex/OpenClaw
+- Keep dist copies synchronized across Claude/Codex/OpenClaw/HermesAgent
 - README.md and README.zh-CN.md must stay content-equivalent
 - Do not push to GitHub unless explicitly asked
-- Run `python -m pytest tests` before claiming ready (expect 123 passed)
+- Run `python -m pytest tests` before claiming ready (expect 134 passed)
 
 ## Sync Commands
 

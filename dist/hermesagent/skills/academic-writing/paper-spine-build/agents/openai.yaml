@@ -1,0 +1,8 @@
+interface:
+  display_name: "PaperSpine Build"
+  short_description: "Build papers from material folders"
+  brand_color: "#2563EB"
+  default_prompt: "Use $paper-spine-build to build a paper or report from my materials folder."
+
+policy:
+  allow_implicit_invocation: true

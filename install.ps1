@@ -1,5 +1,5 @@
 param(
-    [ValidateSet("all", "codex", "claude", "openclaw")]
+    [ValidateSet("all", "codex", "claude", "openclaw", "hermesagent")]
     [string]$Target = "all",
     [switch]$CleanLegacy
 )
@@ -12,6 +12,7 @@ $CodexSkills = Join-Path $Root "dist\codex\skills"
 $ClaudeSkills = Join-Path $Root "dist\claude\skills"
 $ClaudeCommands = Join-Path $Root "dist\claude\commands"
 $OpenClawSkills = Join-Path $Root "dist\openclaw\skills"
+$HermesAgentSkills = Join-Path $Root "dist\hermesagent\skills\academic-writing"
 $VersionManifest = Join-Path $Root "dist\paperspine_version.json"
 
 function Assert-PathExists {
@@ -74,6 +75,7 @@ Assert-PathExists $CodexSkills
 Assert-PathExists $ClaudeSkills
 Assert-PathExists $ClaudeCommands
 Assert-PathExists $OpenClawSkills
+Assert-PathExists $HermesAgentSkills
 Assert-PathExists $VersionManifest
 
 $installedTargets = @()
@@ -137,5 +139,23 @@ if ($Target -eq "all" -or $Target -eq "openclaw") {
     $installedTargets += "openclaw"
 }
 
+if ($Target -eq "all" -or $Target -eq "hermesagent") {
+    $hermesAgentSkillsDir = Join-Path $HOME ".hermes\skills\academic-writing"
+    New-Item -ItemType Directory -Force -Path $hermesAgentSkillsDir | Out-Null
+
+    if ($CleanLegacy) {
+        Remove-IfExists (Join-Path $hermesAgentSkillsDir "PaperSpine")
+        Remove-IfExists (Join-Path $hermesAgentSkillsDir "PaperSpineV2")
+        Get-ChildItem -LiteralPath $hermesAgentSkillsDir -Directory -Filter "paper-spine*" -ErrorAction SilentlyContinue |
+            Remove-Item -Recurse -Force
+    }
+
+    Get-ChildItem -LiteralPath $HermesAgentSkills -Directory | ForEach-Object {
+        Reset-CopyDirectory $_.FullName (Join-Path $hermesAgentSkillsDir $_.Name)
+    }
+    Write-Output "Installed HermesAgent skills: $hermesAgentSkillsDir"
+    $installedTargets += "hermesagent"
+}
+
 Write-InstallState $installedTargets
-Write-Output "PaperSpine install complete. Restart Codex, Claude Code, or OpenClaw before use."
+Write-Output "PaperSpine install complete. Restart Codex, Claude Code, OpenClaw, or HermesAgent before use."

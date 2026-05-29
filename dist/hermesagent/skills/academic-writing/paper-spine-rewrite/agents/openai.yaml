@@ -1,0 +1,8 @@
+interface:
+  display_name: "PaperSpine Rewrite"
+  short_description: "Rewrite existing manuscripts by logic"
+  brand_color: "#2563EB"
+  default_prompt: "Use $paper-spine-rewrite to rebuild my existing manuscript from motivation, evidence, and section blueprints."
+
+policy:
+  allow_implicit_invocation: true

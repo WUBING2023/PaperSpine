@@ -1,0 +1,3 @@
+display_name: PaperSpine UI
+short_description: Launch external intake UI
+default_prompt: Launch the PaperSpine configuration UI for this project.

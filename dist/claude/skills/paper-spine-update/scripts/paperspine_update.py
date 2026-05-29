@@ -2,7 +2,7 @@
 """Check and update local PaperSpine installs.
 
 The updater is deliberately self-contained and standard-library only so it can
-run from Codex, Claude Code, OpenClaw, or a plain terminal.
+run from Codex, Claude Code, OpenClaw, HermesAgent, or a plain terminal.
 """
 
 from __future__ import annotations
@@ -55,7 +55,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--check-only", action="store_true", help="Only check whether an update is available.")
     parser.add_argument(
         "--target",
-        choices=("all", "codex", "claude", "openclaw"),
+        choices=("all", "codex", "claude", "openclaw", "hermesagent"),
         default="all",
         help="Install target to update. Default: all.",
     )
@@ -254,6 +254,9 @@ def validate_repo(root: Path) -> dict[str, Any]:
             path = root / "dist" / host / "skills" / skill / "SKILL.md"
             if not path.exists():
                 missing.append(str(path.relative_to(root)))
+        hermes_path = root / "dist" / "hermesagent" / "skills" / "academic-writing" / skill / "SKILL.md"
+        if not hermes_path.exists():
+            missing.append(str(hermes_path.relative_to(root)))
     for cmd_name in ("paperspine.md", "paper-spine.md", "paperspine-legacy.md"):
         cmd_path = root / "dist" / "claude" / "commands" / cmd_name
         if not cmd_path.exists():
@@ -289,6 +292,9 @@ def target_paths(target: str) -> dict[str, Path]:
         "claude_skills": Path(os.environ.get("PAPERSPINE_CLAUDE_SKILLS_DIR", home / ".claude" / "skills")),
         "claude_commands": Path(os.environ.get("PAPERSPINE_CLAUDE_COMMANDS_DIR", home / ".claude" / "commands")),
         "openclaw": Path(os.environ.get("PAPERSPINE_OPENCLAW_SKILLS_DIR", home / ".openclaw" / "skills")),
+        "hermesagent": Path(
+            os.environ.get("PAPERSPINE_HERMESAGENT_SKILLS_DIR", home / ".hermes" / "skills" / "academic-writing")
+        ),
     }
     if target == "codex":
         return {"codex": paths["codex"]}
@@ -296,12 +302,14 @@ def target_paths(target: str) -> dict[str, Path]:
         return {"claude_skills": paths["claude_skills"], "claude_commands": paths["claude_commands"]}
     if target == "openclaw":
         return {"openclaw": paths["openclaw"]}
+    if target == "hermesagent":
+        return {"hermesagent": paths["hermesagent"]}
     return paths
 
 
 def target_names(target: str) -> list[str]:
     if target == "all":
-        return ["codex", "claude", "openclaw"]
+        return ["codex", "claude", "openclaw", "hermesagent"]
     return [target]
 
 
@@ -352,6 +360,16 @@ def install_target(root: Path, target: str) -> list[str]:
                 if existing.is_dir() and existing.name.startswith("paper-spine") and existing.name not in current_skills:
                     shutil.rmtree(existing)
         installed.append("openclaw")
+    if "hermesagent" in paths:
+        source = root / "dist" / "hermesagent" / "skills" / "academic-writing"
+        for skill_dir in source.iterdir():
+            if skill_dir.is_dir():
+                replace_tree(skill_dir, paths["hermesagent"] / skill_dir.name)
+        if paths["hermesagent"].exists():
+            for existing in paths["hermesagent"].iterdir():
+                if existing.is_dir() and existing.name.startswith("paper-spine") and existing.name not in current_skills:
+                    shutil.rmtree(existing)
+        installed.append("hermesagent")
     return installed
 
 

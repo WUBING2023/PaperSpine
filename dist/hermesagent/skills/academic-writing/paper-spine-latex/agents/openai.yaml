@@ -1,0 +1,8 @@
+interface:
+  display_name: "PaperSpine LaTeX"
+  short_description: "Assemble and check LaTeX manuscripts"
+  brand_color: "#2563EB"
+  default_prompt: "Use $paper-spine-latex to assemble figures, citations, labels, and compile-safe LaTeX."
+
+policy:
+  allow_implicit_invocation: true

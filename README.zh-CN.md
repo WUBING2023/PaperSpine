@@ -4,7 +4,7 @@
 
 > 英文 README 和中文 README 作为内容等价版本维护。任意一边更新时，另一边也需要在同一次提交中同步更新。
 
-PaperSpine 是一个面向 Codex、Claude Code 和 OpenClaw 的、以 motivation 为主线的论文与报告写作 skill suite。
+PaperSpine 是一个面向 Codex、Claude Code、OpenClaw 和 HermesAgent 的、以 motivation 为主线的论文与报告写作 skill suite。
 
 它适合目标格式很重要的写作任务：期刊论文、会议论文、课程或技术报告、综述、竞赛论文。它要求 agent 在写作前先学习目标场景和优秀样例，再记录每一个写作单元为什么这样规划或修改。
 
@@ -36,6 +36,9 @@ PaperSpine/
         paperspine-legacy.md
     openclaw/
       skills/                   # OpenClaw 扁平 skill suite
+    hermesagent/
+      skills/
+        academic-writing/        # HermesAgent 默认分类 skill suite
   src/
     scripts/                    # 共享的确定性辅助脚本
     references/                 # 共享工作流参考文档
@@ -65,6 +68,7 @@ cd PaperSpine
 .\install.ps1 -Target codex
 .\install.ps1 -Target claude
 .\install.ps1 -Target openclaw
+.\install.ps1 -Target hermesagent
 .\install.ps1 -Target all -CleanLegacy
 ```
 
@@ -75,6 +79,8 @@ cd PaperSpine
 安装到 Claude Code 后：重启或 reload Claude Code，然后使用 `/paperspine`。
 
 安装到 OpenClaw 后：重启或 reload OpenClaw，然后用 `paper-spine` 启动全流程，或调用任意 `paper-spine-*` 分支 skill。
+
+安装到 HermesAgent 后：重启或 reload HermesAgent，然后用 `/paper-spine` 启动全流程，或调用任意 `/paper-spine-*` 分支 skill。
 
 安装脚本会把当前版本记录到 `~/.paperspine/install_state.json`，并保留 `~/.paperspine/config.json`，包括 UI 语言等全局配置。
 
@@ -151,6 +157,27 @@ dist/openclaw/skills/*
 ~/.openclaw/skills/paper-spine-update/SKILL.md
 ```
 
+HermesAgent 需要把 skill 文件夹放在默认 skill 根目录的分类目录下：
+
+```text
+dist/hermesagent/skills/academic-writing/*
+```
+
+复制到：
+
+```text
+~/.hermes/skills/academic-writing/
+```
+
+最终 HermesAgent 布局应该包含：
+
+```text
+~/.hermes/skills/academic-writing/paper-spine/SKILL.md
+~/.hermes/skills/academic-writing/paper-spine-research/SKILL.md
+~/.hermes/skills/academic-writing/paper-spine-citation/SKILL.md
+~/.hermes/skills/academic-writing/paper-spine-update/SKILL.md
+```
+
 ## Claude Code 插件安装
 
 Claude Code 也可以使用 `.claude-plugin` 中的插件元数据：
@@ -163,13 +190,14 @@ Claude Code 也可以使用 `.claude-plugin` 中的插件元数据：
 
 插件 manifest 指向 `dist/claude/skills` 下的扁平 suite，而不是 Codex 的单 skill 目录。
 
-## Codex、Claude Code 与 OpenClaw 的差异
+## Codex、Claude Code、OpenClaw 与 HermesAgent 的差异
 
 | 宿主 | 安装单元 | 常用入口 | 原因 |
 | --- | --- | --- | --- |
 | Codex | `dist/codex/skills/*` | `$paper-spine` 或 `$paper-spine-*` | Codex 可以发现扁平 skill 文件夹，因此全流程和子 skill 都能调用。 |
 | Claude Code | `dist/claude/skills/*` 加 `dist/claude/commands/*` | `/paperspine` | Claude Code 按扁平文件夹发现 skills，并支持 slash-command 辅助入口。 |
 | OpenClaw | `dist/openclaw/skills/*` | `paper-spine` 或 `paper-spine-*` | OpenClaw skill 也是包含 `SKILL.md` 的目录，因此使用同一套扁平 suite。 |
+| HermesAgent | `dist/hermesagent/skills/academic-writing/*` | `/paper-spine` 或 `/paper-spine-*` | HermesAgent 按默认的 `~/.hermes/skills/<category>/` 布局发现包含 `SKILL.md` 的技能目录。 |
 
 不要把整个仓库直接复制进 `skills` 文件夹。这是重复或缺失 skill 的主要原因。
 
@@ -242,7 +270,7 @@ $paper-spine-update
 python scripts/paperspine_update.py --yes
 ```
 
-它会把本地 `~/.paperspine/install_state.json` 中记录的版本和 GitHub `main` 分支的 `dist/paperspine_version.json` 进行比较。如果已经是最新版，会直接提示无需更新。如果发现新版本，会下载 GitHub 压缩包，校验 PaperSpine 目录结构，然后同步更新 Codex、Claude Code 和 OpenClaw 的 skill 文件夹，并保留 `~/.paperspine/config.json`。
+它会把本地 `~/.paperspine/install_state.json` 中记录的版本和 GitHub `main` 分支的 `dist/paperspine_version.json` 进行比较。如果已经是最新版，会直接提示无需更新。如果发现新版本，会下载 GitHub 压缩包，校验 PaperSpine 目录结构，然后同步更新 Codex、Claude Code、OpenClaw 和 HermesAgent 的 skill 文件夹，并保留 `~/.paperspine/config.json`。
 
 如果只想检查而不修改本地安装，可以运行：
 
