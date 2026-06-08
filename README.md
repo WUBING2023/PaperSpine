@@ -14,6 +14,14 @@
 
 它适合目标格式很重要的写作任务：期刊论文、会议论文、课程或技术报告、综述、竞赛论文。它要求 agent 在写作前先学习目标场景和优秀样例，再记录每一个写作单元为什么这样规划或修改。
 
+## 在线试用
+
+不想先 clone 仓库、跑 `install.sh`、再重启 Codex 或 Claude Code？可以直接在线试一份初稿：上传论文草稿，说明是改写还是从材料建稿、目标投哪个期刊，即可看到 PaperSpine 给出的改写矩阵和 section blueprint。也方便直接发给同门，他们把草稿丢进去就能拿到结果。
+
+[![在 Socialistic 上试用 PaperSpine](https://socialistic.ai/api/embed/paperspine-paper-rewrite-suite-1668ae?lang=zh)](https://socialistic.ai/zh/skill/paperspine-paper-rewrite-suite-1668ae?utm_source=github&utm_medium=readme&utm_campaign=paperspine&utm_content=badge)
+
+> 在线入口由社区维护，本地安装仍以下文为准。
+
 ## 仓库结构
 
 ```text

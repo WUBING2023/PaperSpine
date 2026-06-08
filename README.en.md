@@ -14,6 +14,14 @@ PaperSpine is a motivation-driven paper and report writing skill suite for Codex
 
 It is designed for writing tasks where the target format matters: journal papers, conference papers, course or technical reports, reviews, and competition papers. The workflow asks the agent to learn the target scene and strong examples before writing, then records why each manuscript unit is planned or changed.
 
+## Try It Online
+
+Don't want to clone the repo, run `install.sh`, and restart Codex or Claude Code first? You can try a draft online: upload a paper draft, say whether it is a rewrite or a build-from-materials job and which venue you are targeting, and see the rewrite matrix and section blueprint PaperSpine produces. It is also easy to share with labmates — they just drop in their own draft to get results.
+
+[![Try PaperSpine on Socialistic](https://socialistic.ai/api/embed/paperspine-paper-rewrite-suite-1668ae?lang=en)](https://socialistic.ai/skill/paperspine-paper-rewrite-suite-1668ae?utm_source=github&utm_medium=readme&utm_campaign=paperspine&utm_content=badge)
+
+> The online entry is community-maintained; local installation below remains the source of truth.
+
 ## Repository Layout
 
 ```text
