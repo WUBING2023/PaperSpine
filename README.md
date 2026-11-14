@@ -1,10 +1,39 @@
+<div align="center">
+
 **English** · [中文](README.zh-CN.md)
 
-<a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/science/press-cover.webp" width="100%" alt="PaperSpine V6, AI for Science. An original LIGO public-strain manuscript and figure alongside the origami dragon Spine."></a>
+</div>
 
-**Run experiments, make scientific figures, and deliver an editable paper with the evidence attached.** PaperSpine gives your research agent the methods to start with a question, a results folder, or a draft.
+<p align="center">
+  <a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/readme/v6-product-en.webp" width="100%" alt="PaperSpine, AI for Science. The Windows workbench displays a four-panel figure from the Ridgecrest aftershock study."></a>
+</p>
 
-[**Get PaperSpine**](#ways-to-work) · [Research collection](#research-cases) · [Demos](#feature-demos) · [**Press kit**](#press-kit) · [Website](https://wubing2023.github.io/PaperSpine/v6/) · [Stargazer atlas](https://wubing2023.github.io/PaperSpine/) · [Contributors](https://wubing2023.github.io/PaperSpine/contributors/)
+<p align="center">
+  <strong>Start with a research question, data, or a draft.</strong><br>
+  Run experiments, review scientific figures, and deliver an editable paper with the evidence attached.
+</p>
+
+<p align="center">
+  <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2"><img src="paperspine5/core/07_发布页/v6/readme/badge-release-en.svg" alt="Release · V6 beta"></a>
+  <a href="LICENSE"><img src="paperspine5/core/07_发布页/v6/readme/badge-license-en.svg" alt="License · MIT"></a>
+  <a href="https://wubing2023.github.io/PaperSpine/v6/#edition-web"><img src="paperspine5/core/07_发布页/v6/readme/badge-workbench-en.svg" alt="Web Workbench · Windows x64"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/issues"><img src="paperspine5/core/07_发布页/v6/readme/badge-feedback-en.svg" alt="Feedback · GitHub Issues"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/WUBING2023/PaperSpine/stargazers"><strong>6,000+ GitHub stars</strong></a> ·
+  <a href="#research-cases"><strong>3 studies using public data</strong></a> ·
+  <a href="paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><strong>9 documented edition runs</strong></a>
+</p>
+
+<p align="center">
+  <a href="#ways-to-work"><strong>Get PaperSpine</strong></a> ·
+  <a href="#feature-demos">Feature demos</a> ·
+  <a href="#press-kit">Press kit</a> ·
+  <a href="https://wubing2023.github.io/PaperSpine/v6/">Website</a> ·
+  <a href="https://wubing2023.github.io/PaperSpine/">Stargazer atlas</a> ·
+  <a href="https://wubing2023.github.io/PaperSpine/contributors/">Contributors</a>
+</p>
 
 <a id="ways-to-work"></a>
 

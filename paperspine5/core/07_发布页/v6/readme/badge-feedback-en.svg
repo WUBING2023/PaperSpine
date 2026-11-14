@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="167" height="23" viewBox="0 0 167 23" role="img">
+  <title>Feedback · GitHub Issues</title>
+  <path d="M0 0h72v23H0z" fill="#233734"/>
+  <path d="M72 0h95v23H72z" fill="#166356"/>
+  <g fill="#fffdf6" text-anchor="middle" font-family="Verdana, DejaVu Sans, Microsoft YaHei, PingFang SC, sans-serif" font-size="12">
+    <text x="36" y="15.4">Feedback</text>
+    <text x="119.5" y="15.4">GitHub Issues</text>
+  </g>
+</svg>

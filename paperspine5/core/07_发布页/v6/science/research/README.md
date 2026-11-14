@@ -12,6 +12,14 @@ Three research papers on public measurements, each written in a field-appropriat
 
 For each study, a GPT‑6.1 Sol Codex subagent started from the research question and original public measurements. It verified and installed the three released V6 `6.0.0-beta.2` archives in separate directories, followed the installed Skill instructions, then shared the study evidence across the three workflows.
 
+| Study | Full Workflow Skill | Skills Pack | Web Plugin |
+| --- | --- | --- | --- |
+| LIGO strain | Paired lag analysis and draft | Preprocessing sensitivity and source package | Figure preview, feedback, revised PDF download |
+| Ridgecrest | Catalog comparison and draft | Held-out check, figure, and source package | Figure zoom, feedback, revised PDF download |
+| June wildfire smoke | Fixed monitor comparison and draft | Reference sensitivity, map, and source package | Manuscript preview, feedback, revised PDF download |
+
+The nine edition runs cover these three studies. Each study carries its analysis and evidence through all three editions.
+
 - The **Full Workflow Skill** guided the initial analysis and manuscript from a single entry.
 - The **Skills Pack** used the installed study, Followwriting, figures, review and delivery instructions to work across real files and revise the manuscript.
 - The **Web Plugin** used the released Windows workbench and an actual Chrome session. Each study saved its configuration and manuscript feedback, reopened the revised paper in the same task, and downloaded the revised PDF. Each downloaded file matched the corresponding paper byte for byte.

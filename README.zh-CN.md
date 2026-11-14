@@ -1,10 +1,39 @@
+<div align="center">
+
 [English](README.md) · **简体中文**
 
-<a href="https://wubing2023.github.io/PaperSpine/v6/zh/"><img src="paperspine5/core/07_发布页/v6/science/cover-zh.webp" width="100%" alt="PaperSpine V6，AI for Science。LIGO 公开应变研究稿、原始图与折纸龙 Spine。"></a>
+</div>
 
-**做实验、画科研图，交付一篇能编辑、能核对证据的论文。** 给科研 Agent 一个问题、一份结果或一篇初稿，就可以开始。
+<p align="center">
+  <a href="https://wubing2023.github.io/PaperSpine/v6/zh/"><img src="paperspine5/core/07_发布页/v6/readme/v6-product-zh.webp" width="100%" alt="PaperSpine，AI for Science。Windows 本地工作台预览里奇克雷斯特余震研究的四面板图。"></a>
+</p>
 
-[**选择下载**](#ways-to-work) · [科研案例](#research-cases) · [看动图](#feature-demos) · [**媒体素材**](#press-kit) · [中文官网](https://wubing2023.github.io/PaperSpine/v6/zh/) · [社区星图](https://wubing2023.github.io/PaperSpine/zh.html) · [贡献者](https://wubing2023.github.io/PaperSpine/contributors/zh.html)
+<p align="center">
+  <strong>给科研 Agent 一个问题、一份数据或一篇初稿。</strong><br>
+  从实验分析和图件审查，到交付一篇能编辑、能核对证据的论文。
+</p>
+
+<p align="center">
+  <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2"><img src="paperspine5/core/07_发布页/v6/readme/badge-release-zh.svg" alt="版本 · V6 公测"></a>
+  <a href="LICENSE"><img src="paperspine5/core/07_发布页/v6/readme/badge-license-zh.svg" alt="许可证 · MIT"></a>
+  <a href="https://wubing2023.github.io/PaperSpine/v6/zh/#edition-web"><img src="paperspine5/core/07_发布页/v6/readme/badge-workbench-zh.svg" alt="本地工作台 · Windows x64"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/issues"><img src="paperspine5/core/07_发布页/v6/readme/badge-feedback-zh.svg" alt="反馈 · GitHub Issues"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/WUBING2023/PaperSpine/stargazers"><strong>6,000+ GitHub 星标</strong></a> ·
+  <a href="#research-cases"><strong>3 篇公开数据研究稿</strong></a> ·
+  <a href="paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><strong>9 次版本试跑</strong></a>
+</p>
+
+<p align="center">
+  <a href="#ways-to-work"><strong>选择下载</strong></a> ·
+  <a href="#feature-demos">功能动图</a> ·
+  <a href="#press-kit">媒体素材</a> ·
+  <a href="https://wubing2023.github.io/PaperSpine/v6/zh/">中文官网</a> ·
+  <a href="https://wubing2023.github.io/PaperSpine/zh.html">社区星图</a> ·
+  <a href="https://wubing2023.github.io/PaperSpine/contributors/zh.html">贡献者</a>
+</p>
 
 <a id="ways-to-work"></a>
 

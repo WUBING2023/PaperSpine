@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="93" height="23" viewBox="0 0 93 23" role="img">
+  <title>License · MIT</title>
+  <path d="M0 0h59v23H0z" fill="#233734"/>
+  <path d="M59 0h34v23H59z" fill="#166356"/>
+  <g fill="#fffdf6" text-anchor="middle" font-family="Verdana, DejaVu Sans, Microsoft YaHei, PingFang SC, sans-serif" font-size="12">
+    <text x="29.5" y="15.4">License</text>
+    <text x="76" y="15.4">MIT</text>
+  </g>
+</svg>

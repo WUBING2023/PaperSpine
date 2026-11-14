@@ -10,10 +10,11 @@ if (deck) {
   let front = 0;
   let timer;
   let playing = !reduce.matches;
+  let inView = false;
 
   function schedule() {
     clearTimeout(timer);
-    if (playing && !document.hidden && !deck.matches(":hover, :focus-within")) {
+    if (playing && inView && !document.hidden && !deck.matches(":hover, :focus-within")) {
       timer = setTimeout(() => select((front + 1) % cards.length), 9000);
     }
   }
@@ -35,7 +36,7 @@ if (deck) {
       if (i === index) button.setAttribute("aria-current", "true");
       else button.removeAttribute("aria-current");
     });
-    if (announce) status.textContent = cards[index].querySelector("h2").textContent.trim();
+    if (announce) status.textContent = cards[index].querySelector("h3").textContent.trim();
     schedule();
   }
 
@@ -58,6 +59,10 @@ if (deck) {
     deck.addEventListener("focusin", schedule);
     deck.addEventListener("focusout", () => requestAnimationFrame(schedule));
     document.addEventListener("visibilitychange", schedule);
+    new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      schedule();
+    }).observe(deck);
     reduce.addEventListener("change", (event) => {
       if (event.matches) setPlaying(false);
     });

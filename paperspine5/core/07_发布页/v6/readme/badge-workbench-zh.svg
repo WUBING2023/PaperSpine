@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="168" height="23" viewBox="0 0 168 23" role="img">
+  <title>本地工作台 · Windows x64</title>
+  <path d="M0 0h74v23H0z" fill="#233734"/>
+  <path d="M74 0h94v23H74z" fill="#166356"/>
+  <g fill="#fffdf6" text-anchor="middle" font-family="Verdana, DejaVu Sans, Microsoft YaHei, PingFang SC, sans-serif" font-size="12">
+    <text x="37" y="15.4">本地工作台</text>
+    <text x="121" y="15.4">Windows x64</text>
+  </g>
+</svg>

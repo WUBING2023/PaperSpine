@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="176" height="23" viewBox="0 0 176 23" role="img">
+  <title>Workbench · Windows x64</title>
+  <path d="M0 0h82v23H0z" fill="#233734"/>
+  <path d="M82 0h94v23H82z" fill="#166356"/>
+  <g fill="#fffdf6" text-anchor="middle" font-family="Verdana, DejaVu Sans, Microsoft YaHei, PingFang SC, sans-serif" font-size="12">
+    <text x="41" y="15.4">Workbench</text>
+    <text x="129" y="15.4">Windows x64</text>
+  </g>
+</svg>

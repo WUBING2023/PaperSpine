@@ -13,9 +13,9 @@
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/v6/zh/">
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../v6.css?v=research-community">
+  <link rel="stylesheet" href="../v6.css?v=product-overview">
   <script src="../science.js" defer></script>
-  <script src="../study-deck.js" defer></script>
+  <script src="../study-deck.js?v=product-overview" defer></script>
   <script src="../download-stats.js" defer></script>
   <title>PaperSpine V6 — AI for Science 科研工作流</title>
 </head>
@@ -26,7 +26,7 @@
       <div class="shell navbar">
         <a class="wordmark" href="./"><img src="../../v5/assets/brand/paperspine-mark.svg" width="38" height="38" alt="">PaperSpine</a>
         <nav class="site-nav" aria-label="主导航">
-          <a href="#download">下载</a><a href="#research">科研案例</a><a href="#examples">演示</a><a href="#press">媒体素材</a><a href="../../zh.html">社区</a>
+          <a href="#download">下载</a><a href="#research">科研案例</a><a href="#examples">演示</a><a href="#press">媒体素材</a><a href="#community">社区</a>
         </nav>
         <div class="header-links"><a class="repo-link" href="https://github.com/WUBING2023/PaperSpine">GitHub <span aria-hidden="true">↗</span></a><a class="language" href="../" hreflang="en" lang="en">EN</a></div>
       </div>
@@ -35,49 +35,24 @@
   <main id="main">
     <section class="shell hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="hero-kicker"><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 公测</a><span></span> 开源科研工作流</p>
-        <h1 id="hero-title">PaperSpine <em>AI for Science</em></h1>
-        <p class="hero-description">给科研 Agent 一套可执行的方法。从设计实验、分析数据到绘制科研图，交付一篇能编辑、能核对证据的论文。</p>
+        <p class="hero-kicker">AI for Science <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 公测 <span aria-hidden="true">↗</span></a></p>
+        <h1 id="hero-title"><span class="visually-hidden">PaperSpine · </span>从科研问题<br><em>到可编辑论文</em></h1>
+        <p class="hero-description">和科研 Agent 一起做实验、分析数据、绘制科研图。核对证据后，再导出可编辑的论文。</p>
         <div class="hero-actions">
-          <a href="#download" class="button">下载 PaperSpine <span aria-hidden="true">↓</span></a>
-          <a href="#research" class="text-link">看完整研究案例 <span aria-hidden="true">↗</span></a>
+          <a href="#download" class="button">选择下载 <span aria-hidden="true">↓</span></a>
+          <a href="#examples" class="text-link">观看功能演示 <span aria-hidden="true">↘</span></a>
         </div>
       </div>
-      <aside class="study-deck" aria-label="轮换研究案例">
-        <div class="deck-stack">
-          <article class="study-card" data-domain="astrophysics">
-            <div class="study-top"><span>天体物理 · LIGO / GWOSC</span><a href="../science/research/gravitational-waves/paper.pdf">论文 PDF ↗</a></div>
-            <h2>两次黑洞并合的毫秒级时延</h2>
-            <a class="study-figure" href="../science/research/gravitational-waves/figure.svg"><img src="../science/research/gravitational-waves/figure.webp" alt="六个面板呈现两次事件的实测时频谱、双台站对齐应变和事件窗外的时延对照。" fetchpriority="high"></a>
-            <p class="study-finding">两次公开 LIGO 事件中，汉福德相对利文斯顿分别滞后 7.36 和 7.75 毫秒。九种预处理设定下，时延方向一致。</p>
-            <div class="study-bottom"><a href="https://doi.org/10.7935/82H3-HH23">数据来源 ↗</a><a href="../science/research/gravitational-waves/figure.svg">原始矢量图 ↗</a></div>
-          </article>
-<article class="study-card" data-domain="seismology">
-            <div class="study-top"><span>地震学 · USGS 里奇克雷斯特</span><a href="../science/research/ridgecrest/paper.pdf">论文 PDF ↗</a></div>
-            <h2>余震衰减估计随目录而变</h2>
-            <a class="study-figure" href="../science/research/ridgecrest/figure.svg"><img src="../science/research/ridgecrest/hero.webp" alt="两个目录的同尺度震中密度图、含留出区间的事件率对比，以及震级阈值与起算时间的敏感性分析。" loading="lazy"></a>
-            <p class="study-finding">在 Mw 7.1 主震后 1–72 小时、报告震级 ≥1.5 的相同口径下，ComCat 和 Shelly 重定位目录的拟合衰减指数分别为 0.55 与 0.48。</p>
-            <div class="study-bottom"><a href="https://doi.org/10.5066/P9JN6H0N">数据来源 ↗</a><a href="../science/research/ridgecrest/figure.svg">原始矢量图 ↗</a></div>
-          </article>
-<article class="study-card" data-domain="air-quality">
-            <div class="study-top"><span>大气科学 · EPA AirData</span><a href="../science/research/smoke/paper.pdf">论文 PDF ↗</a></div>
-            <h2>六月烟霾，两种区域分布</h2>
-            <a class="study-figure" href="../science/research/smoke/figure.svg"><img src="../science/research/smoke/figure.webp" alt="EPA 站点地图、两组区域差值与逐日 PM₂.₅ 偏离量热图。" loading="lazy"></a>
-            <p class="study-finding">以 6 月 20–22 日各站中位数为参照，大西洋沿岸与五大湖地区 PM₂.₅ 偏离量之差，从 6 月 6–8 日的 +74.1 反转为 27–29 日的 −69.1 µg/m³。</p>
-            <div class="study-bottom"><a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html">数据来源 ↗</a><a href="../science/research/smoke/figure.svg">原始矢量图 ↗</a></div>
-          </article>
-        </div>
-        <div class="deck-controls" hidden>
-          <div class="deck-pages"><button type="button" data-deck-target>引力波</button> <button type="button" data-deck-target>余震目录</button> <button type="button" data-deck-target>野火烟霾</button></div>
-          <div class="deck-actions"><button type="button" data-deck-toggle data-play="播放" data-pause="暂停">暂停</button><button type="button" data-deck-next>下一个 ↷</button></div>
-        </div>
-        <p class="deck-status" role="status"></p>
-      </aside>
+      <figure class="hero-workbench">
+        <div class="hero-workbench-meta"><span>本地 Web 工作台</span><span>Windows x64 · Codex</span></div>
+        <a class="hero-image" href="../science/research-workbench-zoom.png" aria-label="查看原尺寸工作台截图"><img src="../science/research-workbench-zoom.webp" alt="Windows 本地工作台放大查看里奇克雷斯特余震研究主图，包含两张震中密度图、衰减拟合与敏感性分析。" width="1984" height="1312" fetchpriority="high"></a>
+        <figcaption><span>里奇克雷斯特余震研究</span><a href="../science/research/ridgecrest/paper.pdf">阅读论文 <span aria-hidden="true">↗</span></a></figcaption>
+      </figure>
     </section>
-    <nav class="shell edition-index" aria-label="三种安装方式">
-      <a href="#edition-skill"><strong>新手上手</strong><span>全流程 Skill</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
-      <a href="#edition-pack"><strong>科研专家</strong><span>模块化 Skills 包</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
-      <a href="#edition-web"><strong>满血插件</strong><span>本地 Web 工作台</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
+    <nav class="shell milestones" aria-label="项目里程碑">
+      <a href="../../zh.html"><strong>6,000+</strong><span>GitHub 星标</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
+      <a href="#research"><strong>3</strong><span>公开数据研究稿</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
+      <a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><strong>9</strong><span>次版本试跑 · 三项研究各跑三版</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
     </nav>
     <section class="edition-section section" id="download" aria-labelledby="edition-title">
       <div class="shell">
@@ -150,11 +125,70 @@
       </div>
     </section>
 
-    <section class="shell research section" id="research" aria-labelledby="research-title">
-      <div class="section-heading">
-        <div><h2 id="research-title">研究案例</h2><p>三篇论文使用公开测量数据。每篇附可编辑主图、论文源稿和复现代码。</p></div>
-        <a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md">三种模式实跑记录 ↗</a>
+    <section class="shell demos section" id="examples" aria-labelledby="demo-title">
+      <div class="section-heading"><h2 id="demo-title">功能实拍与演示</h2><p>看看怎样参考原文组织写作、放大检查科研图，以及在本地工作台内返修。</p></div>
+      <div class="workflow-gallery" id="draft">
+        <article class="clip clip-featured" id="revision">
+          <div class="clip-preview"><img src="../science/revision-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/revision-hd.gif" data-demo aria-label="播放功能演示 · 审阅返修"><span aria-hidden="true">▶</span></a></div>
+          <h3>审阅与返修</h3><p>工作台实拍 · 保存返修意见，再打开原任务内的新 PDF。</p>
+        </article>
+      <div class="clip-grid">
+        <article class="clip" id="writing">
+          <div class="clip-preview"><img src="../science/followwriting-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/followwriting-hd.gif" data-demo aria-label="播放功能演示 · Followwriting"><span aria-hidden="true">▶</span></a></div>
+          <h3>Followwriting</h3><p>流程示意 · 围绕自己的结果落笔，参考原论文的论证结构。</p>
+        </article>
+        <article class="clip" id="figure-preview">
+          <div class="clip-preview"><img src="../science/figures-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/figures-hd.gif" data-demo aria-label="播放功能演示 · 科研图预览"><span aria-hidden="true">▶</span></a></div>
+          <h3>科研图预览</h3><p>工作台实拍 · 打开研究图，检查原尺寸细节。</p>
+        </article>
+        <article class="clip" id="workbench">
+          <div class="clip-preview"><img src="../science/workbench-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/workbench-hd.gif" data-demo aria-label="播放功能演示 · 论文预览"><span aria-hidden="true">▶</span></a></div>
+          <h3>论文预览</h3><p>工作台实拍 · 打开同一任务的 PDF 阅读稿。</p>
+        </article>
+        </div>
       </div>
+      <dialog class="demo-dialog" aria-label="播放功能演示"><button type="button" class="close-demo">关闭 <span aria-hidden="true">×</span></button><img alt=""></dialog>
+    </section>
+
+    <section class="shell research section" id="research" aria-labelledby="research-title">
+      <div class="research-showcase">
+        <div class="research-lead">
+          <h2 id="research-title">三项公开数据研究</h2>
+          <p>从 LIGO 应变数据到 USGS 余震目录与 EPA 烟霾观测。每篇研究稿都附有矢量图、可编辑原稿与分析代码。</p>
+          <div class="links"><a href="#research-files">查看三个案例的全部文件 <span aria-hidden="true">↓</span></a><a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted">查看三种版本的试跑记录 <span aria-hidden="true">↗</span></a></div>
+        </div>
+      <aside class="study-deck" aria-label="轮换研究案例">
+        <div class="deck-stack">
+          <article class="study-card" data-domain="astrophysics">
+            <div class="study-top"><span>天体物理 · LIGO / GWOSC</span><a href="../science/research/gravitational-waves/paper.pdf">论文 PDF ↗</a></div>
+            <h3>两次黑洞并合的毫秒级时延</h3>
+            <a class="study-figure" href="../science/research/gravitational-waves/figure.svg"><img src="../science/research/gravitational-waves/figure.webp" alt="六个面板呈现两次事件的实测时频谱、双台站对齐应变和事件窗外的时延对照。" loading="lazy"></a>
+            <p class="study-finding">两次公开 LIGO 事件中，汉福德相对利文斯顿分别滞后 7.36 和 7.75 毫秒。九种预处理设定下，时延方向一致。</p>
+            <div class="study-bottom"><a href="https://doi.org/10.7935/82H3-HH23">数据来源 ↗</a><a href="../science/research/gravitational-waves/figure.svg">原始矢量图 ↗</a></div>
+          </article>
+          <article class="study-card" data-domain="seismology">
+            <div class="study-top"><span>地震学 · USGS 里奇克雷斯特</span><a href="../science/research/ridgecrest/paper.pdf">论文 PDF ↗</a></div>
+            <h3>余震衰减估计随目录而变</h3>
+            <a class="study-figure" href="../science/research/ridgecrest/figure.svg"><img src="../science/research/ridgecrest/hero.webp" alt="两个目录的同尺度震中密度图、含留出区间的事件率对比，以及震级阈值与起算时间的敏感性分析。" loading="lazy"></a>
+            <p class="study-finding">在 Mw 7.1 主震后 1–72 小时、报告震级 ≥1.5 的相同口径下，ComCat 和 Shelly 重定位目录的拟合衰减指数分别为 0.55 与 0.48。</p>
+            <div class="study-bottom"><a href="https://doi.org/10.5066/P9JN6H0N">数据来源 ↗</a><a href="../science/research/ridgecrest/figure.svg">原始矢量图 ↗</a></div>
+          </article>
+          <article class="study-card" data-domain="air-quality">
+            <div class="study-top"><span>大气科学 · EPA AirData</span><a href="../science/research/smoke/paper.pdf">论文 PDF ↗</a></div>
+            <h3>六月烟霾，两种区域分布</h3>
+            <a class="study-figure" href="../science/research/smoke/figure.svg"><img src="../science/research/smoke/figure.webp" alt="EPA 站点地图、两组区域差值与逐日 PM₂.₅ 偏离量热图。" loading="lazy"></a>
+            <p class="study-finding">以 6 月 20–22 日各站中位数为参照，大西洋沿岸与五大湖地区 PM₂.₅ 偏离量之差，从 6 月 6–8 日的 +74.1 反转为 27–29 日的 −69.1 µg/m³。</p>
+            <div class="study-bottom"><a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html">数据来源 ↗</a><a href="../science/research/smoke/figure.svg">原始矢量图 ↗</a></div>
+          </article>
+        </div>
+        <div class="deck-controls" hidden>
+          <div class="deck-pages"><button type="button" data-deck-target>引力波</button> <button type="button" data-deck-target>余震目录</button> <button type="button" data-deck-target>野火烟霾</button></div>
+          <div class="deck-actions"><button type="button" data-deck-toggle data-play="播放" data-pause="暂停">暂停</button><button type="button" data-deck-next>下一个 ↷</button></div>
+        </div>
+        <p class="deck-status" role="status"></p>
+      </aside>
+      </div>
+      <div id="research-files">
       <article class="research-entry" id="gravitational-waves">
           <div class="research-entry-text">
             <p class="eyeline">天体物理 · LIGO / GWOSC</p>
@@ -192,6 +226,7 @@
             <figcaption><a href="../science/research/smoke/figure.svg">矢量图 ↗</a></figcaption>
           </figure>
         </article>
+      </div>
       <div class="links research-archive"><a href="#older-research">早期案例与三版安装试跑 ↗</a></div>
     </section>
 
@@ -255,33 +290,6 @@
     </section>
 
     <aside class="shell links research-archive" id="field-test"><a href="../science/edition-field-test.md">读早期安装试跑 ↗</a></aside>
-
-    <section class="shell demos section" id="examples" aria-labelledby="demo-title">
-      <div class="section-heading"><h2 id="demo-title">功能实拍与演示</h2><p>查看真实 Windows 工作台，再按需播放各项功能的简短演示。</p></div>
-      <figure class="workbench-feature" id="draft">
-        <a href="../science/research-workbench-zoom.png"><img src="../science/research-workbench-zoom.webp" width="1984" height="1312" loading="lazy" alt="Windows 本地工作台放大查看里奇克雷斯特地震的四面板主图。"></a>
-        <figcaption>Windows 工作台中预览余震主图 · <a href="../science/research-workbench-zoom.png" download>原尺寸截图 ↓</a></figcaption>
-      </figure>
-      <div class="clip-grid">
-        <article class="clip" id="writing">
-          <div class="clip-preview"><img src="../science/followwriting-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/followwriting-hd.gif" data-demo aria-label="播放功能演示 · Followwriting"><span aria-hidden="true">▶</span></a></div>
-          <h3>Followwriting</h3><p>流程示意 · 围绕自己的结果落笔，参考原论文的论证结构。</p>
-        </article>
-        <article class="clip" id="figure-preview">
-          <div class="clip-preview"><img src="../science/figures-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/figures-hd.gif" data-demo aria-label="播放功能演示 · 科研图预览"><span aria-hidden="true">▶</span></a></div>
-          <h3>科研图预览</h3><p>工作台实拍 · 打开研究图，检查原尺寸细节。</p>
-        </article>
-        <article class="clip" id="workbench">
-          <div class="clip-preview"><img src="../science/workbench-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/workbench-hd.gif" data-demo aria-label="播放功能演示 · 论文预览"><span aria-hidden="true">▶</span></a></div>
-          <h3>论文预览</h3><p>工作台实拍 · 打开同一任务的 PDF 阅读稿。</p>
-        </article>
-        <article class="clip" id="revision">
-          <div class="clip-preview"><img src="../science/revision-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/revision-hd.gif" data-demo aria-label="播放功能演示 · 审阅返修"><span aria-hidden="true">▶</span></a></div>
-          <h3>审阅与返修</h3><p>工作台实拍 · 保存返修意见，再打开原任务内的新 PDF。</p>
-        </article>
-      </div>
-      <dialog class="demo-dialog" aria-label="播放功能演示"><button type="button" class="close-demo">关闭 <span aria-hidden="true">×</span></button><img alt=""></dialog>
-    </section>
 
     <section class="shell community-feature section" id="community" aria-labelledby="community-title">
       <div class="section-heading">
