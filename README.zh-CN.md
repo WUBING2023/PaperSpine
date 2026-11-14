@@ -39,11 +39,23 @@
 
 ## 三种使用方式
 
-| 版本 | 怎么开始 | 能拿到什么 |
-| :--- | :--- | :--- |
-| **新手上手 · 全流程 Skill**<br>[下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip)<br>![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-skill.svg) | 在宿主对话里调用 `$paper-spine`，交给它题目、数据或初稿。 | 在约定范围内交付研究记录、分析、图件和可编辑稿件。 |
-| **科研专家 · Skills 包**<br>[下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip)<br>![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-skills-pack.svg) | 调用 `$paper-spine` 跑全流程，或用 `$paper-spine-followwriting` 等入口只做一个环节。 | 按阶段拿到所需文件，保留出处和下一步所需证据。 |
-| **满血插件 · 本地 Web 工作台**<br>[下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip)<br>![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-web-plugin.svg) | 在 Windows x64 的 Codex 里用 `$paper-spine-web:paper-spine-web`。 | 整套 Skills 和本地工作台，可在同一任务里调整设置、放大图件、预览、下载和返修。 |
+### 新手上手 · 全流程 Skill
+
+在宿主对话里调用 `$paper-spine`，交给它题目、数据或初稿。按约定范围交付研究记录、分析、科研图和可编辑稿件。
+
+[**下载 ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip) · ![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-skill.svg)
+
+### 科研专家 · Skills 包
+
+用 `$paper-spine` 跑全流程，也可以单独调用各个阶段。例如用 `$paper-spine-followwriting`，参照原论文的论证方式，用自己的实验结果改写一个章节。
+
+[**下载 ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip) · ![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-skills-pack.svg)
+
+### 满血插件 · 本地 Web 工作台
+
+在 Windows x64 的 Codex 里调用 `$paper-spine-web:paper-spine-web`。包含整套 Skills，支持在本地工作台放大图件、预览论文、提交返修意见和下载成稿。
+
+[**下载 ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) · ![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-web-plugin.svg)
 
 <details>
 <summary><strong>五个阶段 Skill 和可以照着写的指令</strong></summary>

@@ -39,11 +39,23 @@
 
 ## Three ways to work
 
-| Edition | Start here | Deliverables |
-| :--- | :--- | :--- |
-| **Quick Start · Full Workflow Skill**<br>[Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip)<br>![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-skill.svg) | `$paper-spine`<br>Give it a question, data, or an existing draft in an agent chat. | Study notes, analysis, figures, and an editable manuscript for the agreed scope. |
-| **For Research Experts · Skills Pack**<br>[Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip)<br>![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-skills-pack.svg) | `$paper-spine` for the full workflow or `$paper-spine-followwriting` to revise a section. | The output you need at each stage, with the sources and files kept for the next stage. |
-| **Full Workbench · Web Plugin**<br>[Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip)<br>![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-web-plugin.svg) | `$paper-spine-web:paper-spine-web` in Codex on Windows x64. | The Skills Pack plus a local workbench for choices, figure zoom, manuscript preview, downloads, and revisions. |
+### Quick Start · Full Workflow Skill
+
+Call `$paper-spine` in an agent chat with a question, data, or a draft. Get study notes, analysis, figures, and an editable manuscript for the scope you agree on.
+
+[**Download ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip) · ![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-skill.svg)
+
+### For Research Experts · Skills Pack
+
+Use `$paper-spine` for the full workflow or call a stage directly, such as `$paper-spine-followwriting` to revise a section with your own results and reference papers.
+
+[**Download ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip) · ![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-skills-pack.svg)
+
+### Full Workbench · Web Plugin
+
+Use `$paper-spine-web:paper-spine-web` in Codex on Windows x64. It includes the Skills Pack and a local workbench to inspect figures, preview the paper, and send revision notes.
+
+[**Download ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) · ![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-web-plugin.svg)
 
 <details>
 <summary><strong>Five stage Skills with example prompts</strong></summary>
