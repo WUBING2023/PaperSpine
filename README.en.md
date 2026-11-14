@@ -1,93 +1,180 @@
-# PaperSpine V6
-
-[中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README.pt.md)
-
-[V6 site and downloads](https://wubing2023.github.io/PaperSpine/v6/en/) · [Install, update, and uninstall](INSTALL-V6.en.md) · [GitHub Release](https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2)
-
-Use `$paper-spine` in chat to work on a paper from a question, results, or a draft. V6 offers a full-workflow Skill, a modular Skills Pack, and an optional Web plugin.
-
-Research, Followwriting, figures, review, and delivery can run independently. The Web plugin supports Windows x64 with Codex. The installer uses the V6 update channel and supports rollback and uninstall.
-
-<details>
-<summary>V5 usage and installation</summary>
-
-## Community atlas
-
 <p align="center">
-  <a href="https://wubing2023.github.io/PaperSpine/v5/community/en.html">
-    <img src="website/assets/community-atlas-preview.png" alt="PaperSpine public GitHub Stargazer community atlas">
-  </a>
+  <b>English</b> · <a href="README.md">简体中文</a>
 </p>
 
-The image is a preview snapshot of self-reported locations and affiliations from public GitHub Stargazers. It shows public community distribution, not installs, active users, papers, product capabilities, or institutional adoption. Click it to open the [daily-refreshed interactive community atlas](https://wubing2023.github.io/PaperSpine/v5/community/en.html).
+<p align="center">
+  <a href="https://wubing2023.github.io/PaperSpine/v6/en/"><img src="paperspine5/core/07_发布页/v6/readme/cover-en.webp" width="100%" alt="PaperSpine V6, from research to manuscript"></a>
+</p>
 
-## Downloads
+<p align="center">Research-paper Skills for your agent. Start with a question, existing results, or a draft, and work through the literature, writing, figures, and review in one conversation.</p>
 
-- Windows x64 suite: about 26.5 MB.
-- Linux glibc x86_64 suite: about 56.2 MB.
-- macOS Apple Silicon suite: about 40.6 MB.
-- macOS Intel x86_64 suite: about 40.5 MB.
+<p align="center">
+  <b><a href="https://wubing2023.github.io/PaperSpine/v6/en/#download">Website and downloads</a></b> · <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2">GitHub Release</a> · <a href="INSTALL-V6.en.md">Install and uninstall</a> · <a href="#paper-example">Paper example</a>
+</p>
 
-Every download is listed in the public release list and verified with SHA-256. Current version: `v0.4.0-alpha.3` prerelease.
+## Download PaperSpine V6
+
+The current public beta is `6.0.0-beta.2`. Choose one edition.
+
+| Edition | Use it when | Requirements | Download |
+| --- | --- | --- | --- |
+| **Full Workflow Skill** | You want one entry point for the whole paper | Skill-compatible host | [Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip) |
+| **Skills Pack** | You frequently reuse individual steps such as writing, figures, or review | Skill-compatible host | [Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip) |
+| **Web Plugin** | You want a local workbench for settings, figures, previews, and feedback | Windows x64 · Codex | [Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) |
+
+Each archive and the SHA-256 checksums are available in the same release. The install guide covers managed installation and manual copying. [Read the install guide](INSTALL-V6.en.md) · [Download checksums](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/checksums.sha256)
+
+## Quick start
+
+1. Download an edition and the checksums file. Extract the ZIP.
+2. Run the install command from the extracted directory. Replace `<ZIP path>` and `<SHA256>` with the original archive path and its checksum.
+3. Open a new conversation and give `$paper-spine` a question, a results folder, or a draft.
+
+```text
+python -B edition_manager.py install "<ZIP path>" --sha256 <SHA256>
+```
+
+The manager requires Python 3.12 or later. The Windows Web package bundles Python and requires the Codex CLI.
+
+A first message could look like this
+
+```text
+$paper-spine Turn ./results and ./draft.md into a paper. First identify the main claims and gaps in their evidence. Use the existing results and figures.
+```
+
+With the Skills Pack, you can also pick up at the stage you need.
+
+| Skill | Use it to |
+| --- | --- |
+| `$paper-spine-study` | **Research**. Organize the research question, materials, and evidence that can be checked. |
+| `$paper-spine-followwriting` | **Followwriting**. Learn argument and paragraph structure from reference papers and revise the current draft. |
+| `$paper-spine-figures` | **Figures**. Match figures to claims and compare candidates. |
+| `$paper-spine-review` | **Review**. Check evidence, figures, and citations, and identify what to revise. |
+| `$paper-spine-deliver` | **Delivery**. Prepare the requested editable files and reading formats. |
+
+After installing the Web package, call `$paper-spine-web:paper-spine-web` in Codex to open the local workbench.
+
+<a id="paper-example"></a>
+
+## From materials to manuscript
+
+Four animations simulate the workflow using a single teaching example with constructed values. The manuscript preview and workbench screenshot come from a local trial.
+
+<p align="center"><img src="paperspine5/core/07_发布页/v6/readme/yeye.webp" width="112" alt="Yeye, the PaperSpine mascot, a folded sheet of paper holding a pencil"></p>
+
+**Meet Yeye.** A folded sheet with a pencil, and PaperSpine’s mascot for the demos. Watch for it as the agent reads, writes, waits for a figure choice, and delivers a draft.
+
+### Read the materials and extract the evidence
+
+Identify five values in the supplied material and calculate their mean and range.
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/research-still.webp">
+  <img src="paperspine5/core/07_发布页/v6/readme/research.gif" alt="Animation showing local inputs and three evidence cards." width="864">
+</picture>
+
+### Revise a passage with Followwriting
+
+The reference presents the total and count before explaining the gap between endpoints. The draft uses the values from the example.
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/followwriting-still.webp">
+  <img src="paperspine5/core/07_发布页/v6/readme/followwriting.gif" alt="Animation showing the reference structure and the draft taking shape." width="864">
+</picture>
+
+### Compare two figures and ask the author
+
+Compare a bar chart and dot plot of the same values. In the example the author chooses the bar chart.
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/figure-choice-still.webp">
+  <img src="paperspine5/core/07_发布页/v6/readme/figure-choice.gif" alt="Animation comparing two candidate figures and selecting the bar chart." width="864">
+</picture>
+
+### Review, revise, and deliver
+
+Recompute both summaries, verify the figure, and state what the teaching example covers. Deliver the manuscript, PDF, and editable figure source.
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/review-delivery-still.webp">
+  <img src="paperspine5/core/07_发布页/v6/readme/review-delivery.gif" alt="Animation showing the three review checks and draft files." width="864">
+</picture>
+
+[Open the full manuscript preview](paperspine5/core/07_发布页/v6/draft-example.webp)
 
 <details>
-<summary>Advanced / manual install</summary>
+<summary>Optional local workbench</summary>
 
-This release offers only the four full platform suites. The historical Skill-only ZIP has no Web core or runtime and cannot repair a missing suite pointer. Advanced users can manage the Skill from a verified full suite.
+Save settings, choose figures, preview the draft, and leave feedback for the same paper task.
+
+<img src="paperspine5/core/07_发布页/v6/workspace.webp" alt="The paper settings in the actual PaperSpine V6 local workbench" width="860">
+
+</details>
+
+## Update and uninstall
+
+Managed installations update the chosen edition together. The Skill periodically checks the V6 channel on invocation. The manager validates the next package and keeps a version for rollback. Uninstall preserves drafts, source materials, and local workbench tasks.
+
+| Manager command | What it does |
+| --- | --- |
+| `check` / `update` | Check for or apply updates. |
+| `auto-update off` / `auto-update on` | Turn automatic checks off or on. |
+| `rollback` | Restore the retained previous version. |
+| `uninstall` | Remove this managed installation. |
+
+[All commands and options](INSTALL-V6.en.md)
+
+## FAQ
+
+<details>
+<summary>Do I need a browser?</summary>
+
+Both Skill editions run in your agent’s chat. The Web package offers an optional workbench for Codex on Windows x64.
 
 </details>
 
-## Install and archive V3/V4 discovery conflicts
+<details>
+<summary>Can I start with an existing draft or results?</summary>
 
-Windows x64:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\install.ps1 -Target codex -CleanLegacy
-```
-
-macOS / Linux:
-
-```sh
-sh ./install.sh --target codex --clean-legacy
-```
-
-`-CleanLegacy` archives only known V3/V4 Skill discovery folders. It does not delete paper tasks, host settings, or unknown files. Both platform installers check the byte count, SHA-256, suite integrity, and a startup self-check.
-
-## Check and apply updates
-
-```powershell
-# Windows
-powershell -ExecutionPolicy Bypass -File .\install.ps1 -CheckOnly
-powershell -ExecutionPolicy Bypass -File .\install.ps1 -Target codex
-```
-
-```sh
-# macOS / Linux
-sh ./install.sh --check-only
-sh ./install.sh --target codex
-```
-
-Rerunning the installer checks the version: it applies a rollback-safe update and startup check when a newer version is available, preserving task data. A complete current installation skips downloads and overwrites. Each Skill invocation checks for updates and upgrades the full suite and updater when needed; an explicit opt-out is respected.
-
-## Boundaries
-
-- All four suites passed archive and SHA-256 verification. Windows x64 passed local installation, update, and workspace checks; [post-release native CI](https://github.com/WUBING2023/PaperSpine/actions/runs/35944185453) passed old-updater upgrades and workspace startup on Windows, Linux x86_64, macOS arm64, and macOS x86_64. Linux arm64 and musl/Alpine are not claimed.
-- macOS packages are not signed or notarized; first launch may require explicit user approval.
-- This is an alpha prerelease without an independent cryptographic signature.
-- Publishing the product never authorizes manuscript submission, private-data upload, payment, or external contact.
-- The support surface is voluntary, unlocks no feature, and reads no payment state.
-
-## Public repository layout
-
-- `dist/codex/skills/paper-spine`, `dist/claude/skills/paper-spine`, and `dist/openclaw/skills/paper-spine`: host projections.
-- `dist/claude/commands/paperspine.md`: Claude command entry.
-- `install.ps1` and `install.sh`: installation boundaries.
-- Key methods/tools: `writing_rationale_matrix`, `citation_support_bank`, `translation_package`, `artifact_check.py`, `reference_inventory.py`, `citation_bank_check.py`, `latex_guard.py`, and `word_guard.py`.
-
-## Development
-
-`src/` holds the Skill source code and `dist/` holds the public host projections. The public repository keeps source and tests, not local tasks, clinical data, caches, or development run logs.
-
-MIT License.
+Yes. Give the agent your results, figure sources, draft, and writing requirements. You can ask it to edit using the existing experiments.
 
 </details>
+
+<details>
+<summary>What happens to my V5 papers?</summary>
+
+You can keep using V5 through its archive. The V6 workbench defaults to a separate task directory. Automatic V5 profile migration is unverified. You can use your V5 manuscript files as input to a V6 Skill.
+
+</details>
+
+<details>
+<summary>Where are the materials processed?</summary>
+
+The workbench stores task data locally. What reaches a model depends on the host and the configured provider. For sensitive material, check the host’s permissions, data settings, and your institution’s requirements. Researchers verify scientific claims, citations, and author information.
+
+</details>
+
+## Development and contributing
+
+The stage Skills, writing methods, release managers, and website are in this repository. Start with the existing GitHub Actions workflow to build V6 distributions.
+
+- [Stage Skill sources](paperspine5/core/01_PaperSpine4/src/skill-editions/)
+- [Research and writing methods](paperspine5/core/01_PaperSpine4/src/skill/references/)
+- [Install and update manager](paperspine5/core/06_插件化/release/edition_manager.py)
+- [V6 website and builder](paperspine5/core/07_发布页/v6/)
+- [Release build workflow](.github/workflows/build-v6-release.yml)
+
+To report a problem, open a GitHub issue with redacted steps, your edition, and the version. The public community atlas uses information GitHub Stargazers share on their profiles. [Report an issue](https://github.com/WUBING2023/PaperSpine/issues) · [Community atlas](https://wubing2023.github.io/PaperSpine/v5/community/en.html)
+
+[V5 website and documentation archive](https://wubing2023.github.io/PaperSpine/v5/en/?legacy=1)
+
+<details>
+<summary>V5 documentation in other languages</summary>
+
+[日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README.pt.md)
+
+</details>
+
+## License
+
+PaperSpine code is released under MIT. Font licenses are included with the website sources. [MIT](LICENSE) · [Instrument Serif](paperspine5/core/07_发布页/v6/fonts/instrument-OFL.txt) · [Noto Serif SC](paperspine5/core/07_发布页/v6/fonts/notoserifsc-OFL.txt)
