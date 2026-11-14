@@ -36,6 +36,56 @@ specific limitation; continue without claiming reference-guided completion or
 backfilling guidance. Reuse valid learning for minor edits and revise the affected
 mapping openly when the question or evidence changes.
 
+## Decide whether a panel substitution preserves its scientific job
+
+Before locking the template, compare the reference and proposed panel's question,
+measured quantity, biological/statistical unit, comparison and unique contribution
+to adjacent panels. Use the existing mapping note; do not add a separate approval
+form. A change of marks can be faithful, while keeping the same heatmap can lose
+the argument. Recording the difference or adding a caption caveat does not by
+itself make that substitution adequate.
+
+Inspect the relevant evidence inventory before declaring a data limitation. A
+small convenience table, previous selected-gene set or ready-made plot is not the
+full inventory when broader results are supplied. Distinguish results already
+available, calculations possible within the authorized scope but not yet done,
+and evidence unavailable or outside scope. Inspect the relevant schemas/coverage;
+use more data only for a scientific purpose, not to fill a longer reference panel.
+Do not silently change a frozen comparison protocol or expand `materials_only`.
+The restriction applies when that mode is in force; apply the user's current
+authorization to the task at hand, separately from a planning-only review's limits.
+
+When the source's job is central and further descriptive work is authorized,
+assess the feasible calculation before defaulting to the convenient smaller
+display. Not yet computed is not unavailable. Verify missing definitions or
+inputs rather than assuming they exist. Bind proposed dimensions to actual IDs
+and coverage: specimens assigned to conditions do not imply every specimen was
+measured in every condition. Preserve relevant strata and pairing, or justify
+their aggregation.
+
+Make the drawing decision from that comparison:
+
+- Preserve the scientific job with compatible evidence and a suitable encoding.
+- If authorized computation is needed, perform and verify it before presenting
+  the panel as a result. A proposed analysis is not an available result.
+- Otherwise narrow the question, change the reference/affected region, or identify
+  the exact missing evidence. Label the loss of explanatory scope; do not accept
+  an inferior substitute merely because it occupies the reference's rectangle.
+
+For example, a selected single gene does not represent a functional gene-set
+score without evidence for that role; a mean matrix does not replace donor
+heterogeneity; a second mean matrix does not replace upstream-regulator analysis.
+By contrast, paired points instead of boxes can preserve a valid comparison.
+Apply this reasoning across domains, not as a requirement to use these analyses.
+Known gene names alone do not validate a module, pathway or mechanistic claim.
+
+For each adjacent panel, ask what additional observation or inference it supplies.
+Repeated rows across groups can be useful when they expose a defined interaction;
+repeating a small selected set to fill space is not equivalent to a richer joint
+structure. Do not add unsupported clustering, arbitrary gene sets, balanced red/
+blue selections or decorative branches to imitate complexity. Close visual
+reconstruction and sufficient scientific adaptation are separate judgments.
+
 ## Trace the Chosen Figure and Compare the Right Sources
 
 Connect the selected export/source to actual transfers, panel evidence, caption
