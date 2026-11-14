@@ -26,6 +26,7 @@ nav a { font-weight: 650; }
 .hero { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(26px, 5vw, 70px); align-items: center; padding: clamp(42px, 7vw, 92px) 0 44px; }
 .version { color: var(--green); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .88rem; letter-spacing: .04em; margin: 0 0 14px; }
 h1 { font-size: clamp(2.2rem, 5.1vw, 4.5rem); line-height: 1.05; margin: 0; letter-spacing: -.035em; text-wrap: balance; }
+html[lang="zh-CN"] h1 { font-size: clamp(2rem, 4.15vw, 3.65rem); }
 p { line-height: 1.65; }
 .hero p:not(.version) { max-width: 37rem; color: var(--muted); font-size: 1.08rem; margin: 18px 0 23px; }
 figure { margin: 0; min-width: 0; }

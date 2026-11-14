@@ -57,7 +57,8 @@ def runtime_from_seed(seed: Path) -> None:
         raise ValueError("Runtime seed SHA-256 differs from the V6 release contract")
     parent = ROOT / "06_插件化/runtime_vendor"
     runtime = parent / "windows-py312"
-    if runtime.exists():
+    path_config = runtime / "python312._pth"
+    if runtime.is_dir() and set(runtime.iterdir()) != {path_config}:
         raise ValueError("Runtime seed extraction expects a clean checkout")
     with tempfile.TemporaryDirectory(prefix=".seed-", dir=parent) as temporary:
         stage = Path(temporary)
@@ -73,7 +74,14 @@ def runtime_from_seed(seed: Path) -> None:
         prepared = stage / "runtime_vendor/windows-py312"
         if not (prepared / "python.exe").is_file():
             raise ValueError("The pinned runtime has no Windows Python")
-        prepared.rename(runtime)
+        if path_config.is_file():
+            if path_config.read_bytes() != (prepared / path_config.name).read_bytes():
+                raise ValueError("The tracked Python path config differs from the pinned runtime")
+            for entry in prepared.iterdir():
+                if entry.name != path_config.name:
+                    entry.rename(runtime / entry.name)
+        else:
+            prepared.rename(runtime)
 
 
 def build(output: Path, seed: Path | None) -> None:

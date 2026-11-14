@@ -3,7 +3,7 @@
   "product": {
     "name": "PaperSpine V6",
     "slug": "paperspine",
-    "version": "6.0.0-beta.1",
+    "version": "6.0.0-beta.2",
     "channel": "beta",
     "license": "MIT"
   },
@@ -14,7 +14,7 @@
   },
   "release": {
     "tagTemplate": "v{version}",
-    "sequence": 2026111403,
+    "sequence": 2026111404,
     "checksum": "sha256"
   },
   "website": {
