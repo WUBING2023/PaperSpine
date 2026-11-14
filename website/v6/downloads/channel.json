@@ -1,0 +1,32 @@
+{
+  "editions": {
+    "skill": {
+      "asset": "paperspine-skill-6.0.0-beta.2.zip",
+      "bytes": 289798,
+      "edition": "skill",
+      "file": "https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip",
+      "sequence": 2026111404,
+      "sha256": "d17036dc92913fef2901d73c280a6dd40c9bb278829663f9bdee8588ec9baf2f",
+      "version": "6.0.0-beta.2"
+    },
+    "skills-pack": {
+      "asset": "paperspine-skills-pack-6.0.0-beta.2.zip",
+      "bytes": 289646,
+      "edition": "skills-pack",
+      "file": "https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip",
+      "sequence": 2026111404,
+      "sha256": "059ccbdf2251321eecf8c1d726d387c62d14ed4244b9a33e0736059d07feeb88",
+      "version": "6.0.0-beta.2"
+    },
+    "web-plugin": {
+      "asset": "paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip",
+      "bytes": 27194147,
+      "edition": "web-plugin",
+      "file": "https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip",
+      "sequence": 2026111404,
+      "sha256": "060b8507960997a23b5333b6e2e610540dc38fa5eeac2deec5401731f24ec47c",
+      "version": "6.0.0-beta.2"
+    }
+  },
+  "format": "paperspine-editions/1"
+}

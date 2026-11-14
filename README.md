@@ -1,18 +1,15 @@
-<p align="right"><a href="https://wubing2023.github.io/PaperSpine/v5/"><img src="website/assets/brand/paperspine-mark.svg" width="24" alt="PaperSpine"></a></p>
-
-<p align="center"><a href="https://wubing2023.github.io/PaperSpine/v5/"><img src="website/assets/brand/paperspine-hero.webp" alt="PaperSpine5 · 从零开始，快速完成一篇图文完整的论文"></a></p>
-
-# PaperSpine5
+# PaperSpine V6
 
 [中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README.pt.md)
 
-[产品页](https://wubing2023.github.io/PaperSpine/v5/) · [GitHub Release](https://github.com/WUBING2023/PaperSpine/releases/tag/v0.4.0-alpha.3)
+[V6 官网与下载](https://wubing2023.github.io/PaperSpine/v6/) · [安装、更新与卸载](INSTALL-V6.md) · [GitHub Release](https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2)
 
-**PaperSpine5：从零开始，快速完成一篇图文完整的论文。**
+在对话里使用 `$paper-spine`，从研究问题、结果或稿件推进到可编辑论文。V6 有全流程 Skill、独立阶段 Skills 包和可选的 Web 插件三种下载。
 
-PaperSpine5 是一个覆盖论文全流程的 AI Skill。你提供研究方向、已有资料或实验数据，它帮你查文献、梳理论点、搭建大纲、撰写全文、生成科研配图，并完成引用核验、审阅修改和排版，最终交付可编辑的 Word / LaTeX 源文件和 PDF。
+阶段 Skills 覆盖研究、Followwriting 写作、科研制图、审阅和交付。Web 插件当前支持 Windows x64 Codex。安装器内置 V6 更新频道，可整包更新、回退和卸载。
 
-从正文到数据图、机制示意图和方法框架图，在同一个任务中完成。通过 `paper-spine` 启动，在网页中选择方案、预览图文、提出修改意见并下载成果。研究材料优先保存在本地，论点、引用和图表均以真实资料与证据为依据。
+<details>
+<summary>V5 使用与安装说明</summary>
 
 ## 社区星图
 
@@ -92,3 +89,5 @@ sh ./install.sh --target codex
 `src/` 存放 Skill 源代码，`dist/` 是各宿主的公开投影。公开仓库保留源代码和测试，不保留本地任务、临床数据、缓存或开发运行日志。
 
 MIT License。
+
+</details>

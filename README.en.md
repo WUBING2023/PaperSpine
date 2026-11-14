@@ -1,18 +1,15 @@
-<p align="right"><a href="https://wubing2023.github.io/PaperSpine/v5/"><img src="website/assets/brand/paperspine-mark.svg" width="24" alt="PaperSpine"></a></p>
-
-<p align="center"><a href="https://wubing2023.github.io/PaperSpine/v5/"><img src="website/assets/brand/paperspine-hero.webp" alt="PaperSpine5 · from zero to a complete paper, text and figures together"></a></p>
-
-# PaperSpine5
+# PaperSpine V6
 
 [中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README.pt.md)
 
-[Product page](https://wubing2023.github.io/PaperSpine/v5/en/) · [GitHub Release](https://github.com/WUBING2023/PaperSpine/releases/tag/v0.4.0-alpha.3)
+[V6 site and downloads](https://wubing2023.github.io/PaperSpine/v6/en/) · [Install, update, and uninstall](INSTALL-V6.en.md) · [GitHub Release](https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2)
 
-**PaperSpine5: from zero to a complete paper, text and figures together.**
+Use `$paper-spine` in chat to work on a paper from a question, results, or a draft. V6 offers a full-workflow Skill, a modular Skills Pack, and an optional Web plugin.
 
-PaperSpine5 is an AI Skill that covers the whole paper workflow. You bring a research direction, existing materials, or experimental data; it searches the literature, organises the argument, builds the outline, writes the full text, produces the scientific figures, verifies citations, works through review and revision, and handles layout, then delivers editable Word / LaTeX sources and a PDF.
+Research, Followwriting, figures, review, and delivery can run independently. The Web plugin supports Windows x64 with Codex. The installer uses the V6 update channel and supports rollback and uninstall.
 
-Body text, data figures, mechanism diagrams, and method frameworks are all produced inside one task. Start it with `paper-spine`, choose a plan in the web workspace, preview the text and figures, leave revision notes, and download the results. Research materials stay local by default, and every claim, citation, and figure is grounded in real sources and evidence.
+<details>
+<summary>V5 usage and installation</summary>
 
 ## Community atlas
 
@@ -92,3 +89,5 @@ Rerunning the installer checks the version: it applies a rollback-safe update an
 `src/` holds the Skill source code and `dist/` holds the public host projections. The public repository keeps source and tests, not local tasks, clinical data, caches, or development run logs.
 
 MIT License.
+
+</details>
