@@ -1,6 +1,4 @@
-<p align="center">
-  <b>English</b> · <a href="README.md">简体中文</a>
-</p>
+[中文](README.md) · [English](README.en.md)
 
 <p align="center">
   <a href="https://wubing2023.github.io/PaperSpine/v6/en/"><img src="paperspine5/core/07_发布页/v6/readme/cover-en.webp" width="100%" alt="PaperSpine V6, from research to manuscript"></a>
@@ -163,6 +161,16 @@ The stage Skills, writing methods, release managers, and website are in this rep
 - [Install and update manager](paperspine5/core/06_插件化/release/edition_manager.py)
 - [V6 website and builder](paperspine5/core/07_发布页/v6/)
 - [Release build workflow](.github/workflows/build-v6-release.yml)
+
+<details>
+<summary>Source index and legacy entry points</summary>
+
+- Method artifacts. [writing_rationale_matrix](src/skill/references/rewrite.md) · [citation_support_bank](src/skill/references/citation-support-bank.md) · [translation_package](src/skill/references/translation-package.md)
+- Export and verification scripts. [artifact_check.py](src/scripts/artifact_check.py) · [reference_inventory.py](src/scripts/reference_inventory.py) · [citation_bank_check.py](src/scripts/citation_bank_check.py) · [latex_guard.py](src/scripts/latex_guard.py) · [word_guard.py](src/scripts/word_guard.py)
+- Legacy host projections. [Codex](dist/codex/skills/paper-spine/) · [Claude](dist/claude/skills/paper-spine/) · [OpenClaw](dist/openclaw/skills/paper-spine/) · [Claude command](dist/claude/commands/paperspine.md)
+- V5 installers. [install.ps1](install.ps1) · [install.sh](install.sh)
+
+</details>
 
 To report a problem, open a GitHub issue with redacted steps, your edition, and the version. The public community atlas uses information GitHub Stargazers share on their profiles. [Report an issue](https://github.com/WUBING2023/PaperSpine/issues) · [Community atlas](https://wubing2023.github.io/PaperSpine/v5/community/en.html)
 

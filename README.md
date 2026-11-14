@@ -1,6 +1,4 @@
-<p align="center">
-  <b>简体中文</b> · <a href="README.en.md">English</a>
-</p>
+[中文](README.md) · [English](README.en.md)
 
 <p align="center">
   <a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/readme/cover-zh.webp" width="100%" alt="PaperSpine V6，从研究问题到完整论文"></a>
@@ -163,6 +161,16 @@ V5 可通过自己的旧入口继续使用。V6 Web 默认使用独立任务目�
 - [安装与更新管理器](paperspine5/core/06_插件化/release/edition_manager.py)
 - [V6 网站与构建器](paperspine5/core/07_发布页/v6/)
 - [发行构建工作流](.github/workflows/build-v6-release.yml)
+
+<details>
+<summary>源码导航与旧版入口</summary>
+
+- 方法工作件。[writing_rationale_matrix](src/skill/references/rewrite.md) · [citation_support_bank](src/skill/references/citation-support-bank.md) · [translation_package](src/skill/references/translation-package.md)
+- 导出与检查脚本。[artifact_check.py](src/scripts/artifact_check.py) · [reference_inventory.py](src/scripts/reference_inventory.py) · [citation_bank_check.py](src/scripts/citation_bank_check.py) · [latex_guard.py](src/scripts/latex_guard.py) · [word_guard.py](src/scripts/word_guard.py)
+- 旧版宿主投影。[Codex](dist/codex/skills/paper-spine/) · [Claude](dist/claude/skills/paper-spine/) · [OpenClaw](dist/openclaw/skills/paper-spine/) · [Claude 命令](dist/claude/commands/paperspine.md)
+- V5 安装器。[install.ps1](install.ps1) · [install.sh](install.sh)
+
+</details>
 
 欢迎在 GitHub Issues 提交脱敏后的复现步骤、所用形态和版本。公开社区星图显示 GitHub Stargazer 自报信息。 [问题反馈](https://github.com/WUBING2023/PaperSpine/issues) · [社区星图](https://wubing2023.github.io/PaperSpine/v5/community/)
 
