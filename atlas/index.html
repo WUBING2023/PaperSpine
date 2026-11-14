@@ -1,310 +1,53 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PaperSpine · Stargazer Atlas</title>
-<style>
-:root{
-  --bg:#070b16; --panel:rgba(13,19,38,.78); --line:rgba(120,150,210,.14);
-  --gold:#e8c476; --gold-dim:#a8895a; --cyan:#5dd6c8; --txt:#c7d2e8; --txt-dim:#6b7a99;
-  --serif:Georgia,"Times New Roman","STZhongsong","SimSun",serif;
-  --sans:"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:var(--sans);color:var(--txt)}
-body::before{content:"";position:fixed;inset:0;background:
-  radial-gradient(1200px 700px at 30% -10%,rgba(42,64,120,.35),transparent 60%),
-  radial-gradient(900px 600px at 85% 110%,rgba(93,214,200,.07),transparent 60%);
-  pointer-events:none;z-index:0}
-#map{position:absolute;inset:0;z-index:1}
-
-.hdr{position:absolute;top:28px;left:34px;z-index:10;pointer-events:none;max-width:520px}
-.hdr .kicker{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px}
-.hdr h1{font-family:var(--serif);font-weight:600;font-size:34px;line-height:1.15;color:#f0e6ce;letter-spacing:.02em}
-.hdr h1 .star{color:var(--gold);font-size:26px;vertical-align:6px;margin:0 2px}
-.hdr .sub{margin-top:10px;font-size:13px;color:var(--txt-dim);letter-spacing:.06em}
-.hdr .rule{margin-top:16px;width:64px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
-
-.stats{position:absolute;left:34px;top:178px;z-index:10;display:flex;flex-direction:column;gap:10px}
-.chip{pointer-events:none;background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--line);
-  border-radius:10px;padding:10px 16px;display:flex;align-items:baseline;gap:10px;min-width:200px}
-.chip b{font-family:var(--serif);font-size:24px;color:#f0e6ce;font-weight:600}
-.chip span{font-size:12px;color:var(--txt-dim);letter-spacing:.1em}
-.chip i{font-style:normal;font-size:11px;color:var(--cyan);margin-left:auto}
-
-.panel{position:absolute;top:28px;right:28px;bottom:88px;width:340px;z-index:10;display:flex;flex-direction:column;
-  background:var(--panel);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.tabs{display:flex;border-bottom:1px solid var(--line);flex-shrink:0}
-.tabs button{flex:1;background:none;border:none;padding:13px 0 11px;font-size:13px;letter-spacing:.18em;
-  color:var(--txt-dim);cursor:pointer;font-family:var(--sans);border-bottom:2px solid transparent;transition:.2s}
-.tabs button.on{color:var(--gold);border-bottom-color:var(--gold)}
-.tabs button:hover{color:#e8e0cc}
-.list{flex:1;overflow-y:auto;padding:6px 0}
-.list::-webkit-scrollbar{width:5px}
-.list::-webkit-scrollbar-thumb{background:rgba(120,150,210,.22);border-radius:3px}
-.row{display:flex;align-items:center;gap:10px;padding:8px 18px;cursor:pointer;transition:background .15s}
-.row:hover{background:rgba(232,196,118,.06)}
-.row .rk{width:22px;font-family:var(--serif);font-size:13px;color:var(--gold-dim);text-align:right;flex-shrink:0}
-.row .nm{flex:1;min-width:0}
-.row .nm .t{font-size:13px;color:#dde5f4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.row .nm .s{font-size:10.5px;color:var(--txt-dim);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.row .bar{height:3px;border-radius:2px;background:linear-gradient(90deg,var(--gold),rgba(93,214,200,.75));margin-top:5px}
-.row .ct{font-family:var(--serif);font-size:15px;color:var(--gold);flex-shrink:0;min-width:26px;text-align:right}
-
-.detail{display:none;flex:1;overflow-y:auto;padding:18px 20px}
-.detail.show{display:block}
-.detail::-webkit-scrollbar{width:5px}
-.detail::-webkit-scrollbar-thumb{background:rgba(120,150,210,.22);border-radius:3px}
-.detail .back{background:none;border:1px solid var(--line);color:var(--txt-dim);font-size:11px;letter-spacing:.15em;
-  padding:5px 14px;border-radius:20px;cursor:pointer;margin-bottom:14px;font-family:var(--sans)}
-.detail .back:hover{color:var(--gold);border-color:var(--gold-dim)}
-.detail h2{font-family:var(--serif);font-size:24px;color:#f0e6ce;font-weight:600}
-.detail .dsub{font-size:12px;color:var(--txt-dim);margin:4px 0 16px}
-.detail h3{font-size:11px;letter-spacing:.3em;color:var(--gold-dim);margin:16px 0 8px;text-transform:uppercase}
-.detail .org{display:flex;justify-content:space-between;font-size:12.5px;padding:5px 0;border-bottom:1px dashed rgba(120,150,210,.1)}
-.detail .org em{font-style:normal;color:#dde5f4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:10px}
-.detail .org b{color:var(--gold);font-family:var(--serif);font-weight:600}
-.detail .usr{font-size:12px;padding:4px 0;color:var(--txt-dim)}
-.detail .usr a{color:var(--cyan);text-decoration:none}
-.detail .usr a:hover{text-decoration:underline}
-.detail .empty{font-size:12px;color:var(--txt-dim);padding:6px 0}
-
-.views{position:absolute;left:34px;bottom:84px;z-index:10;display:flex;gap:8px}
-.views button{background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--line);color:var(--txt-dim);
-  font-size:12px;letter-spacing:.22em;padding:9px 22px;border-radius:24px;cursor:pointer;font-family:var(--sans);transition:.2s}
-.views button.on{color:var(--gold);border-color:var(--gold-dim);box-shadow:0 0 18px rgba(232,196,118,.12)}
-.views button:hover{color:#e8e0cc}
-
-.foot{position:absolute;left:34px;bottom:30px;z-index:10;font-size:11px;color:var(--txt-dim);letter-spacing:.08em;pointer-events:none;max-width:calc(100% - 320px)}
-.foot .tw{color:var(--gold-dim)}
-.legend{position:absolute;right:28px;bottom:56px;z-index:10;display:flex;align-items:center;gap:14px;font-size:11px;color:var(--txt-dim)}
-.legend .dot{display:inline-block;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe9b8,var(--gold) 60%,rgba(232,196,118,.25));vertical-align:middle;margin-right:6px}
-@media (max-width:900px){.panel{display:none}.hdr h1{font-size:24px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore where PaperSpine’s GitHub stargazers have shared a location on their public profiles.">
+  <title>PaperSpine · Stargazer atlas</title>
+  <link rel="canonical" href="https://wubing2023.github.io/PaperSpine/">
+  <link rel="alternate" hreflang="en" href="https://wubing2023.github.io/PaperSpine/">
+  <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/zh.html">
+  <link rel="stylesheet" href="community.css">
+  <script src="echarts.min.js" defer></script><script src="worldgeo.js" defer></script>
+  <script src="data.js" defer></script><script src="community-map.js" defer></script>
 </head>
 <body>
-<div id="map"></div>
-
-<div class="hdr">
-  <div class="kicker">PaperSpine · Stargazer Atlas</div>
-  <h1>论文之脊 <span class="star">★</span> 星图</h1>
-  <div class="sub">PaperSpine 订阅者的地理分布与高校 / 企业图谱</div>
-  <div class="rule"></div>
-</div>
-
-<div class="stats" id="stats"></div>
-
-<div class="panel">
-  <div class="tabs" id="tabs">
-    <button data-t="city" class="on">城 市</button>
-    <button data-t="school">高 校</button>
-    <button data-t="company">企 业</button>
-  </div>
-  <div class="list" id="list"></div>
-  <div class="detail" id="detail"></div>
-</div>
-
-<div class="views">
-  <button id="vWorld" class="on">全 球</button>
-  <button id="vChina">中 国</button>
-</div>
-
-<div class="legend"><span><span class="dot" style="width:7px;height:7px"></span>1 人</span>
-  <span><span class="dot" style="width:13px;height:13px"></span>20 人</span>
-  <span><span class="dot" style="width:19px;height:19px"></span>70+ 人</span></div>
-
-<div class="foot" id="foot"></div>
-
-<script src="echarts.min.js"></script>
-<script src="worldgeo.js"></script>
-<script src="data.js"></script>
-<script>
-const A = window.ATLAS || {
-  repo: 'WUBING2023/PaperSpine', generated: 'unavailable',
-  totalStars: 0, located: 0, schoolCount: 0, companyCount: 0, countryCount: 0,
-  cities: [], schools: [], companies: [], countries: {},
-};
-A.cities = Array.isArray(A.cities) ? A.cities : [];
-A.schools = Array.isArray(A.schools) ? A.schools : [];
-A.companies = Array.isArray(A.companies) ? A.companies : [];
-A.countries = A.countries || {};
-echarts.registerMap('world', window.WORLD_GEO);
-const chart = echarts.init(document.getElementById('map'));
-
-/* ---------- stats chips ---------- */
-const statDefs = [
-  [A.totalStars, '总 STAR 数', '★'],
-  [A.located, '可定位订阅者', A.countryCount + ' 个国家与地区'],
-  [A.schoolCount, '高校与科研机构', ''],
-  [A.companyCount, '企业与组织', ''],
-];
-document.getElementById('stats').innerHTML = statDefs.map(d =>
-  `<div class="chip"><b>${d[0].toLocaleString()}</b><span>${d[1]}</span><i>${d[2]}</i></div>`).join('');
-document.getElementById('foot').innerHTML =
-  `数据来源：GitHub Stargazers API（github.com/${A.repo}）&nbsp;·&nbsp;生成于 ${A.generated}` +
-  `&nbsp;·&nbsp;<span class="tw">台湾是中华人民共和国领土，地图已按中国版图绘制</span>`;
-
-/* ---------- map option ---------- */
-const maxC = A.cities.length ? A.cities[0].count : 1;
-const sz = c => 6 + Math.sqrt(c / maxC) * 24;
-const cityData = A.cities.map(c => ({
-  name: c.zh, value: [c.lng, c.lat, c.count], raw: c,
-}));
-const topData = cityData.slice(0, 8);
-
-const countryMax = Math.max(1, ...Object.values(A.countries));
-const regions = Object.entries(A.countries).map(([name, n]) => ({
-  name,
-  itemStyle: { areaColor: n === countryMax ? '#1a2a55' : `rgba(35,55,110,${0.25 + 0.5 * Math.sqrt(n / countryMax)})` },
-}));
-
-function geoConf(center, zoom) {
-  return {
-    map: 'world', roam: true, center, zoom,
-    zoomLimit: { min: 0.8, max: 14 },
-    silent: false,
-    itemStyle: { areaColor: '#0d1430', borderColor: 'rgba(95,130,200,.30)', borderWidth: .6 },
-    emphasis: { disabled: true },
-    label: { show: false },
-    regions,
-  };
-}
-
-function tooltipHtml(c) {
-  const orgLine = (arr, title) => arr.length
-    ? `<div style="margin-top:6px;font-size:10px;letter-spacing:.2em;color:#a8895a">${title}</div>` +
-      arr.slice(0, 3).map(o => `<div style="font-size:11.5px;color:#c7d2e8">${o[0]} <span style="color:#e8c476">· ${o[1]}</span></div>`).join('')
-    : '';
-  return `<div style="font-family:Georgia,serif;font-size:16px;color:#f0e6ce">${c.zh}
-      <span style="font-size:11px;color:#6b7a99;font-family:sans-serif">${c.name !== c.zh ? c.name : ''}</span></div>
-    <div style="font-size:12px;color:#5dd6c8;margin-top:2px">★ ${c.count} 位订阅者</div>` +
-    orgLine(c.schools, '高校') + orgLine(c.companies, '企业') +
-    `<div style="margin-top:6px;font-size:10.5px;color:#6b7a99">点击查看机构统计</div>`;
-}
-
-const option = {
-  backgroundColor: 'transparent',
-  tooltip: {
-    trigger: 'item',
-    backgroundColor: 'rgba(10,15,32,.92)',
-    borderColor: 'rgba(232,196,118,.35)', borderWidth: 1,
-    padding: [10, 14], extraCssText: 'border-radius:10px;backdrop-filter:blur(8px);max-width:280px',
-    textStyle: { color: '#c7d2e8' },
-    formatter: p => p.data && p.data.raw ? tooltipHtml(p.data.raw) : null,
-  },
-  geo: geoConf([112, 16], 1.0),
-  series: [
-    {
-      name: 'cities', type: 'scatter', coordinateSystem: 'geo', data: cityData,
-      symbolSize: v => sz(v[2]),
-      itemStyle: {
-        color: new echarts.graphic.RadialGradient(0.35, 0.35, 1, [
-          { offset: 0, color: 'rgba(255,233,184,.95)' },
-          { offset: 0.55, color: 'rgba(232,196,118,.85)' },
-          { offset: 1, color: 'rgba(232,196,118,.15)' },
-        ]),
-        shadowBlur: 12, shadowColor: 'rgba(232,196,118,.5)',
-      },
-      emphasis: { scale: 1.4 },
-      z: 4,
-    },
-    {
-      name: 'top', type: 'effectScatter', coordinateSystem: 'geo', data: topData,
-      symbolSize: v => sz(v[2]),
-      rippleEffect: { brushType: 'stroke', scale: 2.6, period: 5 },
-      itemStyle: { color: 'rgba(232,196,118,.9)', shadowBlur: 16, shadowColor: 'rgba(232,196,118,.65)' },
-      label: {
-        show: true, position: 'right', distance: 7,
-        formatter: p => (p.dataIndex < window.__labelN ? p.data.raw.zh : ''),
-        color: '#e8d9b4', fontSize: 11, fontFamily: 'Georgia,STZhongsong,serif',
-        textShadowColor: 'rgba(0,0,0,.8)', textShadowBlur: 4,
-      },
-      z: 5,
-    },
-  ],
-};
-window.__labelN = 3;
-chart.setOption(option);
-window.addEventListener('resize', () => chart.resize());
-
-/* ---------- view toggle ---------- */
-const vw = document.getElementById('vWorld'), vc = document.getElementById('vChina');
-function setView(world) {
-  vw.classList.toggle('on', world); vc.classList.toggle('on', !world);
-  window.__labelN = world ? 3 : 8;
-  chart.setOption({
-    geo: { center: world ? [112, 16] : [105, 35.5], zoom: world ? 1.0 : 3.6 },
-    series: [{}, { label: { formatter: p => (p.dataIndex < window.__labelN ? p.data.raw.zh : '') } }],
-  });
-}
-vw.onclick = () => setView(true);
-vc.onclick = () => setView(false);
-
-/* ---------- side panel ---------- */
-const listEl = document.getElementById('list');
-const detailEl = document.getElementById('detail');
-const tabsEl = document.getElementById('tabs');
-let tab = 'city';
-
-function rows(items) { return items.map((it, i) => it.outerHTML || it).join(''); }
-
-function renderList() {
-  detailEl.classList.remove('show'); listEl.style.display = 'block';
-  let html = '';
-  if (tab === 'city') {
-    const mx = A.cities.length ? A.cities[0].count : 1;
-    html = A.cities.map((c, i) => `
-      <div class="row" data-city="${c.name}">
-        <div class="rk">${i + 1}</div>
-        <div class="nm"><div class="t">${c.zh}${c.country !== 'China' ? ` <span style="color:#6b7a99;font-size:10px">${c.country}</span>` : ''}</div>
-        <div class="bar" style="width:${Math.max(4, 100 * c.count / mx)}%"></div></div>
-        <div class="ct">${c.count}</div>
-      </div>`).join('');
-  } else {
-    const arr = tab === 'school' ? A.schools : A.companies;
-    const mx = arr.length ? arr[0].count : 1;
-    html = arr.map((o, i) => {
-      const zhMain = /[一-鿿]/.test(o.zh);
-      return `
-      <div class="row">
-        <div class="rk">${i + 1}</div>
-        <div class="nm"><div class="t">${zhMain ? o.zh : o.en}</div>
-        <div class="s">${zhMain && o.zh !== o.en ? o.en + ' · ' : ''}${o.city || ''}</div>
-        <div class="bar" style="width:${Math.max(4, 100 * o.count / mx)}%"></div></div>
-        <div class="ct">${o.count}</div>
-      </div>`;
-    }).join('');
-  }
-  listEl.innerHTML = html || '<div class="empty">\u6570\u636e\u6682\u4e0d\u53ef\u7528\uff0c\u8bf7\u7a0d\u540e\u5237\u65b0</div>';
-  listEl.querySelectorAll('[data-city]').forEach(el =>
-    el.addEventListener('click', () => showCity(el.dataset.city, true)));
-}
-
-function showCity(name, move) {
-  const c = A.cities.find(x => x.name === name);
-  if (!c) return;
-  listEl.style.display = 'none'; detailEl.classList.add('show');
-  const orgs = (arr, title) => `<h3>${title}</h3>` + (arr.length
-    ? arr.map(o => `<div class="org"><em>${o[0]}</em><b>${o[1]}</b></div>`).join('')
-    : '<div class="empty">暂无公开资料</div>');
-  detailEl.innerHTML = `
-    <button class="back">← 返回榜单</button>
-    <h2>${c.zh}</h2>
-    <div class="dsub">${c.name !== c.zh ? c.name + ' · ' : ''}${c.country} · ★ ${c.count} 位订阅者</div>
-    ${orgs(c.schools, '高校与科研机构')}
-    ${orgs(c.companies, '企业与组织')}`;
-  detailEl.querySelector('.back').onclick = renderList;
-  if (move) chart.setOption({ geo: { center: [c.lng, c.lat], zoom: Math.max(4.5, chart.getOption().geo[0].zoom) } });
-}
-
-tabsEl.querySelectorAll('button').forEach(b => b.onclick = () => {
-  tab = b.dataset.t;
-  tabsEl.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
-  renderList();
-});
-chart.on('click', p => { if (p.data && p.data.raw) showCity(p.data.raw.name, false); });
-renderList();
-</script>
+  <a href="#content" class="skip">Skip to content</a>
+  <header class="nav"><div class="wrap"><strong><img src="v5/assets/brand/paperspine-mark.svg" alt="">PaperSpine</strong>
+    <nav aria-label="Community navigation">
+      <a href="v6/">V6 website</a><a href="./" aria-current="page">Stargazer atlas</a><a href="contributors/">Contributors</a><a href="zh.html" hreflang="zh-CN" lang="zh-CN" aria-label="社区星图">中文</a>
+    </nav>
+  </div></header>
+  <main id="content">
+      <section class="wrap hero">
+        <div><h1>Stargazer atlas</h1><p class="intro">Explore where PaperSpine’s GitHub stargazers have shared a location on their public profiles.</p></div>
+        <dl class="stats">
+          <div><dt>Stargazers sampled</dt><dd data-stat="total">—</dd></div>
+          <div><dt>Located profiles</dt><dd data-stat="located">—</dd></div>
+          <div><dt>Countries / regions</dt><dd data-stat="coverage">—</dd></div>
+        </dl>
+      </section>
+      <div class="wrap layout">
+        <section class="map-panel" aria-label="Map of stargazer locations">
+          <div class="map-header"><p>Public profile locations · aggregated by city</p>
+            <div class="map-controls"><button type="button" data-map-view="world" aria-pressed="true">World</button><button type="button" data-map-view="asia" aria-pressed="false">East Asia</button></div>
+          </div>
+          <div id="map" aria-hidden="true"></div>
+          <div class="map-foot"><span><strong>●</strong> Larger marks represent more stars</span><span id="map-status" role="status" data-hint="Select a city to zoom" data-error="Map data unavailable">Select a city to zoom</span></div>
+        </section>
+        <section class="sidebar" aria-labelledby="region-title">
+          <h2 id="region-title">Locations</h2>
+          <div class="sort"><button type="button" data-region-list="cities" aria-pressed="true">Cities</button><button type="button" data-region-list="countries" aria-pressed="false">Countries / regions</button><button type="button" data-region-list="schools" aria-pressed="false">Universities</button><button type="button" data-region-list="companies" aria-pressed="false">Companies</button></div>
+          <label class="search" for="region-search">Find a place or affiliation<input type="search" id="region-search" autocomplete="off"></label>
+          <ul id="rank"></ul><p class="status" id="rank-empty" hidden>No matches</p>
+        </section>
+      </div>
+      <div class="wrap source">
+        <p>Snapshot dated <time id="data-date">—</time>. Locations come from public, self-reported profile fields and recognizable affiliations. Country-only records count in the totals and are omitted from the city map. Counts refer to GitHub stars. <a href="https://github.com/WUBING2023/PaperSpine/stargazers">GitHub stargazers ↗</a></p>
+        <noscript><p>Enable JavaScript to explore the map and location list.</p></noscript>
+      </div>
+  </main>
+  <footer><div class="wrap"><span>PaperSpine · AI for Science</span><nav aria-label="GitHub"><a href="https://github.com/WUBING2023/PaperSpine">GitHub ↗</a><a href="https://github.com/WUBING2023/PaperSpine/stargazers">View source records ↗</a></nav></div></footer>
 </body>
 </html>

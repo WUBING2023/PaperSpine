@@ -18,7 +18,7 @@ Mean balanced accuracy rose from **71.62% to 93.46%**, a paired increase of **21
 | Skills Pack | The installed research, Followwriting, figure, review, and delivery Skills each consumed the previous stage’s files. The resulting LaTeX was rebuilt and the analysis was rerun from the exported bundle. |
 | Web Plugin | An actual local Windows Codex workbench saved the configuration, previewed and downloaded PDF and Word files, and sent manuscript feedback back to the host. The host revised the Methods and Limitations and published both revised files in the same task. Browser downloads matched the host’s files byte for byte. |
 
-[Revised Web PDF](scaling-workbench.pdf) · [Editable Web Word document](scaling-workbench.docx) · [Short same-task revision capture](revision-hd.gif)
+[Revised Web PDF](scaling-workbench.pdf) · [Editable Web Word document](scaling-workbench.docx) · [Short same-task revision capture](scaling-revision-hd.gif)
 
 Fresh Codex CLI discovery verified the installed chat Skills. A fresh Codex app-server verified discovery of the namespaced Web Skill. The executing subagents explicitly opened the installed `SKILL.md` files. The Web Followwriting pass used an accessible abstract for its reference comparison. The paper checks focused on the reported evidence, rendering, and reproducibility.
 

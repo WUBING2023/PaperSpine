@@ -30,3 +30,16 @@ if (navigator.clipboard?.writeText) {
     }
   });
 }
+
+const archive = document.querySelector(".archive-disclosure");
+if (archive) {
+  function openArchiveTarget() {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target && archive.contains(target)) {
+      archive.open = true;
+      target.scrollIntoView();
+    }
+  }
+  addEventListener("hashchange", openArchiveTarget);
+  openArchiveTarget();
+}

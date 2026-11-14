@@ -4,12 +4,15 @@
 from __future__ import annotations
 
 import argparse
+from datetime import UTC, datetime
 import html
 import json
+import os
 import re
 import shutil
 import sys
 import tempfile
+from urllib.request import Request, urlopen
 import zipfile
 from pathlib import Path
 
@@ -110,12 +113,47 @@ def render(metadata: Path, output: Path) -> None:
         target = output / document
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(text, encoding="utf-8")
-    for file in ("v6.css", "science.js", "locale.js"):
+    for file in ("v6.css", "science.js", "locale.js", "study-deck.js", "download-stats.js"):
         shutil.copyfile(SITE / file, output / file)
     for directory in ("fonts", "science"):
         shutil.copytree(SITE / directory, output / directory, dirs_exist_ok=True)
     for file in ("channel.json", "checksums.sha256"):
         shutil.copyfile(metadata / file, output / file)
+
+
+def download_stats(metadata: Path, output: Path) -> None:
+    modes = {edition["asset"]: mode for mode, edition in checked_index(metadata).items()}
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "PaperSpine-Pages",
+    }
+    token = os.environ.get("PAPERSPINE_RELEASE_READ_TOKEN")
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    endpoint = f"https://api.github.com/repos/{REPO}/releases/tags/{TAG}"
+    with urlopen(Request(endpoint, headers=headers), timeout=12) as response:
+        release = json.load(response)
+    assets = sorted(
+        ({"name": entry["name"], "download_count": entry["download_count"]}
+         for entry in release["assets"] if entry["name"] in modes),
+        key=lambda entry: entry["name"],
+    )
+    if release["tag_name"] != TAG or len(assets) != len(modes) or {entry["name"] for entry in assets} != set(modes):
+        raise ValueError("Release download statistics do not match the three V6 packages")
+    if any(type(entry["download_count"]) is not int or entry["download_count"] < 0 for entry in assets):
+        raise ValueError("GitHub returned an invalid asset download count")
+    snapshot = {"tag": TAG, "retrieved_at": datetime.now(UTC).isoformat(), "assets": assets}
+    output.write_text(json.dumps(snapshot, indent=2) + "\n", encoding="utf-8", newline="\n")
+    for asset in assets:
+        count = f"{asset['download_count']:,}"
+        badge = f'''<svg xmlns="http://www.w3.org/2000/svg" width="134" height="23" viewBox="0 0 134 23" role="img">
+  <title>{count} GitHub Release downloads</title>
+  <rect width="134" height="23" rx="3" fill="#e7ede6"/>
+  <text x="10" y="15.5" font-family="Verdana,sans-serif" font-size="11" fill="#314640">Downloads</text>
+  <text x="124" y="15.5" text-anchor="end" font-family="Verdana,sans-serif" font-size="11" font-weight="700" fill="#135e52">{count}</text>
+</svg>
+'''
+        output.with_name(f"downloads-{modes[asset['name']]}.svg").write_text(badge, encoding="utf-8", newline="\n")
 
 
 def main() -> None:
@@ -127,11 +165,16 @@ def main() -> None:
     site = commands.add_parser("site")
     site.add_argument("metadata", type=Path)
     site.add_argument("output", type=Path)
+    stats = commands.add_parser("download-stats")
+    stats.add_argument("metadata", type=Path)
+    stats.add_argument("output", type=Path)
     args = parser.parse_args()
     if args.command == "assets":
         build(args.output, args.runtime_seed)
-    else:
+    elif args.command == "site":
         render(args.metadata, args.output)
+    else:
+        download_stats(args.metadata, args.output)
 
 
 if __name__ == "__main__":

@@ -13,8 +13,10 @@
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/v6/zh/">
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="v6.css?v=research-edition">
+  <link rel="stylesheet" href="v6.css?v=research-collection">
   <script src="science.js" defer></script>
+  <script src="study-deck.js" defer></script>
+  <script src="download-stats.js" defer></script>
   <title>PaperSpine V6 — AI for Science</title>
 </head>
 <body>
@@ -24,7 +26,7 @@
       <div class="shell navbar">
         <a class="wordmark" href="./"><img src="../v5/assets/brand/paperspine-mark.svg" width="38" height="38" alt="">PaperSpine</a>
         <nav class="site-nav" aria-label="Main navigation">
-          <a href="#download">Get started</a><a href="#research">Research</a><a href="#examples">Demos</a><a href="#press">Press kit</a>
+          <a href="#download">Get started</a><a href="#research">Research</a><a href="#examples">Demos</a><a href="#press">Press kit</a><a href="../">Community</a>
         </nav>
         <div class="header-links"><a class="repo-link" href="https://github.com/WUBING2023/PaperSpine">GitHub <span aria-hidden="true">↗</span></a><a class="language" href="zh/" hreflang="zh-CN" lang="zh-CN">中文</a></div>
       </div>
@@ -38,30 +40,44 @@
         <p class="hero-description">Give your research agent a method for running experiments, drawing scientific figures, and delivering a paper you can edit and verify.</p>
         <div class="hero-actions">
           <a href="#download" class="button">Get PaperSpine <span aria-hidden="true">↓</span></a>
-          <a href="#dry-bean" class="text-link">Read a worked study <span aria-hidden="true">↗</span></a>
+          <a href="#research" class="text-link">Read the studies <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <aside class="hero-study" aria-labelledby="hero-study-title">
-        <div class="study-top"><span>Research case · UCI Dry Bean</span><a href="science/dry-bean-paper.pdf">Read the paper ↗</a></div>
-        <h2 id="hero-study-title">When missingness<br>becomes a shortcut</h2>
-        <div class="study-spread">
-          <a class="study-manuscript" href="science/dry-bean-paper.pdf"><img src="science/dry-bean-manuscript.webp" width="1080" height="1398" fetchpriority="high" alt="First page of the Dry Bean manuscript, including the abstract and study design."></a>
-          <div class="study-measure">
-            <p class="measure-heading">Adding missingness indicators</p>
-            <dl>
-              <div><dt>Matched mask</dt><dd class="positive">+3.14 <small>pp</small></dd></div>
-              <div><dt>Reversed mask</dt><dd class="negative">−20.75 <small>pp</small></dd></div>
-            </dl>
-            <p class="measure-note">Balanced accuracy · Logistic regression<br>30% imposed missingness</p>
-          </div>
+      <aside class="study-deck" aria-label="Featured research">
+        <div class="deck-stack">
+          <article class="study-card" data-domain="astrophysics">
+            <div class="study-top"><span>Astrophysics · LIGO / GWOSC</span><a href="science/research/gravitational-waves/paper.pdf">Paper PDF ↗</a></div>
+            <h2>Two black-hole mergers, millisecond timing</h2>
+            <a class="study-figure" href="science/research/gravitational-waves/figure.svg"><img src="science/research/gravitational-waves/figure.webp" alt="Six panels showing measured time–frequency structure, both detectors’ aligned strain, and off-source lag comparisons." fetchpriority="high"></a>
+            <p class="study-finding">Hanford lagged Livingston by 7.36 and 7.75 ms in two public LIGO events. Both lag signs held across nine preprocessing choices.</p>
+            <div class="study-bottom"><a href="https://doi.org/10.7935/82H3-HH23">Data source ↗</a><a href="science/research/gravitational-waves/figure.svg">Editable figure ↗</a></div>
+          </article>
+<article class="study-card" data-domain="seismology">
+            <div class="study-top"><span>Seismology · USGS Ridgecrest</span><a href="science/research/ridgecrest/paper.pdf">Paper PDF ↗</a></div>
+            <h2>Aftershock decay depends on the catalog</h2>
+            <a class="study-figure" href="science/research/ridgecrest/figure.svg"><img src="science/research/ridgecrest/hero.webp" alt="Matched epicenter density maps, a fitted rate comparison with a held-out interval, and sensitivity to magnitude and start time." loading="lazy"></a>
+            <p class="study-finding">At reported M ≥ 1.5 and 1–72 hours after the Mw 7.1 event, fitted decay exponents were 0.55 in ComCat and 0.48 in the relocated Shelly catalog.</p>
+            <div class="study-bottom"><a href="https://doi.org/10.5066/P9JN6H0N">Data source ↗</a><a href="science/research/ridgecrest/figure.svg">Editable figure ↗</a></div>
+          </article>
+<article class="study-card" data-domain="air-quality">
+            <div class="study-top"><span>Atmospheric science · EPA AirData</span><a href="science/research/smoke/paper.pdf">Paper PDF ↗</a></div>
+            <h2>June smoke, two different footprints</h2>
+            <a class="study-figure" href="science/research/smoke/figure.svg"><img src="science/research/smoke/figure.webp" alt="A map of EPA monitors, paired corridor contrasts and a June calendar of PM₂.₅ departures above and below each site’s reference." loading="lazy"></a>
+            <p class="study-finding">The Atlantic–Great Lakes PM₂.₅ departure reversed from +74.1 µg/m³ on June 6–8 to −69.1 µg/m³ on June 27–29.</p>
+            <div class="study-bottom"><a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html">Data source ↗</a><a href="science/research/smoke/figure.svg">Editable figure ↗</a></div>
+          </article>
         </div>
-        <div class="study-bottom"><a href="https://doi.org/10.24432/C50S4B">Public dataset ↗</a><a href="science/dry-bean-figure.svg">Original vector ↗</a></div>
+        <div class="deck-controls" hidden>
+          <div class="deck-pages"><button type="button" data-deck-target>Gravitational waves</button> <button type="button" data-deck-target>Aftershock catalogs</button> <button type="button" data-deck-target>Wildfire smoke</button></div>
+          <div class="deck-actions"><button type="button" data-deck-toggle data-play="Play" data-pause="Pause">Pause</button><button type="button" data-deck-next>Next ↷</button></div>
+        </div>
+        <p class="deck-status" role="status"></p>
       </aside>
     </section>
     <nav class="shell edition-index" aria-label="Editions">
-      <a href="#edition-skill"><strong>Full Workflow Skill</strong><span>Work in one chat</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
-      <a href="#edition-pack"><strong>Skills Pack</strong><span>Call one stage or the full workflow</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
-      <a href="#edition-web"><strong>Web Plugin</strong><span>Review a paper in a local workbench</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
+      <a href="#edition-skill"><strong>Quick Start</strong><span>Full Workflow Skill</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
+      <a href="#edition-pack"><strong>For Research Experts</strong><span>Modular Skills Pack</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
+      <a href="#edition-web"><strong>Full Workbench</strong><span>Web Plugin</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
     </nav>
     <section class="edition-section section" id="download" aria-labelledby="edition-title">
       <div class="shell">
@@ -69,7 +85,7 @@
         <div class="editions">
         <article class="edition" id="edition-skill">
           <div class="edition-main">
-            <p class="eyeline">From question to manuscript</p>
+            <p class="eyeline">Quick Start</p>
             <h3>Full Workflow Skill</h3>
             <p>Give your host a research question, a results folder, or a draft. Call $paper-spine and agree on the next research or writing step.</p>
           </div>
@@ -78,13 +94,13 @@
             <p class="command"><code>$paper-spine</code></p>
           </div>
           <div class="edition-download">
-            <p>Skill-capable host<br><span>@SKILL_SIZE@</span></p>
-            <a class="button compact" href="@SKILL_URL@" aria-label="Download ZIP · Full Workflow Skill">Download ZIP <span aria-hidden="true">↓</span></a>
+            <p>Skill-capable host<br><span>@SKILL_SIZE@</span><small data-download-count="{count} downloads" hidden></small></p>
+            <a class="button compact" href="@SKILL_URL@" aria-label="Download ZIP · Full Workflow Skill" data-release-download>Download ZIP <span aria-hidden="true">↓</span></a>
           </div>
         </article>
         <article class="edition" id="edition-pack">
           <div class="edition-main">
-            <p class="eyeline">Work on one stage at a time</p>
+            <p class="eyeline">For Research Experts</p>
             <h3>Skills Pack</h3>
             <p>Install the full workflow and five skills you can invoke individually. Start with existing evidence when you only need to revise a section or check a figure.</p>
           </div>
@@ -93,13 +109,13 @@
             <p class="command"><code>$paper-spine-followwriting</code></p>
           </div>
           <div class="edition-download">
-            <p>Skill-capable host<br><span>@PACK_SIZE@</span></p>
-            <a class="button compact" href="@PACK_URL@" aria-label="Download ZIP · Skills Pack">Download ZIP <span aria-hidden="true">↓</span></a>
+            <p>Skill-capable host<br><span>@PACK_SIZE@</span><small data-download-count="{count} downloads" hidden></small></p>
+            <a class="button compact" href="@PACK_URL@" aria-label="Download ZIP · Skills Pack" data-release-download>Download ZIP <span aria-hidden="true">↓</span></a>
           </div>
         </article>
         <article class="edition" id="edition-web">
           <div class="edition-main">
-            <p class="eyeline">Review in your local workbench</p>
+            <p class="eyeline">Full Workbench</p>
             <h3>Web Plugin</h3>
             <p>Open a paper with the host, then use the workbench to save settings, compare figures, preview files, and respond with revision notes.</p>
           </div>
@@ -108,10 +124,14 @@
             <p class="command"><code>$paper-spine-web:paper-spine-web</code></p>
           </div>
           <div class="edition-download">
-            <p>Windows x64 · Codex<br><span>@WEB_SIZE@</span></p>
-            <a class="button compact" href="@WEB_URL@" aria-label="Download ZIP · Web Plugin">Download ZIP <span aria-hidden="true">↓</span></a>
+            <p>Windows x64 · Codex<br><span>@WEB_SIZE@</span><small data-download-count="{count} downloads" hidden></small></p>
+            <a class="button compact" href="@WEB_URL@" aria-label="Download ZIP · Web Plugin" data-release-download>Download ZIP <span aria-hidden="true">↓</span></a>
           </div>
         </article>
+        </div>
+        <div class="download-attribution">
+          <a href="https://api.github.com/repos/WUBING2023/PaperSpine/releases/tags/@TAG@" data-release-stats-source="download-stats.json">GitHub Release download counts ↗</a>
+          <span data-download-stamp hidden>As of <time></time> UTC</span>
         </div>
         <div class="edition-usage">
           <details>
@@ -130,26 +150,55 @@
       </div>
     </section>
 
-    <section class="shell field-test section" id="field-test" aria-labelledby="field-title">
-      <div class="field-intro">
-        <p class="eyeline">V6 field test · Three Codex subagents</p>
-        <h2 id="field-title">One study.<br>Three workflows.</h2>
-        <p>Each subagent installed a different V6 edition and tested how training-fold standardization affected the same 7-nearest-neighbor classifier. All three produced the same paired result on 13,543 public Dry Bean records.</p>
-        <p class="field-result"><strong>71.62% → 93.46%</strong><span>Mean balanced accuracy across five paired folds</span></p>
-        <div class="links"><a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/edition-field-test.md">Read the run notes ↗</a><a href="science/scaling-study-source.zip" download>Get the paper and code ↓</a></div>
-      </div>
-      <div class="field-artifacts">
-        <figure class="field-figure">
-          <a href="science/scaling-figure.svg"><img src="science/scaling-figure.webp" alt="Paired held-out accuracy for each fold and pooled recall by variety, before and after training-fold standardization." width="1937" height="845" loading="lazy"></a>
-          <figcaption><a href="science/scaling-figure.svg">Open the editable figure ↗</a><a href="science/scaling-results.json">Fold data ↗</a></figcaption>
-        </figure>
-        <div class="field-files"><p>The Web subagent also saved feedback in the workbench, revised the same task, then downloaded the new paper.</p><div class="links"><a href="science/scaling-workbench.pdf">Revised PDF ↗</a><a href="science/scaling-workbench.docx" download>Word ↓</a></div></div>
-      </div>
-    </section>
-
     <section class="shell research section" id="research" aria-labelledby="research-title">
       <div class="section-heading">
-        <h2 id="research-title">Research in practice</h2>
+        <div><h2 id="research-title">The research collection</h2><p>Three studies using public measurements, with editable figures, manuscript source, and analysis code.</p></div>
+        <a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md">Three-mode run notes ↗</a>
+      </div>
+      <article class="research-entry" id="gravitational-waves">
+          <div class="research-entry-text">
+            <p class="eyeline">Astrophysics · LIGO / GWOSC</p>
+            <h3>Two black-hole mergers, millisecond timing</h3>
+            <p>GW150914 and GW170814 public H1/L1 strain. Common lag-search range, off-source controls and a preprocessing sensitivity grid.</p>
+            <p class="research-entry-finding">Hanford lagged Livingston by 7.36 and 7.75 ms in two public LIGO events. Both lag signs held across nine preprocessing choices.</p>
+            <div class="links"><a href="science/research/gravitational-waves/paper.pdf">Read paper ↗</a><a href="science/research/gravitational-waves/source.zip" download>Paper source and code ↓</a><a href="https://doi.org/10.7935/82H3-HH23">Data source ↗</a></div>
+          </div>
+          <figure class="research-entry-figure">
+            <a href="science/research/gravitational-waves/figure.svg"><img src="science/research/gravitational-waves/figure.webp" alt="Six panels showing measured time–frequency structure, both detectors’ aligned strain, and off-source lag comparisons." loading="lazy"></a>
+            <figcaption><a href="science/research/gravitational-waves/figure.svg">Vector figure ↗</a></figcaption>
+          </figure>
+        </article><article class="research-entry" id="ridgecrest">
+          <div class="research-entry-text">
+            <p class="eyeline">Seismology · USGS Ridgecrest</p>
+            <h3>Aftershock decay depends on the catalog</h3>
+            <p>Two event catalogs on a shared space and time grid. Compare the fitted decay before testing a held-out interval and 25 pairs of thresholds and start times.</p>
+            <p class="research-entry-finding">At reported M ≥ 1.5 and 1–72 hours after the Mw 7.1 event, fitted decay exponents were 0.55 in ComCat and 0.48 in the relocated Shelly catalog.</p>
+            <div class="links"><a href="science/research/ridgecrest/paper.pdf">Read paper ↗</a><a href="science/research/ridgecrest/source.zip" download>Paper source and code ↓</a><a href="https://doi.org/10.5066/P9JN6H0N">Data source ↗</a></div>
+          </div>
+          <figure class="research-entry-figure">
+            <a href="science/research/ridgecrest/figure.svg"><img src="science/research/ridgecrest/figure.webp" alt="Matched epicenter density maps, a fitted rate comparison with a held-out interval, and sensitivity to magnitude and start time." loading="lazy"></a>
+            <figcaption><a href="science/research/ridgecrest/figure.svg">Vector figure ↗</a></figcaption>
+          </figure>
+        </article><article class="research-entry" id="smoke">
+          <div class="research-entry-text">
+            <p class="eyeline">Atmospheric science · EPA AirData</p>
+            <h3>June smoke, two different footprints</h3>
+            <p>27 monitors, eight county groups, and 810 site-days. A fixed monitor panel compares two June 2023 episodes with alternate reference and leave-one-group checks.</p>
+            <p class="research-entry-finding">The Atlantic–Great Lakes PM₂.₅ departure reversed from +74.1 µg/m³ on June 6–8 to −69.1 µg/m³ on June 27–29.</p>
+            <div class="links"><a href="science/research/smoke/paper.pdf">Read paper ↗</a><a href="science/research/smoke/source.zip" download>Paper source and code ↓</a><a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html">Data source ↗</a></div>
+          </div>
+          <figure class="research-entry-figure">
+            <a href="science/research/smoke/figure.svg"><img src="science/research/smoke/figure.webp" alt="A map of EPA monitors, paired corridor contrasts and a June calendar of PM₂.₅ departures above and below each site’s reference." loading="lazy"></a>
+            <figcaption><a href="science/research/smoke/figure.svg">Vector figure ↗</a></figcaption>
+          </figure>
+        </article>
+      <div class="links research-archive"><a href="#older-research">Earlier cases and edition smoke test ↗</a></div>
+    </section>
+
+    <section class="shell research section" id="older-research" aria-labelledby="older-research-title">
+      <details class="archive-disclosure"><summary>Open earlier studies and figures</summary>
+      <div class="section-heading">
+        <h2 id="older-research-title">Earlier studies and figure examples</h2>
         <p>Two documented research runs, with their manuscripts and original figures. A separate figure gallery shows examples from materials science and catalysis.</p>
       </div>
       <article class="case" id="dry-bean">
@@ -202,13 +251,16 @@
         </figure>
         </div>
       </div>
+      </details>
     </section>
+
+    <aside class="shell links research-archive" id="field-test"><a href="science/edition-field-test.md">Read the earlier edition smoke test ↗</a></aside>
 
     <section class="shell demos section" id="examples" aria-labelledby="demo-title">
       <div class="section-heading"><h2 id="demo-title">See the tools at work</h2><p>Preview the actual Windows workbench, then play a short demonstration of each feature.</p></div>
       <figure class="workbench-feature" id="draft">
-        <a href="science/scaling-workbench.webp"><img src="science/scaling-workbench.webp" width="1984" height="1312" loading="lazy" alt="The local Windows workbench displaying the paired folds and recall by variety from the scaling study."></a>
-        <figcaption>Figure review in the three-edition field test · <a href="science/scaling-workbench.webp" download>Full-size screenshot ↓</a></figcaption>
+        <a href="science/research-workbench-zoom.png"><img src="science/research-workbench-zoom.webp" width="1984" height="1312" loading="lazy" alt="The local Windows workbench inspecting the four-panel Ridgecrest earthquake study figure."></a>
+        <figcaption>Ridgecrest figure inside the Windows workbench · <a href="science/research-workbench-zoom.png" download>Full-size screenshot ↓</a></figcaption>
       </figure>
       <div class="clip-grid">
         <article class="clip" id="writing">
@@ -254,6 +306,6 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../v5/en/?legacy=1">V5 archive</a><a href="../v5/en/?support=1">Support the project</a><a href="https://github.com/WUBING2023/PaperSpine/issues">Report an issue</a></div></div></footer>
+  <footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="../">Stargazer atlas</a><a href="../contributors/">Contributors</a><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../v5/en/?legacy=1">V5 archive</a><a href="../v5/en/?support=1">Support the project</a><a href="https://github.com/WUBING2023/PaperSpine/issues">Report an issue</a></div></div></footer>
 </body>
 </html>

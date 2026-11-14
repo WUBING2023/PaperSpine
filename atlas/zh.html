@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="查看 PaperSpine 在 GitHub 上收到的星标，以及公开资料里可识别的地理分布。">
+  <title>PaperSpine · 社区星图</title>
+  <link rel="canonical" href="https://wubing2023.github.io/PaperSpine/zh.html">
+  <link rel="alternate" hreflang="en" href="https://wubing2023.github.io/PaperSpine/">
+  <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/zh.html">
+  <link rel="stylesheet" href="community.css">
+  <script src="echarts.min.js" defer></script><script src="worldgeo.js" defer></script>
+  <script src="data.js" defer></script><script src="community-map.js" defer></script>
+</head>
+<body>
+  <a href="#content" class="skip">跳到正文</a>
+  <header class="nav"><div class="wrap"><strong><img src="v5/assets/brand/paperspine-mark.svg" alt="">PaperSpine</strong>
+    <nav aria-label="社区导航">
+      <a href="v6/zh/">V6 官网</a><a href="zh.html" aria-current="page">星图</a><a href="contributors/zh.html">贡献者</a><a href="./" hreflang="en" lang="en" aria-label="Stargazer atlas">English</a>
+    </nav>
+  </div></header>
+  <main id="content">
+      <section class="wrap hero">
+        <div><h1>社区星图</h1><p class="intro">查看 PaperSpine 在 GitHub 上收到的星标，以及公开资料里可识别的地理分布。</p></div>
+        <dl class="stats">
+          <div><dt>已采集星标</dt><dd data-stat="total">—</dd></div>
+          <div><dt>地区可识别</dt><dd data-stat="located">—</dd></div>
+          <div><dt>国家与地区</dt><dd data-stat="coverage">—</dd></div>
+        </dl>
+      </section>
+      <div class="wrap layout">
+        <section class="map-panel" aria-label="星标地理分布">
+          <div class="map-header"><p>公开地理信息 · 按城市聚合</p>
+            <div class="map-controls"><button type="button" data-map-view="world" aria-pressed="true">全球</button><button type="button" data-map-view="asia" aria-pressed="false">东亚</button></div>
+          </div>
+          <div id="map" aria-hidden="true"></div>
+          <div class="map-foot"><span><strong>●</strong> 圆点越大，汇总星标越多</span><span id="map-status" role="status" data-hint="点击城市可定位" data-error="地图数据暂不可用">点击城市可定位</span></div>
+        </section>
+        <section class="sidebar" aria-labelledby="region-title">
+          <h2 id="region-title">地点</h2>
+          <div class="sort"><button type="button" data-region-list="cities" aria-pressed="true">城市</button><button type="button" data-region-list="countries" aria-pressed="false">国家与地区</button><button type="button" data-region-list="schools" aria-pressed="false">高校</button><button type="button" data-region-list="companies" aria-pressed="false">企业</button></div>
+          <label class="search" for="region-search">搜索地点或机构<input type="search" id="region-search" autocomplete="off"></label>
+          <ul id="rank"></ul><p class="status" id="rank-empty" hidden>没有匹配结果</p>
+        </section>
+      </div>
+      <div class="wrap source">
+        <p>快照日期 <time id="data-date">—</time>. 地理信息来自公开资料中的自填位置和可识别机构。仅有国家或地区的记录计入汇总，不在地图上标城市坐标。这里计数的是 GitHub 星标。 <a href="https://github.com/WUBING2023/PaperSpine/stargazers">GitHub 星标记录 ↗</a></p>
+        <noscript><p>请启用 JavaScript 以浏览星图和地点列表。</p></noscript>
+      </div>
+  </main>
+  <footer><div class="wrap"><span>PaperSpine · AI for Science</span><nav aria-label="GitHub"><a href="https://github.com/WUBING2023/PaperSpine">GitHub ↗</a><a href="https://github.com/WUBING2023/PaperSpine/stargazers">查看源记录 ↗</a></nav></div></footer>
+</body>
+</html>

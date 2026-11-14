@@ -70,13 +70,31 @@ jobs:
       - name: Assemble site (static files only)
         run: |
           mkdir _site
-          cp atlas/index.html atlas/echarts.min.js atlas/worldgeo.js atlas/data.js _site/
+          cp atlas/{index.html,zh.html,community.css,community-map.js,echarts.min.js,worldgeo.js,data.js} _site/
+          mkdir -p _site/contributors
+          cp atlas/contributors.html _site/contributors/index.html
+          cp atlas/contributors-zh.html _site/contributors/zh.html
+          cp atlas/contributors.js _site/contributors/
           mkdir -p _site/v5
           cp -R build/v5-site/. _site/v5/
           if [ -f website/v6/downloads/channel.json ]; then
             rm -r _site/v5/v6
             python -B 'paperspine5/core/07_发布页/v6/build_v6.py' site website/v6/downloads _site/v6
           fi
+
+      - name: Snapshot V6 release download statistics
+        if: ${{ hashFiles('website/v6/downloads/channel.json') != '' }}
+        continue-on-error: true
+        env:
+          PAPERSPINE_RELEASE_READ_TOKEN: ${{ github.token }}
+        run: |
+          python -B 'paperspine5/core/07_发布页/v6/build_v6.py' download-stats website/v6/downloads _site/v6/download-stats.json
+
+      - name: Snapshot GitHub contributors
+        continue-on-error: true
+        env:
+          ATLAS_GITHUB_TOKEN: ${{ github.token }}
+        run: python -B atlas/community_snapshot.py _site/contributors/contributors-data.json
 
       - uses: actions/configure-pages@v5
         with:

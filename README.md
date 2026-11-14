@@ -1,10 +1,10 @@
 **English** · [中文](README.zh-CN.md)
 
-<a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/science/press-cover.webp" width="100%" alt="PaperSpine V6, AI for Science. An original Dry Bean manuscript and result figure alongside the origami dragon Spine."></a>
+<a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/science/press-cover.webp" width="100%" alt="PaperSpine V6, AI for Science. An original LIGO public-strain manuscript and figure alongside the origami dragon Spine."></a>
 
 **Run experiments, make scientific figures, and deliver an editable paper with the evidence attached.** PaperSpine gives your research agent the methods to start with a question, a results folder, or a draft.
 
-[**Get PaperSpine**](#ways-to-work) · [Field test](#edition-field-test) · [Research cases](#research-cases) · [Demos](#feature-demos) · [**Press kit**](#press-kit) · [Website](https://wubing2023.github.io/PaperSpine/v6/)
+[**Get PaperSpine**](#ways-to-work) · [Research collection](#research-cases) · [Demos](#feature-demos) · [**Press kit**](#press-kit) · [Website](https://wubing2023.github.io/PaperSpine/v6/) · [Stargazer atlas](https://wubing2023.github.io/PaperSpine/) · [Contributors](https://wubing2023.github.io/PaperSpine/contributors/)
 
 <a id="ways-to-work"></a>
 
@@ -12,9 +12,9 @@
 
 | Edition | Start here | Deliverables |
 | :--- | :--- | :--- |
-| **Full Workflow Skill**<br>[Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip) | `$paper-spine`<br>Give it a question, data, or an existing draft in an agent chat. | Study notes, analysis, figures, and an editable manuscript for the agreed scope. |
-| **Skills Pack**<br>[Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip) | `$paper-spine` for the full workflow or `$paper-spine-followwriting` to revise a section. | The output you need at each stage, with the sources and files kept for the next stage. |
-| **Web Plugin**<br>[Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) | `$paper-spine-web:paper-spine-web` in Codex on Windows x64. | The Skills Pack plus a local workbench for choices, figure zoom, manuscript preview, downloads, and revisions. |
+| **Quick Start · Full Workflow Skill**<br>[Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip)<br>![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-skill.svg) | `$paper-spine`<br>Give it a question, data, or an existing draft in an agent chat. | Study notes, analysis, figures, and an editable manuscript for the agreed scope. |
+| **For Research Experts · Skills Pack**<br>[Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip)<br>![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-skills-pack.svg) | `$paper-spine` for the full workflow or `$paper-spine-followwriting` to revise a section. | The output you need at each stage, with the sources and files kept for the next stage. |
+| **Full Workbench · Web Plugin**<br>[Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip)<br>![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-web-plugin.svg) | `$paper-spine-web:paper-spine-web` in Codex on Windows x64. | The Skills Pack plus a local workbench for choices, figure zoom, manuscript preview, downloads, and revisions. |
 
 <details>
 <summary><strong>Five stage Skills with example prompts</strong></summary>
@@ -44,50 +44,37 @@ The manager requires Python 3.12+. The Web archive includes Windows Python and r
 [Install, update, or uninstall](INSTALL-V6.en.md) · [SHA-256 checksums](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/checksums.sha256) · [V6 release](https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2)
 
 <a id="edition-field-test"></a>
-
-## One study, three workflows
-
-Three Codex subagents installed the three released V6 editions and ran the same study. On 13,543 public Dry Bean records, training-fold standardization moved mean balanced accuracy from **71.62% to 93.46%** for a fixed 7-nearest-neighbor classifier across the same five folds.
-
-| Full Workflow Skill | Skills Pack | Web Plugin |
-| :--- | :--- | :--- |
-| Produced a revised two-page manuscript, reproducible analysis, and editable figure. | Ran all five stages with real files and rebuilt the paper from the exported bundle. | Saved manuscript feedback, revised the same task, then downloaded the new Word and PDF files. |
-
-[**Read the run notes**](paperspine5/core/07_发布页/v6/science/edition-field-test.md) · [Research paper and code](https://wubing2023.github.io/PaperSpine/v6/science/scaling-study-source.zip) · [Web revision PDF](paperspine5/core/07_发布页/v6/science/scaling-workbench.pdf) · [Editable Word](paperspine5/core/07_发布页/v6/science/scaling-workbench.docx)
-
 <a id="research-cases"></a>
 
-## Research cases
+## Three research papers, three modes
 
-These are selected artifacts from documented, PaperSpine-assisted research runs. Open the manuscripts and figures to see the methods, results, and scope.
+GPT‑6.1 Sol used the Full Workflow Skill, modular Skills, and the local Web Workbench for each study. Explore the paper figures, open data, reproducible code, and revision records.
 
-### Missingness shift · Dry Bean
+### Two black-hole mergers, millisecond timing
 
-The agent designed a controlled experiment on public seed measurements and compared matched and reversed missingness across two classifiers.
+Hanford lagged Livingston by 7.36 and 7.75 ms in two public LIGO events. Both lag signs held across nine preprocessing choices.
 
-The run used 13,543 records after deduplication and scored 2,160 evaluation conditions. At 30% imposed missingness, adding logistic-regression indicators changed balanced accuracy by **+3.14 pp** under matched masks and **−20.75 pp** under reversal. The result concerns this controlled stress test.
+<a href="paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.svg"><img src="paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.webp" width="790" alt="Six panels showing measured time–frequency structure, both detectors’ aligned strain, and off-source lag comparisons."></a>
 
-<a href="paperspine5/core/07_发布页/v6/science/dry-bean-figure.svg"><img src="paperspine5/core/07_发布页/v6/science/dry-bean.webp" width="760" alt="Six panels showing the paired effects of missingness indicators for two classifiers at three imposed missingness rates."></a>
+[Read paper](https://wubing2023.github.io/PaperSpine/v6/science/research/gravitational-waves/paper.pdf) · [High-resolution vector](paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.svg) · [Paper source and code](https://wubing2023.github.io/PaperSpine/v6/science/research/gravitational-waves/source.zip) · [Data](https://doi.org/10.7935/82H3-HH23)
 
-[Read the paper](paperspine5/core/07_发布页/v6/science/dry-bean-paper.pdf) · [Open the original vector](paperspine5/core/07_发布页/v6/science/dry-bean-figure.svg) · [Dataset source](https://doi.org/10.24432/C50S4B)
+### Aftershock decay depends on the catalog
 
-### Bootstrap feature aggregation
+At reported M ≥ 1.5 and 1–72 hours after the Mw 7.1 event, fitted decay exponents were 0.55 in ComCat and 0.48 in the relocated Shelly catalog.
 
-This study traced how a tie in feature selection altered nested model tuning even with an unchanged final feature subset.
+<a href="paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.svg"><img src="paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.webp" width="790" alt="Matched epicenter density maps, a fitted rate comparison with a held-out interval, and sensitivity to magnitude and start time."></a>
 
-One Digits split changed the tuned regularization from **C = 10 to C = 1** and **eight predicted labels**. The manuscript also compares three public datasets and one synthetic condition. This is an implementation diagnosis.
+[Read paper](https://wubing2023.github.io/PaperSpine/v6/science/research/ridgecrest/paper.pdf) · [High-resolution vector](paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.svg) · [Paper source and code](https://wubing2023.github.io/PaperSpine/v6/science/research/ridgecrest/source.zip) · [Data](https://doi.org/10.5066/P9JN6H0N)
 
-<a href="paperspine5/core/07_发布页/v6/science/feature-aggregation-figure.svg"><img src="paperspine5/core/07_发布页/v6/science/feature-aggregation.webp" width="760" alt="Native three-panel figure showing ambiguous cutoffs, the Digits tuning trace, and group coverage."></a>
+### June smoke, two different footprints
 
-[Read the paper](paperspine5/core/07_发布页/v6/science/feature-aggregation-paper.pdf) · [Open the original vector](paperspine5/core/07_发布页/v6/science/feature-aggregation-figure.svg) · [Case evidence](paperspine5/core/07_发布页/v6/science/case-notes.md)
+The Atlantic–Great Lakes PM₂.₅ departure reversed from +74.1 µg/m³ on June 6–8 to −69.1 µg/m³ on June 27–29.
 
-### Editable figures for other fields
+<a href="paperspine5/core/07_发布页/v6/science/research/smoke/figure.svg"><img src="paperspine5/core/07_发布页/v6/science/research/smoke/figure.webp" width="790" alt="A map of EPA monitors, paired corridor contrasts and a June calendar of PM₂.₅ departures above and below each site’s reference."></a>
 
-The figure gallery includes a **solid-state battery interface schematic** and a **closed-loop catalyst-screening visualization**. These are an illustrative mechanism and a synthetic data example.
+[Read paper](https://wubing2023.github.io/PaperSpine/v6/science/research/smoke/paper.pdf) · [High-resolution vector](paperspine5/core/07_发布页/v6/science/research/smoke/figure.svg) · [Paper source and code](https://wubing2023.github.io/PaperSpine/v6/science/research/smoke/source.zip) · [Data](https://aqs.epa.gov/aqsweb/airdata/download_files.html)
 
-<p><a href="https://wubing2023.github.io/PaperSpine/v6/#figures"><img src="paperspine5/core/07_发布页/v6/science/solid-state-interface.webp" alt="Scientific schematic of a sulfide solid electrolyte and lithium-metal interface during cycling." width="435"><img src="paperspine5/core/07_发布页/v6/science/catalyst-workflow.webp" alt="Multi-panel visualization of a catalyst-screening workflow with synthetic data." width="435"></a></p>
-
-[Full-resolution PNGs and SVGs in Figure Studies](https://wubing2023.github.io/PaperSpine/v5/en/figure-studies/)
+[Three-mode run notes](paperspine5/core/07_发布页/v6/science/research/README.md) · [Earlier edition smoke test](paperspine5/core/07_发布页/v6/science/edition-field-test.md)
 
 <a id="paper-example"></a>
 <a id="feature-demos"></a>

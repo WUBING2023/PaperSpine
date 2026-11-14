@@ -1,10 +1,10 @@
 [English](README.md) · **简体中文**
 
-<a href="https://wubing2023.github.io/PaperSpine/v6/zh/"><img src="paperspine5/core/07_发布页/v6/science/cover-zh.webp" width="100%" alt="PaperSpine V6，AI for Science。Dry Bean 研究稿、原始结果图与折纸龙 Spine。"></a>
+<a href="https://wubing2023.github.io/PaperSpine/v6/zh/"><img src="paperspine5/core/07_发布页/v6/science/cover-zh.webp" width="100%" alt="PaperSpine V6，AI for Science。LIGO 公开应变研究稿、原始图与折纸龙 Spine。"></a>
 
 **做实验、画科研图，交付一篇能编辑、能核对证据的论文。** 给科研 Agent 一个问题、一份结果或一篇初稿，就可以开始。
 
-[**选择下载**](#ways-to-work) · [实跑记录](#edition-field-test) · [科研案例](#research-cases) · [看动图](#feature-demos) · [**媒体素材**](#press-kit) · [中文官网](https://wubing2023.github.io/PaperSpine/v6/zh/)
+[**选择下载**](#ways-to-work) · [科研案例](#research-cases) · [看动图](#feature-demos) · [**媒体素材**](#press-kit) · [中文官网](https://wubing2023.github.io/PaperSpine/v6/zh/) · [社区星图](https://wubing2023.github.io/PaperSpine/zh.html) · [贡献者](https://wubing2023.github.io/PaperSpine/contributors/zh.html)
 
 <a id="ways-to-work"></a>
 
@@ -12,9 +12,9 @@
 
 | 版本 | 怎么开始 | 能拿到什么 |
 | :--- | :--- | :--- |
-| **全流程 Skill**<br>[下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip) | 在宿主对话里调用 `$paper-spine`，交给它题目、数据或初稿。 | 在约定范围内交付研究记录、分析、图件和可编辑稿件。 |
-| **Skills 包**<br>[下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip) | 调用 `$paper-spine` 跑全流程，或用 `$paper-spine-followwriting` 等入口只做一个环节。 | 按阶段拿到所需文件，保留出处和下一步所需证据。 |
-| **Web 插件包**<br>[下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) | 在 Windows x64 的 Codex 里用 `$paper-spine-web:paper-spine-web`。 | 整套 Skills 和本地工作台，可在同一任务里调整设置、放大图件、预览、下载和返修。 |
+| **新手上手 · 全流程 Skill**<br>[下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip)<br>![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-skill.svg) | 在宿主对话里调用 `$paper-spine`，交给它题目、数据或初稿。 | 在约定范围内交付研究记录、分析、图件和可编辑稿件。 |
+| **科研专家 · Skills 包**<br>[下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip)<br>![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-skills-pack.svg) | 调用 `$paper-spine` 跑全流程，或用 `$paper-spine-followwriting` 等入口只做一个环节。 | 按阶段拿到所需文件，保留出处和下一步所需证据。 |
+| **满血插件 · 本地 Web 工作台**<br>[下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip)<br>![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-web-plugin.svg) | 在 Windows x64 的 Codex 里用 `$paper-spine-web:paper-spine-web`。 | 整套 Skills 和本地工作台，可在同一任务里调整设置、放大图件、预览、下载和返修。 |
 
 <details>
 <summary><strong>五个阶段 Skill 和可以照着写的指令</strong></summary>
@@ -44,50 +44,37 @@ python -B edition_manager.py install "<原 ZIP 路径>" --sha256 <SHA256>
 [安装、更新及卸载说明](INSTALL-V6.md) · [SHA-256 校验文件](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/checksums.sha256) · [V6 Release](https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2)
 
 <a id="edition-field-test"></a>
-
-## 同一研究跑通三个版本
-
-三个 Codex 子 Agent 分别安装了三个 V6 发行包，从同一批公开数据起步。对 Dry Bean 去重后的 13,543 条记录做五折配对评估，在训练折拟合标准化参数后，固定 7 近邻分类器的平均平衡准确率从 **71.62% 升至 93.46%**。
-
-| 全流程 Skill | Skills 包 | Web 插件包 |
-| :--- | :--- | :--- |
-| 交付修订后的两页稿、可复算分析和可编辑图。 | 逐项跑完五个阶段，从交付包重新编译论文。 | 在工作台提交意见，原任务返修后重新下载 Word 和 PDF。 |
-
-[**查看实跑记录**](paperspine5/core/07_发布页/v6/science/edition-field-test.md) · [论文及源码包](https://wubing2023.github.io/PaperSpine/v6/science/scaling-study-source.zip) · [Web 返修 PDF](paperspine5/core/07_发布页/v6/science/scaling-workbench.pdf) · [可编辑 Word](paperspine5/core/07_发布页/v6/science/scaling-workbench.docx)
-
 <a id="research-cases"></a>
 
-## 科研案例
+## 三篇研究，三种模式
 
-这里展示 PaperSpine 参与的实际研究和作者产物。研究方法、结果与适用范围都可以打开原图和研究稿核对。
+以 GPT‑6.1 Sol 在三篇论文中分别走过全流程 Skill、阶段 Skills 与本地 Web 工作台。图件取自各自论文，附公开数据、可复算代码与同稿返修记录。
 
-### Dry Bean · 缺失机制压力测试
+### 两次黑洞并合的毫秒级时延
 
-Agent 使用公开的豆类形态测量数据设计压力测试，比较两个分类器在缺失机制一致和反转时的表现。
+两次公开 LIGO 事件中，汉福德相对利文斯顿分别滞后 7.36 和 7.75 毫秒。九种预处理设定下，时延方向一致。
 
-去重后分析 13,543 条记录，得到 2,160 个评估单元。人工缺失率为 30% 时，逻辑回归增加缺失指示变量，在机制一致时使平衡准确率提高 **3.14 个百分点**，在机制反转时下降 **20.75 个百分点**。结果适用于这一受控压力测试。
+<a href="paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.svg"><img src="paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.webp" width="790" alt="六个面板呈现两次事件的实测时频谱、双台站对齐应变和事件窗外的时延对照。"></a>
 
-<a href="paperspine5/core/07_发布页/v6/science/dry-bean-figure.svg"><img src="paperspine5/core/07_发布页/v6/science/dry-bean.webp" width="760" alt="六个面板，展示两类模型在三种人工缺失率下加入缺失标记的配对效应。"></a>
+[读论文](https://wubing2023.github.io/PaperSpine/v6/science/research/gravitational-waves/paper.pdf) · [高清矢量图](paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.svg) · [源稿与代码](https://wubing2023.github.io/PaperSpine/v6/science/research/gravitational-waves/source.zip) · [数据](https://doi.org/10.7935/82H3-HH23)
 
-[阅读研究稿](paperspine5/core/07_发布页/v6/science/dry-bean-paper.pdf) · [打开原始矢量图](paperspine5/core/07_发布页/v6/science/dry-bean-figure.svg) · [数据来源](https://doi.org/10.24432/C50S4B)
+### 余震衰减估计随目录而变
 
-### Bootstrap 特征聚合 · 稳定性诊断
+在 Mw 7.1 主震后 1–72 小时、报告震级 ≥1.5 的相同口径下，ComCat 和 Shelly 重定位目录的拟合衰减指数分别为 0.55 与 0.48。
 
-从实际调参记录追查一个小细节：并列特征的取舍会影响模型，即使最终选中的特征完全一样。
+<a href="paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.svg"><img src="paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.webp" width="790" alt="两个目录的同尺度震中密度图、含留出区间的事件率对比，以及震级阈值与起算时间的敏感性分析。"></a>
 
-在 Digits 的一次划分中，调参从 **C = 10 变成 C = 1**，有 **八个样本预测标签变化**。稿件同时记录三个公开数据集和一个合成条件的实现诊断。
+[读论文](https://wubing2023.github.io/PaperSpine/v6/science/research/ridgecrest/paper.pdf) · [高清矢量图](paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.svg) · [源稿与代码](https://wubing2023.github.io/PaperSpine/v6/science/research/ridgecrest/source.zip) · [数据](https://doi.org/10.5066/P9JN6H0N)
 
-<a href="paperspine5/core/07_发布页/v6/science/feature-aggregation-figure.svg"><img src="paperspine5/core/07_发布页/v6/science/feature-aggregation.webp" width="760" alt="三个原生面板，展示阈值的并列情况、Digits 完整调参轨迹及构造信息组的覆盖率。"></a>
+### 六月烟霾，两种区域分布
 
-[阅读研究稿](paperspine5/core/07_发布页/v6/science/feature-aggregation-paper.pdf) · [打开原始矢量图](paperspine5/core/07_发布页/v6/science/feature-aggregation-figure.svg) · [案例证据与出处](paperspine5/core/07_发布页/v6/science/case-notes.md)
+以 6 月 20–22 日各站中位数为参照，大西洋沿岸与五大湖地区 PM₂.₅ 偏离量之差，从 6 月 6–8 日的 +74.1 反转为 27–29 日的 −69.1 µg/m³。
 
-### 不同学科的可编辑制图
+<a href="paperspine5/core/07_发布页/v6/science/research/smoke/figure.svg"><img src="paperspine5/core/07_发布页/v6/science/research/smoke/figure.webp" width="790" alt="EPA 站点地图、两组区域差值与逐日 PM₂.₅ 偏离量热图。"></a>
 
-图件库里有 **固态电池界面机理图** 和 **闭环催化剂筛选图**，分别展示机理示意和模拟数据的多面板表达。
+[读论文](https://wubing2023.github.io/PaperSpine/v6/science/research/smoke/paper.pdf) · [高清矢量图](paperspine5/core/07_发布页/v6/science/research/smoke/figure.svg) · [源稿与代码](https://wubing2023.github.io/PaperSpine/v6/science/research/smoke/source.zip) · [数据](https://aqs.epa.gov/aqsweb/airdata/download_files.html)
 
-<p><a href="https://wubing2023.github.io/PaperSpine/v6/zh/#figures"><img src="paperspine5/core/07_发布页/v6/science/solid-state-interface.webp" alt="循环中硫化物固态电解质与锂金属界面的机理示意图。" width="435"><img src="paperspine5/core/07_发布页/v6/science/catalyst-workflow.webp" alt="用模拟数据绘制的多面板闭环催化剂筛选流程图。" width="435"></a></p>
-
-[到 Figure Studies 下载原尺寸 PNG 和 SVG](https://wubing2023.github.io/PaperSpine/v5/figure-studies/)
+[三种模式证据](paperspine5/core/07_发布页/v6/science/research/README.md) · [早期安装试跑](paperspine5/core/07_发布页/v6/science/edition-field-test.md)
 
 <a id="paper-example"></a>
 <a id="feature-demos"></a>
