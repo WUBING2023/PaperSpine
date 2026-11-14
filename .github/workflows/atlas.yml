@@ -71,6 +71,10 @@ jobs:
           cp atlas/index.html atlas/echarts.min.js atlas/worldgeo.js atlas/data.js _site/
           mkdir -p _site/v5
           cp -R build/v5-site/. _site/v5/
+          if [ -f website/v6/downloads/channel.json ]; then
+            rm -r _site/v5/v6
+            python -B 'paperspine5/core/07_发布页/v6/build_v6.py' site website/v6/downloads _site/v6
+          fi
 
       - uses: actions/configure-pages@v5
         with:

@@ -1,12 +1,31 @@
 # Research and supplied-evidence writing
 
-The current Agent carries out this work under the one paper-spine Skill. Web
-stores the user's settings and choices; the public API records facts and exports
-readable bridge files. A research milestone is not a request to a hidden engine.
+The current Agent carries out this work. For chat-based work, use the user's
+instructions and the same paper's notes and files. When the user chooses the
+workbench, Web stores settings and choices and the public API exports the bridge
+files. A research milestone records work the Agent actually performed.
 
 Read the saved `research_mode`, materials inventory/authorized roots, task
 question and any explicit offline instruction before deciding what work to do. Keep original
 inputs unchanged. Record sources actually read and results actually computed.
+
+## Starting from a topic
+
+When the user requests a new study rather than writing from existing results,
+read [research-full-cycle.md](research-full-cycle.md). It connects the topic to
+prior-work checking, a testable question, design and fair comparisons, real
+execution, analysis, scientific figures and the existing paper/review methods.
+Confirm the same task's research scope and workspace; no existing manuscript or
+dataset is required merely to propose a study. Obtain actual sources before making
+dependent claims. Do not invent a new workflow enum or a second research authority:
+the study's real outputs become materials for the existing build route.
+
+`required` calls for the authorized research; `agent_decide` calls for a reasoned
+choice and actual execution when chosen. `materials_only` still forbids new data
+analysis and experiments: a topic in that mode can support literature-based
+writing, but cannot silently become a new empirical study. Existing rewrite/review
+requests retain their scope. Replication, descriptive and negative-result studies
+are valid outcomes; novelty or publication is never guaranteed.
 
 ## materials_only — supplied results, with normal literature learning
 

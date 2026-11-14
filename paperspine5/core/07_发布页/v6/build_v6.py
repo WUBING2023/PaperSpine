@@ -1,0 +1,128 @@
+#!/usr/bin/env python3
+"""Build PaperSpine V6 assets or render the Pages site from the release index."""
+
+from __future__ import annotations
+
+import argparse
+import html
+import json
+import re
+import shutil
+import sys
+import tempfile
+import zipfile
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+SITE = Path(__file__).resolve().parent
+CONTRACT = json.loads((SITE / "product-release.json").read_text(encoding="utf-8"))
+VERSION = CONTRACT["product"]["version"]
+TAG = CONTRACT["release"]["tagTemplate"].format(version=VERSION)
+REPO = f"{CONTRACT['github']['owner']}/{CONTRACT['github']['repository']}"
+RELEASE = f"https://github.com/{REPO}/releases/download/{TAG}"
+CHANNEL = CONTRACT["website"]["productionUrl"] + "channel.json"
+SEED = CONTRACT["compatibility"]["runtimeSeed"]
+EDITION_KEYS = {"skill": "SKILL", "skills-pack": "PACK", "web-plugin": "WEB"}
+
+
+def checked_index(directory: Path) -> dict:
+    index = json.loads((directory / "channel.json").read_text(encoding="utf-8"))
+    editions = index.get("editions", {})
+    if index.get("format") != "paperspine-editions/1" or set(editions) != set(EDITION_KEYS):
+        raise ValueError("Expected the three V6 distribution editions")
+    expected = []
+    for mode in EDITION_KEYS:
+        item = editions[mode]
+        suffix = "-windows-x64" if mode == "web-plugin" else ""
+        asset = f"paperspine-{mode}-{VERSION}{suffix}.zip"
+        if (
+            item["edition"] != mode or item["version"] != VERSION
+            or item["sequence"] != CONTRACT["release"]["sequence"]
+            or item["asset"] != asset or item["file"] != f"{RELEASE}/{asset}"
+            or not re.fullmatch(r"[0-9a-f]{64}", item["sha256"]) or item["bytes"] < 1
+        ):
+            raise ValueError(f"Invalid release channel entry for {mode}")
+        expected.append(f"{item['sha256']}  {asset}")
+    if (directory / "checksums.sha256").read_text(encoding="ascii").splitlines() != expected:
+        raise ValueError("Release index and published checksums disagree")
+    return editions
+
+
+def runtime_from_seed(seed: Path) -> None:
+    """Reuse the exact published Windows runtime for a clean source checkout."""
+    sys.path.insert(0, str(ROOT / "06_插件化/release"))
+    from edition_manager import digest, extract
+
+    if digest(seed) != SEED["sha256"]:
+        raise ValueError("Runtime seed SHA-256 differs from the V6 release contract")
+    parent = ROOT / "06_插件化/runtime_vendor"
+    runtime = parent / "windows-py312"
+    if runtime.exists():
+        raise ValueError("Runtime seed extraction expects a clean checkout")
+    with tempfile.TemporaryDirectory(prefix=".seed-", dir=parent) as temporary:
+        stage = Path(temporary)
+        with zipfile.ZipFile(seed) as old, zipfile.ZipFile(stage / "vendor.zip", "w") as vendor:
+            old_lock = json.loads(old.read("runtime_vendor/requirements.lock.json"))
+            source_lock = json.loads((parent / "requirements.lock.json").read_bytes())
+            if old_lock != source_lock:
+                raise ValueError("Windows runtime lock differs from verified release")
+            for entry in old.infolist():
+                if entry.filename.startswith("runtime_vendor/windows-py312/"):
+                    vendor.writestr(entry, old.read(entry))
+        extract(stage / "vendor.zip", stage)
+        prepared = stage / "runtime_vendor/windows-py312"
+        if not (prepared / "python.exe").is_file():
+            raise ValueError("The pinned runtime has no Windows Python")
+        prepared.rename(runtime)
+
+
+def build(output: Path, seed: Path | None) -> None:
+    sys.path.insert(0, str(ROOT / "07_发布页/scripts"))
+    from build_editions import build as build_editions
+
+    if seed is not None:
+        runtime_from_seed(seed)
+    build_editions(output, VERSION, CONTRACT["release"]["sequence"], RELEASE, CHANNEL)
+    checked_index(output)
+
+
+def render(metadata: Path, output: Path) -> None:
+    editions = checked_index(metadata)
+    replacements = {"VERSION": VERSION, "TAG": TAG}
+    for mode, key in EDITION_KEYS.items():
+        item = editions[mode]
+        replacements[f"{key}_URL"] = html.escape(item["file"], quote=True)
+        replacements[f"{key}_SIZE"] = (
+            f"{item['bytes'] / 1024:.0f} KiB" if item["bytes"] < 1024**2 else f"{item['bytes'] / 1024**2:.2f} MiB"
+        )
+    output.mkdir(parents=True, exist_ok=True)
+    for document in ("index.html", "en/index.html"):
+        text = (SITE / document).read_text(encoding="utf-8")
+        text = re.sub(r"@([A-Z_]+)@", lambda match: replacements[match[1]], text)
+        target = output / document
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(text, encoding="utf-8")
+    for file in ("v6.css", "workspace.webp"):
+        shutil.copyfile(SITE / file, output / file)
+    for file in ("channel.json", "checksums.sha256"):
+        shutil.copyfile(metadata / file, output / file)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    commands = parser.add_subparsers(dest="command", required=True)
+    assets = commands.add_parser("assets")
+    assets.add_argument("output", type=Path)
+    assets.add_argument("--runtime-seed", type=Path)
+    site = commands.add_parser("site")
+    site.add_argument("metadata", type=Path)
+    site.add_argument("output", type=Path)
+    args = parser.parse_args()
+    if args.command == "assets":
+        build(args.output, args.runtime_seed)
+    else:
+        render(args.metadata, args.output)
+
+
+if __name__ == "__main__":
+    main()

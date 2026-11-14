@@ -95,7 +95,7 @@ wrapper. No paragraph should disappear merely because it mentions an old tool.
   requires it. Visual learning requires actually seeing the figure. Do not replace
   these distinctions with a universal full-text dossier or an OA-only bibliography.
 - Independent review requires a real separate reviewer context (a different Agent
-  from the writer-host, which stays in the current conversation) and actual current
+  from the writer, whether host or fresh-context writer) and actual current
   files. Original role/persona methods guide that review without forcing a fixed
   role chain or invented criticism. A reviewer can find no issues; do not create
   a fake objection, mandatory revision, identity, score or PASS record to satisfy

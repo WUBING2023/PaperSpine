@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">PaperSpine Ridge Seal</title>
+  <desc id="desc">A seal-green circular seal containing a negative-space manuscript whose upper edge forms a mountain ridge.</desc>
+  <defs>
+    <mask id="ridge-seal-cut">
+      <rect width="100" height="100" fill="white"/>
+      <path d="M21 58 35 42l12 11 13-20 19 22v17c-11-2-21 1-29 8-9-7-18-10-29-8V58Z" fill="black"/>
+    </mask>
+  </defs>
+  <circle cx="50" cy="50" r="38" fill="#53806D" mask="url(#ridge-seal-cut)"/>
+</svg>

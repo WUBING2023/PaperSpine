@@ -1,0 +1,39 @@
+name: Build PaperSpine V6 distributions
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONUTF8: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.10"
+      - name: Check installer lifecycle
+        run: |
+          PYTHONPATH="paperspine5/core/06_插件化/release" python -B -m unittest test_editions test_stable_updater
+      - name: Build from the tagged source and pinned runtime
+        shell: bash
+        run: |
+          mkdir -p release-assets
+          runtime_url="$(python -c 'import json; print(json.load(open("paperspine5/core/07_发布页/v6/product-release.json", encoding="utf-8"))["compatibility"]["runtimeSeed"]["url"])')"
+          curl --fail --location --retry 3 "$runtime_url" --output "$RUNNER_TEMP/paperspine-runtime-seed.zip"
+          python -B "paperspine5/core/07_发布页/v6/build_v6.py" assets release-assets --runtime-seed "$RUNNER_TEMP/paperspine-runtime-seed.zip"
+          python -B "paperspine5/core/07_发布页/v6/build_v6.py" site release-assets "$RUNNER_TEMP/v6-site"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paperspine-v6-release
+          path: |
+            release-assets/*.zip
+            release-assets/INSTALL.md
+            release-assets/channel.json
+            release-assets/checksums.sha256
+          if-no-files-found: error
+          compression-level: 0

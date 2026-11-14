@@ -15,6 +15,13 @@ reader problem needs repair and which scientific content remains valid.
 
 Reuse the same task's valid configuration, choices, source evidence and learning notes. If a substantive input is missing, resolve that specific gap; the absence of a historical filename alone does not send the current host back to an old stage.
 
+For full-paper reconstruction or a reference-guided rewrite, apply
+[reference-guided-writing.md](reference-guided-writing.md). Establish the study's
+question and contribution hierarchy before exemplar selection; learn complementary
+moves from the existing learning pool, preserve an independent structure, and
+use fresh-context writing followed by a distinct fresh reviewer when available.
+Existing valid prose may remain. A local edit uses only affected claims/passages.
+
 ## Authorial Voice Restoration
 
 Apply the saved author-expression preference through

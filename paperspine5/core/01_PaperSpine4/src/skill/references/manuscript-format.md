@@ -298,18 +298,82 @@ template, CSL, filters, fonts/dependency notes and editable figure assets needed
 to rebuild. A manuscript-specific layout adjustment may be appropriate; repeated
 conversion or linking logic belongs in the installed reusable tools.
 
-### Shared Markdown exporter
+### Shared manuscript exporter
 
-For a Pandoc Markdown source, use the installed `scripts/manuscript_export.py`
+For Markdown, supported native LaTeX or Pandoc JSON, use the installed `scripts/manuscript_export.py`
 with its adjacent `scripts/manuscript_refs.lua`. It processes citations once
 with the selected CSL, then exports the same semantic content to DOCX and TeX
-and compiles that TeX to PDF. It requires Pandoc 3 or newer and the selected TeX
-engine. Check these actual executables once; use an available equivalent authoring
+and compiles that TeX to PDF. Pandoc 3.8.3 is the tested version; 3.12 changed
+DOCX bookmark names and fails the current reference checks even for the unchanged
+Markdown path. Check an alternative version on real references before accepting
+it. PDF additionally needs the selected local TeX engine. Check these actual
+executables once; use an available equivalent authoring
 system when the host has a different toolchain while preserving the semantics.
 
 ```text
 python scripts/manuscript_export.py manuscript.md --bibliography references.bib --csl venue.csl --output-dir export --reference-doc venue-reference.docx --metadata-file venue.yaml --template venue-pandoc.tex --pdf-engine xelatex
 ```
+
+For an existing TeX manuscript, preserve its native project and use
+`--source-format latex`. Supply an existing `--latexpand /path/to/latexpand` when
+it includes other files, especially table rows: the LaTeX reader can silently
+collapse a nested table input. The exporter writes a separate flattened reader
+input, keeps the first longtable header, removes only recognized continuation
+furniture, and rejects scientific text in footers instead of deleting it. It
+also removes the known `>{\raggedright\arraybackslash}` layout modifier from
+that input because Pandoc otherwise consumes the first cell token. Compare
+every table cell's median, interval, units and denominators with the native
+source; object counts cannot detect this loss. Arbitrary macro-generated
+tables, custom drawing environments and complex footer conventions are outside
+this bounded import support. Diagnose them explicitly and retain the native
+build rather than inventing a per-paper converter.
+Flattened input is read in the export directory so local publisher style macros
+do not replace scientific source macros or break the reader. This does not adopt
+the publisher's native layout. Native labelled-equation links that the Word
+writer cannot resolve are rejected by the destination check; they need a faithful
+semantic equation adapter or the native authoring route, not a claim that all
+TeX constructs are supported.
+
+Native `\caption`/`\label` and `\ref` preserve linked figure/table references;
+both `tab:` and `tbl:` table labels are supported. Native counter resets are
+not inferred by the reader. Put explicit supplementary labels in the task's
+metadata, for example `reference-labels: {fig:supp: S1, tab:supp: S1}`, then
+check each caption and its body link in both outputs. Bibliography keys remain
+bound to the supplied BibTeX and selected CSL. `--formats docx tex pdf` uses the
+same processed AST for all three outputs; the generated TeX is a semantic
+export, not a replacement of the native project's class/layout. `--source-format
+json` accepts Pandoc AST JSON; surface checks cover emitted formats, not unused
+JSON metadata. Do not describe that as an exhaustive source audit.
+
+Use `--pandoc /path/to/pandoc` for a verified official portable executable when
+Pandoc is absent from PATH; it need not be installed globally or bundled into
+the Skill. For single-page PDF figures in Word, use an existing `--pdftocairo
+/path/to/pdftocairo` with adjacent `pdfinfo`, or PyMuPDF in the selected runtime.
+The Word-only AST uses 300-DPI PNGs with source/output hashes; the semantic AST
+and TeX retain the PDF assets. Multipage PDFs need an explicit page selection
+before export. Supply a prepared reference DOCX with real page geometry and
+learned styles, and font metadata with actual glyph coverage for TeX/PDF. These
+dependencies and layout choices belong in the editable work package; inspect
+the actual Word render separately after updating its reference fields.
+When the actual Word render splits a short table row, `--keep-table-rows` adds
+`cantSplit` only where no explicit row rule exists. Keep captions/images together
+through the reference DOCX styles and inspect tall rows rather than assuming
+this flag proves good pagination. Use a reusable layout filter for wrapping
+tables whose reader supplied no column widths; do not shrink or crop scientific
+content to fit the stock writer. Page geometry and column proportions remain
+task/venue layout choices.
+
+The bibliography reader preserves an `eid` article identifier as CSL `page` when
+the parsed entry has no page, and normalizes Unicode hyphens only within parsed
+given names so citeproc retains both initials. Family and compound names and the
+original BibTeX stay intact. Its reader-input JSON and change list make this
+compatibility transformation visible. Check actual article identifiers, author
+initials and style in both outputs; a bibliography count does not prove fidelity.
+
+Keep BibTeX DOI and URL fields as raw identifiers, rather than TeX-escaping their
+underscores or other URI characters as prose. Let the renderer handle display
+escaping, then compare the actual PDF link targets and DOCX relationships with
+the source identifiers; a correct-looking reference can still link incorrectly.
 
 Here `venue-pandoc.tex` is a compatible Pandoc template, not a raw official sample;
 `venue-reference.docx` is the prepared style reference. Select the engine actually
@@ -389,6 +453,8 @@ placement. Inspect the rendered result rather than assuming the CSL moved the
 source punctuation automatically.
 
 ## Inspect structure, pixels and reader interaction
+
+For a template with known reserved header/footer bands, an optional read-only diagnostic is `python scripts/pdf_reserved_band_probe.py draft.pdf --footer-mm <millimetres> --report band-report.json`. Declare the actual template band; inspect any full-span furniture exemptions and flagged pages. Keep input and report paths distinct. The helper needs an existing PyMuPDF environment and explicitly rejects rotated pages. A tool/configuration failure leaves that check unverified: continue actual page inspection rather than treating it as a clean result or blocking research. No flags or exit0 establishes layout quality.
 
 For likely whitespace/column problems, use the existing visual helper directly
 on each current PDF (including a faithful DOCX proof when available):

@@ -22,6 +22,13 @@ external action still requires the applicable user authorization; review finding
 do not supply it. Preserve scientific truth and verify affected outputs after
 repair. A longer audit trail is not evidence of a better paper.
 
+For full-paper reference-guided writing, apply the distinct fresh-context review
+in [reference-guided-writing.md](reference-guided-writing.md). Compare actual
+reference moves, contribution hierarchy, complete non-defensive reporting and
+structural independence. A writer's own check cannot close that review. An
+anonymous comparison withholds the version key and desired outcome; preserve
+original judgments and independently recheck affected revisions.
+
 ## Balanced (default)
 
 Use for ordinary research writing, evidence-bounded rewrites, reports, early and
@@ -44,6 +51,11 @@ middle drafts, and most user-directed production work.
 - Judge manuscript completeness through one free-form editor synthesis, not a
   fixed scorecard. The synthesis must read the actual paper and may recommend
   any structure that fits the venue.
+- Carry the user's unresolved quality requirements and their existing evidence
+  into that review. Report whether each was assessed and met within the review's
+  scope; a numerical or format pass cannot close an unassessed literature,
+  contribution or exemplar-comparison request. Repair with the available material
+  where possible, and keep a justified remaining limitation explicit.
 - In that synthesis, compare the headline contribution with the actual controls,
   uncertainty and closest prior work; identify important results that the paper
   leaves invisible or repeats. Open the chosen external exemplars, final figures

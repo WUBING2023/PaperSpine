@@ -18,7 +18,7 @@ from the task/bridge. When literature preferences are absent, use these defaults
 | `reference_count` | null | The user's positive count when mode is `custom` |
 | `mechanism_figure` | `prefer` | Proactively consider a mechanism, conceptual framework or method architecture |
 
-Web supports 3+3, 6+6 and custom counts. A saved custom choice takes precedence.
+The user can choose 3+3, 6+6 or custom counts in chat or the workbench. Honor a saved choice.
 Use six distinct papers for the default two sets; an overlapping role can be
 noted, but three papers counted twice are not six papers learned. Prefer relevant,
 strong research and communication at the target venue's level or above. Explain
@@ -28,7 +28,7 @@ equate availability, open access or an unverified venue ranking with quality.
 If no venue is specified, do not silently turn an Agent-selected comparator
 into the target. When the user has delegated venue selection, choose a scientifically
 suitable journal with viewable published-PDF exemplars, explain the fit and save
-that venue through the normal Web configuration route before target-specific
+that venue through the chosen configuration route before target-specific
 assembly. Otherwise request one concise target decision and continue safe
 venue-neutral work meanwhile. A provisional comparator may guide general quality,
 but it cannot support a claim of target-format compliance. Respect explicit
@@ -123,6 +123,13 @@ justify a documented adjustment; report the actual shortfall and reason instead
 of marking the preference fulfilled. This remains scientific work, not a new
 numeric approval gate or a demand to read every cited paper in full.
 
+Use a shortfall to inspect missing scientific roles: nearest prior result, method
+definition, competing explanation, relevant failure case or practical consequence.
+For each useful addition, change the passage it informs and check its actual
+support. A larger candidate library does not close a used-reference shortfall;
+neither does repeating citations to the same source. Keep the saved preference
+and actual used count visible while judging contribution and validity separately.
+
 ## Transfer the learning into the actual manuscript
 
 Apply both reading sets to the research-question framing, Introduction's argument,
@@ -210,6 +217,15 @@ necessary data figures. Do not turn `prefer` into a random probability or an
 obligation to imply proven causality.
 
 ## Independent editorial review of the actual new paper
+
+When delegating this review, provide the current manuscript and actual renders,
+the retained learning-PDF paths and page lessons, the closest current work and
+parts actually read, and the saved preferences with unresolved learning items.
+Include the exemplar bibliography counts and the current citation processor's
+distinct used-entry count; a candidate library is not the manuscript bibliography.
+Reuse the existing files and notes in the handoff rather than making a new form.
+This lets the reviewer assess the requested comparison instead of inferring it
+from a numerically valid result or an earlier limited review.
 
 Alongside numeric, citation and render checks, independently assess whether a
 reader can state the contribution in one sentence, whether the evidence supports

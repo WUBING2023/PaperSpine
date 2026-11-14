@@ -7,6 +7,13 @@ This file is the canonical stage playbook for the paper-spine orchestrator.
 Build a manuscript from materials when no real draft exists yet. Shares the
 same research, motivation, and rationale logic as the rewrite stage.
 
+For the full manuscript, apply
+[reference-guided-writing.md](reference-guided-writing.md): derive its argument
+from this study's evidence, assign complementary exemplar roles within the saved
+learning pool, and keep actual changes traceable without copying an exemplar's
+special structure. Fresh writing/review receives complete scientific evidence,
+not conversational emphasis or an expected verdict.
+
 ## Start from the same task
 
 Read its saved configuration, confirmed materials, supported contribution and

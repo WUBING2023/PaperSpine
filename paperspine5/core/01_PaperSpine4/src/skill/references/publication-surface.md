@@ -32,7 +32,14 @@ these figures" to work notes, while retaining an unresolved measurement unit or
 study-setting limitation where it affects interpretation. Do not invent author,
 ethics or recruitment facts. Use concise academic wording or an explicit author
 placeholder when needed; a local draft is not automatically submission-ready.
-Reproducibility methods, participant choices in an HCI study and a systematic review's screening process remain scientific content. Do not remove them merely because they mention a user, workflow or review. PaperSpine itself must never add an AI-use disclosure, model/tool name, AI-generated label or workflow provenance marker to any reader-facing paper output. If an external submission system separately requires a disclosure, keep that requirement in submission metadata and author instructions; do not silently add it to the manuscript body.
+Reproducibility methods, participant choices in an HCI study and a systematic
+review's screening process remain scientific content. Do not remove them merely
+because they mention a user, workflow or review. Remove irrelevant production
+narration, while preserving factual disclosures requested by the user or required
+by the applicable venue, in the location that requirement specifies. Do not
+invent a disclosure requirement or silently move a required manuscript disclosure
+into private metadata. State unexposed model or tool details as unknown rather
+than guessing them. These distinctions do not authorize submission or upload.
 
 Also remove defensive audit voice. The final paper should not repeatedly say
 “within the supplied materials,” “user-authoritative,” “the evidence ledger

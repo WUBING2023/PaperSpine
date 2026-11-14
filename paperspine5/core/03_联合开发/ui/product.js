@@ -14,18 +14,20 @@ const decisionsOf = (task) => task?.domain_decisions ?? task?.decisions ?? [];
 const SUPPORT_PAGE_URL = "https://wubing2023.github.io/PaperSpine/v5/?support=1";
 const SUPPORT_USAGE_KEY = "paperspine5.support-usage.v1";
 function supportMilestone(count) { return count === 3 || (count >= 10 && count % 10 === 0); }
-function recordPackageUse(artifact) {
-  if (!artifact || !state.taskId || !globalThis.localStorage) return null;
+function recordPackageUse(artifact, taskContext) {
+  if (!artifact || !taskContext?.taskId) return null;
   const type = String(artifact.artifact_type || "").toLowerCase();
   const name = String(artifact.filename || artifact.file_name || "").toLowerCase();
   if (!type.includes("package") && !name.endsWith(".zip")) return null;
   try {
-    const data = JSON.parse(localStorage.getItem(SUPPORT_USAGE_KEY) || '{"count":0,"seen":[]}');
-    const key = `${state.taskId}:${state.task?.task_version ?? state.task?.version ?? "current"}:${artifact.artifact_id || name}`;
+    const storage = globalThis.localStorage;
+    if (!storage) return null;
+    const data = JSON.parse(storage.getItem(SUPPORT_USAGE_KEY) || '{"count":0,"seen":[]}');
+    const key = `${taskContext.taskId}:${taskContext.task?.task_version ?? taskContext.task?.version ?? "current"}:${artifact.artifact_id || name}`;
     if (!Array.isArray(data.seen)) data.seen = [];
     if (data.seen.includes(key)) return null;
     data.seen.push(key); data.seen = data.seen.slice(-200); data.count = Math.max(0, Number(data.count) || 0) + 1;
-    localStorage.setItem(SUPPORT_USAGE_KEY, JSON.stringify(data));
+    storage.setItem(SUPPORT_USAGE_KEY, JSON.stringify(data));
     return supportMilestone(data.count) ? data.count : null;
   } catch (_) { return null; }
 }
@@ -1296,7 +1298,7 @@ if (typeof document !== "undefined") {
             document.body.append(save); save.click(); save.remove();
             setTimeout(() => URL.revokeObjectURL(objectUrl), 60000);
             status.textContent = "已交给浏览器保存，请在下载列表查看。";
-            showSupportMilestone(recordPackageUse(artifact));
+            showSupportMilestone(recordPackageUse(artifact, state));
           } catch (error) { status.textContent = error.message || "下载未完成，请重试。"; }
           finally { delete link.dataset.busy; }
         });

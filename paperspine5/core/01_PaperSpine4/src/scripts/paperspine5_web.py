@@ -68,6 +68,10 @@ def parse_args() -> argparse.Namespace:
     status.add_argument("--profile-root")
     status.add_argument("--legacy-runner", action="store_true")
 
+    stop = subparsers.add_parser("stop", help="stop the owned public Web workspace and keep its tasks")
+    stop.add_argument("--profile-root", required=True)
+    stop.add_argument("--project-root")
+
     api = subparsers.add_parser(
         "api",
         help="call the authenticated loopback API for Agent-side automation",
@@ -632,6 +636,9 @@ def main() -> int:
                 return status(args)
             from paperspine_public_client import web_status
             return web_status(args, locate_product_root(args.project_root))
+        if args.command == "stop":
+            from paperspine_public_client import web_stop
+            return web_stop(args, locate_product_root(args.project_root))
         if args.command == "host":
             return host_call(args)
         return api_call(args)

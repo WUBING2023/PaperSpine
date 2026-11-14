@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">PaperSpine plugin icon</title>
+  <desc id="desc">A warm-paper Ridge Seal on a deep-pine rounded square.</desc>
+  <defs>
+    <mask id="ridge-seal-cut">
+      <rect width="100" height="100" fill="white"/>
+      <path d="M26 57 38 44l10 9 11-17 16 19v14c-9-2-17 1-25 7-7-6-15-9-24-7V57Z" fill="black"/>
+    </mask>
+  </defs>
+  <rect x="4" y="4" width="92" height="92" rx="22" fill="#203431"/>
+  <circle cx="50" cy="50" r="32" fill="#F8F6F0" mask="url(#ridge-seal-cut)"/>
+</svg>

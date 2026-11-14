@@ -8,8 +8,11 @@ fixed J-number or persona chain.
 
 ## How the host uses it
 
-Read this protocol at the start of paper production and again after a resume.
-For every step, record the factual result in the task's existing working notes
+Read this protocol at the start of whole-paper production or whole-task
+recovery. For a focused edit, review or explanation, use only the applicable
+steps and original methods; reuse saved configuration and unaffected work.
+Resuming a local correction does not require repeating all seventeen steps.
+For each applicable step, record the factual result in the task's existing working notes
 or artifact inventory. Do not create a form merely to satisfy this list. A
 single note may cover several adjacent steps when it contains the same evidence.
 The host may run independent retrieval, analysis, rendering and review work in
@@ -274,6 +277,12 @@ not adoption. Repair a wrong assembly while preserving valid choices; never
 label host-selected candidates as user-confirmed clicks.
 
 ### 13. Draft one semantic manuscript
+
+Apply [reference-guided-writing.md](reference-guided-writing.md) for full-paper
+drafting/reconstruction: own evidence-led outline, complementary exemplar roles,
+direct supported prose and fresh-context writing with the complete evidence
+packet when available. Do not reduce the saved literature-learning set or
+manufacture sentence correspondences. Local edits use only applicable parts.
 
 Write the complete article from the confirmed contribution, evidence ledger,
 result/figure plan and learned target style. The paper must have a readable

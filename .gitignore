@@ -45,6 +45,7 @@ paper-spine-promo-video/
 
 # PaperSpine5 release assets are uploaded to GitHub Releases, never committed.
 release-assets/*.zip
+paperspine5/core/06_插件化/runtime_vendor/windows-py312/
 build/
 
 # Reproducible acceptance sample (regenerate via examples/v4_acceptance.py)

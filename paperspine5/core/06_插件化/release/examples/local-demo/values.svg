@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+<rect width="640" height="400" fill="white"/>
+<g font-family="Arial,sans-serif" fill="#202020"><text x="45" y="35" font-size="22">Constructed values for a teaching example</text><text x="45" y="60" font-size="14">Not observations or experimental results</text></g>
+<path d="M70 90V320H590" fill="none" stroke="#555"/>
+<g fill="#356b57"><rect x="110" y="280" width="50" height="40"/><rect x="205" y="240" width="50" height="80"/><rect x="300" y="200" width="50" height="120"/><rect x="395" y="160" width="50" height="160"/><rect x="490" y="120" width="50" height="200"/></g>
+<g font-family="Arial,sans-serif" font-size="17" text-anchor="middle" fill="#202020"><text x="135" y="270">2</text><text x="230" y="230">4</text><text x="325" y="190">6</text><text x="420" y="150">8</text><text x="515" y="110">10</text><text x="135" y="345">A</text><text x="230" y="345">B</text><text x="325" y="345">C</text><text x="420" y="345">D</text><text x="515" y="345">E</text><text x="55" y="325">0</text><text x="325" y="380">Item identifier</text></g>
+</svg>

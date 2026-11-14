@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="PaperSpine V6 提供全流程 Skill、独立研究与 Followwriting 阶段 Skills，以及可选的本地 Web 插件。">
+  <meta name="theme-color" content="#edf1e9">
+  <meta property="og:title" content="PaperSpine V6">
+  <meta property="og:description" content="在对话里完成论文。按需要选择全流程、阶段 Skills 或本地工作台。">
+  <meta property="og:image" content="https://wubing2023.github.io/PaperSpine/v6/workspace.webp">
+  <link rel="canonical" href="https://wubing2023.github.io/PaperSpine/v6/">
+  <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/v6/">
+  <link rel="alternate" hreflang="en" href="https://wubing2023.github.io/PaperSpine/v6/en/">
+  <link rel="icon" href="../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
+  <title>PaperSpine V6 · 论文全流程 Skill</title>
+  <link rel="stylesheet" href="v6.css">
+</head>
+<body>
+  <header>
+    <div class="shell header-inner">
+      <a class="brand" href="./"><img src="../v5/assets/brand/paperspine-mark.svg" alt="">PaperSpine V6</a>
+      <nav aria-label="主导航">
+        <a href="#download">下载</a>
+        <a href="../v5/materials/">图件素材</a>
+        <a href="https://github.com/WUBING2023/PaperSpine">GitHub</a>
+        <a href="en/" lang="en" hreflang="en">English</a>
+      </nav>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="version">V6 · @VERSION@ 公测 · MIT</p>
+        <h1>在对话里，<br>把研究写成论文。</h1>
+        <p>从题目、结果或已有稿件出发。让 Agent 学习真实参考文献，整理证据、写作、制图并交付可编辑稿件。需要界面时，再打开本地工作台。</p>
+        <div class="links"><a class="button" href="#download">选择下载方式</a><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">更新说明</a></div>
+      </div>
+      <figure>
+        <img src="workspace.webp" width="1200" height="720" alt="PaperSpine V6 本地工作台显示教学样例的论文设置" fetchpriority="high">
+        <figcaption>可选的本地工作台，图为安装包中的设置界面。</figcaption>
+      </figure>
+    </section>
+    <section class="downloads" id="download">
+      <h2>选一种安装方式</h2>
+      <div class="cards">
+        <article class="card"><h3>全流程 Skill</h3><p>一次调用 <code>$paper-spine</code>。适合从一个研究问题或现成材料出发，在对话里推进整篇论文。</p><p class="spec">支持 Skill 的宿主 · @SKILL_SIZE@</p><a class="button" href="@SKILL_URL@">下载全流程 Skill</a></article>
+        <article class="card"><h3>Skills 包</h3><p>保留全流程入口。研究、Followwriting、制图、审阅和交付也可独立调用，方便反复做单项工作。</p><p class="spec">支持 Skill 的宿主 · @PACK_SIZE@</p><a class="button" href="@PACK_URL@">下载 Skills 包</a></article>
+        <article class="card"><h3>Web 插件包</h3><p>安装同一组 Skills 和本地工作台。在网页保存配置、比较图件、预览稿件和提交返修意见。</p><p class="spec">Windows x64 · Codex · @WEB_SIZE@</p><a class="button" href="@WEB_URL@">下载 Web 插件包</a></article>
+      </div>
+      <div class="links"><a href="https://github.com/WUBING2023/PaperSpine/releases/download/@TAG@/INSTALL.md">安装、更新与卸载</a><a href="checksums.sha256" download>SHA-256 校验</a><a href="channel.json">V6 更新频道</a></div>
+    </section>
+    <section class="details" aria-label="使用说明">
+      <div><h2>按真实论文学习写法</h2><p>Followwriting 按需读一篇或多篇参考论文，学习论证和表达方式。研究结论来自你自己的证据，改写可保留可核对的原文位置和写法对照。</p></div>
+      <div><h2>更新和卸载时保留论文</h2><p>安装管理器按所选方式整包更新、回退和卸载。公开发行包内置 V6 频道，可以关闭自动检查。旧 V5 的自动更新仍走原频道。</p></div>
+    </section>
+  </main>
+  <footer class="shell"><span>PaperSpine · MIT</span><div class="links"><a href="../v5/?legacy=1">V5 官网存档</a><a href="../v5/?support=1">支持维护</a><a href="https://github.com/WUBING2023/PaperSpine/issues">问题反馈</a></div></footer>
+</body>
+</html>

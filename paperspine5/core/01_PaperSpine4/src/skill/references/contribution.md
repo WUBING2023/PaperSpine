@@ -19,6 +19,18 @@ WHY this is a hard gate: the most common failure mode in generated papers is flu
 
 ## The Artifact: `confirmed_contribution.md`
 
+A defensible narrow statement does not by itself answer a request for stronger
+scientific evidence. With new research authorized, compare attainable evidence
+actions by which important uncertainty each could resolve before defaulting to
+softer wording or a larger version of the same grid. Carry the most informative
+feasible action into the actual design and producing analysis. Use
+[the research design guidance](research-full-cycle.md) for this choice; the
+open-topic independent formulation pass there can challenge the question itself
+before more work is committed to a merely defensible version of it. A valid
+saved or user-fixed contribution is not reopened by this instruction. The
+existing contribution notes suffice. For supplied-results writing, preserve the
+available evidence and its boundary without inventing an experimental mandate.
+
 Keep this reasoning in the current contribution choice or existing notes. The
 legacy `confirmed_contribution.md` helper represents it with four sections. Each row exists to force a specific decision; the "WHY" tells you what goes wrong if the cell is vague or empty. Do not leave cells as `TODO`, `TBD`, `...`, or template placeholders — `contribution_check.py` treats those as failures, because an unfilled cell means the decision was never actually made.
 

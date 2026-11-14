@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperSpine5 Workspace"
+  short_description: "打开本地 PaperSpine5 网页并完成论文写作、科研图像与交付"
+  default_prompt: "打开 PaperSpine5 工作区并继续当前论文任务。"

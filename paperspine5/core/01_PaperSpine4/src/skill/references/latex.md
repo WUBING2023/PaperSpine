@@ -29,6 +29,19 @@ manuscript-format.md's placed-size method. Neither an image-count check nor keep
 the caption on its page permits unreadable labels. Fix placement, panel layout or
 lettering in the producing assets, then inspect the actual affected renders.
 
+For a supplied native TeX project that lacks Word, start with the shared exporter
+described in [manuscript-format.md](manuscript-format.md), using `--source-format
+latex`, the actual BibTeX/CSL and prepared reference DOCX. Use its existing
+`--pandoc`, `--latexpand` and Word-only `--pdftocairo` dependency arguments as
+needed; keep the native TeX tree intact. Check the supported import boundaries
+there before conversion. Compare all table cells, formulae, captions and body
+destinations, including explicit supplementary labels. A raw Pandoc conversion
+or matching figure/table counts can silently lose numbers and numbering. Export
+requested formats from the same processed semantic manuscript, then render and
+inspect Word and PDF separately. Repair repeated reader failures in the shared
+method/tool; do not replace it with a single-case parser or manually patch only
+the delivered DOCX.
+
 ## Historical Runner compatibility
 
 The remaining paths, manifests and guard commands document the historical Runner

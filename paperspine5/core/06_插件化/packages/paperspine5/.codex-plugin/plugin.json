@@ -1,0 +1,29 @@
+{
+  "name": "paperspine5",
+  "version": "0.4.0-alpha.1-dev+codex.20260901212812",
+  "description": "PaperSpine5 canonical paper-spine \u524d\u95e8\u7684\u5185\u90e8 MCP \u8c03\u5ea6\u540e\u7aef\uff1aProduct Kernel\u3001ProductRunner 0.2 J1-J11 \u901a\u7528\u534f\u4f5c\u9636\u6bb5\u4e0e Web-first \u5de5\u4f5c\u533a\uff1b\u4e0d\u66b4\u9732\u7b2c\u4e8c\u4e2a Skill \u5165\u53e3\uff0cW8 \u6210\u719f\u5ea6\u4e0e\u5916\u90e8\u6295\u7a3f\u4ecd P0 BLOCKED\u3002",
+  "author": {
+    "name": "PaperSpine5 project"
+  },
+  "interface": {
+    "displayName": "PaperSpine5",
+    "shortDescription": "canonical paper-spine \u7684 ProductRunner/Web-first \u5185\u90e8 MCP \u540e\u7aef\u3002",
+    "longDescription": "\u4ec5\u4f5c\u4e3a canonical paper-spine Skill \u8c03\u7528\u7684\u5185\u90e8 MCP \u8c03\u5ea6\u540e\u7aef\uff0c\u4e0d\u58f0\u660e\u72ec\u7acb\u7528\u6237 Skill \u5165\u53e3\u3002\u5b83\u4ee5\u7d2f\u79ef typed \u8bc1\u636e\u3001\u72ec\u7acb\u5ba1\u67e5\u4e0e fail-closed \u95e8\u7981\u7f16\u6392 J1-J11\u3002target_package_ready \u4ecd\u662f\u672c\u5730\u72b6\u6001\uff1bW8\u3001P0 \u4e0e\u5916\u90e8\u6295\u7a3f\u6388\u6743\u72ec\u7acb\u963b\u65ad\u3002",
+    "developerName": "PaperSpine5 project",
+    "category": "Productivity",
+    "brandColor": "#203431",
+    "composerIcon": "./assets/composer-icon.png",
+    "logo": "./assets/logo.png",
+    "logoDark": "./assets/logo-dark.png",
+    "capabilities": [
+      "Interactive",
+      "Local files",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "\u4f7f\u7528\u5f53\u524d\u672c\u5730\u771f\u6e90\u8fd0\u884c PaperSpine5\uff0c\u5e76\u7ee7\u7eed\u5f53\u524d\u8bba\u6587\u4efb\u52a1\u3002",
+      "\u68c0\u67e5 PaperSpine5 \u5f53\u524d\u8bba\u6587\u3001\u56fe\u4ef6\u3001\u89c4\u8303\u4e3b\u7a3f\u4e0e\u6295\u7a3f\u5faa\u73af\u72b6\u6001\u3002"
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

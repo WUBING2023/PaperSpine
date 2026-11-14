@@ -95,7 +95,11 @@ does not become a measured Results finding merely because it appears in the pape
 ## 5. Produce and Select the Figure in the Current Workflow
 
 For redesign/create, carry the viewed reference and story/domain mapping into
-editable candidate sources. Alternatives communicate the same evidence. Preserve
+editable candidate sources. Alternatives communicate the same evidence. Apply
+the panel-substitution decision in figure-reference-mapping.md and create the
+provisional caption alongside the first render as specified in
+scientific-figure-workflow.md. Keep that caption synchronized through revision;
+the later manuscript pass reconciles it rather than creating it from scratch. Preserve
 the useful whole-concept structure in a mechanism's final reconstruction; an
 organ atlas remains an intermediate asset.
 
@@ -114,6 +118,8 @@ changes topology, labels, data, panel meaning or statistical semantics fails.
 User preference and independent scientific review serve different purposes.
 
 ## 6. Integrate the Selected Image and Re-read the Final Pages
+
+For scatter figures, compare the full source scope with the values actually plotted and inspect each finite, unmasked offset after its collection offset transform against the axis bounds. Input-array counts alone do not show that every point is visible: fixed limits can omit negative or extreme observations. The existing layout probe can flag offset-center candidates; it does not approve scientific completeness, assess bars/lines, or replace native-size pixel inspection. Intentional zoom, excluded observations and custom clipping need explicit accounting in the caption or supporting figure. Running the probe executes a trusted producer with its normal exports and other side effects; use an isolated copied producer when preserving an immutable figure.
 
 Connect the actual selected export and editable source to the caption, manuscript
 label, Results units and story fields in section 3. Read current sources and

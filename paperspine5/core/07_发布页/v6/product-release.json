@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "product": {
+    "name": "PaperSpine V6",
+    "slug": "paperspine",
+    "version": "6.0.0-beta.1",
+    "channel": "beta",
+    "license": "MIT"
+  },
+  "github": {
+    "owner": "WUBING2023",
+    "repository": "PaperSpine",
+    "communityRepository": null
+  },
+  "release": {
+    "tagTemplate": "v{version}",
+    "sequence": 2026111403,
+    "checksum": "sha256"
+  },
+  "website": {
+    "productionUrl": "https://wubing2023.github.io/PaperSpine/v6/",
+    "manifestPath": "website/v6/channel.json",
+    "legacyUrl": "https://wubing2023.github.io/PaperSpine/v5/"
+  },
+  "compatibility": {
+    "legacyUpdates": "https://raw.githubusercontent.com/WUBING2023/PaperSpine/main/website/downloads/update-channel.json",
+    "runtimeSeed": {
+      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.3/paperspine5-suite-0.4.0-alpha.3.zip",
+      "sha256": "0b82966ab10c6d5e9f2237a9f9189db43c82a1c438fa95838c2a754954952a2a"
+    }
+  }
+}

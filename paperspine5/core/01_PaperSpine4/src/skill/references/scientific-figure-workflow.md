@@ -18,6 +18,12 @@ Use this workflow before generating a candidate, including during revision.
 Follow the same reference-to-figure method for a graphical abstract, conceptual
 framework and mechanism schematic.
 
+For feedback on an existing figure, apply
+[figure-revision-decisions.md](figure-revision-decisions.md): diagnose the actual
+complaint, preserve the accepted scientific structure, and repair the relevant
+layer. Reuse valid references for local edits. Set the intended placed width
+before composing, and check it again after manuscript integration.
+
 Before planning prose around existing figures, read the complete
 [figure-story.md](figure-story.md), including the scientific content
 inside its planning and integration examples. Inspect the real image, identify
@@ -31,7 +37,10 @@ content-transfer limits in [figure-reference-mapping.md](figure-reference-mappin
 plus its Background Rule and Reuse of Point/Line Grammar. Actually open the
 reference source and figure. Record which layout, palette, typography, marks,
 panel hierarchy and annotations transfer to the present question. Map each
-panel to the current data/units/transform and preserve domain differences.
+panel to the current data/units/transform and preserve domain differences. Apply
+the mapping's panel-substitution decision before fixing geometry: confirm that
+the proposed evidence still does the scientific job, not just that its new name
+and statistic have been disclosed.
 Never transfer the reference paper's numbers, conclusions or patient details.
 Without a lawful viewable reference, say the design is original; do not claim
 reference-guided work. Prefer white/transparent scientific canvases unless the
@@ -45,6 +54,44 @@ views at readable size. Keep editable figure sources and a short mapping note.
 The references' legacy compatibility sections describe Runner schemas, Master
 attestations and PaperFigure handoffs only for explicit legacy maintenance.
 Current work uses ordinary notes, sources, public choices and real-file review.
+
+## Draft the caption while constructing the figure
+
+For a paper figure, prepare a provisional caption before the first complete
+render and revise it with panel changes. Keep it beside the editable figure;
+use the paper's existing caption source when available. Do not wait for finished
+manuscript prose. The caption identifies panel letters, quantities/comparisons,
+sample and replicate units, pairing, transforms, selection, uncertainty and
+essential interpretation limits as applicable. Describe only results actually
+computed; mark outstanding manuscript links in working notes, not as invented
+findings in the caption. For a planning-only task, draft caption text for the
+already supported content and keep proposed analyses in a separate pending-work
+note. Do not describe a proposed clustering, module score or comparison as an
+existing panel, or put an unperformed analysis into a purportedly complete caption.
+
+Keep the artwork's text for decoding the marks: panel letters, entity/condition
+names, axes and units, compact legend keys, selected IDs and necessary qualifiers.
+By default omit explanatory or conclusion-style panel titles, duplicate subtitles,
+methods sentences and selection rationales from paper artwork. Put those in the
+caption draft. Combine repeated explanations rather than copying every removed
+heading verbatim; keep editing history and review status in working notes, and
+long procedural detail in Methods when available. A concise entity label such as
+a cell type is not an explanatory
+subtitle; retain it when removing it would make the marks ambiguous. Respect an
+explicit user/venue requirement for a different text hierarchy. This is not a
+ban on useful labels, nor a rule for presentation slides.
+
+In pixel review, test each heading: does it identify otherwise ambiguous marks,
+or merely narrate the question, finding or method already explained in the
+caption? Move the latter out, then reflow the space rather than leaving an empty
+title band. Do not remove content such as units or a normalized-scale qualifier
+that is needed to prevent immediate misreading.
+
+Deliver the first figure with this draft caption. At manuscript integration,
+reconcile panel IDs, terminology, n, units, statistics, references and bounded
+claims with Methods/Results, then inspect the placed figure again. A draft
+caption is not a claim that figure and manuscript already agree. It must not be
+used to excuse an incoherent image or a weakened panel substitution.
 
 ## Plan the paper's figures before narrowing the Results
 
@@ -103,6 +150,14 @@ conceptual framework. A redundant display or a text/table that communicates the
 question better is also a reasonable no-figure decision.
 
 ## Read the reference before designing
+
+When a new or substantially redesigned figure lacks a convincing contribution,
+matched references or linked panel logic, use
+[figure-argument-retrieval.md](figure-argument-retrieval.md) at this stage. It turns
+the specific claim into discriminating evidence questions, retrieves exact panels
+with their caption and Results context, and tests which comparisons the current
+data can support. Add the result to the existing brief; reuse valid mappings for
+minor corrections.
 
 Open the existing figure and its editable source when present. Decide keep,
 redesign or create from its scientific job and visible quality. Preserve valid
@@ -423,7 +478,9 @@ never selectable as this study's result. A saved revise/reject choice does not
 adopt a panel or unlock the integrated selection. When a user asks for changes,
 apply their specific comments
 before presenting the revised figure; do not count that resolution as adoption.
-Use a short scientific title and question for each choice. Put longer methods,
+Use a short scientific title and question in each selection card's UI, outside
+the exported artwork; this does not require a title/subtitle inside every panel.
+Put longer methods,
 limits and design reasoning in its description or notes, without hiding a fact
 needed to make the choice. Label a prototype, component sheet, current figure and
 revised candidate by their actual roles; include only genuine candidates in the
@@ -463,6 +520,36 @@ placement before moving on to unrelated reference searches or format polishing.
 A component atlas is an intermediate asset, not a revised complete mechanism.
 Reuse a valid concept and existing components for local corrections; repeating
 whole-image generation is unnecessary when native reconstruction fixes the issue.
+
+## Review a text-only executor's exported figure
+
+When delegating plotting to an executor without image access, have it return a
+coherent candidate bundle: producing source, actual export, plotted values,
+caption and source/limitation notes. Reserve execution budget for writing that
+bundle and returning it; a correct numeric file alone does not finish the figure.
+Keep process termination, numeric correctness and visual acceptance distinct.
+After the last source edit, regenerate the candidate and synchronize its caption
+before inspecting it. A changed script paired with an old image is unfinished.
+Record checks that actually ran on that revision; planned checks are not results.
+
+The host with image access opens the exported candidate and checks its labels,
+marks and caption against the supplied results. For a repairable defect, send the
+executor its location, the observed mismatch and the quantities/meaning to retain,
+with a bounded revision budget. For example, identify the shared-axis labels that
+name the wrong gene or the caption count that differs from the source. Recheck
+the new export and caption after the repair, including unaffected regions and
+numeric invariants. A generic request to self-review supplies no such observation.
+If no participant can inspect pixels, retain an explicit unreviewed status.
+
+For a trusted Matplotlib producer, the optional
+`scripts/figure_layout_probe.py --script <producer.py> --report <report.json>`
+reports text outside the canvas and possible bounding-box overlaps. Use the
+producer's Python environment and working directory. It reruns the producer with
+its normal file writes, so preserve the original and run on a writable candidate
+copy. It needs Matplotlib; it does not install dependencies or sandbox execution.
+Rotated-label boxes can produce false alarms; line-over-text, wrong label meaning,
+caption errors and scientific quality can escape it. Inspect the actual output
+and verify values separately; a clean report grants no quality approval.
 
 ## Compare what was actually produced
 

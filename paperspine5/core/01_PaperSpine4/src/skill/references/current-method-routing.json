@@ -103,6 +103,17 @@
       ]
     },
     {
+      "path": "references/agent-orchestration.md",
+      "purpose": "宿主判断、完整文件交接、有限授权的Agent执行、独立审阅及受影响恢复。",
+      "current_application": "仅有可用且授权的派发时拆分实际依赖；给真实输入和写入所有权，核查返回文件。单宿主遵循同一科学方法；运行状态不授予研究、选择或外部权限。",
+      "review_check": "真实执行与准备提示、作者自查与独立审阅分别核验；保留共享工作和失败结果，不新增科研状态机。",
+      "stages": [
+        "research",
+        "draft",
+        "review"
+      ]
+    },
+    {
       "path": "references/assertive-scientific-writing.md",
       "purpose": "全文；证据匹配直接表达、必要限定、研究者视角；按保存off/standard/strict保留语气和科学语义。",
       "current_application": "读configuration.author_voice_restoration及授权原稿；原段→科学功能→最小修改；无作者文本如实说明但继续。\n原封装对应范围：固定作者语气JSON/确切哈希作者确认链不适用。",
@@ -892,6 +903,26 @@
       ]
     },
     {
+      "path": "references/research-full-cycle.md",
+      "purpose": "授权新研究的实际问题、文献、冻结设计、公平比较、执行分析、图文与独立返修。",
+      "current_application": "仅在主题起步或已授权新增研究时适用；已有材料写作不被强制重跑。复用同研究证据，按实际资源执行有限可证伪研究，保存负结果和推断边界。",
+      "review_check": "文献影响设计，代码/原结果支持图文；研究执行、科学质量和平台成熟度分开，不把计划或派发当实验完成。",
+      "stages": [
+        "research",
+        "review"
+      ]
+    },
+    {
+      "path": "references/reference-guided-writing.md",
+      "purpose": "全文写作/重构：本研究贡献层级、互补参考职责、真实句子锚点、非防御性表达与独立结构，空白上下文写作/审稿及修订。",
+      "current_application": "复用当前证据和学习池；3+3/自定义数量不变，从中选1或2–3篇做详细写作范例。完整证据包交新上下文写作者及另一审稿者；局部修改仅用受影响部分，不新增状态、门禁、外部授权或第二Skill。",
+      "review_check": "实际论文与证据、锚点和参考全文对照；保留实质阴性/强对照，结构由自身问题解释。匿名比较不泄露版本优劣或期望分数，保存原评审并独立复核受影响修订；方法可读不等于质量通过。",
+      "stages": [
+        "draft",
+        "review"
+      ]
+    },
+    {
       "path": "references/rewrite-matrix.md",
       "purpose": "完整阅读；诊断每段功能、贡献、证据、结构操作；红线/章节角色/读者问题、数字与命令完整性；整稿主线与实际逻辑迁移。",
       "current_application": "当前原稿/feedback/选项/学习notes输入；必要时把矩阵合并issue-to-change notes；KEEP合法；相似率仅提示；只有诊断弱节或用户深改要求采用闭卷重建。\n原封装对应范围：多个固定输入矩阵文件；强制闭卷；KEEP/ADD和相似比例直接判浅修。",
@@ -1205,6 +1236,44 @@
       "review_check": "理由须具体，不事后伪造；保留required披露；每项改动有实际文本/图和证据。",
       "stages": [
         "draft",
+        "review"
+      ]
+    },
+    {
+      "path": "references/paper-production-methods.md",
+      "purpose": "按当前动作导航原有研究、写作、制图、审阅和交付方法。",
+      "current_application": "这是章节导航：按本次请求选择适用章节并读取所链接的原始方法全文；保留 SKILL.md 共同边界，不把局部修改重启为整篇生产，不新增状态或分析授权。",
+      "review_check": "核对实际选路、适用方法的读取与成果应用；导航可见不代表方法已执行或论文质量通过。",
+      "stages": [
+        "intake",
+        "research",
+        "contribution",
+        "evidence",
+        "draft",
+        "figure",
+        "review",
+        "delivery"
+      ]
+    },
+    {
+      "path": "references/figure-revision-decisions.md",
+      "purpose": "诊断已有图件反馈，保留已接受结构并修正相关层。",
+      "current_application": "在已有图件返修时使用，区分文字、几何、证据和最终放置尺寸问题；复用有效参考和数据，不把标签修改扩大为全图重设计或新分析。",
+      "review_check": "将实际意见与当前源、图注、数值、科学关系和放置渲染对照；请求修改不等于采用，布局选择不等于科学审阅。",
+      "stages": [
+        "figure",
+        "review"
+      ]
+    },
+    {
+      "path": "references/figure-argument-retrieval.md",
+      "purpose": "为新建或大幅重设计的图件核查能支撑其科学任务的发表比较。",
+      "current_application": "仅在需要新科学论证或关联证据的新建/大幅重设计时查阅；实际核对面板级来源、论点和结构，再规划可编辑图；局部修正复用有效映射，不重启检索。",
+      "review_check": "核对真实读到的来源与面板任务、数据和论断边界；参考外观或文件名不证明科学论证成立。",
+      "stages": [
+        "contribution",
+        "evidence",
+        "figure",
         "review"
       ]
     }

@@ -282,6 +282,32 @@ def web_status(args: argparse.Namespace, root: Path) -> int:
     return 0 if status == 'READY' else 1
 
 
+def _stop_request(ready: Path, instance: str) -> Path:
+    if not isinstance(instance, str) or len(instance) != 32 or any(c not in '0123456789abcdef' for c in instance):
+        raise ValueError('Invalid workbench instance identity')
+    return ready.with_name(f'public-stop-{instance}')
+
+
+def web_stop(args: argparse.Namespace, root: Path) -> int:
+    profile = selected_profile(args)
+    if profile is None:
+        raise ValueError('An explicit workbench profile is required')
+    state = _read_web_state(profile)
+    pid = state.get('process_id')
+    if _web_ready(state):
+        if state.get('binding', {}).get('project_root') != str(root) or state.get('stop_supported') is not True:
+            raise ValueError('This workbench belongs to another runtime or predates managed shutdown')
+        request = _stop_request(_web_state(profile), state['instance_id'])
+        request.touch()
+        deadline = time.monotonic() + 15
+        while _process_running(pid) and time.monotonic() < deadline:
+            time.sleep(.2)
+    if _process_running(pid) or _process_running(_starting_state(profile).get('process_id')):
+        raise RuntimeError('The workbench has not confirmed shutdown. Check status before replacing it.')
+    print(json.dumps({'status': 'STOPPED', 'profile_root': str(profile)}, ensure_ascii=False))
+    return 0
+
+
 def web_launch(args: argparse.Namespace, root: Path) -> int:
     """Start/reuse the same public facade; no Agent, task creation or migration."""
     profile = selected_profile(args) or Path.home() / '.paperspine5/profiles/default'
@@ -371,6 +397,8 @@ def _web_server(job: dict[str, Any]) -> int:
     server = create_business_server(service, principal_id='paperspine-web-user',
         session_id='local-public-web', reviewer_id=None, port=job['port'])
     instance = uuid.uuid4().hex
+    ready = Path(job['ready_file'])
+    stop_request = _stop_request(ready, instance)
     original_handler = server.RequestHandlerClass
     class BoundHandler(original_handler):
         def end_headers(self):
@@ -381,14 +409,18 @@ def _web_server(job: dict[str, Any]) -> int:
         server.server_close()
         kernel.close()
         raise RuntimeError('Product code changed during Web startup; retry this same profile after the update finishes.')
-    _write_json(Path(job['ready_file']), {'address': f'http://127.0.0.1:{server.server_port}/',
+    _write_json(ready, {'address': f'http://127.0.0.1:{server.server_port}/',
         'port': server.server_port, 'process_id': os.getpid(), 'instance_id': instance,
-        'binding': binding, 'runtime_code': code_identity})
+        'binding': binding, 'runtime_code': code_identity, 'stop_supported': True})
     try:
-        server.serve_forever()
+        server.timeout = .25
+        server.daemon_threads = False
+        while not stop_request.is_file():
+            server.handle_request()
     finally:
         server.server_close()
         kernel.close()
+        stop_request.unlink(missing_ok=True)
     return 0
 
 

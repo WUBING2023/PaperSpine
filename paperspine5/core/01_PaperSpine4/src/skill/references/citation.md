@@ -50,6 +50,12 @@ Resolve to `closed_corpus` only when the user explicitly restricts usable litera
 
 ## Shared Rules
 
+- Verify contributor roles as well as names. Use the article's author byline and
+  author-specific publisher metadata; a DOI match or a list of all PDF/JATS names
+  does not establish authorship. Academic editors, reviewers, correspondents and
+  affiliations are not additional authors. In JATS, select the author contribution
+  group and its applicable author roles rather than every `name`/`contrib` node;
+  check the emitted order against the original byline before adopting the BibTeX.
 - `Source ID` identifies the paper; `Claim Use ID` identifies one manuscript
   use. A source may support multiple claims, but it contributes only once to
   source-coverage, recency, and diversity quotas.

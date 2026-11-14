@@ -1,26 +1,25 @@
 # Intake Stage
 
-This playbook collects task configuration. Current public tools and the saved
-same-task Web configuration are authoritative; legacy fields below only explain
-older records.
+Use the current conversation and paper files for chat intake. The saved
+same-task configuration and public tools apply when the user selects Web.
 
 ## Purpose
 
 Read the user's request and existing material roots, then propose a coherent,
 editable configuration using `intent-configuration.md`. Reuse a confirmed current
 configuration when resuming; a new workflow label does not erase valid choices.
-For initial intake, wait for the actual same-task Web configuration and material
-confirmation, read the saved result, then do the authorized scientific work.
+For initial intake, establish the actual materials and authorized scientific work
+in the chosen interface. Read back the saved result for Web tasks.
 
 ## Current output and scope
 
-Use the public configuration schema and the task's exported `01_configuration.json`
-and material inventory. Do not create parallel configuration files or ask users
-to edit JSON. Preserve explicit language, target and output choices. Where the
+For Web use the public configuration schema, exported `01_configuration.json`
+and material inventory. In chat, keep a short note when continuity needs it.
+Preserve explicit language, target and output choices. Where the
 request leaves an ordinary preference open, propose a suitable value and explain
 it in the host handoff; do not infer author facts or external-action permissions.
 
-`research_mode` defaults to `agent_decide`: decide and explain whether new analysis
+For Web, `research_mode` defaults to `agent_decide`: decide and explain whether new analysis
 is useful and feasible within the confirmed scope, then carry it out when chosen.
 `required` means perform the requested research, with actual tools and evidence.
 `materials_only` preserves supplied analyses and prohibits new analysis; it still
@@ -78,7 +77,7 @@ decision classes, authenticated host/user actor, and canonical hashes. Do not
 accept a producer Boolean as user authority. Submission scope, author facts,
 licences/fees, and external actions always remain human gates.
 
-## Current UI
+## Web workbench intake
 
 - Use the same profile/task in the public Web workspace for normal intake.
 - `launch_paperspine_ui.ps1` or `launch_paperspine_ui.sh` opens that workspace;

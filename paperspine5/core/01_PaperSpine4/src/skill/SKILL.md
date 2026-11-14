@@ -1,21 +1,32 @@
 ---
 name: paper-spine
-description: Research, write, review and deliver evidence-bound papers in one task, with user choices, real files, editable outputs and same-task revision.
+description: Develop a research topic or supplied results into evidence-bound papers, with scoped real research, scientific figures, independent review and same-task revision.
 # Suite Update Authority; Blocks unsupported readiness claims.
 ---
 
 # PaperSpine Orchestrator
 
-Before paper production or resume, read [paper-spine-production-protocol.md](references/paper-spine-production-protocol.md). It is the operational 17-step handoff for the methods below.
+Choose the current request before starting tools or loading detailed methods.
+For whole-paper production or whole-task recovery, read
+[paper-spine-production-protocol.md](references/paper-spine-production-protocol.md).
+For an explicitly authorized local research-agent prototype, apply that protocol's
+scientific quality/delivery requirements with the full-cycle and orchestration
+routes below and its actual confirmed run brief/files. Launcher/public-schema
+steps apply only when those services are used; never fabricate their execution.
+For a focused edit, review or explanation, use the relevant route below and only
+the applicable protocol steps; do not restart whole-paper production.
 
 The current host Agent performs research, citation checking, interpretation,
 writing, figures and revision, and arranges independent review. Web, local files
 and small scripts support interaction, persistence, rendering and delivery.
 
-When configuration is missing, launch the intake UI automatically before inspecting
+When configuration is missing in ordinary guided paper production, launch the intake UI automatically before inspecting
 materials; do not hand-write configuration or silently choose a paper root.
 For a visible launcher action, use `require_escalated` as required by the host.
-After the update preflight below, launch is the first paper-production action when configuration is missing.
+After the update preflight below, launch is the first guided-production action when configuration is missing.
+For an explicitly authorized local research-agent prototype, use its actual confirmed run
+brief and workspace as described in [agent-orchestration.md](references/agent-orchestration.md);
+never fabricate Web configuration, clicks or workbench synchronization.
 
 **Product outcome:** an evidence-bound, coherent paper with informative figures,
 applicable venue format and editable sources. Learn from strong same-field and
@@ -24,6 +35,34 @@ download and revise the same task.
 
 Tool success, hashes and task status do not establish scientific, editorial,
 visual or submission readiness; assess the actual paper.
+
+## Select the current action
+
+| Current request | First applicable methods | Requested outcome |
+| --- | --- | --- |
+| Start from a research topic or perform new research | [research scope](references/research.md), [full research cycle](references/research-full-cycle.md) | A feasible question, real evidence and a paper within the confirmed research scope |
+| Build a paper or substantially rewrite it | [production methods](references/paper-production-methods.md), [build](references/build.md) or [rewrite](references/rewrite.md) | Complete paper work within saved scope |
+| Correct an existing figure, label or caption | [figure revision](references/figure-revision-decisions.md), relevant passages of [figure workflow](references/scientific-figure-workflow.md) | A repaired source and affected figure/caption; valid data, layout and choices retained |
+| Revise prose or respond to manuscript feedback | [rewrite](references/rewrite.md), applicable writing/review sections in [production methods](references/paper-production-methods.md) | Same-task changes addressing actual feedback |
+| Review or audit supplied files | [review policy](references/review-policy.md), [audit](references/audit.md) | Findings on the current files; editing only when requested |
+| Translate or transfer an existing paper | [translation](references/translate.md) or [journal transfer](references/journal-transfer.md) | Requested language or venue adaptation, preserving valid science |
+| Explain, inspect or maintain the Skill | The named local files and relevant methods | The requested explanation, audit or patch; paper launch/configuration do not apply |
+
+Read only the methods relevant to the chosen action, fully when first applicable.
+For full-paper drafting or reference-guided reconstruction, apply
+[reference-guided writing](references/reference-guided-writing.md): an independent
+study argument, complementary exemplar moves, direct evidence-matched prose,
+and fresh-context writing/review when available. It is part of this Skill.
+A shared workflow label does not turn a label correction into new research.
+Recover saved task/configuration/choices on resume with [resume](references/resume.md).
+For a material-read failure, use the intake section of the production methods:
+identify the concrete file, continue supported work and isolate dependent claims.
+For topic-first work, a missing existing dataset or manuscript is not a failed
+material read: identify the proposed public sources or collection needs, and
+confirm the new study workspace and research scope without inventing inputs.
+Use [Agent orchestration](references/agent-orchestration.md) when authorized
+delegation or the research-agent runtime is available; the same scientific
+methods and real files apply when the host works alone.
 
 ## Authority and boundaries
 
@@ -44,7 +83,7 @@ visual or submission readiness; assess the actual paper.
 
 ## Update once on invocation, then continue the paper
 
-Before starting or resuming paper production, run the installed Skill's
+Before starting or resuming paper production through an installed Skill, run its
 `scripts/paperspine_update.py --preflight --yes` with its verified Python.
 This checks the official channel on every invocation: if current, continue;
 if newer, transactionally update the Skill, Web/runtime and updater together.
@@ -62,14 +101,20 @@ and configuration below apply to paper production, not Skill inspection or plans
 
 Read [product-v1-workflow.md](references/product-v1-workflow.md) for the actual
 public tool shapes and [intent-configuration.md](references/intent-configuration.md)
-for first-message prefilling. The current Agent is the scientific host; launching
-Web does not launch another writer. Follow this sequence:
+for first-message prefilling in guided Web work. An explicitly authorized local
+research-agent prototype follows its actual confirmed brief and runtime schema instead;
+do not launch or invent a Web service/profile for that run. The current Agent is
+the scientific host; launching Web does not launch another writer. For guided
+Web production, follow this sequence:
 
 1. Resolve the user's named material folder. “This/current folder” explicitly
    selects the conversation working directory. Without such an instruction, do
    not assume an unrelated shell directory is the paper. Initially list names
    and identify candidate inputs; defer substantive analysis until configuration
    and the material choice are saved. Preserve original materials.
+   A topic-only request may have no existing materials. Confirm the generated
+   workspace and proposed source/collection scope through the same intake;
+   do not require a fabricated material folder or another workflow/task identity.
 2. Start the installed launcher with `launch --no-open`; it returns a service URL,
    not a paper or running AI. Open only the bound task URL once. In Codex prefer
    its available in-app browser unless the user chose another; never also open
@@ -123,7 +168,10 @@ outputs. After two unchanged attempts, change tactic, not notes/status/hash.
 Reuse valid saved work.
 
 **Mandatory before the next work segment or stage:** verify that the previous
-segment's real results have reached the same task's workbench. Read the current
+segment's real results have reached the same task's workbench in the guided Web
+workflow. In an explicitly authorized local research-agent prototype, inspect and record
+the preceding real files in that same run instead; this does not claim Web sync.
+For the guided workflow, read the current
 snapshot; publish any completed deliverable that the user should see; call
 `paperspine_commit_milestone` with a factual summary, the appropriate existing
 stage and actual artifact IDs. Then read back the same task/profile and current
@@ -166,82 +214,19 @@ files are unchanged. A read marker is not retained knowledge.
 When available and authorized, delegate bounded work with real inputs and disjoint
 writes; inspect returned artifacts and manuscript use yourself. A worker's self-check
 is not independent review. No fixed team is required.
+Read [agent-orchestration.md](references/agent-orchestration.md) for dependencies,
+bounded budgets, handoff, recovery and review independence; runtime completion
+means a worker returned, not that its scientific claims were accepted.
 
 Distinguish dependencies from permissions; retry with a concrete correction.
 Recheck affected outputs and stop optional polish without useful improvement.
 
-## Scientific work and expected results
+## Scientific methods for the current action
 
-Use [current-method-routing.md](references/current-method-routing.md) to select applicable original methods. Read their full text on first use; routing is not application or quality proof. If the helper is unavailable, read the local originals and continue the same task.
-
-### 1. Anchor, intake and inventory
-
-Read [intake.md](references/intake.md), [intent-configuration.md](references/intent-configuration.md) and [resume.md](references/resume.md) as applicable. Preserve originals. Inventory results, draft, figures, references, scripts, provenance, permissions and limits; identify only necessary missing decisions. Do not create placeholders.
-
-Select actual research files deliberately: pass exact root-relative files in
-`grants[].include_paths` to `paperspine_authorize_materials`. A project folder may
-contain locked logs, caches and generated drafts; do not treat all of them as
-scientific inputs. Keep generated outputs in the task workspace. Read the returned
-inventory and `scan_issues`, then actually open the files needed for each claim.
-A listed filename or successful registration does not prove reading. Individual
-`materials.read_failed` warnings do not cancel saved configuration or the entire
-paper: use readable inputs and continue unaffected research/writing. State which
-file failed and why, retry only that concrete problem, and pause only claims that
-need indispensable unavailable evidence. Never invent its contents. When the user
-replaces the material folder, use `replace: true`; otherwise retain the same roots
-and explicit selection. See the material call example in the workflow reference.
-
-### 2. Research, target learning and citations
-
-Read [research.md](references/research.md), [local-reference-ingestion.md](references/local-reference-ingestion.md), [citation.md](references/citation.md), [journal-learning.md](references/journal-learning.md), [target-journal-research.md](references/target-journal-research.md) and the applicable venue playbook. Read public literature unless explicitly limited. Use the saved learning-set sizes; inspect actual target-venue PDFs, current official instructions and any applicable official template. Abstracts can support bounded claims but cannot prove full-text, figure or page-design learning. Verify citation identity and use; build useful references without padding.
-
-Resolve target identity before claiming target-format learning. An Agent-selected comparator is not the saved target. If unknown, save a delegated choice, ask once, or keep the draft venue-neutral. Format learning counts only when the source uses a verified template/style or stated fallback and representative pages match actual exemplars.
-
-Apply the saved analysis scope to actual tool work:
-
-- `required`: carry out justified research or analysis on authorized materials.
-  Preserve reusable code, derived data, Methods, Results and uncertainty. A
-  literature dossier or analysis plan alone does not complete research.
-- `agent_decide`: assess what evidence the scientific question needs and what
-  the inputs support, state the rationale briefly, and perform the justified
-  work. This mode does not silently mean `materials_only`.
-- `materials_only`: use the supplied analyses, tables, images and reported
-  results without new EDA, tests, modelling, experiments or reruns. Literature
-  study, faithful extraction, plotting supplied results and consistency checks
-  remain available. Missing raw arrays alone do not invalidate user results.
-
-Learning depth (3+3/6+6) does not authorize analysis. Pursue the strongest
-supported question within scope; missing endpoint facts do not require an
-inventory-only paper. Never invent facts, change accepted direction silently,
-or analyze outside the selected mode.
-
-### 3. Contribution, motivation and evidence contract
-
-Read [contribution.md](references/contribution.md), [semantic-confirmation.md](references/semantic-confirmation.md), [scientific-evidence-ledger.md](references/scientific-evidence-ledger.md), and [results-validation.md](references/results-validation.md) for evidence-bearing work. Form a small set of evidence-backed options; have the user choose when choice matters. Use the accepted contribution, motivation, claim boundaries, terminology and uncertainty to guide drafting. Refine the argument as actual findings develop; request another choice only for a substantive change to the user-selected direction.
-
-### 4. Outline, writing and figures
-
-For `build_from_materials`, read [build.md](references/build.md); for rewriting, read [rewrite.md](references/rewrite.md). Apply [editorial-completeness.md](references/editorial-completeness.md) and [assertive-scientific-writing.md](references/assertive-scientific-writing.md). Write a complete evidence-bound argument, not a summary or template shell.
-
-Before figures, read [scientific-figure-workflow.md](references/scientific-figure-workflow.md), [figure-story.md](references/figure-story.md) and [figure-reference-mapping.md](references/figure-reference-mapping.md). Map actual results to questions and assign each useful job—cohort, primary finding, comparison, uncertainty/validation, robustness/subgroup and explanation—to a figure, table, prose, supplement or justified omission. No quota: merge duplicates, but do not let the current folder or one omnibus plot define the story. View matched references before design.
-
-For `mechanism_figure: auto` or `prefer`, make an explicit decision. If explanation is central and sourced, create a complete mechanism/conceptual/architecture candidate in addition to necessary data figures, distinguishing observations, established knowledge and hypotheses. Under `auto`, omit only for a concrete reason. A flowchart, ROC panel or statistical summary is not a mechanism figure.
-
-Expose current, reference and candidate files for each selectable figure and read every saved choice/comment before assembly. Preserve data truth, editable sources, panel identity, caption/body alignment, units, claim boundaries and prior figure bytes; keep references/comparisons separate from final candidates.
-
-### 5. Render, assemble and inspect
-
-Read [latex.md](references/latex.md), [manuscript-format.md](references/manuscript-format.md), [visual-readiness-gate.md](references/visual-readiness-gate.md), and [publication-surface.md](references/publication-surface.md). Produce the requested editable source, a submission-oriented file when the venue defines one, a clean reading PDF, and DOCX unless the user explicitly opts out. Submission and reading surfaces must share one semantic source, numbers, citations, captions and selected figures; layout may differ only for a documented venue purpose. Inspect every PDF page and the actual DOCX/faithful Word rendering. Check title, headings, citations/links, figures, captions, references, units, clipping, page breaks, fonts, declarations, page occupancy and reader flow. Any blank or nearly blank page/column, avoidable large void, stranded heading, excessive float gap, orphaned caption, or late source/Word/PDF mismatch is a failure requiring source-level repair. Visible TeX, inert literal citations, missing images and unreadable pages are failures.
-
-### 6. Independent review and repair
-
-Read [review-policy.md](references/review-policy.md), [audit.md](references/audit.md), [reviewer-audit.md](references/reviewer-audit.md), [evidence-grounded-review.md](references/evidence-grounded-review.md) and [publication-surface.md](references/publication-surface.md) as applicable. An independent-context reviewer must inspect the actual current manuscript, figures and renders. `balanced` means compact editorial review; `strict` adds requested depth/specialists. Never substitute the writer's self-check or fabricate a reviewer, objection, score or PASS. If unavailable, disclose pending independent review and continue safe local repair.
-
-Trace headline claims to sources, controls and uncertainty; compare final figures and evidence coverage with venue exemplars. Independently check three demonstrated failure points: whether the saved target was actually applied to source and rendered pages, whether distinct result families received an appropriate visual/table/text role, and whether an `auto`/`prefer` explanatory figure was completed or honestly omitted for a stated reason. Separate scientific, editorial, technical and submission findings: a format check or figure choice cannot approve the whole paper. Repair the producing source/method, regenerate affected outputs and re-review, rather than editing receipts.
-
-### 7. Delivery and same-task revision
-
-Read [submission.md](references/submission.md), [publication-cycle.md](references/publication-cycle.md), [publication-cycle-interface.md](references/publication-cycle-interface.md), and [submission-metadata.md](references/submission-metadata.md) only when the requested delivery/venue operation needs them. Use [open-release.md](references/open-release.md) only for explicit release work. Publish the real files, keep shareable and local-workspace packages separate, exclude private raw materials by default, and verify the actual browser download when claiming it. On feedback, reread the saved feedback and affected artifacts, preserve the previous revision, change only affected work, regenerate and re-review in this same task.
+Use [paper-production-methods.md](references/paper-production-methods.md) for the
+applicable research, contribution, drafting, figures, rendering, review and
+delivery methods. Select the section for the current action; follow its original
+method links. The scientific requirements remain active when applicable.
 
 ## Quality rules that always remain active
 
@@ -267,7 +252,11 @@ Read [submission.md](references/submission.md), [publication-cycle.md](reference
 
 ## Completion contract
 
-Deliver the requested scope, not a publication guarantee:
+Deliver the requested scope, not a publication guarantee. A focused edit returns
+the repaired sources and affected requested outputs; full-paper PDF/DOCX and
+package production apply when that delivery is in scope. Inspect affected
+outputs and their relevant downstream use; report unavailable rendering or
+independent review without inventing completion.
 
 - Same task/material root; saved choices and limitations preserved.
 - Arrange independent manuscript review. Correct scientific contradictions or
