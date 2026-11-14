@@ -1,10 +1,59 @@
 **English** · [中文](README.zh-CN.md)
 
-<p align="center"><a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/science/press-cover.webp" width="100%" alt="PaperSpine V6, AI for Science, with the origami dragon Spine"></a></p>
+<a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/science/press-cover.webp" width="100%" alt="PaperSpine V6, AI for Science. An original Dry Bean manuscript and result figure alongside the origami dragon Spine."></a>
 
-**PaperSpine is an open-source AI for Science workflow.** Use it with your research agent to study literature, plan and run analyses, make scientific figures, and hand over an editable paper with its supporting evidence.
+**Run experiments, make scientific figures, and deliver an editable paper with the evidence attached.** PaperSpine gives your research agent the methods to start with a question, a results folder, or a draft.
 
-[**Website**](https://wubing2023.github.io/PaperSpine/v6/) · [Research cases](#research-cases) · [Installation](#installation) · [**Press kit**](#press-kit)
+[**Get PaperSpine**](#ways-to-work) · [Field test](#edition-field-test) · [Research cases](#research-cases) · [Demos](#feature-demos) · [**Press kit**](#press-kit) · [Website](https://wubing2023.github.io/PaperSpine/v6/)
+
+<a id="ways-to-work"></a>
+
+## Three ways to work
+
+| Edition | Start here | Deliverables |
+| :--- | :--- | :--- |
+| **Full Workflow Skill**<br>[Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip) | `$paper-spine`<br>Give it a question, data, or an existing draft in an agent chat. | Study notes, analysis, figures, and an editable manuscript for the agreed scope. |
+| **Skills Pack**<br>[Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip) | `$paper-spine` for the full workflow or `$paper-spine-followwriting` to revise a section. | The output you need at each stage, with the sources and files kept for the next stage. |
+| **Web Plugin**<br>[Download ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) | `$paper-spine-web:paper-spine-web` in Codex on Windows x64. | The Skills Pack plus a local workbench for choices, figure zoom, manuscript preview, downloads, and revisions. |
+
+<details>
+<summary><strong>Five stage Skills with example prompts</strong></summary>
+
+| Skill | What to ask for |
+| --- | --- |
+| `$paper-spine-study` | Design a paired test using this dataset and save the split-level results. |
+| `$paper-spine-followwriting` | Use these reference papers to revise the Results argument. Keep my estimates and claim scope. |
+| `$paper-spine-figures` | Make a vector figure from these analysis outputs and include the figure code. |
+| `$paper-spine-review` | Check which claims the sources and figures support, then revise the weak ones. |
+| `$paper-spine-deliver` | Export the editable manuscript, a reading copy, and the supporting artifacts. |
+
+</details>
+
+<a id="installation"></a>
+
+## Installation and updates
+
+Extract your chosen ZIP. Run its manager from the extracted folder, using the original ZIP and its SHA-256. Then open a fresh host chat.
+
+```text
+python -B edition_manager.py install "<original ZIP path>" --sha256 <SHA256>
+```
+
+The manager requires Python 3.12+. The Web archive includes Windows Python and requires the Codex CLI. Managed installations support automatic update checks, manual upgrades, rollback, and uninstall. Drafts and local tasks are retained.
+
+[Install, update, or uninstall](INSTALL-V6.en.md) · [SHA-256 checksums](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/checksums.sha256) · [V6 release](https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2)
+
+<a id="edition-field-test"></a>
+
+## One study, three workflows
+
+Three Codex subagents installed the three released V6 editions and ran the same study. On 13,543 public Dry Bean records, training-fold standardization moved mean balanced accuracy from **71.62% to 93.46%** for a fixed 7-nearest-neighbor classifier across the same five folds.
+
+| Full Workflow Skill | Skills Pack | Web Plugin |
+| :--- | :--- | :--- |
+| Produced a revised two-page manuscript, reproducible analysis, and editable figure. | Ran all five stages with real files and rebuilt the paper from the exported bundle. | Saved manuscript feedback, revised the same task, then downloaded the new Word and PDF files. |
+
+[**Read the run notes**](paperspine5/core/07_发布页/v6/science/edition-field-test.md) · [Research paper and code](https://wubing2023.github.io/PaperSpine/v6/science/scaling-study-source.zip) · [Web revision PDF](paperspine5/core/07_发布页/v6/science/scaling-workbench.pdf) · [Editable Word](paperspine5/core/07_发布页/v6/science/scaling-workbench.docx)
 
 <a id="research-cases"></a>
 
@@ -40,109 +89,40 @@ The figure gallery includes a **solid-state battery interface schematic** and a 
 
 [Full-resolution PNGs and SVGs in Figure Studies](https://wubing2023.github.io/PaperSpine/v5/en/figure-studies/)
 
-<a id="ways-to-work"></a>
-
-## Three ways to work
-
-### Full Workflow Skill
-
-Give your host a research question, a results folder, or a draft. Call $paper-spine and agree on the next research or writing step.
-
-- **Start with** · `$paper-spine`
-- **Expected output** · Research notes, analyses or documented evidence, figures, and an editable manuscript for the scope you set.
-- **Requirements** · Skill-capable host
-
-[Download Full Workflow Skill ↓](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip)
-
-### Skills Pack
-
-Install the full workflow and five skills you can invoke individually. Start with existing evidence when you only need to revise a section or check a figure.
-
-- **Start with** · `$paper-spine-followwriting`
-- **Expected output** · A focused output such as a reference-guided rewrite, an editable figure, a review report, or a paper archive.
-- **Requirements** · Skill-capable host
-
-[Download Skills Pack ↓](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip)
-
-### Web Plugin
-
-Open a paper with the host, then use the workbench to save settings, compare figures, preview files, and respond with revision notes.
-
-- **Start with** · `$paper-spine-web:paper-spine-web`
-- **Expected output** · A local record of selections, feedback, previews, and the same paper’s downloadable files.
-- **Requirements** · Windows x64 · Codex
-
-[Download Web Plugin ↓](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip)
-
-**The Skills Pack includes**
-
-- `$paper-spine-study` · Research and experiment design
-- `$paper-spine-followwriting` · Reference-guided drafting
-- `$paper-spine-figures` · Scientific figures
-- `$paper-spine-review` · Evidence and manuscript review
-- `$paper-spine-deliver` · Editable deliverables
-
-<a id="installation"></a>
-
-## Install and manage updates
-
-Choose one ZIP and download the checksum list. Extract the archive, open a terminal in the extracted folder, and run the manager with the original ZIP and its SHA-256. Open a fresh agent chat after installation.
-
-```text
-python -B edition_manager.py install "<original ZIP path>" --sha256 <SHA256>
-```
-
-Requires Python 3.12+ for managed installation. The Web archive includes Windows Python and requires the Codex CLI. Install into a compatible host's Skill directory or follow the manual placement option in the guide.
-
-Managed installs can check and apply updates, turn automatic checks off, roll back, or uninstall. Drafts and local tasks are retained. V5 continues on its own channel, and its saved profiles should be opened in V5 or carried forward using the manuscript files.
-
-[Installation, updates and uninstall](INSTALL-V6.en.md) · [Release assets](https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2) · [Checksums](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/checksums.sha256)
-
 <a id="paper-example"></a>
 <a id="feature-demos"></a>
 
 ## Feature demos
 
-Three brief demonstrations. Followwriting is a workflow illustration. The figure zoom and PDF viewer clips use the released Windows workbench with the case loaded.
+<table><tr>
+  <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/followwriting-hd.gif"><picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/followwriting-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/science/followwriting-hd.gif" width="385" alt="Followwriting">
+  </picture></a><br><strong>Followwriting</strong></td>
+  <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/figures-hd.gif"><picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/figures-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/science/figures-hd.gif" width="385" alt="Figure review">
+  </picture></a><br><strong>Figure review</strong></td>
+</tr><tr>
+  <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/workbench-hd.gif"><picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/workbench-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/science/workbench-hd.gif" width="385" alt="Manuscript preview">
+  </picture></a><br><strong>Manuscript preview</strong></td>
+  <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/revision-hd.gif"><picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/revision-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/science/revision-hd.gif" width="385" alt="Review and revise">
+  </picture></a><br><strong>Review and revise</strong></td>
+</tr></table>
 
-### Followwriting
-
-Use reference papers for structure and argument, then write from your own evidence.
-
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/followwriting-hd-still.webp">
-  <img src="paperspine5/core/07_发布页/v6/science/followwriting-hd.gif" width="820" alt="Followwriting · feature demonstration">
-</picture>
-
-### Figure review
-
-Open a scientific figure in the local workbench and inspect it at full size.
-
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/figures-hd-still.webp">
-  <img src="paperspine5/core/07_发布页/v6/science/figures-hd.gif" width="820" alt="Figure review · feature demonstration">
-</picture>
-
-### Manuscript preview
-
-Open the same study’s reading manuscript in the workbench viewer.
-
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/workbench-hd-still.webp">
-  <img src="paperspine5/core/07_发布页/v6/science/workbench-hd.gif" width="820" alt="Manuscript preview · feature demonstration">
-</picture>
+Followwriting illustrates how to use a reference’s structure while writing from the study’s own results. The other clips come from the released Windows workbench. [Watch a feedback-to-revision run](https://wubing2023.github.io/PaperSpine/v6/#revision) · [Full-size workbench screenshots](https://wubing2023.github.io/PaperSpine/v6/#examples)
 
 <a id="press-kit"></a>
 
 ## Press kit
 
-Ready-to-quote copy, ready-to-crop graphics, and three clips. The kit includes the Spine artwork with a transparent background, 1920×1080 and 1080×1350 covers, original screenshots, selected research materials, and source captions.
+> PaperSpine is an open-source AI for Science workflow. It helps research agents run experiments, create scientific figures, and deliver editable papers. Choose a full workflow Skill, individual Skills, or a local workbench.
 
-> PaperSpine is an open-source AI for Science workflow for research agents. It brings literature, analysis, scientific figures, and editable manuscripts into one research project. Researchers can use one Skill, pick individual stages, or review the work in a local Codex workbench.
-
-[**Download the press kit ↓**](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip) · [Bilingual copy and captions](paperspine5/core/07_发布页/v6/science/press-copy.md) · [Study evidence](paperspine5/core/07_发布页/v6/science/case-notes.md) · [Full-size workbench PNG](paperspine5/core/07_发布页/v6/science/workbench-figures.png)
-
-<a href="https://wubing2023.github.io/PaperSpine/v6/science/spine.png"><img src="paperspine5/core/07_发布页/v6/science/spine.webp" alt="Spine, PaperSpine's origami dragon" width="265"></a>
+[**Download the press kit**](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip) · [Bilingual intro and captions](paperspine5/core/07_发布页/v6/science/press-copy.md) · [Landscape cover](paperspine5/core/07_发布页/v6/science/press-cover.png) · [Portrait cover](paperspine5/core/07_发布页/v6/science/press-portrait.png) · [Spine transparent PNG](paperspine5/core/07_发布页/v6/science/spine.png)
 
 ## Development and community
 

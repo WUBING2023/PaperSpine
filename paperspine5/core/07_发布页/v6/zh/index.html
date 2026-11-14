@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="从文献、实验、科研图到可编辑论文。查看有出处的科研案例，选择全流程 Skill、阶段 Skills 包或本地工作台。">
-  <meta name="theme-color" content="#111c17">
+  <meta name="theme-color" content="#f5f2e9">
   <meta property="og:title" content="PaperSpine V6 — AI for Science 科研工作流">
   <meta property="og:description" content="从文献、实验、科研图到可编辑论文。查看有出处的科研案例，选择全流程 Skill、阶段 Skills 包或本地工作台。">
   <meta property="og:image" content="https://wubing2023.github.io/PaperSpine/v6/science/press-cover.png">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/v6/zh/">
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../v6.css?v=science">
+  <link rel="stylesheet" href="../v6.css?v=research-edition">
   <script src="../science.js" defer></script>
   <title>PaperSpine V6 — AI for Science 科研工作流</title>
 </head>
@@ -24,26 +24,129 @@
       <div class="shell navbar">
         <a class="wordmark" href="./"><img src="../../v5/assets/brand/paperspine-mark.svg" width="38" height="38" alt="">PaperSpine</a>
         <nav class="site-nav" aria-label="主导航">
-          <a href="#research">科研案例</a><a href="#download">使用方式</a><a href="#press">媒体素材</a>
+          <a href="#download">下载</a><a href="#research">科研案例</a><a href="#examples">演示</a><a href="#press">媒体素材</a>
         </nav>
         <div class="header-links"><a class="repo-link" href="https://github.com/WUBING2023/PaperSpine">GitHub <span aria-hidden="true">↗</span></a><a class="language" href="../" hreflang="en" lang="en">EN</a></div>
       </div>
     </header>
-    <section class="shell hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="hero-kicker">AI FOR SCIENCE <span></span> <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 公测</a></p>
-        <h1 id="hero-title">论文背后的<br><em>科研工作。</em></h1>
-        <p class="hero-description">让 AI Agent 沿着证据推进研究。从读文献、做分析到画图，交付有出处、可编辑的论文，也保留支撑它的研究过程。</p>
-        <div class="hero-actions"><a href="#research" class="button">查看科研案例 <span aria-hidden="true">↓</span></a><a href="#download" class="button outline">获取 PaperSpine <span aria-hidden="true">↗</span></a></div>
-      </div>
-      <figure class="hero-art">
-        <div class="artifact-orbit" aria-hidden="true"></div>
-        <img src="../science/spine.webp" width="1394" height="1061" alt="Spine，一条用层叠象牙白纸片折成、腹部带深绿色的龙" fetchpriority="high">
-        <figcaption>Spine · PaperSpine 的折纸龙</figcaption>
-      </figure>
-    </section>
   </div>
   <main id="main">
+    <section class="shell hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="hero-kicker"><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 公测</a><span></span> 开源科研工作流</p>
+        <h1 id="hero-title">PaperSpine <em>AI for Science</em></h1>
+        <p class="hero-description">给科研 Agent 一套可执行的方法。从设计实验、分析数据到绘制科研图，交付一篇能编辑、能核对证据的论文。</p>
+        <div class="hero-actions">
+          <a href="#download" class="button">下载 PaperSpine <span aria-hidden="true">↓</span></a>
+          <a href="#dry-bean" class="text-link">看完整研究案例 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <aside class="hero-study" aria-labelledby="hero-study-title">
+        <div class="study-top"><span>科研案例 · UCI Dry Bean</span><a href="../science/dry-bean-paper.pdf">读研究稿 ↗</a></div>
+        <h2 id="hero-study-title">缺失模式何时成为<br>模型的捷径？</h2>
+        <div class="study-spread">
+          <a class="study-manuscript" href="../science/dry-bean-paper.pdf"><img src="../science/dry-bean-manuscript.webp" width="1080" height="1398" fetchpriority="high" alt="Dry Bean 研究稿第一页，含摘要与研究设计。"></a>
+          <div class="study-measure">
+            <p class="measure-heading">加入缺失指示变量</p>
+            <dl>
+              <div><dt>缺失机制匹配</dt><dd class="positive">+3.14 <small>百分点</small></dd></div>
+              <div><dt>缺失机制反转</dt><dd class="negative">−20.75 <small>百分点</small></dd></div>
+            </dl>
+            <p class="measure-note">逻辑回归的平衡准确率变化<br>人为施加 30% 缺失</p>
+          </div>
+        </div>
+        <div class="study-bottom"><a href="https://doi.org/10.24432/C50S4B">公开数据 ↗</a><a href="../science/dry-bean-figure.svg">原始矢量图 ↗</a></div>
+      </aside>
+    </section>
+    <nav class="shell edition-index" aria-label="三种安装方式">
+      <a href="#edition-skill"><strong>全流程 Skill</strong><span>在一次对话里推进整篇</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
+      <a href="#edition-pack"><strong>Skills 包</strong><span>按阶段调用或运行全流程</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
+      <a href="#edition-web"><strong>Web 插件包</strong><span>在本地工作台审查同一篇论文</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
+    </nav>
+    <section class="edition-section section" id="download" aria-labelledby="edition-title">
+      <div class="shell">
+        <div class="section-heading"><h2 id="edition-title">三种科研工作方式</h2><p>从一次对话开始，也可以独立调用任意阶段，或在本地界面审查同一篇论文。</p></div>
+        <div class="editions">
+        <article class="edition" id="edition-skill">
+          <div class="edition-main">
+            <p class="eyeline">从问题推进到论文</p>
+            <h3>全流程 Skill</h3>
+            <p>把研究问题、结果目录或初稿交给宿主，调用 $paper-spine，再确认需要推进的研究或写作范围。</p>
+          </div>
+          <div class="edition-output">
+            <h4>能得到什么</h4><p>按范围交付文献和证据记录、分析、科研图和可编辑稿件。</p>
+            <p class="command"><code>$paper-spine</code></p>
+          </div>
+          <div class="edition-download">
+            <p>支持 Skill 的宿主<br><span>@SKILL_SIZE@</span></p>
+            <a class="button compact" href="@SKILL_URL@" aria-label="下载 ZIP · 全流程 Skill">下载 ZIP <span aria-hidden="true">↓</span></a>
+          </div>
+        </article>
+        <article class="edition" id="edition-pack">
+          <div class="edition-main">
+            <p class="eyeline">单独调用需要的环节</p>
+            <h3>Skills 包</h3>
+            <p>安装全流程入口和五个独立阶段 Skill。只想修一段、重画一幅图或审阅现稿时，可以从现有结果开始。</p>
+          </div>
+          <div class="edition-output">
+            <h4>能得到什么</h4><p>引用对照的改稿、可编辑图件、审阅意见或论文交付包。</p>
+            <p class="command"><code>$paper-spine-followwriting</code></p>
+          </div>
+          <div class="edition-download">
+            <p>支持 Skill 的宿主<br><span>@PACK_SIZE@</span></p>
+            <a class="button compact" href="@PACK_URL@" aria-label="下载 ZIP · Skills 包">下载 ZIP <span aria-hidden="true">↓</span></a>
+          </div>
+        </article>
+        <article class="edition" id="edition-web">
+          <div class="edition-main">
+            <p class="eyeline">在本地工作台审查论文</p>
+            <h3>Web 插件包</h3>
+            <p>从宿主打开论文任务，在工作台保存设置、比较图件、预览文件并提交返修意见。</p>
+          </div>
+          <div class="edition-output">
+            <h4>能得到什么</h4><p>保存选择、反馈和预览，下载同一论文任务的文件。</p>
+            <p class="command"><code>$paper-spine-web:paper-spine-web</code></p>
+          </div>
+          <div class="edition-download">
+            <p>Windows x64 · Codex<br><span>@WEB_SIZE@</span></p>
+            <a class="button compact" href="@WEB_URL@" aria-label="下载 ZIP · Web 插件包">下载 ZIP <span aria-hidden="true">↓</span></a>
+          </div>
+        </article>
+        </div>
+        <div class="edition-usage">
+          <details>
+            <summary>可以怎么向 PaperSpine 提需求？</summary>
+            <ul>
+              <li><strong>全流程 Skill。</strong>「基于这份测量数据设计配对比较，保留分析代码和图，最后给我可编辑研究稿。」</li>
+              <li><strong>Skills 包。</strong>「用我的结果与这两篇参考文改写 Results，保留估计值和原来的结论范围。」</li>
+              <li><strong>Web 插件包。</strong>「在工作台打开这项研究，我想比较图件、预览稿件，再给你返修意见。」</li>
+            </ul>
+          </details>
+          <p>安装管理器支持整版更新和回退。卸载时保留论文、研究文件和本地任务。</p>
+        </div>
+        <div class="links release-links">
+          <a href="https://github.com/WUBING2023/PaperSpine/blob/@TAG@/INSTALL-V6.md">安装使用指南 <span aria-hidden="true">↗</span></a><a href="../checksums.sha256" download>SHA-256 校验文件</a><a href="../channel.json">更新频道</a><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">发行说明 · @VERSION@</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell field-test section" id="field-test" aria-labelledby="field-title">
+      <div class="field-intro">
+        <p class="eyeline">V6 实跑 · 三个 Codex 子 Agent</p>
+        <h2 id="field-title">同一研究，<br>跑通三个版本</h2>
+        <p>三个子 Agent 分别安装一种 V6 发行包，检验只在训练折拟合的标准化如何影响固定的 7 近邻分类器。在 13,543 条 Dry Bean 公开记录上复算得到同一组结果。</p>
+        <p class="field-result"><strong>71.62% → 93.46%</strong><span>五个配对折的平均平衡准确率</span></p>
+        <div class="links"><a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/edition-field-test.md">读实跑记录 ↗</a><a href="../science/scaling-study-source.zip" download>下载论文与代码 ↓</a></div>
+      </div>
+      <div class="field-artifacts">
+        <figure class="field-figure">
+          <a href="../science/scaling-figure.svg"><img src="../science/scaling-figure.webp" alt="比较训练折标准化前后的逐折平衡准确率，以及七个品种的留出样本召回率。" width="1937" height="845" loading="lazy"></a>
+          <figcaption><a href="../science/scaling-figure.svg">打开可编辑矢量图 ↗</a><a href="../science/scaling-results.json">逐折结果 ↗</a></figcaption>
+        </figure>
+        <div class="field-files"><p>Web 版在工作台提交意见，沿原任务修订，再次下载返修后的稿件。</p><div class="links"><a href="../science/scaling-workbench.pdf">返修 PDF ↗</a><a href="../science/scaling-workbench.docx" download>Word ↓</a></div></div>
+      </div>
+    </section>
+
     <section class="shell research section" id="research" aria-labelledby="research-title">
       <div class="section-heading">
         <h2 id="research-title">实际做过的研究</h2>
@@ -101,80 +204,28 @@
       </div>
     </section>
 
-    <section class="edition-section section" id="download" aria-labelledby="edition-title">
-      <div class="shell">
-        <div class="section-heading"><h2 id="edition-title">三种科研工作方式</h2><p>从一次对话开始，也可以独立调用任意阶段，或在本地界面审查同一篇论文。</p></div>
-        <div class="editions">
-        <article class="edition" id="edition-skill">
-          <div class="edition-main">
-            <p class="eyeline">从问题推进到论文</p>
-            <h3>全流程 Skill</h3>
-            <p>把研究问题、结果目录或初稿交给宿主，调用 $paper-spine，再确认需要推进的研究或写作范围。</p>
-          </div>
-          <div class="edition-output">
-            <h4>能得到什么</h4><p>按范围交付文献和证据记录、分析、科研图和可编辑稿件。</p>
-            <details><summary>试试这句话</summary><p class="command"><code>$paper-spine 研究缺失机制变化对分类器的影响。先设计比较，再保存分析、图和稿件。</code></p></details>
-          </div>
-          <div class="edition-download">
-            <p>支持 Skill 的宿主<br><span>@SKILL_SIZE@</span></p>
-            <a class="button compact" href="@SKILL_URL@" aria-label="下载 ZIP · 全流程 Skill">下载 ZIP <span aria-hidden="true">↓</span></a>
-          </div>
-        </article>
-        <article class="edition" id="edition-pack">
-          <div class="edition-main">
-            <p class="eyeline">单独调用需要的环节</p>
-            <h3>Skills 包</h3>
-            <p>安装全流程入口和五个独立阶段 Skill。只想修一段、重画一幅图或审阅现稿时，可以从现有结果开始。</p>
-          </div>
-          <div class="edition-output">
-            <h4>能得到什么</h4><p>引用对照的改稿、可编辑图件、审阅意见或论文交付包。</p>
-            <details><summary>试试这句话</summary><p class="command"><code>$paper-spine-followwriting 参考论文的论证结构改写 Results，沿用我的估计结果、图件和结论范围。</code></p></details>
-          </div>
-          <div class="edition-download">
-            <p>支持 Skill 的宿主<br><span>@PACK_SIZE@</span></p>
-            <a class="button compact" href="@PACK_URL@" aria-label="下载 ZIP · Skills 包">下载 ZIP <span aria-hidden="true">↓</span></a>
-          </div>
-        </article>
-        <article class="edition" id="edition-web">
-          <div class="edition-main">
-            <p class="eyeline">在本地工作台审查论文</p>
-            <h3>Web 插件包</h3>
-            <p>从宿主打开论文任务，在工作台保存设置、比较图件、预览文件并提交返修意见。</p>
-          </div>
-          <div class="edition-output">
-            <h4>能得到什么</h4><p>保存选择、反馈和预览，下载同一论文任务的文件。</p>
-            <details><summary>在 Codex 里打开</summary><p class="command"><code>$paper-spine-web:paper-spine-web</code></p></details>
-          </div>
-          <div class="edition-download">
-            <p>Windows x64 · Codex<br><span>@WEB_SIZE@</span></p>
-            <a class="button compact" href="@WEB_URL@" aria-label="下载 ZIP · Web 插件包">下载 ZIP <span aria-hidden="true">↓</span></a>
-          </div>
-        </article>
-        </div>
-        <div class="links release-links">
-          <a href="https://github.com/WUBING2023/PaperSpine/blob/@TAG@/INSTALL-V6.md">安装使用指南 <span aria-hidden="true">↗</span></a><a href="../checksums.sha256" download>SHA-256 校验文件</a><a href="../channel.json">更新频道</a><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">发行说明 · @VERSION@</a>
-        </div>
-      </div>
-    </section>
-
     <section class="shell demos section" id="examples" aria-labelledby="demo-title">
       <div class="section-heading"><h2 id="demo-title">功能实拍与演示</h2><p>查看真实 Windows 工作台，再按需播放各项功能的简短演示。</p></div>
       <figure class="workbench-feature" id="draft">
-        <a href="../science/workbench-figure-zoom.png"><img src="../science/workbench-figure-zoom.webp" width="2020" height="1387" loading="lazy" alt="PaperSpine 本地工作台放大预览 Dry Bean 研究的配对效果图。"></a>
-        <figcaption>正式 Windows 插件中的科研图预览 · <a href="../science/workbench-figure-zoom.png" download>原尺寸截图 ↓</a></figcaption>
+        <a href="../science/scaling-workbench.webp"><img src="../science/scaling-workbench.webp" width="1984" height="1312" loading="lazy" alt="Windows 本地工作台预览 Dry Bean 标准化研究的配对结果和各品种召回率。"></a>
+        <figcaption>三版实跑中的科研图预览 · <a href="../science/scaling-workbench.webp" download>原尺寸截图 ↓</a></figcaption>
       </figure>
       <div class="clip-grid">
         <article class="clip" id="writing">
           <div class="clip-preview"><img src="../science/followwriting-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/followwriting-hd.gif" data-demo aria-label="播放功能演示 · Followwriting"><span aria-hidden="true">▶</span></a></div>
-          <h3>Followwriting</h3><p>参考原论文的结构和论证，改写时以自己的证据落笔。</p>
+          <h3>Followwriting</h3><p>流程示意 · 围绕自己的结果落笔，参考原论文的论证结构。</p>
         </article>
         <article class="clip" id="figure-preview">
           <div class="clip-preview"><img src="../science/figures-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/figures-hd.gif" data-demo aria-label="播放功能演示 · 科研图预览"><span aria-hidden="true">▶</span></a></div>
-          <h3>科研图预览</h3><p>在本地工作台打开研究图件，查看原尺寸内容。</p>
+          <h3>科研图预览</h3><p>工作台实拍 · 打开研究图，检查原尺寸细节。</p>
         </article>
         <article class="clip" id="workbench">
           <div class="clip-preview"><img src="../science/workbench-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/workbench-hd.gif" data-demo aria-label="播放功能演示 · 论文预览"><span aria-hidden="true">▶</span></a></div>
-          <h3>论文预览</h3><p>在工作台打开同一研究的论文阅读稿。</p>
+          <h3>论文预览</h3><p>工作台实拍 · 打开同一任务的 PDF 阅读稿。</p>
+        </article>
+        <article class="clip" id="revision">
+          <div class="clip-preview"><img src="../science/revision-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/revision-hd.gif" data-demo aria-label="播放功能演示 · 审阅返修"><span aria-hidden="true">▶</span></a></div>
+          <h3>审阅与返修</h3><p>工作台实拍 · 保存返修意见，再打开原任务内的新 PDF。</p>
         </article>
       </div>
       <dialog class="demo-dialog" aria-label="播放功能演示"><button type="button" class="close-demo">关闭 <span aria-hidden="true">×</span></button><img alt=""></dialog>
@@ -188,13 +239,15 @@
           <blockquote id="press-intro">PaperSpine 是一个开源的 AI for Science 研究工作流。它把文献、分析、科研图与可编辑论文放在同一个研究项目里。研究者可以用一个 Skill 跑全流程，按需要单独调用写作、制图或审阅阶段，也可以在 Codex 的本地工作台审查同一篇论文。</blockquote>
           <div class="press-actions"><a href="../science/paperspine-v6-press-kit.zip" class="button" download>下载完整媒体包 <span aria-hidden="true">↓</span></a><button type="button" class="button outline copy-press" hidden>复制项目简介</button></div>
           <p class="copy-status" data-done="已复制" data-hint="选中简介文字即可复制。" role="status"></p>
-          <p class="scope">素材包含中英文文案、图注和数据出处。引用时请保留案例范围和图件类型说明。</p>
+          <div class="spine-signature">
+            <img src="../science/spine.webp" width="1394" height="1061" alt="" loading="lazy">
+            <p><strong>Spine</strong> · PaperSpine 的折纸龙<br><a href="../science/spine.png" download>下载透明底原图 ↓</a></p>
+          </div>
         </div>
         <figure class="press-assets">
           <a href="../science/press-cover.png" download><img src="../science/press-cover.webp" loading="lazy" width="1920" height="1080" alt="PaperSpine V6 — AI for Science 科研工作流"></a>
           <figcaption><a href="../science/press-cover.png" download>1920×1080 横版封面 <span aria-hidden="true">↓</span></a>
             <a href="../science/press-portrait.png" download>1080×1350 竖版封面 <span aria-hidden="true">↓</span></a>
-            <a href="../science/spine.png" download>Spine 透明底 PNG <span aria-hidden="true">↓</span></a>
             <a href="../science/press-copy.md" download>双语文案与图注 <span aria-hidden="true">↓</span></a>
             <a href="../science/case-notes.md" download>案例证据与来源 <span aria-hidden="true">↓</span></a></figcaption>
         </figure>

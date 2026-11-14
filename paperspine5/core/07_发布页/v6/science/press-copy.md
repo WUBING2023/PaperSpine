@@ -32,13 +32,14 @@
 
 | Asset / 素材 | Caption / 建议图注 |
 | --- | --- |
-| Landscape and portrait covers | PaperSpine V6 / AI for Science featuring Spine, a dragon folded from overlapping sheets of paper. 折纸龙 Spine 为 PaperSpine 的品牌角色。 |
+| Landscape and portrait covers | PaperSpine V6 / AI for Science with the Dry Bean manuscript and result figure, alongside Spine, a dragon folded from overlapping sheets of paper. 封面采用 Dry Bean 研究稿和原始科研图，折纸龙 Spine 为 PaperSpine 的品牌角色。 |
 | Dry Bean study | Public UCI Dry Bean measurements with experimentally imposed missingness. 真实公开测量数据，缺失由实验施加。 |
 | Feature aggregation study | Saved tuning trace from one Digits split, with diagnostics across three public datasets and one synthetic condition. Digits 的一次完整调参轨迹，以及四种研究条件下的诊断。 |
 | Solid-state battery and catalyst figures | Illustrative interface mechanism and a synthetic catalyst-screening visualization. 电池界面机理示意与催化筛选模拟数据图。 |
 | Followwriting clip | A functional illustration using the Dry Bean case. 基于 Dry Bean 案例说明参考写法如何进入稿件。 |
-| Workbench clips and screenshots | Captured from the released Windows Web plugin using the Dry Bean case. 已发布 Windows 工作台加载 Dry Bean 研究材料后的实际画面。 |
+| Workbench clips and screenshots | Captured from the released Windows Web plugin using the Dry Bean studies. The revision clip shows feedback and the revised PDF in one test task. 已发布 Windows 工作台的实际操作；返修片段记录同任务内保存反馈和查看新版 PDF。 |
+| Three-edition field test | Three Codex subagents analyzed the same public Dry Bean data. In a five-fold evaluation of fixed 7-NN, training-fold standardization changed mean balanced accuracy from 71.62% to 93.46%. 三个 Codex 子 Agent 在同一批公开数据和固定分类器上复算。 |
 
-Credit PaperSpine, link to the [official site](https://wubing2023.github.io/PaperSpine/v6/) or [GitHub repository](https://github.com/WUBING2023/PaperSpine), and retain the figure labels and study scope when reusing the press assets. Dataset and third-party credits are listed in [Case notes](case-notes.md).
+Credit PaperSpine, link to the [official site](https://wubing2023.github.io/PaperSpine/v6/) or [GitHub repository](https://github.com/WUBING2023/PaperSpine), and retain the figure labels and study scope when reusing the press assets. See [case sources](case-notes.md) and the [three-edition run](edition-field-test.md).
 
 转载时请注明 PaperSpine，附官网或 GitHub 链接，并保留图件标签与研究适用范围。数据和第三方出处见案例说明。

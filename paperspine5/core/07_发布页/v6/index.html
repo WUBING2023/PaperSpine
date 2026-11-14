@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="AI for Science Skills for literature, experiments, figures, and editable manuscripts. Explore documented research cases, then choose a chat Skill, modular Skills Pack, or local workbench.">
-  <meta name="theme-color" content="#111c17">
+  <meta name="theme-color" content="#f5f2e9">
   <meta property="og:title" content="PaperSpine V6 — AI for Science">
   <meta property="og:description" content="AI for Science Skills for literature, experiments, figures, and editable manuscripts. Explore documented research cases, then choose a chat Skill, modular Skills Pack, or local workbench.">
   <meta property="og:image" content="https://wubing2023.github.io/PaperSpine/v6/science/press-cover.png">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/v6/zh/">
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="v6.css?v=science">
+  <link rel="stylesheet" href="v6.css?v=research-edition">
   <script src="science.js" defer></script>
   <title>PaperSpine V6 — AI for Science</title>
 </head>
@@ -24,26 +24,129 @@
       <div class="shell navbar">
         <a class="wordmark" href="./"><img src="../v5/assets/brand/paperspine-mark.svg" width="38" height="38" alt="">PaperSpine</a>
         <nav class="site-nav" aria-label="Main navigation">
-          <a href="#research">Research</a><a href="#download">Workflows</a><a href="#press">Press kit</a>
+          <a href="#download">Get started</a><a href="#research">Research</a><a href="#examples">Demos</a><a href="#press">Press kit</a>
         </nav>
         <div class="header-links"><a class="repo-link" href="https://github.com/WUBING2023/PaperSpine">GitHub <span aria-hidden="true">↗</span></a><a class="language" href="zh/" hreflang="zh-CN" lang="zh-CN">中文</a></div>
       </div>
     </header>
-    <section class="shell hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="hero-kicker">AI FOR SCIENCE <span></span> <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 public beta</a></p>
-        <h1 id="hero-title">The work behind<br><em>the paper.</em></h1>
-        <p class="hero-description">PaperSpine gives your AI agent a research workflow. Study the literature, run analyses, make figures, and deliver an editable manuscript with the evidence behind it.</p>
-        <div class="hero-actions"><a href="#research" class="button">Explore the research <span aria-hidden="true">↓</span></a><a href="#download" class="button outline">Get PaperSpine <span aria-hidden="true">↗</span></a></div>
-      </div>
-      <figure class="hero-art">
-        <div class="artifact-orbit" aria-hidden="true"></div>
-        <img src="science/spine.webp" width="1394" height="1061" alt="Spine, a dragon sculpted from stacked folds of ivory paper with a green underside" fetchpriority="high">
-        <figcaption>Spine · PaperSpine’s origami dragon</figcaption>
-      </figure>
-    </section>
   </div>
   <main id="main">
+    <section class="shell hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="hero-kicker"><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 public beta</a><span></span> Open source</p>
+        <h1 id="hero-title">PaperSpine <em>AI for Science</em></h1>
+        <p class="hero-description">Give your research agent a method for running experiments, drawing scientific figures, and delivering a paper you can edit and verify.</p>
+        <div class="hero-actions">
+          <a href="#download" class="button">Get PaperSpine <span aria-hidden="true">↓</span></a>
+          <a href="#dry-bean" class="text-link">Read a worked study <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <aside class="hero-study" aria-labelledby="hero-study-title">
+        <div class="study-top"><span>Research case · UCI Dry Bean</span><a href="science/dry-bean-paper.pdf">Read the paper ↗</a></div>
+        <h2 id="hero-study-title">When missingness<br>becomes a shortcut</h2>
+        <div class="study-spread">
+          <a class="study-manuscript" href="science/dry-bean-paper.pdf"><img src="science/dry-bean-manuscript.webp" width="1080" height="1398" fetchpriority="high" alt="First page of the Dry Bean manuscript, including the abstract and study design."></a>
+          <div class="study-measure">
+            <p class="measure-heading">Adding missingness indicators</p>
+            <dl>
+              <div><dt>Matched mask</dt><dd class="positive">+3.14 <small>pp</small></dd></div>
+              <div><dt>Reversed mask</dt><dd class="negative">−20.75 <small>pp</small></dd></div>
+            </dl>
+            <p class="measure-note">Balanced accuracy · Logistic regression<br>30% imposed missingness</p>
+          </div>
+        </div>
+        <div class="study-bottom"><a href="https://doi.org/10.24432/C50S4B">Public dataset ↗</a><a href="science/dry-bean-figure.svg">Original vector ↗</a></div>
+      </aside>
+    </section>
+    <nav class="shell edition-index" aria-label="Editions">
+      <a href="#edition-skill"><strong>Full Workflow Skill</strong><span>Work in one chat</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
+      <a href="#edition-pack"><strong>Skills Pack</strong><span>Call one stage or the full workflow</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
+      <a href="#edition-web"><strong>Web Plugin</strong><span>Review a paper in a local workbench</span><span class="jump-arrow" aria-hidden="true">↘</span></a>
+    </nav>
+    <section class="edition-section section" id="download" aria-labelledby="edition-title">
+      <div class="shell">
+        <div class="section-heading"><h2 id="edition-title">Choose how you work</h2><p>Start with the full workflow, call a single stage, or use a local interface to review the same paper.</p></div>
+        <div class="editions">
+        <article class="edition" id="edition-skill">
+          <div class="edition-main">
+            <p class="eyeline">From question to manuscript</p>
+            <h3>Full Workflow Skill</h3>
+            <p>Give your host a research question, a results folder, or a draft. Call $paper-spine and agree on the next research or writing step.</p>
+          </div>
+          <div class="edition-output">
+            <h4>What you get</h4><p>Research notes, analyses or documented evidence, figures, and an editable manuscript for the scope you set.</p>
+            <p class="command"><code>$paper-spine</code></p>
+          </div>
+          <div class="edition-download">
+            <p>Skill-capable host<br><span>@SKILL_SIZE@</span></p>
+            <a class="button compact" href="@SKILL_URL@" aria-label="Download ZIP · Full Workflow Skill">Download ZIP <span aria-hidden="true">↓</span></a>
+          </div>
+        </article>
+        <article class="edition" id="edition-pack">
+          <div class="edition-main">
+            <p class="eyeline">Work on one stage at a time</p>
+            <h3>Skills Pack</h3>
+            <p>Install the full workflow and five skills you can invoke individually. Start with existing evidence when you only need to revise a section or check a figure.</p>
+          </div>
+          <div class="edition-output">
+            <h4>What you get</h4><p>A focused output such as a reference-guided rewrite, an editable figure, a review report, or a paper archive.</p>
+            <p class="command"><code>$paper-spine-followwriting</code></p>
+          </div>
+          <div class="edition-download">
+            <p>Skill-capable host<br><span>@PACK_SIZE@</span></p>
+            <a class="button compact" href="@PACK_URL@" aria-label="Download ZIP · Skills Pack">Download ZIP <span aria-hidden="true">↓</span></a>
+          </div>
+        </article>
+        <article class="edition" id="edition-web">
+          <div class="edition-main">
+            <p class="eyeline">Review in your local workbench</p>
+            <h3>Web Plugin</h3>
+            <p>Open a paper with the host, then use the workbench to save settings, compare figures, preview files, and respond with revision notes.</p>
+          </div>
+          <div class="edition-output">
+            <h4>What you get</h4><p>A local record of selections, feedback, previews, and the same paper’s downloadable files.</p>
+            <p class="command"><code>$paper-spine-web:paper-spine-web</code></p>
+          </div>
+          <div class="edition-download">
+            <p>Windows x64 · Codex<br><span>@WEB_SIZE@</span></p>
+            <a class="button compact" href="@WEB_URL@" aria-label="Download ZIP · Web Plugin">Download ZIP <span aria-hidden="true">↓</span></a>
+          </div>
+        </article>
+        </div>
+        <div class="edition-usage">
+          <details>
+            <summary>What can I ask PaperSpine to do?</summary>
+            <ul>
+              <li><strong>Full Workflow Skill.</strong> “Use these measurements to design a paired analysis. Save the code and figures, then write an editable manuscript.”</li>
+              <li><strong>Skills Pack.</strong> “Use my results and the two attached reference papers to revise the Results section. Keep the estimates and claim scope.”</li>
+              <li><strong>Web Plugin.</strong> “Open this study in the workbench so I can inspect the figure, preview the draft, and send a revision note.”</li>
+            </ul>
+          </details>
+          <p>Use the install manager to update or roll back the installed edition. Uninstalling keeps your research files and local tasks.</p>
+        </div>
+        <div class="links release-links">
+          <a href="https://github.com/WUBING2023/PaperSpine/blob/@TAG@/INSTALL-V6.en.md">Installation guide <span aria-hidden="true">↗</span></a><a href="checksums.sha256" download>SHA-256 checksums</a><a href="channel.json">Update channel</a><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">Release notes · @VERSION@</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell field-test section" id="field-test" aria-labelledby="field-title">
+      <div class="field-intro">
+        <p class="eyeline">V6 field test · Three Codex subagents</p>
+        <h2 id="field-title">One study.<br>Three workflows.</h2>
+        <p>Each subagent installed a different V6 edition and tested how training-fold standardization affected the same 7-nearest-neighbor classifier. All three produced the same paired result on 13,543 public Dry Bean records.</p>
+        <p class="field-result"><strong>71.62% → 93.46%</strong><span>Mean balanced accuracy across five paired folds</span></p>
+        <div class="links"><a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/edition-field-test.md">Read the run notes ↗</a><a href="science/scaling-study-source.zip" download>Get the paper and code ↓</a></div>
+      </div>
+      <div class="field-artifacts">
+        <figure class="field-figure">
+          <a href="science/scaling-figure.svg"><img src="science/scaling-figure.webp" alt="Paired held-out accuracy for each fold and pooled recall by variety, before and after training-fold standardization." width="1937" height="845" loading="lazy"></a>
+          <figcaption><a href="science/scaling-figure.svg">Open the editable figure ↗</a><a href="science/scaling-results.json">Fold data ↗</a></figcaption>
+        </figure>
+        <div class="field-files"><p>The Web subagent also saved feedback in the workbench, revised the same task, then downloaded the new paper.</p><div class="links"><a href="science/scaling-workbench.pdf">Revised PDF ↗</a><a href="science/scaling-workbench.docx" download>Word ↓</a></div></div>
+      </div>
+    </section>
+
     <section class="shell research section" id="research" aria-labelledby="research-title">
       <div class="section-heading">
         <h2 id="research-title">Research in practice</h2>
@@ -101,80 +204,28 @@
       </div>
     </section>
 
-    <section class="edition-section section" id="download" aria-labelledby="edition-title">
-      <div class="shell">
-        <div class="section-heading"><h2 id="edition-title">Choose how you work</h2><p>Start with the full workflow, call a single stage, or use a local interface to review the same paper.</p></div>
-        <div class="editions">
-        <article class="edition" id="edition-skill">
-          <div class="edition-main">
-            <p class="eyeline">From question to manuscript</p>
-            <h3>Full Workflow Skill</h3>
-            <p>Give your host a research question, a results folder, or a draft. Call $paper-spine and agree on the next research or writing step.</p>
-          </div>
-          <div class="edition-output">
-            <h4>What you get</h4><p>Research notes, analyses or documented evidence, figures, and an editable manuscript for the scope you set.</p>
-            <details><summary>Try it</summary><p class="command"><code>$paper-spine Study how missingness shifts affect this classifier. Design the comparison first, then save the analysis, figures, and draft.</code></p></details>
-          </div>
-          <div class="edition-download">
-            <p>Skill-capable host<br><span>@SKILL_SIZE@</span></p>
-            <a class="button compact" href="@SKILL_URL@" aria-label="Download ZIP · Full Workflow Skill">Download ZIP <span aria-hidden="true">↓</span></a>
-          </div>
-        </article>
-        <article class="edition" id="edition-pack">
-          <div class="edition-main">
-            <p class="eyeline">Work on one stage at a time</p>
-            <h3>Skills Pack</h3>
-            <p>Install the full workflow and five skills you can invoke individually. Start with existing evidence when you only need to revise a section or check a figure.</p>
-          </div>
-          <div class="edition-output">
-            <h4>What you get</h4><p>A focused output such as a reference-guided rewrite, an editable figure, a review report, or a paper archive.</p>
-            <details><summary>Try it</summary><p class="command"><code>$paper-spine-followwriting Revise the Results section using the reference papers for structure. Keep my estimates, figures, and claim scope.</code></p></details>
-          </div>
-          <div class="edition-download">
-            <p>Skill-capable host<br><span>@PACK_SIZE@</span></p>
-            <a class="button compact" href="@PACK_URL@" aria-label="Download ZIP · Skills Pack">Download ZIP <span aria-hidden="true">↓</span></a>
-          </div>
-        </article>
-        <article class="edition" id="edition-web">
-          <div class="edition-main">
-            <p class="eyeline">Review in your local workbench</p>
-            <h3>Web Plugin</h3>
-            <p>Open a paper with the host, then use the workbench to save settings, compare figures, preview files, and respond with revision notes.</p>
-          </div>
-          <div class="edition-output">
-            <h4>What you get</h4><p>A local record of selections, feedback, previews, and the same paper’s downloadable files.</p>
-            <details><summary>Open it in Codex</summary><p class="command"><code>$paper-spine-web:paper-spine-web</code></p></details>
-          </div>
-          <div class="edition-download">
-            <p>Windows x64 · Codex<br><span>@WEB_SIZE@</span></p>
-            <a class="button compact" href="@WEB_URL@" aria-label="Download ZIP · Web Plugin">Download ZIP <span aria-hidden="true">↓</span></a>
-          </div>
-        </article>
-        </div>
-        <div class="links release-links">
-          <a href="https://github.com/WUBING2023/PaperSpine/blob/@TAG@/INSTALL-V6.en.md">Installation guide <span aria-hidden="true">↗</span></a><a href="checksums.sha256" download>SHA-256 checksums</a><a href="channel.json">Update channel</a><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">Release notes · @VERSION@</a>
-        </div>
-      </div>
-    </section>
-
     <section class="shell demos section" id="examples" aria-labelledby="demo-title">
       <div class="section-heading"><h2 id="demo-title">See the tools at work</h2><p>Preview the actual Windows workbench, then play a short demonstration of each feature.</p></div>
       <figure class="workbench-feature" id="draft">
-        <a href="science/workbench-figure-zoom.png"><img src="science/workbench-figure-zoom.webp" width="2020" height="1387" loading="lazy" alt="The PaperSpine local workbench with the Dry Bean effect figure open in the zoomed viewer."></a>
-        <figcaption>Actual figure review in the Windows plugin · <a href="science/workbench-figure-zoom.png" download>Full-size screenshot ↓</a></figcaption>
+        <a href="science/scaling-workbench.webp"><img src="science/scaling-workbench.webp" width="1984" height="1312" loading="lazy" alt="The local Windows workbench displaying the paired folds and recall by variety from the scaling study."></a>
+        <figcaption>Figure review in the three-edition field test · <a href="science/scaling-workbench.webp" download>Full-size screenshot ↓</a></figcaption>
       </figure>
       <div class="clip-grid">
         <article class="clip" id="writing">
           <div class="clip-preview"><img src="science/followwriting-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="science/followwriting-hd.gif" data-demo aria-label="Play the demonstration · Followwriting"><span aria-hidden="true">▶</span></a></div>
-          <h3>Followwriting</h3><p>Use reference papers for structure and argument, then write from your own evidence.</p>
+          <h3>Followwriting</h3><p>Workflow illustration · Build the argument with reference passages and your own results.</p>
         </article>
         <article class="clip" id="figure-preview">
           <div class="clip-preview"><img src="science/figures-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="science/figures-hd.gif" data-demo aria-label="Play the demonstration · Figure review"><span aria-hidden="true">▶</span></a></div>
-          <h3>Figure review</h3><p>Open a scientific figure in the local workbench and inspect it at full size.</p>
+          <h3>Figure review</h3><p>Workbench capture · Inspect the original figure at full size.</p>
         </article>
         <article class="clip" id="workbench">
           <div class="clip-preview"><img src="science/workbench-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="science/workbench-hd.gif" data-demo aria-label="Play the demonstration · Manuscript preview"><span aria-hidden="true">▶</span></a></div>
-          <h3>Manuscript preview</h3><p>Open the same study’s reading manuscript in the workbench viewer.</p>
+          <h3>Manuscript preview</h3><p>Workbench capture · Read the same task’s manuscript in the PDF viewer.</p>
+        </article>
+        <article class="clip" id="revision">
+          <div class="clip-preview"><img src="science/revision-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="science/revision-hd.gif" data-demo aria-label="Play the demonstration · Revision"><span aria-hidden="true">▶</span></a></div>
+          <h3>Review and revise</h3><p>Workbench capture · Save a revision request and open the revised PDF in the same task.</p>
         </article>
       </div>
       <dialog class="demo-dialog" aria-label="Play the demonstration"><button type="button" class="close-demo">Close <span aria-hidden="true">×</span></button><img alt=""></dialog>
@@ -188,13 +239,15 @@
           <blockquote id="press-intro">PaperSpine is an open-source AI for Science workflow for research agents. It brings literature, analysis, scientific figures, and editable manuscripts into one research project. Researchers can use one Skill, pick individual stages, or review the work in a local Codex workbench.</blockquote>
           <div class="press-actions"><a href="science/paperspine-v6-press-kit.zip" class="button" download>Download the press kit <span aria-hidden="true">↓</span></a><button type="button" class="button outline copy-press" hidden>Copy introduction</button></div>
           <p class="copy-status" data-done="Copied" data-hint="Select the text and copy it." role="status"></p>
-          <p class="scope">The kit includes captions, links to data sources, and English and Chinese copy. Please keep the scientific scope and figure labels in your coverage.</p>
+          <div class="spine-signature">
+            <img src="science/spine.webp" width="1394" height="1061" alt="" loading="lazy">
+            <p><strong>Spine</strong> · PaperSpine’s origami dragon<br><a href="science/spine.png" download>Transparent artwork ↓</a></p>
+          </div>
         </div>
         <figure class="press-assets">
           <a href="science/press-cover.png" download><img src="science/press-cover.webp" loading="lazy" width="1920" height="1080" alt="PaperSpine V6 — AI for Science"></a>
           <figcaption><a href="science/press-cover.png" download>1920×1080 cover <span aria-hidden="true">↓</span></a>
             <a href="science/press-portrait.png" download>1080×1350 social cover <span aria-hidden="true">↓</span></a>
-            <a href="science/spine.png" download>Spine · transparent PNG <span aria-hidden="true">↓</span></a>
             <a href="science/press-copy.md" download>Bilingual copy and captions <span aria-hidden="true">↓</span></a>
             <a href="science/case-notes.md" download>Case evidence and sources <span aria-hidden="true">↓</span></a></figcaption>
         </figure>

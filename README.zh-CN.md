@@ -1,10 +1,59 @@
 [English](README.md) · **简体中文**
 
-<p align="center"><a href="https://wubing2023.github.io/PaperSpine/v6/zh/"><img src="paperspine5/core/07_发布页/v6/science/cover-zh.webp" width="100%" alt="PaperSpine V6，AI for Science，品牌角色折纸龙 Spine"></a></p>
+<a href="https://wubing2023.github.io/PaperSpine/v6/zh/"><img src="paperspine5/core/07_发布页/v6/science/cover-zh.webp" width="100%" alt="PaperSpine V6，AI for Science。Dry Bean 研究稿、原始结果图与折纸龙 Spine。"></a>
 
-**PaperSpine 是开源的 AI for Science 科研工作流。** 用你的科研 Agent 读文献、设计和执行分析、绘制科研图，并交付有证据支撑的可编辑论文。
+**做实验、画科研图，交付一篇能编辑、能核对证据的论文。** 给科研 Agent 一个问题、一份结果或一篇初稿，就可以开始。
 
-[**官网**](https://wubing2023.github.io/PaperSpine/v6/zh/) · [科研案例](#research-cases) · [安装](#installation) · [**媒体素材包**](#press-kit)
+[**选择下载**](#ways-to-work) · [实跑记录](#edition-field-test) · [科研案例](#research-cases) · [看动图](#feature-demos) · [**媒体素材**](#press-kit) · [中文官网](https://wubing2023.github.io/PaperSpine/v6/zh/)
+
+<a id="ways-to-work"></a>
+
+## 三种使用方式
+
+| 版本 | 怎么开始 | 能拿到什么 |
+| :--- | :--- | :--- |
+| **全流程 Skill**<br>[下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip) | 在宿主对话里调用 `$paper-spine`，交给它题目、数据或初稿。 | 在约定范围内交付研究记录、分析、图件和可编辑稿件。 |
+| **Skills 包**<br>[下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip) | 调用 `$paper-spine` 跑全流程，或用 `$paper-spine-followwriting` 等入口只做一个环节。 | 按阶段拿到所需文件，保留出处和下一步所需证据。 |
+| **Web 插件包**<br>[下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) | 在 Windows x64 的 Codex 里用 `$paper-spine-web:paper-spine-web`。 | 整套 Skills 和本地工作台，可在同一任务里调整设置、放大图件、预览、下载和返修。 |
+
+<details>
+<summary><strong>五个阶段 Skill 和可以照着写的指令</strong></summary>
+
+| Skill | 可以这样提需求 |
+| --- | --- |
+| `$paper-spine-study` | 用这份数据设计配对实验，保存每个划分的结果。 |
+| `$paper-spine-followwriting` | 参考这两篇源论文调整 Results 的论证，保留我的估计值和结论范围。 |
+| `$paper-spine-figures` | 用分析结果画矢量图，附上生成代码。 |
+| `$paper-spine-review` | 核对证据能支撑哪些结论，指出薄弱处并修订。 |
+| `$paper-spine-deliver` | 交付可编辑稿、阅读稿和支撑材料。 |
+
+</details>
+
+<a id="installation"></a>
+
+## 安装、更新和卸载
+
+解压选好的 ZIP，在解压目录运行随包附带的管理器。参数使用原 ZIP 路径及校验表里的 SHA-256。装完后打开新的宿主对话。
+
+```text
+python -B edition_manager.py install "<原 ZIP 路径>" --sha256 <SHA256>
+```
+
+管理器需要 Python 3.12 或更新版。Web 包含 Windows Python，还需要 Codex CLI。支持自动检查更新、手动升级、回退和卸载，保留论文、数据和本地任务。
+
+[安装、更新及卸载说明](INSTALL-V6.md) · [SHA-256 校验文件](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/checksums.sha256) · [V6 Release](https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2)
+
+<a id="edition-field-test"></a>
+
+## 同一研究跑通三个版本
+
+三个 Codex 子 Agent 分别安装了三个 V6 发行包，从同一批公开数据起步。对 Dry Bean 去重后的 13,543 条记录做五折配对评估，在训练折拟合标准化参数后，固定 7 近邻分类器的平均平衡准确率从 **71.62% 升至 93.46%**。
+
+| 全流程 Skill | Skills 包 | Web 插件包 |
+| :--- | :--- | :--- |
+| 交付修订后的两页稿、可复算分析和可编辑图。 | 逐项跑完五个阶段，从交付包重新编译论文。 | 在工作台提交意见，原任务返修后重新下载 Word 和 PDF。 |
+
+[**查看实跑记录**](paperspine5/core/07_发布页/v6/science/edition-field-test.md) · [论文及源码包](https://wubing2023.github.io/PaperSpine/v6/science/scaling-study-source.zip) · [Web 返修 PDF](paperspine5/core/07_发布页/v6/science/scaling-workbench.pdf) · [可编辑 Word](paperspine5/core/07_发布页/v6/science/scaling-workbench.docx)
 
 <a id="research-cases"></a>
 
@@ -40,109 +89,40 @@ Agent 使用公开的豆类形态测量数据设计压力测试，比较两个�
 
 [到 Figure Studies 下载原尺寸 PNG 和 SVG](https://wubing2023.github.io/PaperSpine/v5/figure-studies/)
 
-<a id="ways-to-work"></a>
-
-## 三种使用方式
-
-### 全流程 Skill
-
-把研究问题、结果目录或初稿交给宿主，调用 $paper-spine，再确认需要推进的研究或写作范围。
-
-- **怎么开始** · `$paper-spine`
-- **能得到什么** · 按范围交付文献和证据记录、分析、科研图和可编辑稿件。
-- **环境** · 支持 Skill 的宿主
-
-[下载 全流程 Skill ↓](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip)
-
-### Skills 包
-
-安装全流程入口和五个独立阶段 Skill。只想修一段、重画一幅图或审阅现稿时，可以从现有结果开始。
-
-- **怎么开始** · `$paper-spine-followwriting`
-- **能得到什么** · 引用对照的改稿、可编辑图件、审阅意见或论文交付包。
-- **环境** · 支持 Skill 的宿主
-
-[下载 Skills 包 ↓](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip)
-
-### Web 插件包
-
-从宿主打开论文任务，在工作台保存设置、比较图件、预览文件并提交返修意见。
-
-- **怎么开始** · `$paper-spine-web:paper-spine-web`
-- **能得到什么** · 保存选择、反馈和预览，下载同一论文任务的文件。
-- **环境** · Windows x64 · Codex
-
-[下载 Web 插件包 ↓](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip)
-
-**Skills 包可单独调用的五个环节**
-
-- `$paper-spine-study` · 研究问题和实验设计
-- `$paper-spine-followwriting` · 参考真实论文改写
-- `$paper-spine-figures` · 科研图件与可编辑图源
-- `$paper-spine-review` · 论文、引文和证据审阅
-- `$paper-spine-deliver` · 稿件与文件交付
-
-<a id="installation"></a>
-
-## 安装与版本管理
-
-任选一个 ZIP 并下载校验清单。解压 ZIP，在解压目录运行管理器，传入原 ZIP 路径和对应 SHA-256。安装好后打开一个新对话。
-
-```text
-python -B edition_manager.py install "<原 ZIP 路径>" --sha256 <SHA256>
-```
-
-管理器需要 Python 3.12 或以上。Web 包自带 Windows Python，还需要 Codex CLI。使用其他宿主时按指南选择 Skill 目录，也可手动放置。
-
-受管安装可检查和应用更新、关闭自动检查、回退或卸载，保留稿件及本地任务。V5 继续走独立频道。旧 profile 可以在 V5 打开，也可以将现有论文文件带到 V6 接续。
-
-[完整安装、更新与卸载说明](INSTALL-V6.md) · [发行资产](https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2) · [校验文件](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/checksums.sha256)
-
 <a id="paper-example"></a>
 <a id="feature-demos"></a>
 
-## 功能短片
+## 功能动图
 
-三段短片展示功能。Followwriting 是流程演示，放大科研图和稿件预览取自加载该案例的正式 Windows 插件。
+<table><tr>
+  <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/followwriting-hd.gif"><picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/followwriting-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/science/followwriting-hd.gif" width="385" alt="Followwriting">
+  </picture></a><br><strong>Followwriting</strong></td>
+  <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/figures-hd.gif"><picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/figures-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/science/figures-hd.gif" width="385" alt="科研图审阅">
+  </picture></a><br><strong>科研图审阅</strong></td>
+</tr><tr>
+  <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/workbench-hd.gif"><picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/workbench-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/science/workbench-hd.gif" width="385" alt="论文预览">
+  </picture></a><br><strong>论文预览</strong></td>
+  <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/revision-hd.gif"><picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/revision-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/science/revision-hd.gif" width="385" alt="审阅与返修">
+  </picture></a><br><strong>审阅与返修</strong></td>
+</tr></table>
 
-### Followwriting
-
-参考原论文的结构和论证，改写时以自己的证据落笔。
-
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/followwriting-hd-still.webp">
-  <img src="paperspine5/core/07_发布页/v6/science/followwriting-hd.gif" width="820" alt="Followwriting · 功能演示">
-</picture>
-
-### 科研图预览
-
-在本地工作台打开研究图件，查看原尺寸内容。
-
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/figures-hd-still.webp">
-  <img src="paperspine5/core/07_发布页/v6/science/figures-hd.gif" width="820" alt="科研图预览 · 功能演示">
-</picture>
-
-### 论文预览
-
-在工作台打开同一研究的论文阅读稿。
-
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/workbench-hd-still.webp">
-  <img src="paperspine5/core/07_发布页/v6/science/workbench-hd.gif" width="820" alt="论文预览 · 功能演示">
-</picture>
+Followwriting 短片演示如何借鉴论证写法、用本研究的结果落笔。其余片段来自已发布的 Windows 工作台。[查看反馈到返修过程](https://wubing2023.github.io/PaperSpine/v6/zh/#revision) · [原尺寸工作台截图](https://wubing2023.github.io/PaperSpine/v6/zh/#examples)
 
 <a id="press-kit"></a>
 
 ## 媒体与创作者素材
 
-可直接引用的介绍、方便裁切的图和三段功能短片。整包附折纸龙 Spine 透明底、1920×1080 横版与 1080×1350 竖版封面、原尺寸截图、科研图和出处说明。
+> PaperSpine 是一个开源的 AI for Science 工作流，帮助科研 Agent 做实验、绘制科研图、交付可编辑论文。研究者可以选一个全流程 Skill、分阶段调用，或在本地工作台审阅。
 
-> PaperSpine 是一个开源的 AI for Science 研究工作流。它把文献、分析、科研图与可编辑论文放在同一个研究项目里。研究者可以用一个 Skill 跑全流程，按需要单独调用写作、制图或审阅阶段，也可以在 Codex 的本地工作台审查同一篇论文。
-
-[**下载完整媒体包 ↓**](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip) · [双语文案与图注](paperspine5/core/07_发布页/v6/science/press-copy.md) · [案例证据与出处](paperspine5/core/07_发布页/v6/science/case-notes.md) · [原尺寸工作台 PNG](paperspine5/core/07_发布页/v6/science/workbench-figures.png)
-
-<a href="https://wubing2023.github.io/PaperSpine/v6/science/spine.png"><img src="paperspine5/core/07_发布页/v6/science/spine.webp" alt="Spine，PaperSpine 的折纸龙" width="265"></a>
+[**下载完整媒体包**](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip) · [双语简介和图注](paperspine5/core/07_发布页/v6/science/press-copy.md) · [横版封面](paperspine5/core/07_发布页/v6/science/press-cover.png) · [竖版封面](paperspine5/core/07_发布页/v6/science/press-portrait.png) · [折纸龙 Spine 透明底](paperspine5/core/07_发布页/v6/science/spine.png)
 
 ## 开发与社区
 
