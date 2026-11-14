@@ -205,6 +205,11 @@ p { line-height: 1.65; }
 .demo-dialog::backdrop { background: #06100dd9; }
 .close-demo { display: block; margin: 0 0 8px auto; min-height: 43px; color: inherit; padding-inline: 10px; border: 1px solid #b1b8a5; background: transparent; cursor: pointer; }
 
+.community-feature { border-top: 1px solid var(--light-rule); }
+.community-feature .section-heading { margin-bottom: 22px; }
+.community-feature .section-heading p { margin-top: 10px; }
+.community-preview { display: block; }
+
 .press-section { background: var(--dark); color: var(--dark-text); }
 .press-section .button { background: #eee6ce; border-color: #eee6ce; color: var(--dark); }
 .press-section .button:hover { background: white; border-color: white; }

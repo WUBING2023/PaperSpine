@@ -113,6 +113,10 @@ Followwriting illustrates how to use a reference’s structure while writing fro
 
 ## Development and community
 
+<a href="https://wubing2023.github.io/PaperSpine/"><img src="https://wubing2023.github.io/PaperSpine/atlas-preview.svg" width="790" alt="PaperSpine’s GitHub stargazer atlas, aggregated from publicly shared city locations."></a>
+
+[Explore the stargazer atlas](https://wubing2023.github.io/PaperSpine/) · [View the contributors roster](https://wubing2023.github.io/PaperSpine/contributors/)
+
 [V6 sources](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [Install manager](paperspine5/core/06_插件化/release/edition_manager.py) · [Website source](paperspine5/core/07_发布页/v6/) · [Report an issue](https://github.com/WUBING2023/PaperSpine/issues)
 
 <details>

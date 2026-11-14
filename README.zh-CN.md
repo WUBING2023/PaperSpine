@@ -113,6 +113,10 @@ Followwriting 短片演示如何借鉴论证写法、用本研究的结果落笔
 
 ## 开发与社区
 
+<a href="https://wubing2023.github.io/PaperSpine/zh.html"><img src="https://wubing2023.github.io/PaperSpine/atlas-preview-zh.svg" width="790" alt="PaperSpine 的 GitHub 社区星图，由公开城市信息聚合。"></a>
+
+[浏览社区星图](https://wubing2023.github.io/PaperSpine/zh.html) · [查看贡献者名单](https://wubing2023.github.io/PaperSpine/contributors/zh.html)
+
 [V6 源码](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [安装管理器](paperspine5/core/06_插件化/release/edition_manager.py) · [官网源码](paperspine5/core/07_发布页/v6/) · [问题反馈](https://github.com/WUBING2023/PaperSpine/issues)
 
 <details>

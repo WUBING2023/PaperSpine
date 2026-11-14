@@ -71,6 +71,7 @@ jobs:
         run: |
           mkdir _site
           cp atlas/{index.html,zh.html,community.css,community-map.js,echarts.min.js,worldgeo.js,data.js} _site/
+          python -B atlas/static_preview.py _site
           mkdir -p _site/contributors
           cp atlas/contributors.html _site/contributors/index.html
           cp atlas/contributors-zh.html _site/contributors/zh.html
