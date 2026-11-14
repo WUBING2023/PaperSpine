@@ -3,57 +3,164 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="PaperSpine V6 offers a chat-first paper Skill, independent research and Followwriting Skills, and an optional local workbench.">
-  <meta name="theme-color" content="#edf1e9">
-  <meta property="og:title" content="PaperSpine V6">
-  <meta property="og:description" content="Write your research paper in chat, use individual Skills, or open an optional local workbench.">
-  <meta property="og:image" content="https://wubing2023.github.io/PaperSpine/v6/workspace.webp">
+  <meta name="description" content="Work on your research paper in chat with PaperSpine. Choose a full-workflow Skill, individual Skills, or the optional local workbench.">
+  <meta name="theme-color" content="#f7f5ee">
+  <meta property="og:title" content="PaperSpine V6 · From research to manuscript">
+  <meta property="og:description" content="Work on your research paper in chat with PaperSpine. Choose a full-workflow Skill, individual Skills, or the optional local workbench.">
+  <meta property="og:image" content="https://wubing2023.github.io/PaperSpine/v6/draft-example.webp">
   <link rel="canonical" href="https://wubing2023.github.io/PaperSpine/v6/en/">
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="alternate" hreflang="en" href="https://wubing2023.github.io/PaperSpine/v6/en/">
+  <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../v6.css?v=editorial">
+  <script src="../examples.js" defer></script>
   <title>PaperSpine V6 · Research paper Skills</title>
-  <link rel="stylesheet" href="../v6.css">
 </head>
 <body>
-  <header>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
     <div class="shell header-inner">
-      <a class="brand" href="./"><img src="../../v5/assets/brand/paperspine-mark.svg" alt="">PaperSpine V6</a>
-      <nav aria-label="Main navigation">
-        <a href="#download">Downloads</a>
-        <a href="../../v5/en/materials/">Figure library</a>
-        <a href="https://github.com/WUBING2023/PaperSpine">GitHub</a>
-        <a href="../" lang="zh-CN" hreflang="zh-CN">中文</a>
+      <a class="brand" href="./"><img src="../../v5/assets/brand/paperspine-mark.svg" width="36" height="36" alt=""><span>PaperSpine <b>V6</b></span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#download">Install</a>
+        <a href="#examples">Examples</a>
+        <a class="nav-library" href="../../v5/en/materials/">Figure library</a>
       </nav>
+      <div class="header-links">
+        <a class="source-link" href="https://github.com/WUBING2023/PaperSpine">GitHub <span aria-hidden="true">↗</span></a>
+        <a class="language" href="../" lang="zh-CN" hreflang="zh-CN" aria-label="查看中文版">中文</a>
+      </div>
     </div>
   </header>
-  <main class="shell">
-    <section class="hero">
-      <div>
-        <p class="version">V6 · @VERSION@ · MIT</p>
-        <h1>Write your research paper in chat.</h1>
-        <p>Start with a question, results, or a draft. Your agent reads real references, organizes the evidence, writes, makes figures, and delivers editable files. Open the local workbench when you want a visual interface.</p>
-        <div class="links"><a class="button" href="#download">Choose a download</a><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">Release notes</a></div>
+
+  <main id="main">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <a class="version" href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@"><span class="status-dot" aria-hidden="true"></span> V6 beta <span aria-hidden="true">·</span> <span>@VERSION@</span></a>
+        <h1 id="hero-title">From research <em>to manuscript.</em></h1>
+        <p>Start with a question, results, or a draft. Work through the literature, evidence, writing, and figures in chat, then take away an editable manuscript.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#download">Choose an edition <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="#examples">See a sample <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
-      <figure>
-        <img src="../workspace.webp" width="1200" height="720" alt="PaperSpine V6 local workbench showing settings for a teaching example" fetchpriority="high">
-        <figcaption>The paper settings in the optional local workbench.</figcaption>
+      <figure class="hero-figure">
+        <div class="cover">
+          <div class="paper-stack">
+            <img src="../draft-example.webp" width="1034" height="1462" alt="A teaching manuscript produced with the full-workflow Skill, with an explanation and a bar chart" fetchpriority="high">
+          </div>
+        </div>
+        <figcaption><span class="caption-line" aria-hidden="true"></span>Manuscript excerpt from the full-workflow Skill · teaching example</figcaption>
       </figure>
     </section>
-    <section class="downloads" id="download">
-      <h2>Choose how to use PaperSpine</h2>
-      <div class="cards">
-        <article class="card"><h3>Full Workflow Skill</h3><p>Invoke <code>$paper-spine</code> to work on a whole paper from your question, results, or manuscript in chat.</p><p class="spec">Skill-compatible host · @SKILL_SIZE@</p><a class="button" href="@SKILL_URL@">Download Workflow Skill</a></article>
-        <article class="card"><h3>Skills Pack</h3><p>Use the full workflow or call research, Followwriting, figures, review, or delivery on its own.</p><p class="spec">Skill-compatible host · @PACK_SIZE@</p><a class="button" href="@PACK_URL@">Download Skills Pack</a></article>
-        <article class="card"><h3>Web Plugin</h3><p>Install the same Skills Pack with a local workbench for paper settings, figure choices, previews, downloads, and feedback.</p><p class="spec">Windows x64 · Codex · @WEB_SIZE@</p><a class="button" href="@WEB_URL@">Download Web Plugin</a></article>
+
+    <section class="downloads shell" id="download" aria-labelledby="download-title">
+      <div class="section-heading">
+        <h2 id="download-title">Choose an edition</h2>
+        <a class="text-link" href="https://github.com/WUBING2023/PaperSpine/blob/@TAG@/INSTALL-V6.en.md">Install, update, and uninstall <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="links"><a href="https://github.com/WUBING2023/PaperSpine/blob/@TAG@/INSTALL-V6.en.md">Install, update, and uninstall</a><a href="../checksums.sha256" download>SHA-256 checksums</a><a href="../channel.json">V6 update channel</a></div>
+      <ul class="edition-list" role="list">
+        <li class="edition">
+          <div class="edition-name">
+            <span class="edition-symbol icon-chat" aria-hidden="true"><i></i></span>
+            <h3>Full Workflow Skill</h3>
+          </div>
+          <p>Invoke <code>$paper-spine</code> to work through the research, writing, figures, and review in chat.</p>
+          <div class="edition-action">
+            <p class="spec">Skill-compatible host <span>· @SKILL_SIZE@</span></p>
+            <a class="button download-button" href="@SKILL_URL@" aria-label="Download ZIP · Full Workflow Skill">Download ZIP <span aria-hidden="true">↓</span></a>
+          </div>
+        </li>
+        <li class="edition">
+          <div class="edition-name">
+            <span class="edition-symbol icon-stack" aria-hidden="true"><i></i></span>
+            <h3>Skills Pack</h3>
+          </div>
+          <p>Run the full workflow or use research, Followwriting, figures, review, or delivery independently.</p>
+          <div class="edition-action">
+            <p class="spec">Skill-compatible host <span>· @PACK_SIZE@</span></p>
+            <a class="button download-button" href="@PACK_URL@" aria-label="Download ZIP · Skills Pack">Download ZIP <span aria-hidden="true">↓</span></a>
+          </div>
+        </li>
+        <li class="edition">
+          <div class="edition-name">
+            <span class="edition-symbol icon-window" aria-hidden="true"><i></i></span>
+            <h3>Web Plugin</h3>
+          </div>
+          <p>Install the same Skills Pack with a local workbench for settings, figure selection, previews, and feedback.</p>
+          <div class="edition-action">
+            <p class="spec">Windows x64 · Codex <span>· @WEB_SIZE@</span></p>
+            <a class="button download-button" href="@WEB_URL@" aria-label="Download ZIP · Web Plugin">Download ZIP <span aria-hidden="true">↓</span></a>
+          </div>
+        </li>
+      </ul>
+      <div class="release-links">
+        <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">Release notes</a>
+        <a href="../checksums.sha256" download>SHA-256 checksums</a>
+        <a href="../channel.json">V6 update channel</a>
+      </div>
     </section>
-    <section class="details" aria-label="Using PaperSpine">
-      <div><h2>Learn from real papers</h2><p>Followwriting uses one or more real examples to improve the argument and language. Your own evidence supports the conclusions. Revisions can include exact source locations and an explanation of what was learned.</p></div>
-      <div><h2>Keep your work when versions change</h2><p>The installer can update, roll back, or remove the selected edition while retaining paper files and workbench data. You can turn automatic checks off. V5 continues to use its original update channel.</p></div>
+
+    <section class="demo" id="examples" aria-labelledby="example-title">
+      <div class="shell demo-layout" data-example-tabs>
+        <div class="demo-intro">
+          <h2 id="example-title">Anatomy of a draft</h2>
+          <p>Explore the same teaching example as a manuscript, a Followwriting comparison, and a task in the optional local workbench.</p>
+          <div class="example-nav" aria-label="Example views">
+            <a href="#draft">Manuscript</a>
+            <a href="#writing">Writing comparison</a>
+            <a href="#workbench">Web workbench</a>
+          </div>
+        </div>
+        <div class="demo-pages">
+          <figure class="example-panel draft-panel" id="draft">
+            <a class="draft-preview" href="../draft-example.webp" aria-label="Open the full-size manuscript preview">
+              <img src="../draft-example.webp" width="1034" height="1462" alt="Chinese teaching manuscript. Five constructed values 2, 4, 6, 8, 10 have a mean of 6 and a range of 8." loading="lazy">
+            </a>
+            <figcaption>Manuscript preview · open the image for the full page <span aria-hidden="true">↗</span></figcaption>
+          </figure>
+          <div class="example-panel writing-panel" id="writing">
+            <dl class="annotation">
+              <div>
+                <dt>Structure from the reference</dt>
+                <dd>Give the total and count, calculate the mean, then explain the range using the two endpoints.</dd>
+              </div>
+              <div>
+                <dt>Draft excerpt, translated</dt>
+                <dd><blockquote>The five values sum to 30, so the arithmetic mean is 30 ÷ 5 = 6. The smallest value is 2 and the largest is 10, so the range is 10 − 2 = 8.</blockquote></dd>
+              </div>
+            </dl>
+            <p class="annotation-note">Followwriting learns the order of explanation from a reference. The numbers in this example determine the calculations and conclusions.</p>
+          </div>
+          <figure class="example-panel workbench-panel" id="workbench">
+            <a href="../workspace.webp" aria-label="Open the full-size Web workbench screenshot">
+              <img src="../workspace.webp" width="1200" height="720" alt="Chinese-language Windows workbench with the teaching task, phase navigation, and paper settings" loading="lazy">
+            </a>
+            <figcaption>V6 local workbench · Windows x64 · Codex</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="lifecycle shell" aria-labelledby="lifecycle-title">
+      <h2 id="lifecycle-title">Updates and uninstall</h2>
+      <p>The installer checks the V6 channel and updates the selected edition as a group. You can turn off automatic checks, roll back, or uninstall. Updates and uninstall keep your drafts and workbench tasks.</p>
+      <a class="text-link" href="https://github.com/WUBING2023/PaperSpine/blob/@TAG@/INSTALL-V6.en.md">View management commands <span aria-hidden="true">↗</span></a>
     </section>
   </main>
-  <footer class="shell"><span>PaperSpine · MIT</span><div class="links"><a href="../../v5/en/?legacy=1">V5 site archive</a><a href="../../v5/en/?support=1">Support maintenance</a><a href="https://github.com/WUBING2023/PaperSpine/issues">Report an issue</a></div></footer>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>PaperSpine <span class="muted">· MIT</span></span>
+      <div class="footer-links">
+        <a href="https://github.com/WUBING2023/PaperSpine">GitHub</a>
+        <a href="../../v5/en/materials/">Figure library</a>
+        <a href="../../v5/en/?legacy=1">V5 site archive</a>
+        <a href="../../v5/en/?support=1">Support maintenance</a>
+        <a href="https://github.com/WUBING2023/PaperSpine/issues">Report an issue</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

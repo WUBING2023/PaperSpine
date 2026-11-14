@@ -110,8 +110,9 @@ def render(metadata: Path, output: Path) -> None:
         target = output / document
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(text, encoding="utf-8")
-    for file in ("v6.css", "workspace.webp"):
+    for file in ("v6.css", "examples.js", "bookcloth.webp", "draft-example.webp", "workspace.webp"):
         shutil.copyfile(SITE / file, output / file)
+    shutil.copytree(SITE / "fonts", output / "fonts", dirs_exist_ok=True)
     for file in ("channel.json", "checksums.sha256"):
         shutil.copyfile(metadata / file, output / file)
 
