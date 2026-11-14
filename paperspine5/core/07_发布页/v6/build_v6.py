@@ -104,15 +104,16 @@ def render(metadata: Path, output: Path) -> None:
             f"{item['bytes'] / 1024:.0f} KiB" if item["bytes"] < 1024**2 else f"{item['bytes'] / 1024**2:.2f} MiB"
         )
     output.mkdir(parents=True, exist_ok=True)
-    for document in ("index.html", "en/index.html"):
+    for document in ("index.html", "zh/index.html", "en/index.html"):
         text = (SITE / document).read_text(encoding="utf-8")
         text = re.sub(r"@([A-Z_]+)@", lambda match: replacements[match[1]], text)
         target = output / document
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(text, encoding="utf-8")
-    for file in ("v6.css", "examples.js", "bookcloth.webp", "draft-example.webp", "workspace.webp"):
+    for file in ("v6.css", "science.js", "locale.js"):
         shutil.copyfile(SITE / file, output / file)
-    shutil.copytree(SITE / "fonts", output / "fonts", dirs_exist_ok=True)
+    for directory in ("fonts", "science"):
+        shutil.copytree(SITE / directory, output / directory, dirs_exist_ok=True)
     for file in ("channel.json", "checksums.sha256"):
         shutil.copyfile(metadata / file, output / file)
 

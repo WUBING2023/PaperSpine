@@ -1,188 +1,165 @@
-[中文](README.md) · [English](README.en.md)
+**English** · [中文](README.zh-CN.md)
 
-<p align="center">
-  <a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/readme/cover-zh.webp" width="100%" alt="PaperSpine V6，从研究问题到完整论文"></a>
-</p>
+<p align="center"><a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/science/press-cover.webp" width="100%" alt="PaperSpine V6, AI for Science, with the origami dragon Spine"></a></p>
 
-<p align="center">一套给科研工作用的 Skills。从研究问题、现有结果或初稿开始，在同一个对话里查阅文献、写作、制图和审阅。</p>
+**PaperSpine is an open-source AI for Science workflow.** Use it with your research agent to study literature, plan and run analyses, make scientific figures, and hand over an editable paper with its supporting evidence.
 
-<p align="center">
-  <b><a href="https://wubing2023.github.io/PaperSpine/v6/#download">官网下载</a></b> · <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2">GitHub Release</a> · <a href="INSTALL-V6.md">安装与卸载</a> · <a href="#paper-example">论文示例</a>
-</p>
+[**Website**](https://wubing2023.github.io/PaperSpine/v6/) · [Research cases](#research-cases) · [Installation](#installation) · [**Press kit**](#press-kit)
 
-## 下载 PaperSpine V6
+<a id="research-cases"></a>
 
-当前公测版为 `6.0.0-beta.2`。选择一种安装方式即可。
+## Research cases
 
-| 安装方式 | 适合谁 | 环境 | 直接下载 |
-| --- | --- | --- | --- |
-| **全流程 Skill** | 想用一个入口推进整篇论文 | 支持 Skill 的宿主 | [下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip) |
-| **Skills 包** | 经常做科研，希望独立调用写作、制图、审阅等阶段 | 支持 Skill 的宿主 | [下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip) |
-| **Web 插件包** | 想用本地工作台看设置、选图、预览和返修 | Windows x64 · Codex | [下载 ZIP](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) |
+These are selected artifacts from documented, PaperSpine-assisted research runs. Open the manuscripts and figures to see the methods, results, and scope.
 
-发行包和 SHA-256 校验清单可以在同一 Release 获取。手动复制 Skills 和受管安装的步骤见安装说明。 [阅读安装说明](INSTALL-V6.md) · [下载校验清单](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/checksums.sha256)
+### Missingness shift · Dry Bean
 
-## 入门
+The agent designed a controlled experiment on public seed measurements and compared matched and reversed missingness across two classifiers.
 
-1. 下载一个 ZIP 和校验清单，解压 ZIP。
-2. 在解压目录运行安装命令，把 `<ZIP 路径>` 和 `<SHA256>` 换成你下载的文件路径和对应校验值。
-3. 打开一个新对话，给 `$paper-spine` 一个题目、结果目录或已有稿件。
+The run used 13,543 records after deduplication and scored 2,160 evaluation conditions. At 30% imposed missingness, adding logistic-regression indicators changed balanced accuracy by **+3.14 pp** under matched masks and **−20.75 pp** under reversal. The result concerns this controlled stress test.
+
+<a href="paperspine5/core/07_发布页/v6/science/dry-bean-figure.svg"><img src="paperspine5/core/07_发布页/v6/science/dry-bean.webp" width="760" alt="Six panels showing the paired effects of missingness indicators for two classifiers at three imposed missingness rates."></a>
+
+[Read the paper](paperspine5/core/07_发布页/v6/science/dry-bean-paper.pdf) · [Open the original vector](paperspine5/core/07_发布页/v6/science/dry-bean-figure.svg) · [Dataset source](https://doi.org/10.24432/C50S4B)
+
+### Bootstrap feature aggregation
+
+This study traced how a tie in feature selection altered nested model tuning even with an unchanged final feature subset.
+
+One Digits split changed the tuned regularization from **C = 10 to C = 1** and **eight predicted labels**. The manuscript also compares three public datasets and one synthetic condition. This is an implementation diagnosis.
+
+<a href="paperspine5/core/07_发布页/v6/science/feature-aggregation-figure.svg"><img src="paperspine5/core/07_发布页/v6/science/feature-aggregation.webp" width="760" alt="Native three-panel figure showing ambiguous cutoffs, the Digits tuning trace, and group coverage."></a>
+
+[Read the paper](paperspine5/core/07_发布页/v6/science/feature-aggregation-paper.pdf) · [Open the original vector](paperspine5/core/07_发布页/v6/science/feature-aggregation-figure.svg) · [Case evidence](paperspine5/core/07_发布页/v6/science/case-notes.md)
+
+### Editable figures for other fields
+
+The figure gallery includes a **solid-state battery interface schematic** and a **closed-loop catalyst-screening visualization**. These are an illustrative mechanism and a synthetic data example.
+
+<p><a href="https://wubing2023.github.io/PaperSpine/v6/#figures"><img src="paperspine5/core/07_发布页/v6/science/solid-state-interface.webp" alt="Scientific schematic of a sulfide solid electrolyte and lithium-metal interface during cycling." width="435"><img src="paperspine5/core/07_发布页/v6/science/catalyst-workflow.webp" alt="Multi-panel visualization of a catalyst-screening workflow with synthetic data." width="435"></a></p>
+
+[Full-resolution PNGs and SVGs in Figure Studies](https://wubing2023.github.io/PaperSpine/v5/en/figure-studies/)
+
+<a id="ways-to-work"></a>
+
+## Three ways to work
+
+### Full Workflow Skill
+
+Give your host a research question, a results folder, or a draft. Call $paper-spine and agree on the next research or writing step.
+
+- **Start with** · `$paper-spine`
+- **Expected output** · Research notes, analyses or documented evidence, figures, and an editable manuscript for the scope you set.
+- **Requirements** · Skill-capable host
+
+[Download Full Workflow Skill ↓](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip)
+
+### Skills Pack
+
+Install the full workflow and five skills you can invoke individually. Start with existing evidence when you only need to revise a section or check a figure.
+
+- **Start with** · `$paper-spine-followwriting`
+- **Expected output** · A focused output such as a reference-guided rewrite, an editable figure, a review report, or a paper archive.
+- **Requirements** · Skill-capable host
+
+[Download Skills Pack ↓](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip)
+
+### Web Plugin
+
+Open a paper with the host, then use the workbench to save settings, compare figures, preview files, and respond with revision notes.
+
+- **Start with** · `$paper-spine-web:paper-spine-web`
+- **Expected output** · A local record of selections, feedback, previews, and the same paper’s downloadable files.
+- **Requirements** · Windows x64 · Codex
+
+[Download Web Plugin ↓](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip)
+
+**The Skills Pack includes**
+
+- `$paper-spine-study` · Research and experiment design
+- `$paper-spine-followwriting` · Reference-guided drafting
+- `$paper-spine-figures` · Scientific figures
+- `$paper-spine-review` · Evidence and manuscript review
+- `$paper-spine-deliver` · Editable deliverables
+
+<a id="installation"></a>
+
+## Install and manage updates
+
+Choose one ZIP and download the checksum list. Extract the archive, open a terminal in the extracted folder, and run the manager with the original ZIP and its SHA-256. Open a fresh agent chat after installation.
 
 ```text
-python -B edition_manager.py install "<ZIP 路径>" --sha256 <SHA256>
+python -B edition_manager.py install "<original ZIP path>" --sha256 <SHA256>
 ```
 
-管理器需要 Python 3.12 或以上。Web 包带 Windows Python，并需要 Codex CLI。
+Requires Python 3.12+ for managed installation. The Web archive includes Windows Python and requires the Codex CLI. Install into a compatible host's Skill directory or follow the manual placement option in the guide.
 
-可以这样发第一条消息
+Managed installs can check and apply updates, turn automatic checks off, roll back, or uninstall. Drafts and local tasks are retained. V5 continues on its own channel, and its saved profiles should be opened in V5 or carried forward using the manuscript files.
 
-```text
-$paper-spine 用 ./results 和 ./draft.md 整理成一篇论文。先确认主要结论和缺失证据，保留已有结果与图件。
-```
-
-装了 Skills 包，也可以从手头这一段开始。
-
-| Skill | 用途 |
-| --- | --- |
-| `$paper-spine-study` | **研究** · 梳理研究问题、材料与可验证的证据。 |
-| `$paper-spine-followwriting` | **Followwriting 写作** · 沿参考论文学习论证和段落安排，改写当前稿件。 |
-| `$paper-spine-figures` | **科研制图** · 对照图件与论文主张，准备和比较候选图。 |
-| `$paper-spine-review` | **审阅返修** · 核对证据、图和引用，给出可定位的修订。 |
-| `$paper-spine-deliver` | **交付** · 整理用户指定的可编辑文件和阅读版。 |
-
-Web 包安装完成后，在 Codex 调用 `$paper-spine-web:paper-spine-web` 打开本地工作台。
+[Installation, updates and uninstall](INSTALL-V6.en.md) · [Release assets](https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2) · [Checksums](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/checksums.sha256)
 
 <a id="paper-example"></a>
+<a id="feature-demos"></a>
 
-## 从材料到成稿
+## Feature demos
 
-四段动图沿用同一份由人工构造数值组成的教学材料，模拟论文工作流。下面的成稿预览和工作台截图来自实际本地试用。
+Three brief demonstrations. Followwriting is a workflow illustration. The figure zoom and PDF viewer clips use the released Windows workbench with the case loaded.
 
-<p align="center"><img src="paperspine5/core/07_发布页/v6/readme/yeye.webp" width="112" alt="PaperSpine 的角色页页，一张拿着铅笔的折角纸"></p>
+### Followwriting
 
-**认识页页。** 一张拿着铅笔的折角纸，是 PaperSpine 的演示角色。在动图里，它提示 Agent 正在读材料、改稿、等你选图或交付。
-
-### 读材料，列证据
-
-从已有资料提取五项数值，再算平均数和极差。
+Use reference papers for structure and argument, then write from your own evidence.
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/research-still.webp">
-  <img src="paperspine5/core/07_发布页/v6/readme/research.gif" alt="动图显示本地材料与三张证据卡片。" width="864">
+  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/followwriting-hd-still.webp">
+  <img src="paperspine5/core/07_发布页/v6/science/followwriting-hd.gif" width="820" alt="Followwriting · feature demonstration">
 </picture>
 
-### 用 Followwriting 改一段
+### Figure review
 
-参考文提示先给总和与项数，再解释两端的差。正文用本例的数值填实论证。
+Open a scientific figure in the local workbench and inspect it at full size.
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/followwriting-still.webp">
-  <img src="paperspine5/core/07_发布页/v6/readme/followwriting.gif" alt="动图显示参考文的写法和逐步填入的成稿。" width="864">
+  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/figures-hd-still.webp">
+  <img src="paperspine5/core/07_发布页/v6/science/figures-hd.gif" width="820" alt="Figure review · feature demonstration">
 </picture>
 
-### 比较两张图，由作者确认
+### Manuscript preview
 
-用同一组数值比较柱图和点图。示例里作者选择柱图。
+Open the same study’s reading manuscript in the workbench viewer.
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/figure-choice-still.webp">
-  <img src="paperspine5/core/07_发布页/v6/readme/figure-choice.gif" alt="动图显示两幅候选图并标记作者选中柱图。" width="864">
+  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/workbench-hd-still.webp">
+  <img src="paperspine5/core/07_发布页/v6/science/workbench-hd.gif" width="820" alt="Manuscript preview · feature demonstration">
 </picture>
 
-### 审阅、返修，再交付
+<a id="press-kit"></a>
 
-复算两个统计量，核对图件，说明教学数据的适用范围，交付正文、PDF 和可编辑图源。
+## Press kit
 
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/review-delivery-still.webp">
-  <img src="paperspine5/core/07_发布页/v6/readme/review-delivery.gif" alt="动图显示三条审阅项和最终稿件文件。" width="864">
-</picture>
+Ready-to-quote copy, ready-to-crop graphics, and three clips. The kit includes the Spine artwork with a transparent background, 1920×1080 and 1080×1350 covers, original screenshots, selected research materials, and source captions.
 
-[打开完整成稿预览](paperspine5/core/07_发布页/v6/draft-example.webp)
+> PaperSpine is an open-source AI for Science workflow for research agents. It brings literature, analysis, scientific figures, and editable manuscripts into one research project. Researchers can use one Skill, pick individual stages, or review the work in a local Codex workbench.
+
+[**Download the press kit ↓**](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip) · [Bilingual copy and captions](paperspine5/core/07_发布页/v6/science/press-copy.md) · [Study evidence](paperspine5/core/07_发布页/v6/science/case-notes.md) · [Full-size workbench PNG](paperspine5/core/07_发布页/v6/science/workbench-figures.png)
+
+<a href="https://wubing2023.github.io/PaperSpine/v6/science/spine.png"><img src="paperspine5/core/07_发布页/v6/science/spine.webp" alt="Spine, PaperSpine's origami dragon" width="265"></a>
+
+## Development and community
+
+[V6 sources](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [Install manager](paperspine5/core/06_插件化/release/edition_manager.py) · [Website source](paperspine5/core/07_发布页/v6/) · [Report an issue](https://github.com/WUBING2023/PaperSpine/issues)
 
 <details>
-<summary>可选的本地工作台</summary>
+<summary>V5 documentation and source index</summary>
 
-在同一个论文任务下保存设置、选择图件、预览稿件或提交反馈。
+- Methods and working artifacts · [writing_rationale_matrix](src/skill/references/rewrite.md) · [citation_support_bank](src/skill/references/citation-support-bank.md) · [translation_package](src/skill/references/translation-package.md)
+- Export and verification tools · [artifact_check.py](src/scripts/artifact_check.py) · [reference_inventory.py](src/scripts/reference_inventory.py) · [citation_bank_check.py](src/scripts/citation_bank_check.py) · [latex_guard.py](src/scripts/latex_guard.py) · [word_guard.py](src/scripts/word_guard.py)
+- Legacy host projections · [Codex](dist/codex/skills/paper-spine/) · [Claude](dist/claude/skills/paper-spine/) · [OpenClaw](dist/openclaw/skills/paper-spine/) · [Claude command](dist/claude/commands/paperspine.md)
+- V5 installers · [install.ps1](install.ps1) · [install.sh](install.sh)
 
-<img src="paperspine5/core/07_发布页/v6/workspace.webp" alt="PaperSpine V6 实际本地工作台的论文设置" width="860">
+[V5 archive](https://wubing2023.github.io/PaperSpine/v5/en/?legacy=1) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README.pt.md)
 
 </details>
 
-## 更新与卸载
+## License
 
-受管安装按所选形态整包更新，运行 Skill 时会间隔检查 V6 频道。管理器会校验新包并保留一个可回退版本。卸载保留稿件、原始资料和本地工作台任务。
-
-| 管理器命令 | 作用 |
-| --- | --- |
-| `check` / `update` | 检查或立即应用更新。 |
-| `auto-update off` / `auto-update on` | 关闭或者恢复自动检查。 |
-| `rollback` | 回到保留的上一版本。 |
-| `uninstall` | 移除当前受管安装。 |
-
-[查看所有命令与参数](INSTALL-V6.md)
-
-## 常见问题
-
-<details>
-<summary>需要开网页吗？</summary>
-
-两种 Skill 形态直接在宿主对话里使用。Web 工作台随 Windows x64 Codex 的 Web 插件包提供。
-
-</details>
-
-<details>
-<summary>能从手头的结果或初稿开始吗？</summary>
-
-可以。把结果、图源、稿件和写作要求交给 Agent，可以从适用阶段开始。如果只想改稿，可以明确要求沿用现有实验。
-
-</details>
-
-<details>
-<summary>V5 的论文怎么办？</summary>
-
-V5 可通过自己的旧入口继续使用。V6 Web 默认使用独立任务目录，旧 V5 profile 的自动迁移尚未验证。也可以把旧项目的论文文件交给 V6 Skill 接着写。
-
-</details>
-
-<details>
-<summary>材料会在哪里处理？</summary>
-
-本地工作台把任务保存到本机。模型能收到哪些内容取决于宿主和配置的模型服务。敏感资料请先核对宿主的权限、数据设置和机构要求。论文结论、引文和作者信息需要研究者核实。
-
-</details>
-
-## 开发与贡献
-
-阶段 Skill、写作方法、发行管理器和官网的实现入口如下。构建 V6 发行包可从现有 GitHub Actions 工作流开始。
-
-- [阶段 Skills 源码](paperspine5/core/01_PaperSpine4/src/skill-editions/)
-- [科研与写作方法](paperspine5/core/01_PaperSpine4/src/skill/references/)
-- [安装与更新管理器](paperspine5/core/06_插件化/release/edition_manager.py)
-- [V6 网站与构建器](paperspine5/core/07_发布页/v6/)
-- [发行构建工作流](.github/workflows/build-v6-release.yml)
-
-<details>
-<summary>源码导航与旧版入口</summary>
-
-- 方法工作件。[writing_rationale_matrix](src/skill/references/rewrite.md) · [citation_support_bank](src/skill/references/citation-support-bank.md) · [translation_package](src/skill/references/translation-package.md)
-- 导出与检查脚本。[artifact_check.py](src/scripts/artifact_check.py) · [reference_inventory.py](src/scripts/reference_inventory.py) · [citation_bank_check.py](src/scripts/citation_bank_check.py) · [latex_guard.py](src/scripts/latex_guard.py) · [word_guard.py](src/scripts/word_guard.py)
-- 旧版宿主投影。[Codex](dist/codex/skills/paper-spine/) · [Claude](dist/claude/skills/paper-spine/) · [OpenClaw](dist/openclaw/skills/paper-spine/) · [Claude 命令](dist/claude/commands/paperspine.md)
-- V5 安装器。[install.ps1](install.ps1) · [install.sh](install.sh)
-
-</details>
-
-欢迎在 GitHub Issues 提交脱敏后的复现步骤、所用形态和版本。公开社区星图显示 GitHub Stargazer 自报信息。 [问题反馈](https://github.com/WUBING2023/PaperSpine/issues) · [社区星图](https://wubing2023.github.io/PaperSpine/v5/community/)
-
-[V5 官网与文档存档](https://wubing2023.github.io/PaperSpine/v5/?legacy=1)
-
-<details>
-<summary>V5 其他语言说明</summary>
-
-[日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README.pt.md)
-
-</details>
-
-## 许可证
-
-PaperSpine 代码按 MIT 许可发布。字体许可随官网源文件提供。 [MIT](LICENSE) · [Instrument Serif](paperspine5/core/07_发布页/v6/fonts/instrument-OFL.txt) · [Noto Serif SC](paperspine5/core/07_发布页/v6/fonts/notoserifsc-OFL.txt)
+[MIT](LICENSE) · [Instrument Serif](paperspine5/core/07_发布页/v6/fonts/instrument-OFL.txt) · [Noto Serif SC](paperspine5/core/07_发布页/v6/fonts/notoserifsc-OFL.txt)

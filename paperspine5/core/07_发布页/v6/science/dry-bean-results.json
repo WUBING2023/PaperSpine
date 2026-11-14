@@ -1,0 +1,38 @@
+{
+  "source": "https://doi.org/10.24432/C50S4B",
+  "unit": "percentage points",
+  "records": [
+    {
+      "learner": "logistic",
+      "test_mask": "reversed",
+      "paired_repetitions": 12,
+      "min_balanced_accuracy_delta_pp": -24.839233899349132,
+      "mean_balanced_accuracy_delta_pp": -20.754326569276436,
+      "max_balanced_accuracy_delta_pp": -17.534746613733237
+    },
+    {
+      "learner": "logistic",
+      "test_mask": "matched",
+      "paired_repetitions": 12,
+      "min_balanced_accuracy_delta_pp": 2.5861316485897734,
+      "mean_balanced_accuracy_delta_pp": 3.143948384751013,
+      "max_balanced_accuracy_delta_pp": 3.633374208689688
+    },
+    {
+      "learner": "extra_trees",
+      "test_mask": "reversed",
+      "paired_repetitions": 12,
+      "min_balanced_accuracy_delta_pp": -27.053850471270852,
+      "mean_balanced_accuracy_delta_pp": -23.71851487183799,
+      "max_balanced_accuracy_delta_pp": -20.36424314918113
+    },
+    {
+      "learner": "extra_trees",
+      "test_mask": "matched",
+      "paired_repetitions": 12,
+      "min_balanced_accuracy_delta_pp": 0.41201572324861546,
+      "mean_balanced_accuracy_delta_pp": 0.6817428040541723,
+      "max_balanced_accuracy_delta_pp": 0.9830666079805983
+    }
+  ]
+}

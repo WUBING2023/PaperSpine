@@ -213,12 +213,14 @@ class SkillStructureTests(unittest.TestCase):
         self.assertEqual(offenders, [])
 
     def test_readme_language_switch_and_content_parity(self) -> None:
-        english = (ROOT / "README.en.md").read_text(encoding="utf-8")
-        chinese = (ROOT / "README.md").read_text(encoding="utf-8")
+        english = (ROOT / "README.md").read_text(encoding="utf-8")
+        chinese = (ROOT / "README.zh-CN.md").read_text(encoding="utf-8")
+        former_english_entry = (ROOT / "README.en.md").read_text(encoding="utf-8")
 
+        self.assertIn("[中文](README.zh-CN.md)", english)
+        self.assertIn("[English](README.md)", chinese)
+        self.assertIn("[English](README.md)", former_english_entry)
         for text in (english, chinese):
-            self.assertIn("[English](README.en.md)", text)
-            self.assertIn("[中文](README.md)", text)
             for fragment in [
                 "dist/codex/skills",
                 "dist/claude/skills",
@@ -241,6 +243,10 @@ class SkillStructureTests(unittest.TestCase):
         english_sections = [line for line in english.splitlines() if line.startswith("## ")]
         chinese_sections = [line for line in chinese.splitlines() if line.startswith("## ")]
         self.assertEqual(len(english_sections), len(chinese_sections))
+        english_downloads = set(re.findall(r"https://[^\s)]+/releases/download/[^\s)]+\.zip", english))
+        chinese_downloads = set(re.findall(r"https://[^\s)]+/releases/download/[^\s)]+\.zip", chinese))
+        self.assertEqual(len(english_downloads), 3)
+        self.assertEqual(english_downloads, chinese_downloads)
 
     def test_no_temporary_artifact_directories(self) -> None:
         tmp_dirs = [path.name for path in ROOT.glob("tmp_*_artifacts") if path.is_dir()]
