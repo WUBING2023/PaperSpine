@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Discover the people behind the repository’s attributed commits. Documentation, translations, feedback, and reproducible examples are welcome.">
+  <meta name="description" content="See who contributed to each PaperSpine V6 release and site update, with links to the source commits.">
   <title>PaperSpine · Project contributors</title>
   <link rel="canonical" href="https://wubing2023.github.io/PaperSpine/contributors/">
   <link rel="alternate" hreflang="en" href="https://wubing2023.github.io/PaperSpine/contributors/">
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/contributors/zh.html">
-  <link rel="stylesheet" href="../community.css">
+  <link rel="stylesheet" href="../community.css?v=v6-credits">
   <script src="contributors.js" defer></script>
 </head>
 <body class="contributors">
@@ -19,8 +19,46 @@
     </nav>
   </div></header>
   <main id="content">
-      <section class="wrap hero"><div><h1>Project contributors</h1><p class="intro">Discover the people behind the repository’s attributed commits. Documentation, translations, feedback, and reproducible examples are welcome.</p></div></section>
+      <section class="wrap hero"><div><h1>Project contributors</h1><p class="intro">Follow the people and work behind the V6 releases, research collection, and website.</p></div></section>
+      <section class="wrap release-credits" id="v6-contributions" aria-labelledby="credits-title">
+        <div class="credits-head"><h2 id="credits-title">V6 contributions</h2><p>Credits link to the public GitHub account and the commit that records the work.</p></div>
+        <ol class="credit-history">
+          <li class="credit-row">
+            <div class="credit-when"><time datetime="2026-11-15">15 Nov 2026</time><span>Site update</span></div>
+            <div class="credit-work">
+              <h3>Skill-first site and README</h3>
+              <p><a class="credit-handle" href="https://github.com/WUBING2023">@WUBING2023</a> moved the chat-based Skill to the first screen, updated the bilingual README and badges, and fixed the cards’ motion on narrow screens.</p>
+              <div class="credit-links"><a href="https://github.com/WUBING2023/PaperSpine/commit/da7cb2102eec44dc2493271594c8c7caa83b6ecc">Skill entry ↗</a><a href="https://github.com/WUBING2023/PaperSpine/commit/eff080efed109d6c799c5a158437daed6936d467">README and design ↗</a><a href="https://github.com/WUBING2023/PaperSpine/commit/d8a3274a39dcfad1b7a7030f1e0e9951a877aa53">Mobile cards ↗</a></div>
+            </div>
+          </li>
+          <li class="credit-row">
+            <div class="credit-when"><time datetime="2026-11-14">14 Nov 2026</time><span>Site update</span></div>
+            <div class="credit-work">
+              <h3>Research collection and community pages</h3>
+              <p><a class="credit-handle" href="https://github.com/WUBING2023">@WUBING2023</a> published the three research packages, tracked downloads per ZIP, and brought the stargazer atlas and contributor roster to the site.</p>
+              <div class="credit-links"><a href="https://github.com/WUBING2023/PaperSpine/commit/b66d2ba3687073554a59acb8dd2989308eeae7c3">Research and counts ↗</a><a href="https://github.com/WUBING2023/PaperSpine/commit/9a86186e779f9464e723cff2f65dca704bbc438f">Atlas integration ↗</a></div>
+            </div>
+          </li>
+          <li class="credit-row">
+            <div class="credit-when"><time datetime="2026-11-14">14 Nov 2026</time><span>Public pre-release</span></div>
+            <div class="credit-work">
+              <h3><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2">v6.0.0-beta.2</a></h3>
+              <p><a class="credit-handle" href="https://github.com/Wubin2023">@Wubin2023</a> updated the beta build to use the tracked Windows path configuration, then connected the V6 download channel and checksums while retaining V5 routes.</p>
+              <div class="credit-links"><a href="https://github.com/WUBING2023/PaperSpine/commit/68616c763ac13f5cf6f9be5d55ba0c6953e2de70">Windows build ↗</a><a href="https://github.com/WUBING2023/PaperSpine/commit/70660fd57193ac1c0bc3fbf117c18f837aa5c11b">Download and V5 routes ↗</a></div>
+            </div>
+          </li>
+          <li class="credit-row">
+            <div class="credit-when"><time datetime="2026-11-14">14 Nov 2026</time><span>Source tag</span></div>
+            <div class="credit-work">
+              <h3><a href="https://github.com/WUBING2023/PaperSpine/tree/v6.0.0-beta.1">v6.0.0-beta.1</a></h3>
+              <p><a class="credit-handle" href="https://github.com/Wubin2023">@Wubin2023</a> prepared the full workflow Skill, the modular Skills Pack, and the optional Web plugin as three installable editions.</p>
+              <div class="credit-links"><a href="https://github.com/WUBING2023/PaperSpine/commit/32435e7173167c7eeb1ab89cab07d268deb2d721">Edition and build source ↗</a></div>
+            </div>
+          </li>
+        </ol>
+      </section>
       <section class="wrap" aria-label="Project contributors">
+        <h2 class="roster-title">Repository-wide contributors</h2>
         <div class="roster-toolbar"><label class="search" for="contributor-search">Find a GitHub handle<input type="search" id="contributor-search" autocomplete="off" disabled></label></div>
         <ul class="roster" data-commits="{count} commits"></ul>
         <p class="status" id="contributor-status" role="status" data-error="Roster unavailable. View the list on GitHub." data-visible="Showing {count} accounts" data-empty="No matching accounts">Loading snapshot…</p>

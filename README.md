@@ -80,6 +80,8 @@ The manager requires Python 3.12+. The Web archive includes Windows Python and r
 
 GPT‑6.1 Sol used all three PaperSpine editions for each study. The [nine documented runs](paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted) include the papers, public data, original figures, reproducible code, and revision records.
 
+[Switch between manuscript pages, figures, and sensitivity checks](https://wubing2023.github.io/PaperSpine/v6/#showcase)
+
 ### Two black-hole mergers, millisecond timing
 
 Hanford lagged Livingston by 7.36 and 7.75 ms in two public LIGO events. Both lag signs held across nine preprocessing choices.
@@ -145,7 +147,7 @@ Followwriting illustrates how to use a reference’s structure while writing fro
 
 <a href="https://wubing2023.github.io/PaperSpine/"><img src="https://wubing2023.github.io/PaperSpine/atlas-preview.svg" width="790" alt="PaperSpine’s GitHub stargazer atlas, aggregated from publicly shared city locations."></a>
 
-[Explore the stargazer atlas](https://wubing2023.github.io/PaperSpine/) · [View the contributors roster](https://wubing2023.github.io/PaperSpine/contributors/)
+[See who contributed to each V6 update](https://wubing2023.github.io/PaperSpine/contributors/#v6-contributions) · [Explore the stargazer atlas](https://wubing2023.github.io/PaperSpine/)
 
 [Official site](https://wubing2023.github.io/PaperSpine/v6/) · [V6 sources](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [Install manager](paperspine5/core/06_插件化/release/edition_manager.py) · [Website source](paperspine5/core/07_发布页/v6/) · [Report an issue](https://github.com/WUBING2023/PaperSpine/issues)
 

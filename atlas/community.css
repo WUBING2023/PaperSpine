@@ -84,7 +84,30 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; a
 .contributor strong { overflow-wrap: anywhere; }
 .contributor small { display: block; color: var(--muted); }
 .contributors .hero { grid-template-columns: 1fr; }
+.contributors .hero h1 { font-size: clamp(3.1rem, 6vw, 6.1rem); }
 .contributors .intro { margin-bottom: 4px; }
+.release-credits { padding-block: 12px 36px; scroll-margin-top: 16px; }
+.credits-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 7px 22px; border-top: 1px solid var(--line); padding-block: 19px 17px; }
+.credits-head h2, .roster-title { font-size: clamp(1.9rem, 4.1vw, 3.5rem); }
+.credits-head p { color: var(--muted); font-size: .9rem; }
+.credit-history { margin: 0; padding: 0; list-style: none; border-block: 1px solid var(--line); }
+.credit-row { display: grid; grid-template-columns: minmax(130px,.24fr) minmax(0,1fr); }
+.credit-row + .credit-row { border-top: 1px solid var(--line); }
+.credit-when { display: flex; align-items: start; flex-direction: column; gap: 4px; padding: 19px 14px 16px 0; color: var(--muted); font-size: .82rem; }
+.credit-when time { font-family: ui-monospace, Consolas, monospace; color: var(--green); }
+.credit-work { min-width: 0; padding: 16px clamp(12px, 2vw, 28px); background: #fffcf5; border-left: 1px solid var(--line); }
+.credit-work h3 { margin: 0 0 5px; color: var(--ink); font-size: 1.14rem; line-height: 1.25; }
+.credit-work p { max-width: 76ch; color: #425253; font-size: .94rem; }
+.credit-handle { font-weight: 650; color: var(--green); overflow-wrap: anywhere; }
+.credit-links { display: flex; align-items: center; flex-wrap: wrap; gap: 0 18px; }
+.credit-links a { display: inline-flex; align-items: center; min-height: 38px; color: var(--green); font-size: .83rem; font-weight: 620; }
+.credit-links a:hover { color: #182f27; }
+.roster-title { margin-bottom: 13px; }
+@media (max-width: 500px) {
+  .credit-row { grid-template-columns: 1fr; }
+  .credit-when { align-items: baseline; flex-direction: row; flex-wrap: wrap; gap: 5px 9px; padding-block: 11px 7px; }
+  .credit-work { border-left: 0; }
+}
 @media (max-width: 829px) {
   .wrap { width: calc(100% - 34px); }
   .layout, .hero { grid-template-columns: 1fr; }

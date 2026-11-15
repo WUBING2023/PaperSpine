@@ -8,6 +8,12 @@ Three research papers on public measurements, each written in a field-appropriat
 | Catalog dependence of early aftershock decay at Ridgecrest | [PDF](ridgecrest/paper.pdf) · [Vector](ridgecrest/figure.svg) · [Source](ridgecrest/source.zip) | [USGS ComCat](https://earthquake.usgs.gov/fdsnws/event/1/) · [Shelly’s catalog](https://doi.org/10.5066/P9JN6H0N) |
 | June smoke, two different footprints | [PDF](smoke/paper.pdf) · [Vector](smoke/figure.svg) · [Source](smoke/source.zip) | [EPA AirData](https://aqs.epa.gov/aqsweb/airdata/download_files.html) |
 
+## Manuscript and figure previews
+
+The website renders the first page and one results page from each PDF. The results previews show LIGO page 3, Ridgecrest page 4, and smoke page 4. Click a page or figure to inspect it at a larger size, or use its source link to open that page of the full manuscript or the editable SVG.
+
+The sensitivity views use the [LIGO preprocessing figure](gravitational-waves/checks.svg) and [Ridgecrest catalog-count figure](ridgecrest/checks.svg) from their original source bundles. The [smoke sensitivity figure](smoke/checks.svg) plots the saved contrasts from `results.json` in the smoke bundle, including 27 leave-one-monitor-out and eight leave-one-county-group-out reruns. Its lines span those reruns. [Preview renderer](https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/render_research_previews.py)
+
 ## How the runs were conducted
 
 For each study, a GPT‑6.1 Sol Codex subagent started from the research question and original public measurements. It verified and installed the three released V6 `6.0.0-beta.2` archives in separate directories, followed the installed Skill instructions, then shared the study evidence across the three workflows.

@@ -80,6 +80,8 @@ python -B edition_manager.py install "<原 ZIP 路径>" --sha256 <SHA256>
 
 三项研究均采用公开数据，使用 GPT‑6.1 Sol 各跑一遍全流程 Skill、阶段 Skills 和本地 Web 工作台，共有 [九次试跑记录](paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted)。每项研究附论文、原图、可复算代码与同稿返修记录。
 
+[切换查看论文原页、主图和稳健性检验](https://wubing2023.github.io/PaperSpine/v6/zh/#showcase)
+
 ### 两次黑洞并合的毫秒级时延
 
 两次公开 LIGO 事件中，汉福德相对利文斯顿分别滞后 7.36 和 7.75 毫秒。九种预处理设定下，时延方向一致。
@@ -145,7 +147,7 @@ Followwriting 短片演示如何借鉴论证写法、用本研究的结果落笔
 
 <a href="https://wubing2023.github.io/PaperSpine/zh.html"><img src="https://wubing2023.github.io/PaperSpine/atlas-preview-zh.svg" width="790" alt="PaperSpine 的 GitHub 社区星图，由公开城市信息聚合。"></a>
 
-[浏览社区星图](https://wubing2023.github.io/PaperSpine/zh.html) · [查看贡献者名单](https://wubing2023.github.io/PaperSpine/contributors/zh.html)
+[查看各轮 V6 更新的贡献](https://wubing2023.github.io/PaperSpine/contributors/zh.html#v6-contributions) · [浏览社区星图](https://wubing2023.github.io/PaperSpine/zh.html)
 
 [中文官网](https://wubing2023.github.io/PaperSpine/v6/zh/) · [V6 源码](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [安装管理器](paperspine5/core/06_插件化/release/edition_manager.py) · [官网源码](paperspine5/core/07_发布页/v6/) · [问题反馈](https://github.com/WUBING2023/PaperSpine/issues)
 

@@ -13,10 +13,11 @@
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/v6/zh/">
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="v6.css?v=editorial-2">
+  <link rel="stylesheet" href="v6.css?v=research-preview">
   <script src="science.js" defer></script>
   <script src="study-deck.js?v=product-overview" defer></script>
   <script src="download-stats.js" defer></script>
+  <script src="research-preview.js" defer></script>
   <title>PaperSpine V6 · AI for Science Skill</title>
 </head>
 <body>
@@ -41,17 +42,51 @@
           <p class="hero-description">Call <code>$paper-spine</code> in an agent chat. Review literature, design experiments, and turn your results into scientific figures and an editable paper.</p>
           <div class="hero-actions">
             <a href="#edition-skill" class="button">Install the Skill <span aria-hidden="true">↓</span></a>
-            <a href="#research" class="text-link">See the studies <span aria-hidden="true">↘</span></a>
+            <a href="#showcase" class="text-link">Browse the outputs <span aria-hidden="true">↘</span></a>
           </div>
         </div>
-        <figure class="hero-study">
-          <img class="hero-paper" src="science/research/gravitational-waves/first-page.webp" width="827" height="1070" alt="" aria-hidden="true" decoding="async" fetchpriority="low">
-          <div class="hero-plate">
-            <div class="hero-study-header"><span>LIGO public strain</span><span>GW150914 · GW170814</span></div>
-            <a class="hero-image" href="science/research/gravitational-waves/figure.svg"><img src="science/research/gravitational-waves/figure.webp" alt="Six-panel figure with two LIGO spectrograms, aligned strain traces, and time lag comparisons. Open the original vector figure." width="2622" height="1610" fetchpriority="high"></a>
+        <aside class="research-viewer" id="showcase" aria-labelledby="preview-title" data-research-viewer data-topic="ridgecrest" data-catalog="science/research/showcase.json">
+          <div class="viewer-heading">
+            <h2 id="preview-title">Research outputs</h2>
+            <a href="#research-files">All studies &amp; files <span aria-hidden="true">↓</span></a>
           </div>
-          <figcaption><span>Two black-hole mergers, millisecond timing</span><a href="science/research/gravitational-waves/paper.pdf">Read the paper <span aria-hidden="true">↗</span></a></figcaption>
-        </figure>
+          <div class="viewer-study" data-preview-group="study" role="group" aria-label="Choose a study" hidden>
+            <button type="button" value="ridgecrest" aria-controls="proof-output" aria-pressed="true">Ridgecrest</button>
+            <button type="button" value="gravitational-waves" aria-controls="proof-output" aria-pressed="false">LIGO strain</button>
+            <button type="button" value="smoke" aria-controls="proof-output" aria-pressed="false">Wildfire smoke</button>
+          </div>
+          <div class="viewer-mode" data-preview-group="mode" role="group" aria-label="Choose an output" hidden>
+            <button type="button" value="paper" aria-controls="proof-output" aria-pressed="true">Title page</button>
+            <button type="button" value="results" aria-controls="proof-output" aria-pressed="false">Results</button>
+            <button type="button" value="figure" aria-controls="proof-output" aria-pressed="false">Main figure</button>
+            <button type="button" value="checks" aria-controls="proof-output" aria-pressed="false">Sensitivity</button>
+          </div>
+          <figure class="viewer-proof">
+            <div class="viewer-stage" id="proof-output" data-proof="stage" data-kind="paper">
+              <a class="viewer-media" data-proof="media" href="science/research/ridgecrest/paper.pdf#page=1"><img src="science/research/ridgecrest/first-page.webp" width="827" height="1070" alt="First page of Catalog dependence of early aftershock decay in the 2019 Ridgecrest sequence, with title, abstract, and introduction." fetchpriority="high"><span class="viewer-magnify" data-proof="magnify" hidden><span aria-hidden="true">+</span><span class="visually-hidden">Enlarge preview</span></span></a>
+              <div class="viewer-note">
+                <p class="viewer-kind" data-proof="kind">Manuscript · page 1 of 5</p>
+                <h3 data-proof="title">Two catalogs, different decay estimates</h3>
+                <p class="viewer-description" data-proof="note">The same Ridgecrest aftershock sequence, fit from hours 1–72 at reported magnitude ≥ 1.5.</p>
+                <p class="viewer-metric" data-proof="metric"><strong data-proof="value">−0.070</strong><span data-proof="unit">Relocated minus ComCat decay exponent</span></p>
+              </div>
+            </div>
+            <figcaption class="viewer-source"><span data-proof="source">USGS ComCat · Shelly’s relocated catalog</span><a data-proof="original" href="science/research/ridgecrest/paper.pdf#page=1">Open PDF · p. 1 ↗</a></figcaption>
+          </figure>
+          <dialog class="viewer-reader" data-proof="reader" aria-labelledby="reader-title">
+            <div class="reader-header">
+              <div><p data-proof="readerKind"></p><h3 id="reader-title" data-proof="readerTitle"></h3></div>
+              <button type="button" class="reader-close" data-proof="readerClose" aria-label="Close preview" autofocus>×</button>
+            </div>
+            <div class="reader-canvas" data-proof="readerCanvas" role="region" aria-label="Scrollable preview" tabindex="0"></div>
+            <div class="reader-tools">
+              <button type="button" data-proof="readerZoom" aria-pressed="false">Magnify details</button>
+              <a data-proof="readerOriginal" href="science/research/ridgecrest/paper.pdf#page=1">Open PDF ↗</a>
+            </div>
+          </dialog>
+          <p class="visually-hidden" role="status" data-proof="status"></p>
+          <p class="viewer-error" role="status" data-proof="error" hidden>The preview did not load. Select it again to retry.</p>
+        </aside>
       </div>
       <nav class="shell milestones" aria-label="Project milestones">
         <a href="../"><strong>6,000+</strong><span>GitHub stars</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
@@ -298,8 +333,8 @@
 
     <section class="shell community-feature section" id="community" aria-labelledby="community-title">
       <div class="section-heading">
-        <div><h2 id="community-title">Community</h2><p>Explore the locations shared by PaperSpine’s GitHub stargazers, or see the accounts credited for repository contributions.</p></div>
-        <div class="links"><a href="../">Open the stargazer atlas ↗</a><a href="../contributors/">View contributors ↗</a></div>
+        <div><h2 id="community-title">Community</h2><p>See who shipped each V6 update and what they changed, or explore the stargazer atlas.</p></div>
+        <div class="links"><a href="../">Open the stargazer atlas ↗</a><a href="../contributors/#v6-contributions">View V6 contributions ↗</a></div>
       </div>
       <a class="community-preview" href="../"><img src="../atlas-preview.svg" width="1230" height="475" loading="lazy" alt="World map of GitHub stargazer locations aggregated by city."></a>
     </section>

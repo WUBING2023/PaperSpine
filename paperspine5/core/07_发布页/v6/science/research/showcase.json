@@ -1,0 +1,173 @@
+{
+  "ridgecrest": {
+    "resultPage": 4,
+    "en": {
+      "source": "USGS ComCat · Shelly’s relocated catalog",
+      "paper": {
+        "title": "Two catalogs, different decay estimates",
+        "note": "The same Ridgecrest aftershock sequence, fit from hours 1–72 at reported magnitude ≥ 1.5.",
+        "value": "−0.070",
+        "unit": "Relocated minus ComCat decay exponent",
+        "alt": "First page of Catalog dependence of early aftershock decay in the 2019 Ridgecrest sequence, with title, abstract, and introduction."
+      },
+      "results": {
+        "title": "The count ordering can reverse",
+        "note": "Figure 2 and Table 1 separate elapsed time from the reported magnitude cut. In hours 24–72, the count ratio crosses 1 as the threshold rises.",
+        "value": "1.76 → 0.94",
+        "unit": "Relocated / ComCat at M ≥ 1 and M ≥ 3",
+        "alt": "Page four of the Ridgecrest manuscript, with a count-ratio heatmap, a chart of small-event shares, and Table 1."
+      },
+      "figure": {
+        "title": "Fit, then check the held-out interval",
+        "note": "Matched spatial density maps sit above the observed and fitted rates and a grid of starting times and magnitude cuts.",
+        "alt": "Original four-panel Ridgecrest figure with two epicenter density maps, early aftershock-rate fits and held-out interval, and sensitivity of the fitted exponent."
+      },
+      "checks": {
+        "title": "Where the catalogs disagree",
+        "note": "The additional plate pairs a magnitude-by-time count-ratio matrix with the share of records below reported magnitude 1.5 in each catalog.",
+        "alt": "Original Ridgecrest Figure 2 showing catalog count ratios by time and magnitude and each catalog’s proportion of records below magnitude 1.5."
+      }
+    },
+    "zh": {
+      "source": "USGS ComCat · Shelly 重定位目录",
+      "paper": {
+        "title": "同一余震序列，两种衰减估计",
+        "note": "对里奇克雷斯特地震后第 1 至 72 小时的余震建模，采用相同范围与报告震级下限（M ≥ 1.5）。",
+        "value": "−0.070",
+        "unit": "重定位目录减去 ComCat 的衰减指数",
+        "alt": "里奇克雷斯特余震论文第一页，包括标题、摘要和引言。"
+      },
+      "results": {
+        "title": "更换震级门槛，计数排序会反转",
+        "note": "图 2 和表 1 分别呈现震后时段和报告震级下限。震后第 24 至 72 小时中，目录计数之比随门槛升高而跨过 1。",
+        "value": "1.76 → 0.94",
+        "unit": "M ≥ 1 和 M ≥ 3 时的重定位目录 / ComCat",
+        "alt": "余震论文第四页，包括目录计数比热图、小震级记录占比及表 1。"
+      },
+      "figure": {
+        "title": "拟合早期衰减，再用留出时段检验",
+        "note": "上方是相同地理范围内的两张震中密度图，下方是观测与拟合速率，以及起始时间和震级门槛的敏感性矩阵。",
+        "alt": "里奇克雷斯特四联原图，包括两个震中密度分布、衰减拟合与留出时段，以及指数敏感性。"
+      },
+      "checks": {
+        "title": "定位两套目录的分歧",
+        "note": "计数比矩阵按时距与震级门槛展开，旁边对照两套目录中报告震级低于 1.5 的记录占比。",
+        "alt": "余震原稿图 2，包含分时段与震级门槛的目录计数比，以及报告震级低于 1.5 的记录占比。"
+      }
+    }
+  },
+  "gravitational-waves": {
+    "resultPage": 3,
+    "en": {
+      "source": "GWOSC · Hanford and Livingston public strain",
+      "paper": {
+        "title": "Timing holds as conditioning changes",
+        "note": "Two known black-hole mergers, each measured at Hanford and Livingston. The study compares time lag and correlation across preprocessing settings.",
+        "value": "+7.36 / +7.75 ms",
+        "unit": "Hanford minus Livingston in the primary setting",
+        "alt": "First page of Two black-hole mergers in public LIGO strain, with an abstract and study design."
+      },
+      "results": {
+        "title": "Recovering the arrival order",
+        "note": "The results page pairs the main figure with off-source comparisons. Across nine settings, the estimated order stays the same for both events.",
+        "value": "9 settings",
+        "unit": "Compared for each of two events",
+        "alt": "Page three of the LIGO manuscript, with six panels, full caption, and the timing results."
+      },
+      "figure": {
+        "title": "From chirp morphology to time lag",
+        "note": "Read down each column from time–frequency energy to aligned strain and the correlation scan against off-source traces.",
+        "alt": "LIGO Figure 1, showing spectrograms, aligned strain traces, and lag correlations for GW150914 and GW170814."
+      },
+      "checks": {
+        "title": "Timing and correlation respond differently",
+        "note": "Filter choices and spectral estimators shift the peak correlation. The lag estimates stay within 7.28–7.54 and 7.65–8.00 ms across the tested settings.",
+        "alt": "LIGO Figure 2, comparing lag and absolute correlation across nine preprocessing choices with local time-slide controls."
+      }
+    },
+    "zh": {
+      "source": "GWOSC · Hanford 和 Livingston 公开应变",
+      "paper": {
+        "title": "预处理变化，到达时序依然稳定",
+        "note": "比较两次已知黑洞并合在两个探测台的应变，区分预处理对时延估计和相关强度的影响。",
+        "value": "+7.36 / +7.75 ms",
+        "unit": "主分析中 Hanford 相对 Livingston 的时延",
+        "alt": "LIGO 公开应变研究的论文第一页，包括摘要和研究设计。"
+      },
+      "results": {
+        "title": "两次信号的到达顺序如何确定",
+        "note": "结果页并排展示主图与事件外对照。两次事件在九种预处理设置下的到达顺序一致。",
+        "value": "9 种设置",
+        "unit": "两次事件分别检查",
+        "alt": "LIGO 论文第三页，包括六联主图、图注及到达时延的结果文字。"
+      },
+      "figure": {
+        "title": "从啁啾形态读到探测台时延",
+        "note": "每列按顺序查看时频能量、对齐后的应变，以及与事件外样本比较的时延相关曲线。",
+        "alt": "LIGO 论文图 1，呈现 GW150914 和 GW170814 的时频、对齐应变和时延相关。"
+      },
+      "checks": {
+        "title": "时延与相关强度对预处理的反应不同",
+        "note": "滤波和谱估计会改变峰值相关。两次事件在测试设置中的时延分别落在 7.28–7.54 和 7.65–8.00 毫秒。",
+        "alt": "LIGO 论文图 2，比较九种预处理下的时延、绝对相关与事件外时间移位对照。"
+      }
+    }
+  },
+  "smoke": {
+    "resultPage": 4,
+    "en": {
+      "source": "EPA AirData · 27 fixed PM₂.₅ monitors",
+      "paper": {
+        "title": "Two smoke episodes, opposite footprints",
+        "note": "A fixed panel of monitors compares departures from local references across the Atlantic and Great Lakes corridors.",
+        "value": "+74.1 → −69.1",
+        "unit": "Atlantic minus Great Lakes, µg/m³",
+        "alt": "First page of June smoke, two different footprints, with title, abstract, and introduction."
+      },
+      "results": {
+        "title": "Where the smoke persisted",
+        "note": "Table 1 reports separate episodes, longer-window exceedance counts, and continuous runs above each site’s local reference.",
+        "value": "810 site-days",
+        "unit": "27 fixed monitors during June 2023",
+        "alt": "Page four of the smoke paper, with Table 1, persistence comparisons and sensitivity results."
+      },
+      "figure": {
+        "title": "A map, two contrasts, and a daily calendar",
+        "note": "The paper traces two regional episodes by location, corridor contrasts, and the timing of local PM₂.₅ peaks.",
+        "alt": "Original smoke paper figure showing monitor locations, regional contrasts with omission checks, and city-by-day PM₂.₅ departures."
+      },
+      "checks": {
+        "title": "The reversal survives the sensitivity checks",
+        "note": "The early and late contrasts keep opposite signs under an alternate reference, hourly-derived daily values, and 35 monitor or county-group omission reruns.",
+        "alt": "Sensitivity figure showing both episode contrasts across primary, alternate reference, hourly-derived, leave-one-monitor, and leave-one-group calculations."
+      }
+    },
+    "zh": {
+      "source": "EPA AirData · 27 个固定 PM₂.₅ 站点",
+      "paper": {
+        "title": "两次烟霾，区域差值方向相反",
+        "note": "用同一组固定监测站比较两次事件中各站相对于本地参照期的 PM₂.₅ 偏差。",
+        "value": "+74.1 → −69.1",
+        "unit": "大西洋走廊减去五大湖走廊，µg/m³",
+        "alt": "六月烟霾论文的第一页，包括标题、摘要和引言。"
+      },
+      "results": {
+        "title": "烟霾在哪些区域持续更久",
+        "note": "表 1 分事件报告区域差值，并用更长窗口比较超过本地参照阈值的天数和最长连续天数。",
+        "value": "810 站点日",
+        "unit": "2023 年六月的 27 个固定监测站",
+        "alt": "烟霾论文第四页，包含表 1、持续性比较和敏感性分析。"
+      },
+      "figure": {
+        "title": "从站点地图读到逐日峰值",
+        "note": "结合监测站地理位置、两次区域对比及每天的 PM₂.₅ 偏差，追踪两次烟霾的空间足迹。",
+        "alt": "烟霾论文原图，包含监测站地图、区域差值与剔除检验、逐城市逐日的 PM₂.₅ 偏差。"
+      },
+      "checks": {
+        "title": "区域差值反转在敏感性检验中一致",
+        "note": "更换参照日、从逐小时数据得到日值，或 35 次逐一剔除站点和县组，两次事件的区域差值仍为相反方向。",
+        "alt": "烟霾敏感性图，比较主要估计、替代参照、逐小时转日值，以及每次剔除一个站点或县组的结果。"
+      }
+    }
+  }
+}

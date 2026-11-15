@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="这里展示 GitHub 归属到账号的仓库提交。也欢迎通过 GitHub 补充文档、翻译、反馈和可复现案例。">
+  <meta name="description" content="查看 PaperSpine V6 每个版本及网站更新的贡献者、具体改动和对应的 GitHub 提交。">
   <title>PaperSpine · 项目贡献者</title>
   <link rel="canonical" href="https://wubing2023.github.io/PaperSpine/contributors/zh.html">
   <link rel="alternate" hreflang="en" href="https://wubing2023.github.io/PaperSpine/contributors/">
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/contributors/zh.html">
-  <link rel="stylesheet" href="../community.css">
+  <link rel="stylesheet" href="../community.css?v=v6-credits">
   <script src="contributors.js" defer></script>
 </head>
 <body class="contributors">
@@ -19,8 +19,46 @@
     </nav>
   </div></header>
   <main id="content">
-      <section class="wrap hero"><div><h1>项目贡献者</h1><p class="intro">这里展示 GitHub 归属到账号的仓库提交。也欢迎通过 GitHub 补充文档、翻译、反馈和可复现案例。</p></div></section>
+      <section class="wrap hero"><div><h1>项目贡献者</h1><p class="intro">查看 V6 的发行包、科研案例和官网是谁做的，具体改了什么。</p></div></section>
+      <section class="wrap release-credits" id="v6-contributions" aria-labelledby="credits-title">
+        <div class="credits-head"><h2 id="credits-title">V6 贡献记录</h2><p>每项工作都可追溯到公开的 GitHub 账号和对应提交。</p></div>
+        <ol class="credit-history">
+          <li class="credit-row">
+            <div class="credit-when"><time datetime="2026-11-15">2026 年 11 月 15 日</time><span>官网更新</span></div>
+            <div class="credit-work">
+              <h3>对话式 Skill 首屏和 README</h3>
+              <p><a class="credit-handle" href="https://github.com/WUBING2023">@WUBING2023</a> 把对话中的 Skill 放到首屏主入口，更新双语 README 和徽标，并修复手机窄屏案例卡片的翻动。</p>
+              <div class="credit-links"><a href="https://github.com/WUBING2023/PaperSpine/commit/da7cb2102eec44dc2493271594c8c7caa83b6ecc">Skill 入口 ↗</a><a href="https://github.com/WUBING2023/PaperSpine/commit/eff080efed109d6c799c5a158437daed6936d467">README 与版式 ↗</a><a href="https://github.com/WUBING2023/PaperSpine/commit/d8a3274a39dcfad1b7a7030f1e0e9951a877aa53">移动端卡片 ↗</a></div>
+            </div>
+          </li>
+          <li class="credit-row">
+            <div class="credit-when"><time datetime="2026-11-14">2026 年 11 月 14 日</time><span>官网更新</span></div>
+            <div class="credit-work">
+              <h3>科研案例合集和社区页</h3>
+              <p><a class="credit-handle" href="https://github.com/WUBING2023">@WUBING2023</a> 发布三篇研究及复现包，为三个 ZIP 分别加入下载计数，并把星图和贡献者名录接入网站。</p>
+              <div class="credit-links"><a href="https://github.com/WUBING2023/PaperSpine/commit/b66d2ba3687073554a59acb8dd2989308eeae7c3">科研案例与统计 ↗</a><a href="https://github.com/WUBING2023/PaperSpine/commit/9a86186e779f9464e723cff2f65dca704bbc438f">星图接入 ↗</a></div>
+            </div>
+          </li>
+          <li class="credit-row">
+            <div class="credit-when"><time datetime="2026-11-14">2026 年 11 月 14 日</time><span>公开测试版</span></div>
+            <div class="credit-work">
+              <h3><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2">v6.0.0-beta.2</a></h3>
+              <p><a class="credit-handle" href="https://github.com/Wubin2023">@Wubin2023</a> 让公测包从仓库记录的 Windows 路径配置构建，接入 V6 下载频道和校验文件，并保留 V5 路由。</p>
+              <div class="credit-links"><a href="https://github.com/WUBING2023/PaperSpine/commit/68616c763ac13f5cf6f9be5d55ba0c6953e2de70">Windows 构建 ↗</a><a href="https://github.com/WUBING2023/PaperSpine/commit/70660fd57193ac1c0bc3fbf117c18f837aa5c11b">下载和 V5 路由 ↗</a></div>
+            </div>
+          </li>
+          <li class="credit-row">
+            <div class="credit-when"><time datetime="2026-11-14">2026 年 11 月 14 日</time><span>源码标签</span></div>
+            <div class="credit-work">
+              <h3><a href="https://github.com/WUBING2023/PaperSpine/tree/v6.0.0-beta.1">v6.0.0-beta.1</a></h3>
+              <p><a class="credit-handle" href="https://github.com/Wubin2023">@Wubin2023</a> 整备全流程 Skill、可分阶段调用的 Skills 包和可选 Web 插件的三种安装方式。</p>
+              <div class="credit-links"><a href="https://github.com/WUBING2023/PaperSpine/commit/32435e7173167c7eeb1ab89cab07d268deb2d721">三版与构建源码 ↗</a></div>
+            </div>
+          </li>
+        </ol>
+      </section>
       <section class="wrap" aria-label="项目贡献者">
+        <h2 class="roster-title">仓库贡献者名录</h2>
         <div class="roster-toolbar"><label class="search" for="contributor-search">查找 GitHub 用户名<input type="search" id="contributor-search" autocomplete="off" disabled></label></div>
         <ul class="roster" data-commits="{count} 次提交"></ul>
         <p class="status" id="contributor-status" role="status" data-error="名单暂不可用，请访问 GitHub。" data-visible="显示 {count} 个账号" data-empty="没有匹配的账号">正在读取快照…</p>
