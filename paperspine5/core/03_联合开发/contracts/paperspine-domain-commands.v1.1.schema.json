@@ -927,6 +927,10 @@
         "revision_id"
       ],
       "properties": {
+        "review_id": {
+          "$ref": "#/$defs/safeId",
+          "description": "Identifies the review round. Required when more than one open finding has this finding_id."
+        },
         "finding_id": {
           "$ref": "#/$defs/safeId"
         },

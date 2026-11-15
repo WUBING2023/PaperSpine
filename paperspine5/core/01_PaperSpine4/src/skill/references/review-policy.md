@@ -90,6 +90,11 @@ records can carry this information. Only an explicitly invoked historical Runner
 requires its `evidence_review.json`, `evidence_review_check.md`, `review_plan.json`
 or reviewer-receipt schemas; these are not current-host startup or writing gates.
 
+Give each finding a unique ID within its review. When closing a finding through
+the workbench connection, pass both the review ID and the finding ID with the
+current revision and remediation evidence. A later review can reuse local finding
+numbers while referring to distinct findings.
+
 ## Always Hard
 
 Both policies require truthful primary facts and references, valid citation and figure links, authorized data handling, and readable, portable requested outputs. Missing author or ethics facts limit the relevant claims or submission package; they do not prevent safe local drafting or delivery with those limitations made explicit.

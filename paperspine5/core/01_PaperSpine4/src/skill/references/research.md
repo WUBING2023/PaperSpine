@@ -79,6 +79,13 @@ first when configured local-first; distinguish retrieval failure from no hits.
 Keep source identity, version/date, accessible location, relevant passage and
 claim context. Do not upload private materials without explicit authorization.
 
+Track the difference between a source used for a decision and a lead awaiting
+inspection. In the existing notes, connect each consequential claim or design
+choice to an exact source locator and the conditions under which it holds. Mark
+unresolved disagreements and whether they change the research question, available
+data, or expected limits. Open the original local file or primary source for each
+decision-bearing claim, including checked contrary evidence.
+
 Use three useful research lenses proportionately: venue requirements and
 audience, strong examples' argument/structure, and prior work versus the
 proposed contribution. The Agent may handle them in one coherent pass. Follow
@@ -102,6 +109,8 @@ until the user changes it or the permitted decision basis changes.
 
 Keep a compact source/result → claim → figure mapping alongside the real paper
 under `task.workspace_root/paper/`; use existing notes and files where possible.
+Carry forward the decisive comparison, its actual sample and units, any relevant
+feature availability or development exposure, and what the result leaves open.
 Store new analysis scripts/results there when analysis was selected. Record
 limits, sources actually inspected and the work still needed through
 `paperspine_commit_milestone`; do not directly edit derived bridge JSON.
