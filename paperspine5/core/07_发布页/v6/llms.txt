@@ -1,0 +1,19 @@
+# PaperSpine
+
+> PaperSpine is an open-source AI for Science Skill. A research agent can start from a question, existing results, or a draft, and deliver an editable paper with the analysis, sources, and figure files needed to review it.
+
+The public V6 channel is beta. Start with the agent installation guide to match the user's task and host to one edition. The edition manifest provides the ZIP URL, version, and SHA-256 for that choice. The optional Web workbench is for Windows x64 with Codex.
+
+## Installation
+
+- [Agent installation guide](@SITE@install-agent.md)
+- [Edition manifest in JSON](@SITE@channel.json)
+- [SHA-256 checksum list](@SITE@checksums.sha256)
+- [Versioned manual installation and lifecycle guide](@GITHUB@/blob/@TAG@/INSTALL-V6.en.md)
+- [中文版安装、更新与卸载](@GITHUB@/blob/@TAG@/INSTALL-V6.md)
+
+## Research evidence
+
+- [Three studies with papers, data sources, analysis code, and edition run records](@SITE@science/research/README.md)
+- [Project README and usage examples](@GITHUB@/blob/main/README.md)
+- [中文项目说明](@GITHUB@/blob/main/README.zh-CN.md)

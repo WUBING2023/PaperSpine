@@ -14,13 +14,29 @@
 </p>
 
 <p align="center">
-  Call <code>$paper-spine</code> in your agent chat with a research question, data, or a draft.<br>
-  Review literature, run analyses, make scientific figures, and write an editable manuscript.
+  Call <code>$paper-spine</code> in chat with a research question, data, or a draft.<br>
+  Deliver an editable paper with the evidence, analysis, and figures needed to review it.
 </p>
 
 <p align="center">
-  <a href="#start-with-skill"><strong>Install the Skill</strong></a> · <a href="#research-cases">Explore the research</a>
+  <a href="#install-with-ai"><strong>Install with your AI</strong></a> · <a href="#start-with-skill">Install the Skill</a> · <a href="#research-cases">Explore the research</a>
 </p>
+
+<a id="install-with-ai"></a>
+
+## Install with your AI
+
+Paste this request into the agent you use for research.
+
+```text
+Install PaperSpine for this host. Read the official guide first.
+https://wubing2023.github.io/PaperSpine/v6/llms.txt
+
+Choose the edition that fits my task and environment.
+Verify the ZIP with SHA-256. After installing, confirm the version and tell me how to invoke the Skill.
+```
+
+[Agent-readable installation guide](https://wubing2023.github.io/PaperSpine/v6/llms.txt) · [Release manifest (JSON)](https://wubing2023.github.io/PaperSpine/v6/channel.json)
 
 <a id="ways-to-work"></a>
 
@@ -63,7 +79,7 @@ Add the optional local workbench if you want to inspect figures, preview drafts,
 
 ## Installation and updates
 
-Extract your chosen ZIP. Run its manager from the extracted folder, using the original ZIP and its SHA-256. Then open a fresh host chat.
+Verify the ZIP against the checksum list. Extract the ZIP and run its manager from the extracted folder. Use the original ZIP path and its full SHA-256. Then open a fresh host chat.
 
 ```text
 python -B edition_manager.py install "<original ZIP path>" --sha256 <SHA256>
@@ -72,6 +88,14 @@ python -B edition_manager.py install "<original ZIP path>" --sha256 <SHA256>
 The manager requires Python 3.12+. The Web archive includes Windows Python and requires the Codex CLI. Managed installations support automatic update checks, manual upgrades, rollback, and uninstall. Drafts and local tasks are retained.
 
 [Install, update, or uninstall](INSTALL-V6.en.md) · [SHA-256 checksums](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/checksums.sha256) · [V6 release](https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2)
+
+## How PaperSpine carries evidence into the paper
+
+- **Scope the work from the starting materials.** A research question may call for gathering public data or running a new analysis. Existing results can go straight to the figure, argument, or review you asked for. The agent carries the relevant files and decisions between stages.
+- **Trace the writing and the science separately.** Followwriting points back to the reference passages that informed the structure or phrasing. The paper’s claims come from its own evidence. Keep the analysis, figure sources, and supporting citations available for review.
+- **Make review part of the same paper.** Save the selected figure and critique alongside the editable manuscript. A revision can revisit the evidence, update the text and affected figure, and keep the record of what changed.
+
+The LIGO study shows what this looks like in practice. Follow the reported arrival order from the paper to the aligned strain and nine preprocessing checks. [LIGO evidence and source files](https://wubing2023.github.io/PaperSpine/v6/#gravitational-waves)
 
 <a id="edition-field-test"></a>
 <a id="research-cases"></a>

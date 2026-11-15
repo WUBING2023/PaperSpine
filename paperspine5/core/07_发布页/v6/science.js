@@ -16,19 +16,20 @@ if (typeof dialog.showModal === "function") {
   dialog.addEventListener("close", () => preview.removeAttribute("src"));
 }
 
-const copy = document.querySelector(".copy-press");
 if (navigator.clipboard?.writeText) {
-  copy.hidden = false;
-  copy.addEventListener("click", async () => {
-    const status = document.querySelector(".copy-status");
-    const intro = document.querySelector("#press-intro");
-    try {
-      await navigator.clipboard.writeText(intro.textContent.trim());
-      status.textContent = status.dataset.done;
-    } catch {
-      status.textContent = status.dataset.hint;
-    }
-  });
+  for (const button of document.querySelectorAll("[data-copy-source]")) {
+    const source = document.getElementById(button.dataset.copySource);
+    const status = document.getElementById(button.dataset.copyFeedback);
+    button.hidden = false;
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(source.textContent.trim());
+        status.textContent = status.dataset.done;
+      } catch {
+        status.textContent = status.dataset.hint;
+      }
+    });
+  }
 }
 
 const archive = document.querySelector(".archive-disclosure");

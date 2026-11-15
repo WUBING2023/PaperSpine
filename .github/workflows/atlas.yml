@@ -81,6 +81,7 @@ jobs:
           if [ -f website/v6/downloads/channel.json ]; then
             rm -r _site/v5/v6
             python -B 'paperspine5/core/07_发布页/v6/build_v6.py' site website/v6/downloads _site/v6
+            cp _site/v6/llms.txt _site/llms.txt
           fi
 
       - name: Snapshot V6 release download statistics

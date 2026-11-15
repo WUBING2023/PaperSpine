@@ -15,12 +15,27 @@
 
 <p align="center">
   在对话里调用 <code>$paper-spine</code>，从题目、数据或初稿开始。<br>
-  查文献、做分析、画科研图，交付可编辑论文。
+  交付可编辑论文，同时附上核对结论所需的证据、分析和图件。
 </p>
 
 <p align="center">
-  <a href="#start-with-skill"><strong>安装 Skill</strong></a> · <a href="#research-cases">查看科研案例</a>
+  <a href="#install-with-ai"><strong>让 AI 帮你安装</strong></a> · <a href="#start-with-skill">安装 Skill</a> · <a href="#research-cases">查看科研案例</a>
 </p>
+
+<a id="install-with-ai"></a>
+
+## 让 AI 帮你安装
+
+把下方指令发给你正在使用的 AI 助手。
+
+```text
+请在我当前使用的 AI 宿主里安装 PaperSpine。先读官方安装入口。
+https://wubing2023.github.io/PaperSpine/v6/llms.txt
+
+按我的用途和环境选择一种版本，核对 ZIP 的 SHA-256，安装后确认版本并告诉我怎么调用 Skill。
+```
+
+[给 AI 读的安装指南](https://wubing2023.github.io/PaperSpine/v6/llms.txt) · [版本清单（JSON）](https://wubing2023.github.io/PaperSpine/v6/channel.json)
 
 <a id="ways-to-work"></a>
 
@@ -63,7 +78,7 @@
 
 ## 安装、更新和卸载
 
-解压选好的 ZIP，在解压目录运行随包附带的管理器。参数使用原 ZIP 路径及校验表里的 SHA-256。装完后打开新的宿主对话。
+先按校验表核对原 ZIP 的 SHA-256。解压后，在解压目录运行随包附带的管理器，传入原 ZIP 路径和完整 SHA-256。装好后打开新的宿主对话。
 
 ```text
 python -B edition_manager.py install "<原 ZIP 路径>" --sha256 <SHA256>
@@ -72,6 +87,14 @@ python -B edition_manager.py install "<原 ZIP 路径>" --sha256 <SHA256>
 管理器需要 Python 3.12 或更新版。Web 包含 Windows Python，还需要 Codex CLI。支持自动检查更新、手动升级、回退和卸载，保留论文、数据和本地任务。
 
 [安装、更新及卸载说明](INSTALL-V6.md) · [SHA-256 校验文件](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/checksums.sha256) · [V6 Release](https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2)
+
+## PaperSpine 怎样把证据带进论文
+
+- **从手头材料确定研究范围。** 只有研究问题时，先确认要补什么证据、做什么分析。已经有结果时，可直接推进指定的图、论证或审阅。后续阶段沿用已保存的材料和决策。
+- **写作依据与科学依据各有出处。** Followwriting 保留影响结构和措辞的参考原文。本研究的证据决定论文可以主张什么，随稿附上可复核的分析、制图源文件和引用。
+- **让审阅回到同一篇论文。** 保存选中的图和反馈。返修时沿用同一任务，回查证据，修改稿件及受影响的图，并保留改动记录。
+
+LIGO 案例可以直接查验这条链路。从论文中的到达顺序，回查两台站的对齐应变与九种预处理结果。[LIGO 证据与源文件](https://wubing2023.github.io/PaperSpine/v6/zh/#gravitational-waves)
 
 <a id="edition-field-test"></a>
 <a id="research-cases"></a>

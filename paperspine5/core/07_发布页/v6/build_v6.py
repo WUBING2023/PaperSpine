@@ -99,7 +99,12 @@ def build(output: Path, seed: Path | None) -> None:
 
 def render(metadata: Path, output: Path) -> None:
     editions = checked_index(metadata)
-    replacements = {"VERSION": VERSION, "TAG": TAG}
+    replacements = {
+        "VERSION": VERSION,
+        "TAG": TAG,
+        "SITE": CONTRACT["website"]["productionUrl"],
+        "GITHUB": f"https://github.com/{REPO}",
+    }
     for mode, key in EDITION_KEYS.items():
         item = editions[mode]
         replacements[f"{key}_URL"] = html.escape(item["file"], quote=True)
@@ -107,12 +112,12 @@ def render(metadata: Path, output: Path) -> None:
             f"{item['bytes'] / 1024:.0f} KiB" if item["bytes"] < 1024**2 else f"{item['bytes'] / 1024**2:.2f} MiB"
         )
     output.mkdir(parents=True, exist_ok=True)
-    for document in ("index.html", "zh/index.html", "en/index.html"):
+    for document in ("index.html", "zh/index.html", "en/index.html", "llms.txt", "install-agent.md"):
         text = (SITE / document).read_text(encoding="utf-8")
         text = re.sub(r"@([A-Z_]+)@", lambda match: replacements[match[1]], text)
         target = output / document
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(text, encoding="utf-8")
+        target.write_text(text, encoding="utf-8", newline="\n")
     for file in ("v6.css", "science.js", "locale.js", "study-deck.js", "download-stats.js", "research-preview.js"):
         shutil.copyfile(SITE / file, output / file)
     for directory in ("fonts", "science"):

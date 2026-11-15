@@ -13,8 +13,9 @@
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/v6/zh/">
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="v6.css?v=research-preview">
-  <script src="science.js" defer></script>
+  <link rel="describedby" href="llms.txt">
+  <link rel="stylesheet" href="v6.css?v=agent-install">
+  <script src="science.js?v=agent-install" defer></script>
   <script src="study-deck.js?v=product-overview" defer></script>
   <script src="download-stats.js" defer></script>
   <script src="research-preview.js" defer></script>
@@ -39,9 +40,9 @@
         <div class="hero-copy">
           <p class="hero-kicker">Open source <span aria-hidden="true">·</span> <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 beta <span aria-hidden="true">↗</span></a></p>
           <h1 id="hero-title"><span class="visually-hidden">PaperSpine · </span>An AI for Science<br> <em>Skill for your agent</em></h1>
-          <p class="hero-description">Call <code>$paper-spine</code> in an agent chat. Review literature, design experiments, and turn your results into scientific figures and an editable paper.</p>
+          <p class="hero-description">Call <code>$paper-spine</code> in chat. Start with a question, data, or a draft and build an editable paper whose key claims can be checked against the evidence.</p>
           <div class="hero-actions">
-            <a href="#edition-skill" class="button">Install the Skill <span aria-hidden="true">↓</span></a>
+            <a href="#install-with-ai" class="button">Install the Skill <span aria-hidden="true">↓</span></a>
             <a href="#showcase" class="text-link">Browse the outputs <span aria-hidden="true">↘</span></a>
           </div>
         </div>
@@ -97,6 +98,24 @@
     <section class="edition-section section" id="download" aria-labelledby="edition-title">
       <div class="shell">
         <div class="section-heading"><h2 id="edition-title">Install PaperSpine</h2><p>Start with one Skill in chat. Choose the Skills Pack to call stages separately, or add the optional local review interface on Windows.</p></div>
+        <section class="agent-install" id="install-with-ai" aria-labelledby="agent-install-title">
+          <div class="agent-install-intro">
+            <h3 id="agent-install-title">Install with your AI</h3>
+            <p>Paste this request into the AI agent you use for research.</p>
+            <div class="links"><a href="llms.txt">Agent guide (.txt) <span aria-hidden="true">↗</span></a><a href="#edition-skill">Choose a ZIP <span aria-hidden="true">↓</span></a></div>
+          </div>
+          <div class="agent-install-request">
+            <blockquote id="agent-install-prompt">Install PaperSpine for this host. Read the official guide first.
+@SITE@llms.txt
+
+Choose the edition that fits my task and environment.
+Verify the ZIP with SHA-256. After installing, confirm the version and tell me how to invoke the Skill.</blockquote>
+            <div class="agent-install-actions">
+              <button type="button" class="button compact outline copy-install" data-copy-source="agent-install-prompt" data-copy-feedback="agent-copy-status" hidden>Copy install request</button>
+              <p class="copy-status" id="agent-copy-status" data-done="Copied" data-hint="Select the request text to copy it." role="status"></p>
+            </div>
+          </div>
+        </section>
         <div class="editions">
         <article class="edition" id="edition-skill">
           <div class="edition-main">
@@ -307,7 +326,12 @@
     <aside class="shell links research-archive" id="field-test"><a href="science/edition-field-test.md">Read the earlier edition smoke test ↗</a></aside>
 
     <section class="shell demos section" id="examples" aria-labelledby="demo-title">
-      <div class="section-heading"><h2 id="demo-title">See the tools at work</h2><p>Follow reference-guided writing, inspect figures, and watch a revision in the local workbench.</p></div>
+      <div class="section-heading"><h2 id="demo-title">A paper you can audit</h2><p>Check a claim, trace a plotted number, or pick up a revision from the files the agent has already saved.</p></div>
+      <ul class="workflow-principles">
+        <li><h3>Agree on the research scope</h3><p>Start with a question and agree on the evidence to collect. Start with results and go straight to the analysis, figure, or revision you need.</p></li>
+        <li><h3>Make claims traceable</h3><p>Keep analysis and figure sources with the paper. Followwriting shows where a writing decision came from. The study’s own evidence determines what it can claim.</p></li>
+        <li><h3>Keep review tied to the paper</h3><p>Choose a figure and respond to the critique in the same task. Revisit the editable manuscript and the files affected by the revision.</p></li>
+      </ul>
       <div class="workflow-gallery" id="draft">
         <article class="clip clip-featured" id="revision">
           <div class="clip-preview"><img src="science/revision-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="science/revision-hd.gif" data-demo aria-label="Play the demonstration · Revision"><span aria-hidden="true">▶</span></a></div>
@@ -345,8 +369,8 @@
           <h2 id="press-title">For press and creators</h2>
           <p>A short description, captioned research figures, the Spine artwork, and clips ready to use in coverage of PaperSpine.</p>
           <blockquote id="press-intro">PaperSpine is an open-source AI for Science Skill for research agents. Call it in chat to analyze evidence, make scientific figures, and draft an editable paper. The Skills Pack exposes the stages individually, and the optional local workbench is available for review.</blockquote>
-          <div class="press-actions"><a href="science/paperspine-v6-press-kit.zip" class="button" download>Download the press kit <span aria-hidden="true">↓</span></a><button type="button" class="button outline copy-press" hidden>Copy introduction</button></div>
-          <p class="copy-status" data-done="Copied" data-hint="Select the text and copy it." role="status"></p>
+          <div class="press-actions"><a href="science/paperspine-v6-press-kit.zip" class="button" download>Download the press kit <span aria-hidden="true">↓</span></a><button type="button" class="button outline copy-press" data-copy-source="press-intro" data-copy-feedback="press-copy-status" hidden>Copy introduction</button></div>
+          <p class="copy-status" id="press-copy-status" data-done="Copied" data-hint="Select the text and copy it." role="status"></p>
           <div class="spine-signature">
             <img src="science/spine.webp" width="1394" height="1061" alt="" loading="lazy">
             <p><strong>Spine</strong> · PaperSpine’s origami dragon<br><a href="science/spine.png" download>Transparent artwork ↓</a></p>
