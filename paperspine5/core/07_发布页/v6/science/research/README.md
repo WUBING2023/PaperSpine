@@ -11,7 +11,7 @@ Four research papers on public measurements. The bundles include editable manusc
 
 ## Manuscript and figure previews
 
-The website renders the first page and one results page from each PDF. The results previews show Atlantic cyclones page 2, LIGO page 3, Ridgecrest page 4, and smoke page 4. Click a page or figure to inspect it at a larger size, or use its source link to open that page of the full manuscript or the editable SVG.
+The website renders the first page and one results page from each PDF. The results previews show Atlantic cyclones page 2, LIGO page 3, Ridgecrest page 4, and smoke page 4. Use the link beneath the preview to open the corresponding PDF page or the editable SVG.
 
 The Atlantic cyclone study followed the standalone V6 Skill. It compares 6,017 24-hour windows in 37 shared starting contexts. An independent implementation reproduced the seven main and sensitivity specifications. For the revised main plate, the reviewer matched 484 trajectories to the five original fixes per window, independently reproduced the nine exploratory threshold estimates and intervals, and checked the rendered plate and caption at the manuscript width.
 
