@@ -14,19 +14,18 @@ import pymupdf
 
 
 RESEARCH = Path(__file__).resolve().parent / "science" / "research"
-PAGE_NUMBERS = {"gravitational-waves": 3, "ridgecrest": 4, "smoke": 4}
 ARCHIVED_PLOTS = {"gravitational-waves": "lag-sensitivity", "ridgecrest": "fig2_counts"}
 
 
-def save_page(page, output, scale):
+def save_page(page, output, scale, quality=88):
     pixmap = page.get_pixmap(matrix=pymupdf.Matrix(scale, scale), alpha=False)
     image = Image.frombytes("RGB", (pixmap.width, pixmap.height), pixmap.samples)
-    image.save(output, "WEBP", quality=88, method=6)
+    image.save(output, "WEBP", quality=quality, method=6)
 
 
-def save_plot(pdf, output):
+def save_plot(pdf, output, width=2160, quality=88):
     with pymupdf.open(stream=pdf, filetype="pdf") as plot:
-        save_page(plot[0], output, 2160 / plot[0].rect.width)
+        save_page(plot[0], output, width / plot[0].rect.width, quality)
 
 
 def regenerate_smoke_checks(results, directory):
@@ -104,13 +103,18 @@ def regenerate_smoke_checks(results, directory):
 
 
 def main():
-    for study, result_page in PAGE_NUMBERS.items():
+    catalog = json.loads((RESEARCH / "showcase.json").read_bytes())
+    for study, meta in catalog.items():
         directory = RESEARCH / study
         with pymupdf.open(directory / "paper.pdf") as paper:
             save_page(paper[0], directory / "first-page.webp", 1.35)
-            save_page(paper[result_page - 1], directory / "results-page.webp", 1.6)
+            save_page(paper[meta["resultPage"] - 1], directory / "results-page.webp", 1.6)
         with ZipFile(directory / "source.zip") as source:
-            if study in ARCHIVED_PLOTS:
+            if study == "atlantic-ri":
+                for name in ("figure", "checks"):
+                    (directory / f"{name}.svg").write_bytes(source.read(f"out/{name}.svg"))
+                    save_plot(source.read(f"out/{name}.pdf"), directory / f"{name}.webp", width=2400, quality=91)
+            elif study in ARCHIVED_PLOTS:
                 name = ARCHIVED_PLOTS[study]
                 (directory / "checks.svg").write_bytes(source.read(f"{name}.svg"))
                 save_plot(source.read(f"{name}.pdf"), directory / "checks.webp")

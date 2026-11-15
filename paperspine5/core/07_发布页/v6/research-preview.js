@@ -48,7 +48,9 @@ async function initResearchPreview(panel) {
     [...panel.querySelectorAll("[data-proof]")].map((node) => [node.dataset.proof, node]),
   );
   const groups = [...panel.querySelectorAll("[data-preview-group]")];
-  let selection = { study: "ridgecrest", mode: "paper" };
+  let selection = Object.fromEntries(groups.map((group) => [
+    group.dataset.previewGroup, group.querySelector('[aria-pressed="true"]').value,
+  ]));
   let requested = selection;
   let generation = 0;
 
@@ -66,6 +68,7 @@ async function initResearchPreview(panel) {
     const output = localized[mode];
     const isPaper = mode === "paper" || mode === "results";
     const page = mode === "paper" ? 1 : entry.resultPage;
+    const pages = entry.pages;
     const caseUrl = new URL(`${study}/`, catalogUrl);
     const sourceUrl = new URL(
       isPaper ? `paper.pdf#page=${page}` : `${mode}.svg`,
@@ -99,7 +102,7 @@ async function initResearchPreview(panel) {
     fields.value.textContent = output.value || "";
     fields.unit.textContent = output.unit || "";
     fields.kind.textContent = isPaper
-      ? (chinese ? `论文原页 · 第 ${page} 页 / 共 5 页` : `Manuscript · page ${page} of 5`)
+      ? (chinese ? `论文原页 · 第 ${page} 页 / 共 ${pages} 页` : `Manuscript · page ${page} of ${pages}`)
       : (mode === "checks"
         ? (chinese ? "分析图件 · 稳健性检验" : "Analysis figure · sensitivity")
         : (chinese ? "论文图件 · 主图" : "Manuscript figure · main plate"));
@@ -150,6 +153,6 @@ async function initResearchPreview(panel) {
 }
 
 if (viewer) {
-  // The server-rendered paper and its source link also work without the catalog.
+  // The initial preview and its source link also work without the catalog.
   void initResearchPreview(viewer).catch(() => {});
 }

@@ -96,8 +96,17 @@ python -B edition_manager.py install "<原 ZIP 路径>" --sha256 <SHA256>
 
 LIGO 案例可以直接查验这条链路。从论文中的到达顺序，回查两台站的对齐应变与九种预处理结果。[LIGO 证据与源文件](https://wubing2023.github.io/PaperSpine/v6/zh/#gravitational-waves)
 
-<a id="edition-field-test"></a>
 <a id="research-cases"></a>
+
+## 北大西洋气旋的快速增强
+
+这次使用独立全流程 Skill 分析了 NOAA 的 42 个气旋季。在 6,017 个可以对照的 24 小时窗口中，以 30 节为阈值，后期高 0.81 个百分点，按气旋季重采样的 95% 区间为 −1.69 至 +3.43。阈值换成 25 节后，点估计转为负值。六联图从起点地图、风速增量分布和逐季比率，一直画到相同起始条件下的差值。
+
+<a href="https://wubing2023.github.io/PaperSpine/v6/zh/#showcase"><img src="paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.webp" width="790" alt="大西洋气旋六联主图，包括起点地图、风速增量分布、逐季比率、起始条件热图以及带区间的差值分解。"></a>
+
+[阅读论文](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/paper.pdf) · [主图 SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.svg) · [稳健性图 SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/checks.svg) · [可编辑原稿和分析代码](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/source.zip)
+
+<a id="edition-field-test"></a>
 
 ## 三篇研究，三种模式
 
@@ -158,21 +167,13 @@ LIGO 案例可以直接查验这条链路。从论文中的到达顺序，回查
 
 Followwriting 短片演示如何借鉴论证写法、用本研究的结果落笔。其余片段来自已发布的 Windows 工作台。[查看反馈到返修过程](https://wubing2023.github.io/PaperSpine/v6/zh/#revision) · [原尺寸工作台截图](https://wubing2023.github.io/PaperSpine/v6/zh/#examples)
 
-<a id="press-kit"></a>
-
-## 媒体与创作者素材
-
-> PaperSpine 是一款面向科研 Agent 的开源 AI for Science Skill。在对话中调用它，就能按需分析证据、绘制科研图和撰写可编辑论文。Skills 包支持按阶段调用，也可以选配本地工作台审阅。
-
-[**下载完整媒体包**](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip) · [双语简介和图注](paperspine5/core/07_发布页/v6/science/press-copy.md) · [横版封面](paperspine5/core/07_发布页/v6/science/press-cover.png) · [竖版封面](paperspine5/core/07_发布页/v6/science/press-portrait.png) · [折纸龙 Spine 透明底](paperspine5/core/07_发布页/v6/science/spine.png)
-
 ## 开发与社区
 
 <a href="https://wubing2023.github.io/PaperSpine/zh.html"><img src="https://wubing2023.github.io/PaperSpine/atlas-preview-zh.svg" width="790" alt="PaperSpine 的 GitHub 社区星图，由公开城市信息聚合。"></a>
 
 [查看各轮 V6 更新的贡献](https://wubing2023.github.io/PaperSpine/contributors/zh.html#v6-contributions) · [浏览社区星图](https://wubing2023.github.io/PaperSpine/zh.html)
 
-[中文官网](https://wubing2023.github.io/PaperSpine/v6/zh/) · [V6 源码](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [安装管理器](paperspine5/core/06_插件化/release/edition_manager.py) · [官网源码](paperspine5/core/07_发布页/v6/) · [问题反馈](https://github.com/WUBING2023/PaperSpine/issues)
+[中文官网](https://wubing2023.github.io/PaperSpine/v6/zh/) · [V6 源码](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [安装管理器](paperspine5/core/06_插件化/release/edition_manager.py) · [官网源码](paperspine5/core/07_发布页/v6/) · [问题反馈](https://github.com/WUBING2023/PaperSpine/issues) · <a id="press-kit"></a>[项目素材](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip)
 
 <details>
 <summary>V5 文档与源码索引</summary>

@@ -1,5 +1,64 @@
 {
+  "atlantic-ri": {
+    "pages": 5,
+    "resultPage": 2,
+    "en": {
+      "source": "NOAA NHC · Atlantic HURDAT2",
+      "paper": {
+        "title": "A four-decade Atlantic comparison",
+        "note": "Two 21-season periods, compared within shared starting conditions using NOAA best-track data.",
+        "value": "6,017",
+        "unit": "24-hour windows in 37 shared contexts",
+        "alt": "Title page of Atlantic cyclone intensification across comparable starting conditions, with the abstract and study question."
+      },
+      "results": {
+        "title": "From geography to uncertainty",
+        "note": "Page two pairs the six-panel plate with the sample coverage and the separation of within-context changes from shifts in starting conditions.",
+        "value": "+0.81 pp",
+        "unit": "30-knot contrast · 95% interval −1.69 to +3.43 pp",
+        "alt": "Page two of the Atlantic cyclone manuscript with a six-panel result plate, caption and reported differences."
+      },
+      "figure": {
+        "title": "When the threshold changes the result",
+        "note": "Across 6,017 Atlantic storm windows, the 30-knot difference is +0.81 percentage points. Its 95% interval crosses zero.",
+        "alt": "Six-panel Atlantic cyclone figure with two maps of starts, the wind-gain tail, rates by season, a starting-context heatmap and a decomposition with uncertainty."
+      },
+      "checks": {
+        "title": "Check the threshold, the sample, and the season",
+        "note": "The four-panel figure shows alternate eligibility rules, 25–35 knot thresholds, retained coverage, and 42 leave-one-season-out analyses.",
+        "alt": "Four sensitivity panels comparing eligibility rules, wind thresholds, retained fractions, and differences after individual season exclusions."
+      }
+    },
+    "zh": {
+      "source": "NOAA NHC · 大西洋 HURDAT2",
+      "paper": {
+        "title": "对照四十多年的大西洋气旋记录",
+        "note": "使用 NOAA 最佳路径资料，在可比的起始条件下对照两个各含 21 个气旋季的时期。",
+        "value": "6,017",
+        "unit": "个 24 小时窗口，覆盖 37 种可比起始条件",
+        "alt": "大西洋气旋快速增强研究的论文首页，包括标题、摘要和研究问题。"
+      },
+      "results": {
+        "title": "把起点地图与估计区间放在一页",
+        "note": "第二页并排呈现六联主图、两期样本覆盖及估计差值，区分组内比例变化和各组占比变化。",
+        "value": "+0.81 个百分点",
+        "unit": "30 节阈值下的差值 · 95% 区间 −1.69 至 +3.43",
+        "alt": "大西洋气旋论文第二页，包括六联主图、完整图注和带区间的结果。"
+      },
+      "figure": {
+        "title": "气旋增强了多少？阈值会改变估计",
+        "note": "对照 6,017 个大西洋气旋窗口。以 30 节为阈值，后期高 0.81 个百分点，95% 区间跨过零。",
+        "alt": "大西洋气旋六联主图，展示两个时期的起点地图、24 小时风速增量的上尾、逐年比例、起始条件热图及带区间的差值分解。"
+      },
+      "checks": {
+        "title": "换个阈值，逐季复算",
+        "note": "四联图对比窗口筛选规则、25–35 节阈值和样本保留比例，并逐一剔除 42 个气旋季检验结果。",
+        "alt": "稳健性四联图，对比不同窗口条件、风速阈值、样本保留比例及逐季剔除后的差值。"
+      }
+    }
+  },
   "ridgecrest": {
+    "pages": 5,
     "resultPage": 4,
     "en": {
       "source": "USGS ComCat · Shelly’s relocated catalog",
@@ -57,6 +116,7 @@
     }
   },
   "gravitational-waves": {
+    "pages": 5,
     "resultPage": 3,
     "en": {
       "source": "GWOSC · Hanford and Livingston public strain",
@@ -114,6 +174,7 @@
     }
   },
   "smoke": {
+    "pages": 5,
     "resultPage": 4,
     "en": {
       "source": "EPA AirData · 27 fixed PM₂.₅ monitors",

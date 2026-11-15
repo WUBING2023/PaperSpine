@@ -14,11 +14,11 @@
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
   <link rel="describedby" href="../llms.txt">
-  <link rel="stylesheet" href="../v6.css?v=agent-install">
+  <link rel="stylesheet" href="../v6.css?v=atlantic-ri">
   <script src="../science.js?v=agent-install" defer></script>
   <script src="../study-deck.js?v=product-overview" defer></script>
   <script src="../download-stats.js" defer></script>
-  <script src="../research-preview.js" defer></script>
+  <script src="../research-preview.js?v=atlantic-ri" defer></script>
   <title>PaperSpine V6 · AI for Science Skill</title>
 </head>
 <body>
@@ -28,7 +28,7 @@
       <div class="shell navbar">
         <a class="wordmark" href="./"><img src="../../v5/assets/brand/paperspine-mark.svg" width="38" height="38" alt="">PaperSpine</a>
         <nav class="site-nav" aria-label="主导航">
-          <a href="#download">下载</a><a href="#research">科研案例</a><a href="#examples">演示</a><a href="#press">媒体素材</a><a href="#community">社区</a>
+          <a href="#download">下载</a><a href="#research">科研案例</a><a href="#examples">演示</a><a href="#community">社区</a>
         </nav>
         <div class="header-links"><a class="repo-link" href="https://github.com/WUBING2023/PaperSpine">GitHub <span aria-hidden="true">↗</span></a><a class="language" href="../" hreflang="en" lang="en">EN</a></div>
       </div>
@@ -46,33 +46,34 @@
             <a href="#showcase" class="text-link">翻看论文与图件 <span aria-hidden="true">↘</span></a>
           </div>
         </div>
-        <aside class="research-viewer" id="showcase" aria-labelledby="preview-title" data-research-viewer data-topic="ridgecrest" data-catalog="../science/research/showcase.json">
+        <aside class="research-viewer" id="showcase" aria-labelledby="preview-title" data-research-viewer data-topic="atlantic-ri" data-catalog="../science/research/showcase.json?v=atlantic-ri">
           <div class="viewer-heading">
             <h2 id="preview-title">科研成果预览</h2>
             <a href="#research-files">全部研究文件 <span aria-hidden="true">↓</span></a>
           </div>
           <div class="viewer-study" data-preview-group="study" role="group" aria-label="选择研究" hidden>
-            <button type="button" value="ridgecrest" aria-controls="proof-output" aria-pressed="true">里奇克雷斯特</button>
+            <button type="button" value="atlantic-ri" aria-controls="proof-output" aria-pressed="true">大西洋气旋</button>
+            <button type="button" value="ridgecrest" aria-controls="proof-output" aria-pressed="false">余震目录</button>
             <button type="button" value="gravitational-waves" aria-controls="proof-output" aria-pressed="false">LIGO 引力波</button>
             <button type="button" value="smoke" aria-controls="proof-output" aria-pressed="false">野火烟霾</button>
           </div>
           <div class="viewer-mode" data-preview-group="mode" role="group" aria-label="选择成果类型" hidden>
-            <button type="button" value="paper" aria-controls="proof-output" aria-pressed="true">论文首页</button>
+            <button type="button" value="paper" aria-controls="proof-output" aria-pressed="false">论文首页</button>
             <button type="button" value="results" aria-controls="proof-output" aria-pressed="false">结果页</button>
-            <button type="button" value="figure" aria-controls="proof-output" aria-pressed="false">主图</button>
+            <button type="button" value="figure" aria-controls="proof-output" aria-pressed="true">主图</button>
             <button type="button" value="checks" aria-controls="proof-output" aria-pressed="false">稳健性</button>
           </div>
           <figure class="viewer-proof">
-            <div class="viewer-stage" id="proof-output" data-proof="stage" data-kind="paper">
-              <a class="viewer-media" data-proof="media" href="../science/research/ridgecrest/paper.pdf#page=1"><img src="../science/research/ridgecrest/first-page.webp" width="827" height="1070" alt="里奇克雷斯特余震论文第一页，包括标题、摘要和引言。" fetchpriority="high"><span class="viewer-magnify" data-proof="magnify" hidden><span aria-hidden="true">+</span><span class="visually-hidden">放大预览</span></span></a>
+            <div class="viewer-stage" id="proof-output" data-proof="stage" data-kind="figure">
+              <a class="viewer-media" data-proof="media" href="../science/research/atlantic-ri/figure.svg"><img src="../science/research/atlantic-ri/figure.webp" width="2400" height="1771" alt="大西洋气旋六联主图，展示两个时期的起点地图、24 小时风速增量的上尾、逐年比例、起始条件热图及带区间的差值分解。" fetchpriority="high"><span class="viewer-magnify" data-proof="magnify" hidden><span aria-hidden="true">+</span><span class="visually-hidden">放大预览</span></span></a>
               <div class="viewer-note">
-                <p class="viewer-kind" data-proof="kind">论文原页 · 第 1 页 / 共 5 页</p>
-                <h3 data-proof="title">同一余震序列，两种衰减估计</h3>
-                <p class="viewer-description" data-proof="note">对里奇克雷斯特地震后第 1 至 72 小时的余震建模，采用相同范围与报告震级下限（M ≥ 1.5）。</p>
-                <p class="viewer-metric" data-proof="metric"><strong data-proof="value">−0.070</strong><span data-proof="unit">重定位目录减去 ComCat 的衰减指数</span></p>
+                <p class="viewer-kind" data-proof="kind">论文图件 · 主图</p>
+                <h3 data-proof="title">气旋增强了多少？阈值会改变估计</h3>
+                <p class="viewer-description" data-proof="note">对照 6,017 个大西洋气旋窗口。以 30 节为阈值，后期高 0.81 个百分点，95% 区间跨过零。</p>
+                <p class="viewer-metric" data-proof="metric" hidden><strong data-proof="value"></strong><span data-proof="unit"></span></p>
               </div>
             </div>
-            <figcaption class="viewer-source"><span data-proof="source">USGS ComCat · Shelly 重定位目录</span><a data-proof="original" href="../science/research/ridgecrest/paper.pdf#page=1">打开 PDF · 第 1 页 ↗</a></figcaption>
+            <figcaption class="viewer-source"><span data-proof="source">NOAA NHC · 大西洋 HURDAT2</span><a data-proof="original" href="../science/research/atlantic-ri/figure.svg">打开 SVG 原图 ↗</a></figcaption>
           </figure>
           <dialog class="viewer-reader" data-proof="reader" aria-labelledby="reader-title">
             <div class="reader-header">
@@ -91,7 +92,7 @@
       </div>
       <nav class="shell milestones" aria-label="项目里程碑">
         <a href="../../zh.html"><strong>6,000+</strong><span>GitHub 星标</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
-        <a href="#research"><strong>3</strong><span>公开数据研究稿</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
+        <a href="#research"><strong>4</strong><span>公开数据研究稿</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
         <a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><strong>9</strong><span>次版本试跑</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
       </nav>
     </section>
@@ -186,12 +187,19 @@
     <section class="shell research section" id="research" aria-labelledby="research-title">
       <div class="research-showcase">
         <div class="research-lead">
-          <h2 id="research-title">三项公开数据研究</h2>
-          <p>从 LIGO 应变数据到 USGS 余震目录与 EPA 烟霾观测。每篇研究稿都附有矢量图、可编辑原稿与分析代码。</p>
-          <div class="links"><a href="#research-files">查看三个案例的全部文件 <span aria-hidden="true">↓</span></a><a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted">查看三种版本的试跑记录 <span aria-hidden="true">↗</span></a></div>
+          <h2 id="research-title">每篇研究都可以复核</h2>
+          <p>从大西洋气旋轨迹、LIGO 应变，到余震目录和野火烟霾。每篇研究稿都附有公开数据出处、矢量图、可编辑原稿与分析代码。</p>
+          <div class="links"><a href="#research-files">查看论文和复现文件 <span aria-hidden="true">↓</span></a><a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted">查看三种版本的试跑记录 <span aria-hidden="true">↗</span></a></div>
         </div>
       <aside class="study-deck" aria-label="轮换研究案例">
         <div class="deck-stack">
+          <article class="study-card" data-domain="cyclones">
+            <div class="study-top"><span>大气科学 · NOAA NHC</span><a href="../science/research/atlantic-ri/paper.pdf">论文 PDF ↗</a></div>
+            <h3>北大西洋气旋增强得有多快？</h3>
+            <a class="study-figure" href="../science/research/atlantic-ri/figure.svg"><img src="../science/research/atlantic-ri/figure.webp" alt="对照两个时期气旋快速增强情况的大西洋六联主图。" loading="lazy" width="2400" height="1771"></a>
+            <p class="study-finding">在可比的起始条件下，以 30 节为阈值，后期高 0.81 个百分点。以 25 节为阈值，后期低 0.93 个百分点。</p>
+            <div class="study-bottom"><a href="https://www.nhc.noaa.gov/data/#hurdat">数据来源 ↗</a><a href="../science/research/atlantic-ri/figure.svg">原始矢量图 ↗</a></div>
+          </article>
           <article class="study-card" data-domain="astrophysics">
             <div class="study-top"><span>天体物理 · LIGO / GWOSC</span><a href="../science/research/gravitational-waves/paper.pdf">论文 PDF ↗</a></div>
             <h3>两次黑洞并合的毫秒级时延</h3>
@@ -215,13 +223,26 @@
           </article>
         </div>
         <div class="deck-controls" hidden>
-          <div class="deck-pages"><button type="button" data-deck-target>引力波</button> <button type="button" data-deck-target>余震目录</button> <button type="button" data-deck-target>野火烟霾</button></div>
+          <div class="deck-pages"><button type="button" data-deck-target>大西洋气旋</button> <button type="button" data-deck-target>引力波</button> <button type="button" data-deck-target>余震目录</button> <button type="button" data-deck-target>野火烟霾</button></div>
           <div class="deck-actions"><button type="button" data-deck-toggle data-play="播放" data-pause="暂停">暂停</button><button type="button" data-deck-next>下一个 ↷</button></div>
         </div>
         <p class="deck-status" role="status"></p>
       </aside>
       </div>
       <div id="research-files">
+        <article class="research-entry" id="atlantic-ri">
+          <div class="research-entry-text">
+            <p class="eyeline">大气科学 · NOAA NHC</p>
+            <h3>可比起始条件下的气旋快速增强</h3>
+            <p>42 个气旋季，6,017 个可比的 24 小时窗口，按完整气旋季做 2,400 次自助抽样。主图从窗口起点画到增量分布，并量化起始条件构成变化的贡献。</p>
+            <p class="research-entry-finding">30 节阈值下，两期差值为 +0.81 个百分点，95% 区间为 −1.69 至 +3.43。稳健性图展示更换阈值和筛选规则时估计如何变化。</p>
+            <div class="links"><a href="../science/research/atlantic-ri/paper.pdf">读完整论文 ↗</a><a href="../science/research/atlantic-ri/source.zip" download>原稿与分析代码 ↓</a><a href="https://www.nhc.noaa.gov/data/#hurdat">数据来源 ↗</a></div>
+          </div>
+          <figure class="research-entry-figure">
+            <a href="../science/research/atlantic-ri/figure.svg"><img src="../science/research/atlantic-ri/figure.webp" alt="气旋增强六联主图，包括地图、风速增量分布、逐年比例、起始条件热图和差值分解。" loading="lazy" width="2400" height="1771"></a>
+            <figcaption class="links"><a href="../science/research/atlantic-ri/figure.svg">主图 SVG ↗</a><a href="../science/research/atlantic-ri/checks.svg">稳健性图 SVG ↗</a></figcaption>
+          </figure>
+        </article>
       <article class="research-entry" id="gravitational-waves">
           <div class="research-entry-text">
             <p class="eyeline">天体物理 · LIGO / GWOSC</p>
@@ -362,29 +383,7 @@
       <a class="community-preview" href="../../zh.html"><img src="../../atlas-preview-zh.svg" width="1230" height="475" loading="lazy" alt="按城市聚合 GitHub 星标用户公开地理信息的世界地图。"></a>
     </section>
 
-    <section class="press-section dark-surface section" id="press" aria-labelledby="press-title">
-      <div class="shell press-grid">
-        <div class="press-copy">
-          <h2 id="press-title">媒体与创作者素材</h2>
-          <p>可直接引用的项目简介、带图注的科研图、折纸龙 Spine 和可用作转场的功能短片。</p>
-          <blockquote id="press-intro">PaperSpine 是一款面向科研 Agent 的开源 AI for Science Skill。在对话中调用它，就能按需分析证据、绘制科研图和撰写可编辑论文。Skills 包支持按阶段调用，也可以选配本地工作台审阅。</blockquote>
-          <div class="press-actions"><a href="../science/paperspine-v6-press-kit.zip" class="button" download>下载完整媒体包 <span aria-hidden="true">↓</span></a><button type="button" class="button outline copy-press" data-copy-source="press-intro" data-copy-feedback="press-copy-status" hidden>复制项目简介</button></div>
-          <p class="copy-status" id="press-copy-status" data-done="已复制" data-hint="选中简介文字即可复制。" role="status"></p>
-          <div class="spine-signature">
-            <img src="../science/spine.webp" width="1394" height="1061" alt="" loading="lazy">
-            <p><strong>Spine</strong> · PaperSpine 的折纸龙<br><a href="../science/spine.png" download>下载透明底原图 ↓</a></p>
-          </div>
-        </div>
-        <figure class="press-assets">
-          <a href="../science/press-cover.png" download><img src="../science/press-cover.webp" loading="lazy" width="1920" height="1080" alt="PaperSpine V6 — AI for Science 科研工作流"></a>
-          <figcaption><a href="../science/press-cover.png" download>1920×1080 横版封面 <span aria-hidden="true">↓</span></a>
-            <a href="../science/press-portrait.png" download>1080×1350 竖版封面 <span aria-hidden="true">↓</span></a>
-            <a href="../science/press-copy.md" download>双语文案与图注 <span aria-hidden="true">↓</span></a>
-            <a href="../science/case-notes.md" download>案例证据与来源 <span aria-hidden="true">↓</span></a></figcaption>
-        </figure>
-      </div>
-    </section>
   </main>
-  <footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="../../zh.html">社区星图</a><a href="../../contributors/zh.html">项目贡献者</a><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../../v5/?legacy=1">V5 存档</a><a href="../../v5/?support=1">支持维护</a><a href="https://github.com/WUBING2023/PaperSpine/issues">问题反馈</a></div></div></footer>
+  <footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="../../zh.html">社区星图</a><a href="../../contributors/zh.html">项目贡献者</a><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../../v5/?legacy=1">V5 存档</a><a href="../../v5/?support=1">支持维护</a><a id="press" href="../science/paperspine-v6-press-kit.zip" download>项目素材</a><a href="https://github.com/WUBING2023/PaperSpine/issues">问题反馈</a></div></div></footer>
 </body>
 </html>

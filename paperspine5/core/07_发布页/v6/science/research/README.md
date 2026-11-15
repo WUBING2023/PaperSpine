@@ -1,22 +1,25 @@
 # PaperSpine research collection / PaperSpine 科研案例
 
-Three research papers on public measurements, each written in a field-appropriate journal layout. The source bundles include the paper, editable manuscript and figures, analysis code, and public input references.
+Four research papers on public measurements. The bundles include editable manuscripts and figures, analysis code, and public input references. Three studies were used for the edition runs described below.
 
 | Study | Paper, figure and reproducibility package | Data |
 | --- | --- | --- |
+| Atlantic cyclone intensification across comparable starting conditions | [PDF](atlantic-ri/paper.pdf) · [Main figure](atlantic-ri/figure.svg) · [Sensitivity figure](atlantic-ri/checks.svg) · [Source](atlantic-ri/source.zip) | [NOAA NHC HURDAT2](https://www.nhc.noaa.gov/data/#hurdat) · [Natural Earth](https://github.com/nvkelso/natural-earth-vector/tree/v5.1.2) |
 | Two black-hole mergers in public LIGO strain | [PDF](gravitational-waves/paper.pdf) · [Vector](gravitational-waves/figure.svg) · [Source](gravitational-waves/source.zip) | [GWOSC](https://doi.org/10.7935/82H3-HH23) |
 | Catalog dependence of early aftershock decay at Ridgecrest | [PDF](ridgecrest/paper.pdf) · [Vector](ridgecrest/figure.svg) · [Source](ridgecrest/source.zip) | [USGS ComCat](https://earthquake.usgs.gov/fdsnws/event/1/) · [Shelly’s catalog](https://doi.org/10.5066/P9JN6H0N) |
 | June smoke, two different footprints | [PDF](smoke/paper.pdf) · [Vector](smoke/figure.svg) · [Source](smoke/source.zip) | [EPA AirData](https://aqs.epa.gov/aqsweb/airdata/download_files.html) |
 
 ## Manuscript and figure previews
 
-The website renders the first page and one results page from each PDF. The results previews show LIGO page 3, Ridgecrest page 4, and smoke page 4. Click a page or figure to inspect it at a larger size, or use its source link to open that page of the full manuscript or the editable SVG.
+The website renders the first page and one results page from each PDF. The results previews show Atlantic cyclones page 2, LIGO page 3, Ridgecrest page 4, and smoke page 4. Click a page or figure to inspect it at a larger size, or use its source link to open that page of the full manuscript or the editable SVG.
+
+The Atlantic cyclone study followed the standalone V6 Skill. It compares 6,017 24-hour windows in 37 shared starting contexts. A fresh reviewer used a separate implementation to reproduce window counts, the seven specifications and season-bootstrap intervals from the pinned public archives. The manuscript incorporates corrections to the threshold interpretation, source positioning and figure labeling. Both plates were rechecked in the final PDF.
 
 The sensitivity views use the [LIGO preprocessing figure](gravitational-waves/checks.svg) and [Ridgecrest catalog-count figure](ridgecrest/checks.svg) from their original source bundles. The [smoke sensitivity figure](smoke/checks.svg) plots the saved contrasts from `results.json` in the smoke bundle, including 27 leave-one-monitor-out and eight leave-one-county-group-out reruns. Its lines span those reruns. [Preview renderer](https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/render_research_previews.py)
 
 ## How the runs were conducted
 
-For each study, a GPT‑6.1 Sol Codex subagent started from the research question and original public measurements. It verified and installed the three released V6 `6.0.0-beta.2` archives in separate directories, followed the installed Skill instructions, then shared the study evidence across the three workflows.
+For each study in the table below, a GPT‑6.1 Sol Codex subagent started from the research question and original public measurements. It verified and installed the three released V6 `6.0.0-beta.2` archives in separate directories, followed the installed Skill instructions, then shared the study evidence across the three workflows.
 
 | Study | Full Workflow Skill | Skills Pack | Web Plugin |
 | --- | --- | --- | --- |
@@ -33,5 +36,7 @@ The nine edition runs cover these three studies. Each study carries its analysis
 The authoring subagents explicitly loaded the installed Skill instructions. Each dataset supports a scoped retrospective finding. The manuscripts are research demonstrations and have had local evidence and visual checks. They have not been submitted to a journal or through independent peer review. The reproduction packages describe acceptable input and catalog revisions.
 
 ## 中文
+
+北大西洋气旋案例使用独立全流程 Skill，对照 NOAA 的 42 个气旋季和 6,017 个可比窗口，提供五页研究稿、六联主图和四联稳健性图。独立复核从锁定版本的公开原始数据重算七套分析，修订后的稿件呈现阈值敏感性和气旋季自助抽样的区间。下文的九次版本试跑来自已有三项研究。
 
 三个 GPT‑6.1 Sol 子 Agent 分别使用公开数据，完成引力波、地震余震目录和烟霾监测三篇五页论文。每篇先由全流程 Skill 完成分析和初稿，再用 Skills 包按阶段复核、参考写作、制图与交付。Web 运行使用已发布的 Windows 插件和真实浏览器，在同一任务内提交返修意见、预览并下载修订稿。三个流程沿用同一项研究的证据，三篇各自附可编辑论文、矢量图及复现代码。稿件使用学科期刊常见版式并完成本地核查，尚未投稿或经过独立同行评审。

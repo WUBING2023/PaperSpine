@@ -97,8 +97,17 @@ The manager requires Python 3.12+. The Web archive includes Windows Python and r
 
 The LIGO study shows what this looks like in practice. Follow the reported arrival order from the paper to the aligned strain and nine preprocessing checks. [LIGO evidence and source files](https://wubing2023.github.io/PaperSpine/v6/#gravitational-waves)
 
-<a id="edition-field-test"></a>
 <a id="research-cases"></a>
+
+## Atlantic cyclone intensification across comparable starts
+
+In a standalone Skill study, PaperSpine compared 42 seasons of NOAA best-track data. Across 6,017 comparable 24-hour windows, the 30-knot difference was +0.81 percentage points (95% season-bootstrap interval −1.69 to +3.43). The 25-knot point estimate changed sign. The six panels follow the comparison from start locations to the wind-gain tail, seasonal variation, and the contrast within shared starting conditions.
+
+<a href="https://wubing2023.github.io/PaperSpine/v6/#showcase"><img src="paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.webp" width="790" alt="Six-panel Atlantic cyclone study showing start maps, the wind-gain distribution, seasonal variation, a context heatmap, and a decomposition with intervals."></a>
+
+[Read paper](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/paper.pdf) · [Main figure SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.svg) · [Sensitivity SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/checks.svg) · [Editable paper and analysis code](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/source.zip)
+
+<a id="edition-field-test"></a>
 
 ## Three research papers, three modes
 
@@ -159,21 +168,13 @@ The Atlantic–Great Lakes PM₂.₅ departure reversed from +74.1 µg/m³ on Ju
 
 Followwriting illustrates how to use a reference’s structure while writing from the study’s own results. The other clips come from the released Windows workbench. [Watch a feedback-to-revision run](https://wubing2023.github.io/PaperSpine/v6/#revision) · [Full-size workbench screenshots](https://wubing2023.github.io/PaperSpine/v6/#examples)
 
-<a id="press-kit"></a>
-
-## Press kit
-
-> PaperSpine is an open-source AI for Science Skill for research agents. Call it in chat to analyze evidence, make scientific figures, and draft an editable paper. The Skills Pack exposes the stages individually, and the optional local workbench is available for review.
-
-[**Download the press kit**](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip) · [Bilingual intro and captions](paperspine5/core/07_发布页/v6/science/press-copy.md) · [Landscape cover](paperspine5/core/07_发布页/v6/science/press-cover.png) · [Portrait cover](paperspine5/core/07_发布页/v6/science/press-portrait.png) · [Spine transparent PNG](paperspine5/core/07_发布页/v6/science/spine.png)
-
 ## Development and community
 
 <a href="https://wubing2023.github.io/PaperSpine/"><img src="https://wubing2023.github.io/PaperSpine/atlas-preview.svg" width="790" alt="PaperSpine’s GitHub stargazer atlas, aggregated from publicly shared city locations."></a>
 
 [See who contributed to each V6 update](https://wubing2023.github.io/PaperSpine/contributors/#v6-contributions) · [Explore the stargazer atlas](https://wubing2023.github.io/PaperSpine/)
 
-[Official site](https://wubing2023.github.io/PaperSpine/v6/) · [V6 sources](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [Install manager](paperspine5/core/06_插件化/release/edition_manager.py) · [Website source](paperspine5/core/07_发布页/v6/) · [Report an issue](https://github.com/WUBING2023/PaperSpine/issues)
+[Official site](https://wubing2023.github.io/PaperSpine/v6/) · [V6 sources](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [Install manager](paperspine5/core/06_插件化/release/edition_manager.py) · [Website source](paperspine5/core/07_发布页/v6/) · [Report an issue](https://github.com/WUBING2023/PaperSpine/issues) · <a id="press-kit"></a>[Project assets](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip)
 
 <details>
 <summary>V5 documentation and source index</summary>

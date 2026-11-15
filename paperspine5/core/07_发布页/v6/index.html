@@ -14,11 +14,11 @@
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
   <link rel="describedby" href="llms.txt">
-  <link rel="stylesheet" href="v6.css?v=agent-install">
+  <link rel="stylesheet" href="v6.css?v=atlantic-ri">
   <script src="science.js?v=agent-install" defer></script>
   <script src="study-deck.js?v=product-overview" defer></script>
   <script src="download-stats.js" defer></script>
-  <script src="research-preview.js" defer></script>
+  <script src="research-preview.js?v=atlantic-ri" defer></script>
   <title>PaperSpine V6 · AI for Science Skill</title>
 </head>
 <body>
@@ -28,7 +28,7 @@
       <div class="shell navbar">
         <a class="wordmark" href="./"><img src="../v5/assets/brand/paperspine-mark.svg" width="38" height="38" alt="">PaperSpine</a>
         <nav class="site-nav" aria-label="Main navigation">
-          <a href="#download">Get started</a><a href="#research">Research</a><a href="#examples">Demos</a><a href="#press">Press kit</a><a href="#community">Community</a>
+          <a href="#download">Get started</a><a href="#research">Research</a><a href="#examples">Demos</a><a href="#community">Community</a>
         </nav>
         <div class="header-links"><a class="repo-link" href="https://github.com/WUBING2023/PaperSpine">GitHub <span aria-hidden="true">↗</span></a><a class="language" href="zh/" hreflang="zh-CN" lang="zh-CN">中文</a></div>
       </div>
@@ -46,33 +46,34 @@
             <a href="#showcase" class="text-link">Browse the outputs <span aria-hidden="true">↘</span></a>
           </div>
         </div>
-        <aside class="research-viewer" id="showcase" aria-labelledby="preview-title" data-research-viewer data-topic="ridgecrest" data-catalog="science/research/showcase.json">
+        <aside class="research-viewer" id="showcase" aria-labelledby="preview-title" data-research-viewer data-topic="atlantic-ri" data-catalog="science/research/showcase.json?v=atlantic-ri">
           <div class="viewer-heading">
             <h2 id="preview-title">Research outputs</h2>
             <a href="#research-files">All studies &amp; files <span aria-hidden="true">↓</span></a>
           </div>
           <div class="viewer-study" data-preview-group="study" role="group" aria-label="Choose a study" hidden>
-            <button type="button" value="ridgecrest" aria-controls="proof-output" aria-pressed="true">Ridgecrest</button>
+            <button type="button" value="atlantic-ri" aria-controls="proof-output" aria-pressed="true">Atlantic storms</button>
+            <button type="button" value="ridgecrest" aria-controls="proof-output" aria-pressed="false">Ridgecrest</button>
             <button type="button" value="gravitational-waves" aria-controls="proof-output" aria-pressed="false">LIGO strain</button>
             <button type="button" value="smoke" aria-controls="proof-output" aria-pressed="false">Wildfire smoke</button>
           </div>
           <div class="viewer-mode" data-preview-group="mode" role="group" aria-label="Choose an output" hidden>
-            <button type="button" value="paper" aria-controls="proof-output" aria-pressed="true">Title page</button>
+            <button type="button" value="paper" aria-controls="proof-output" aria-pressed="false">Title page</button>
             <button type="button" value="results" aria-controls="proof-output" aria-pressed="false">Results</button>
-            <button type="button" value="figure" aria-controls="proof-output" aria-pressed="false">Main figure</button>
+            <button type="button" value="figure" aria-controls="proof-output" aria-pressed="true">Main figure</button>
             <button type="button" value="checks" aria-controls="proof-output" aria-pressed="false">Sensitivity</button>
           </div>
           <figure class="viewer-proof">
-            <div class="viewer-stage" id="proof-output" data-proof="stage" data-kind="paper">
-              <a class="viewer-media" data-proof="media" href="science/research/ridgecrest/paper.pdf#page=1"><img src="science/research/ridgecrest/first-page.webp" width="827" height="1070" alt="First page of Catalog dependence of early aftershock decay in the 2019 Ridgecrest sequence, with title, abstract, and introduction." fetchpriority="high"><span class="viewer-magnify" data-proof="magnify" hidden><span aria-hidden="true">+</span><span class="visually-hidden">Enlarge preview</span></span></a>
+            <div class="viewer-stage" id="proof-output" data-proof="stage" data-kind="figure">
+              <a class="viewer-media" data-proof="media" href="science/research/atlantic-ri/figure.svg"><img src="science/research/atlantic-ri/figure.webp" width="2400" height="1771" alt="Six-panel Atlantic cyclone figure with two maps of starts, the wind-gain tail, rates by season, a starting-context heatmap and a decomposition with uncertainty." fetchpriority="high"><span class="viewer-magnify" data-proof="magnify" hidden><span aria-hidden="true">+</span><span class="visually-hidden">Enlarge preview</span></span></a>
               <div class="viewer-note">
-                <p class="viewer-kind" data-proof="kind">Manuscript · page 1 of 5</p>
-                <h3 data-proof="title">Two catalogs, different decay estimates</h3>
-                <p class="viewer-description" data-proof="note">The same Ridgecrest aftershock sequence, fit from hours 1–72 at reported magnitude ≥ 1.5.</p>
-                <p class="viewer-metric" data-proof="metric"><strong data-proof="value">−0.070</strong><span data-proof="unit">Relocated minus ComCat decay exponent</span></p>
+                <p class="viewer-kind" data-proof="kind">Manuscript figure · main plate</p>
+                <h3 data-proof="title">When the threshold changes the result</h3>
+                <p class="viewer-description" data-proof="note">Across 6,017 Atlantic storm windows, the 30-knot difference is +0.81 percentage points. Its 95% interval crosses zero.</p>
+                <p class="viewer-metric" data-proof="metric" hidden><strong data-proof="value"></strong><span data-proof="unit"></span></p>
               </div>
             </div>
-            <figcaption class="viewer-source"><span data-proof="source">USGS ComCat · Shelly’s relocated catalog</span><a data-proof="original" href="science/research/ridgecrest/paper.pdf#page=1">Open PDF · p. 1 ↗</a></figcaption>
+            <figcaption class="viewer-source"><span data-proof="source">NOAA NHC · Atlantic HURDAT2</span><a data-proof="original" href="science/research/atlantic-ri/figure.svg">Open vector SVG ↗</a></figcaption>
           </figure>
           <dialog class="viewer-reader" data-proof="reader" aria-labelledby="reader-title">
             <div class="reader-header">
@@ -91,7 +92,7 @@
       </div>
       <nav class="shell milestones" aria-label="Project milestones">
         <a href="../"><strong>6,000+</strong><span>GitHub stars</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
-        <a href="#research"><strong>3</strong><span>Studies using public data</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
+        <a href="#research"><strong>4</strong><span>Studies using public data</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
         <a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><strong>9</strong><span>Documented edition runs</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
       </nav>
     </section>
@@ -187,12 +188,19 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
     <section class="shell research section" id="research" aria-labelledby="research-title">
       <div class="research-showcase">
         <div class="research-lead">
-          <h2 id="research-title">Three studies you can inspect.</h2>
-          <p>From LIGO strain to earthquake catalogs and wildfire smoke. Open each paper, check its data, and download the editable manuscript, figures, and analysis code.</p>
-          <div class="links"><a href="#research-files">Browse all three studies and source files <span aria-hidden="true">↓</span></a><a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted">See the three-edition run notes <span aria-hidden="true">↗</span></a></div>
+          <h2 id="research-title">Research you can inspect.</h2>
+          <p>From Atlantic cyclone tracks to LIGO strain, earthquake catalogs, and wildfire smoke. Each paper links to its data, editable manuscript, vector figures, and analysis code.</p>
+          <div class="links"><a href="#research-files">Browse the papers and source files <span aria-hidden="true">↓</span></a><a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted">See the three-edition run notes <span aria-hidden="true">↗</span></a></div>
         </div>
       <aside class="study-deck" aria-label="Featured research">
         <div class="deck-stack">
+          <article class="study-card" data-domain="cyclones">
+            <div class="study-top"><span>Atmospheric science · NOAA NHC</span><a href="science/research/atlantic-ri/paper.pdf">Paper PDF ↗</a></div>
+            <h3>How fast did Atlantic storms intensify?</h3>
+            <a class="study-figure" href="science/research/atlantic-ri/figure.svg"><img src="science/research/atlantic-ri/figure.webp" alt="Atlantic cyclone main figure with six panels comparing rapid intensification across two periods." loading="lazy" width="2400" height="1771"></a>
+            <p class="study-finding">A 30-knot threshold gives a +0.81 percentage point difference across comparable starts. At 25 knots the point estimate is −0.93 points.</p>
+            <div class="study-bottom"><a href="https://www.nhc.noaa.gov/data/#hurdat">Data source ↗</a><a href="science/research/atlantic-ri/figure.svg">Editable figure ↗</a></div>
+          </article>
           <article class="study-card" data-domain="astrophysics">
             <div class="study-top"><span>Astrophysics · LIGO / GWOSC</span><a href="science/research/gravitational-waves/paper.pdf">Paper PDF ↗</a></div>
             <h3>Two black-hole mergers, millisecond timing</h3>
@@ -216,13 +224,26 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
           </article>
         </div>
         <div class="deck-controls" hidden>
-          <div class="deck-pages"><button type="button" data-deck-target>Gravitational waves</button> <button type="button" data-deck-target>Aftershock catalogs</button> <button type="button" data-deck-target>Wildfire smoke</button></div>
+          <div class="deck-pages"><button type="button" data-deck-target>Atlantic storms</button> <button type="button" data-deck-target>LIGO strain</button> <button type="button" data-deck-target>Aftershocks</button> <button type="button" data-deck-target>Wildfire smoke</button></div>
           <div class="deck-actions"><button type="button" data-deck-toggle data-play="Play" data-pause="Pause">Pause</button><button type="button" data-deck-next>Next ↷</button></div>
         </div>
         <p class="deck-status" role="status"></p>
       </aside>
       </div>
       <div id="research-files">
+        <article class="research-entry" id="atlantic-ri">
+          <div class="research-entry-text">
+            <p class="eyeline">Atmospheric science · NOAA NHC</p>
+            <h3>Rapid intensification across comparable starts</h3>
+            <p>42 seasons, 6,017 eligible windows in shared starting contexts, and 2,400 whole-season bootstrap draws. Follow the difference from maps of the starts to the tail of 24-hour wind gains and the decomposition by starting context.</p>
+            <p class="research-entry-finding">The 30-knot estimate is +0.81 percentage points (95% interval −1.69 to +3.43). The sensitivity figure shows how the comparison changes with threshold and cohort.</p>
+            <div class="links"><a href="science/research/atlantic-ri/paper.pdf">Read paper ↗</a><a href="science/research/atlantic-ri/source.zip" download>Paper source and code ↓</a><a href="https://www.nhc.noaa.gov/data/#hurdat">Data source ↗</a></div>
+          </div>
+          <figure class="research-entry-figure">
+            <a href="science/research/atlantic-ri/figure.svg"><img src="science/research/atlantic-ri/figure.webp" alt="Atlantic cyclone main figure with maps, the wind-gain distribution, annual rates, geography by starting intensity and an interval plot." loading="lazy" width="2400" height="1771"></a>
+            <figcaption class="links"><a href="science/research/atlantic-ri/figure.svg">Main figure SVG ↗</a><a href="science/research/atlantic-ri/checks.svg">Sensitivity figure SVG ↗</a></figcaption>
+          </figure>
+        </article>
       <article class="research-entry" id="gravitational-waves">
           <div class="research-entry-text">
             <p class="eyeline">Astrophysics · LIGO / GWOSC</p>
@@ -363,29 +384,7 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
       <a class="community-preview" href="../"><img src="../atlas-preview.svg" width="1230" height="475" loading="lazy" alt="World map of GitHub stargazer locations aggregated by city."></a>
     </section>
 
-    <section class="press-section dark-surface section" id="press" aria-labelledby="press-title">
-      <div class="shell press-grid">
-        <div class="press-copy">
-          <h2 id="press-title">For press and creators</h2>
-          <p>A short description, captioned research figures, the Spine artwork, and clips ready to use in coverage of PaperSpine.</p>
-          <blockquote id="press-intro">PaperSpine is an open-source AI for Science Skill for research agents. Call it in chat to analyze evidence, make scientific figures, and draft an editable paper. The Skills Pack exposes the stages individually, and the optional local workbench is available for review.</blockquote>
-          <div class="press-actions"><a href="science/paperspine-v6-press-kit.zip" class="button" download>Download the press kit <span aria-hidden="true">↓</span></a><button type="button" class="button outline copy-press" data-copy-source="press-intro" data-copy-feedback="press-copy-status" hidden>Copy introduction</button></div>
-          <p class="copy-status" id="press-copy-status" data-done="Copied" data-hint="Select the text and copy it." role="status"></p>
-          <div class="spine-signature">
-            <img src="science/spine.webp" width="1394" height="1061" alt="" loading="lazy">
-            <p><strong>Spine</strong> · PaperSpine’s origami dragon<br><a href="science/spine.png" download>Transparent artwork ↓</a></p>
-          </div>
-        </div>
-        <figure class="press-assets">
-          <a href="science/press-cover.png" download><img src="science/press-cover.webp" loading="lazy" width="1920" height="1080" alt="PaperSpine V6 — AI for Science"></a>
-          <figcaption><a href="science/press-cover.png" download>1920×1080 cover <span aria-hidden="true">↓</span></a>
-            <a href="science/press-portrait.png" download>1080×1350 social cover <span aria-hidden="true">↓</span></a>
-            <a href="science/press-copy.md" download>Bilingual copy and captions <span aria-hidden="true">↓</span></a>
-            <a href="science/case-notes.md" download>Case evidence and sources <span aria-hidden="true">↓</span></a></figcaption>
-        </figure>
-      </div>
-    </section>
   </main>
-  <footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="../">Stargazer atlas</a><a href="../contributors/">Contributors</a><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../v5/en/?legacy=1">V5 archive</a><a href="../v5/en/?support=1">Support the project</a><a href="https://github.com/WUBING2023/PaperSpine/issues">Report an issue</a></div></div></footer>
+  <footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="../">Stargazer atlas</a><a href="../contributors/">Contributors</a><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../v5/en/?legacy=1">V5 archive</a><a href="../v5/en/?support=1">Support the project</a><a id="press" href="science/paperspine-v6-press-kit.zip" download>Project assets</a><a href="https://github.com/WUBING2023/PaperSpine/issues">Report an issue</a></div></div></footer>
 </body>
 </html>
