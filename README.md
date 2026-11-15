@@ -101,9 +101,9 @@ The LIGO study shows what this looks like in practice. Follow the reported arriv
 
 ## Atlantic cyclone intensification across comparable starts
 
-In a standalone Skill study, PaperSpine compared 42 seasons of NOAA best-track data. Across 6,017 comparable 24-hour windows, the 30-knot difference was +0.81 percentage points (95% season-bootstrap interval −1.69 to +3.43). The 25-knot point estimate changed sign. The six panels follow the comparison from start locations to the wind-gain tail, seasonal variation, and the contrast within shared starting conditions.
+In a standalone Skill study, PaperSpine compared 42 seasons of NOAA best-track data. Across 6,017 comparable 24-hour windows, the 30-knot difference was +0.81 percentage points (95% season-bootstrap interval −1.69 to +3.43). The 25-knot point estimate changed sign. The six panels trace 484 recorded 24-hour paths, break down the gains into disjoint bands, and show the contrast and uncertainty across nine thresholds.
 
-<a href="https://wubing2023.github.io/PaperSpine/v6/#showcase"><img src="paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.webp" width="790" alt="Six-panel Atlantic cyclone study showing start maps, the wind-gain distribution, seasonal variation, a context heatmap, and a decomposition with intervals."></a>
+<a href="https://wubing2023.github.io/PaperSpine/v6/#showcase"><img src="paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.webp" width="790" alt="Six-panel figure showing 484 Atlantic cyclone tracks, three gain bands, a nine-threshold profile, and differences by starting context and season."></a>
 
 [Read paper](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/paper.pdf) · [Main figure SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.svg) · [Sensitivity SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/checks.svg) · [Editable paper and analysis code](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/source.zip)
 

@@ -74,9 +74,12 @@ async function initResearchPreview(panel) {
       isPaper ? `paper.pdf#page=${page}` : `${mode}.svg`,
       caseUrl,
     );
+    const pictureUrl = new URL(imageFiles[mode], caseUrl);
+    sourceUrl.search = catalogUrl.search;
+    pictureUrl.search = catalogUrl.search;
     const picture = new Image();
     picture.alt = output.alt;
-    picture.src = new URL(imageFiles[mode], caseUrl);
+    picture.src = pictureUrl.href;
     fields.stage.setAttribute("aria-busy", "true");
 
     try {

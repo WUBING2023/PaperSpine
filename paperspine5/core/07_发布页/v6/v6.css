@@ -138,7 +138,7 @@ h1 em { color: var(--sand); font-weight: inherit; }
   --viewer-accent: #e7cfad;
   --viewer-hairline: #4e6258;
   --viewer-page-height: clamp(222px, 23.3vw, 338px);
-  --viewer-figure-height: clamp(182px, 30.5vw, 416px);
+  --viewer-figure-height: clamp(182px, 35vw, 478px);
   --viewer-surface: #172420;
   min-width: 0;
   border: 1px solid var(--viewer-hairline);
@@ -407,6 +407,7 @@ h1 em { color: var(--sand); font-weight: inherit; }
 .study-card h3 { margin: 11px 0 9px; font-size: clamp(2rem, 3.4vw, 3.75rem); line-height: .98; }
 :lang(zh-CN) .study-card h3 { font-size: clamp(1.6rem, 2.5vw, 2.75rem); }
 .study-figure { display: block; margin: 8px 0 10px; aspect-ratio: 1.85; border: 1px solid var(--light-rule); background: #fff; overflow: hidden; }
+.study-card[data-domain="cyclones"] .study-figure { aspect-ratio: 1.55; }
 .study-figure img { height: 100%; object-fit: contain; }
 .study-finding { font-size: clamp(.88rem, 1.2vw, 1.02rem); color: var(--muted); line-height: 1.53; }
 .study-bottom { margin-top: auto; }

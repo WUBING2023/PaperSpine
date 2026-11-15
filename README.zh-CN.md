@@ -100,9 +100,9 @@ LIGO 案例可以直接查验这条链路。从论文中的到达顺序，回查
 
 ## 北大西洋气旋的快速增强
 
-这次使用独立全流程 Skill 分析了 NOAA 的 42 个气旋季。在 6,017 个可以对照的 24 小时窗口中，以 30 节为阈值，后期高 0.81 个百分点，按气旋季重采样的 95% 区间为 −1.69 至 +3.43。阈值换成 25 节后，点估计转为负值。六联图从起点地图、风速增量分布和逐季比率，一直画到相同起始条件下的差值。
+这次使用独立全流程 Skill 分析了 NOAA 的 42 个气旋季。在 6,017 个可以对照的 24 小时窗口中，以 30 节为阈值，后期高 0.81 个百分点，按气旋季重采样的 95% 区间为 −1.69 至 +3.43。阈值换成 25 节后，点估计转为负值。六联图串起 484 条记录的 24 小时轨迹、三档不重叠的风速增量，以及九个阈值对应的点估计和区间。
 
-<a href="https://wubing2023.github.io/PaperSpine/v6/zh/#showcase"><img src="paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.webp" width="790" alt="大西洋气旋六联主图，包括起点地图、风速增量分布、逐季比率、起始条件热图以及带区间的差值分解。"></a>
+<a href="https://wubing2023.github.io/PaperSpine/v6/zh/#showcase"><img src="paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.webp" width="790" alt="大西洋气旋六联图，含 484 条轨迹、三档风速增量、九个阈值的差值和区间，以及起始条件与逐季差异。"></a>
 
 [阅读论文](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/paper.pdf) · [主图 SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.svg) · [稳健性图 SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/checks.svg) · [可编辑原稿和分析代码](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/source.zip)
 

@@ -13,15 +13,15 @@
       },
       "results": {
         "title": "From geography to uncertainty",
-        "note": "Page two pairs the six-panel plate with the sample coverage and the separation of within-context changes from shifts in starting conditions.",
+        "note": "Page two pairs 484 recorded 24-hour tracks with gain bands, threshold estimates, and the decomposition at 30 knots.",
         "value": "+0.81 pp",
         "unit": "30-knot contrast · 95% interval −1.69 to +3.43 pp",
         "alt": "Page two of the Atlantic cyclone manuscript with a six-panel result plate, caption and reported differences."
       },
       "figure": {
-        "title": "When the threshold changes the result",
-        "note": "Across 6,017 Atlantic storm windows, the 30-knot difference is +0.81 percentage points. Its 95% interval crosses zero.",
-        "alt": "Six-panel Atlantic cyclone figure with two maps of starts, the wind-gain tail, rates by season, a starting-context heatmap and a decomposition with uncertainty."
+        "title": "The threshold changes the estimate",
+        "note": "The estimated difference is −0.93 percentage points at 25 knots and +1.36 at 35 knots. Both 95% intervals include zero.",
+        "alt": "Six-panel Atlantic cyclone figure with 484 recorded 24-hour tracks, disjoint gain bands, a threshold profile with uncertainty, and starting-context and seasonal comparisons."
       },
       "checks": {
         "title": "Check the threshold, the sample, and the season",
@@ -40,15 +40,15 @@
       },
       "results": {
         "title": "把起点地图与估计区间放在一页",
-        "note": "第二页并排呈现六联主图、两期样本覆盖及估计差值，区分组内比例变化和各组占比变化。",
+        "note": "第二页把 484 条记录轨迹、风速增量的分档、阈值曲线和 30 节阈值下的差值分解放在同一幅图中。",
         "value": "+0.81 个百分点",
         "unit": "30 节阈值下的差值 · 95% 区间 −1.69 至 +3.43",
         "alt": "大西洋气旋论文第二页，包括六联主图、完整图注和带区间的结果。"
       },
       "figure": {
-        "title": "气旋增强了多少？阈值会改变估计",
-        "note": "对照 6,017 个大西洋气旋窗口。以 30 节为阈值，后期高 0.81 个百分点，95% 区间跨过零。",
-        "alt": "大西洋气旋六联主图，展示两个时期的起点地图、24 小时风速增量的上尾、逐年比例、起始条件热图及带区间的差值分解。"
+        "title": "气旋增强的估计随阈值变化",
+        "note": "25 节阈值下差值为 −0.93 个百分点，35 节下为 +1.36。两个 95% 区间均跨过零。",
+        "alt": "大西洋气旋六联主图，展示 484 条记录轨迹、三档风速增量、九个阈值的区间、起始条件权重和逐季变化。"
       },
       "checks": {
         "title": "换个阈值，逐季复算",

@@ -10,7 +10,7 @@
 
 **Suggested coverage**
 
-- Start with the Atlantic cyclone figure. Two maps show the window starts across 42 seasons. The paper compares 6,017 windows and shows how the point estimate changes between 25- and 30-knot thresholds. At 30 knots, the 95% interval includes zero.
+- Start with the Atlantic cyclone figure. The map shows 484 recorded 24-hour tracks meeting the 30-knot definition. The threshold profile uses all 6,017 comparable windows. The 25- and 35-knot estimates have opposite signs, and both 95% intervals include zero.
 - For a result that held under the tested settings, show the paired LIGO spectrograms. Both events preserve the same detector arrival order across nine preprocessing choices.
 - Use Ridgecrest or the June smoke study for a second example. Both pair maps and measurements with a sensitivity check.
 - Show Followwriting for a few seconds. The demonstration maps how a reference organizes an argument to a draft grounded in the study's own data.
@@ -26,7 +26,7 @@
 
 **可直接使用的讲解顺序**
 
-- 可以从北大西洋气旋的六联图开场。两张地图呈现 42 个气旋季的起点。研究对照 6,017 个窗口，展示阈值从 25 节变为 30 节时点估计如何变化。30 节阈值下，95% 区间包含零。
+- 可以从北大西洋气旋的六联图开场。地图画出达到 30 节定义的 484 条记录的 24 小时轨迹。阈值曲线使用全部 6,017 个可比窗口。25 节和 35 节阈值下的点估计一负一正，两个 95% 区间均包含零。
 - LIGO 案例可以从两次事件的时频图讲到双台站时延。九种预处理条件下的到达顺序一致。
 - 用几秒 Followwriting 画面解释写法和证据如何进入同一段稿件。也可选工作台放大科研图、预览论文的片段做转场。
 - 给观众三个入口。整篇论文用全流程 Skill，只做一段用 Skills 包，需要本地界面时选 Windows Codex Web 插件。
@@ -36,7 +36,7 @@
 | Asset / 素材 | Caption / 建议图注 |
 | --- | --- |
 | Landscape and portrait covers | PaperSpine V6 / AI for Science with the LIGO public-strain manuscript and figure, alongside Spine, a dragon folded from overlapping sheets of paper. 封面采用 LIGO 公开应变研究稿和图件，折纸龙 Spine 为品牌角色。 |
-| Atlantic cyclone intensification | The main figure compares shared starting conditions across two periods of NOAA NHC HURDAT2. The sensitivity figure compares three thresholds, four changes to eligibility, and 42 season exclusions. 大西洋气旋主图对照 NOAA 两期可比起点，稳健性图比较三种阈值、四种筛选调整并逐一剔除 42 个气旋季。 |
+| Atlantic cyclone intensification | The main figure links recorded tracks, disjoint wind-gain bands, a nine-threshold profile and the 30-knot decomposition for NOAA NHC HURDAT2. The sensitivity figure shows eligibility changes and season exclusions. 主图把实测轨迹、三档风速增量、九个阈值及 30 节差值分解连在一起，稳健性图展示筛选调整和逐季剔除。 |
 | LIGO strain | Two known events, two detectors and nine preprocessing choices. The timing and off-source curves are descriptive diagnostics of these excerpts. 两次已知事件、两个探测器、九种处理条件，时延与离源曲线描述这两段记录。 |
 | Ridgecrest aftershocks | Matched maps, rate fits with a held-out window, and sensitivity to the reported magnitude threshold and start time. 同尺度目录对比、留出时间段与阈值敏感性。 |
 | June wildfire smoke | Monitoring locations, reversal of the corridor contrast, and daily departures from each site’s June 20–22 median. 监测点、两个区域浓度偏离量差值的反转及逐日热图。 |
