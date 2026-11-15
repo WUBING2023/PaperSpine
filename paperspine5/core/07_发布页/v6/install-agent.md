@@ -42,7 +42,7 @@ Managed installs use the V6 channel. The same manager exposes `check`, `update`,
 - Followwriting traces writing decisions to real passages in reference papers. The study's own data and analyses determine what the manuscript can claim.
 - Figure sources, evidence, and review notes belong with the editable manuscript. A revision can reuse the same task and files, including the user's figure choice and feedback.
 
-The [public research collection][research] documents three studies and nine edition runs. The examples include fitted aftershock rates with a held-out interval, LIGO arrival-time checks across preprocessing settings, and omission checks for wildfire-smoke contrasts.
+The [public research collection][research] documents four studies. The Atlantic cyclone paper uses 6,017 comparable 24-hour windows to show how an estimated difference changes with the wind-gain threshold. It includes an editable paper, two multi-panel figures, and reproduction code. Three earlier studies document nine edition runs covering aftershock rates, LIGO arrival times, and wildfire-smoke contrasts.
 
 ## 中文快速入口
 

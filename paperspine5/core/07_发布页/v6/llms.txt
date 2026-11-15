@@ -14,6 +14,6 @@ The public V6 channel is beta. Start with the agent installation guide to match 
 
 ## Research evidence
 
-- [Three studies with papers, data sources, analysis code, and edition run records](@SITE@science/research/README.md)
+- [Research collection with manuscripts, public data, reproducible analyses, and edition run records](@SITE@science/research/README.md)
 - [Project README and usage examples](@GITHUB@/blob/main/README.md)
 - [中文项目说明](@GITHUB@/blob/main/README.zh-CN.md)
