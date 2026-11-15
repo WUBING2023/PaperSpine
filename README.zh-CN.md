@@ -5,39 +5,36 @@
 </div>
 
 <p align="center">
-  <a href="https://wubing2023.github.io/PaperSpine/v6/zh/"><img src="paperspine5/core/07_发布页/v6/readme/v6-product-zh.webp" width="100%" alt="PaperSpine，AI for Science。Windows 本地工作台预览里奇克雷斯特余震研究的四面板图。"></a>
+  <a href="https://wubing2023.github.io/PaperSpine/v6/zh/"><img src="paperspine5/core/07_发布页/v6/readme/v6-skill-zh.webp" width="100%" alt="PaperSpine，面向科研 Agent 的开源 AI for Science Skill。画面包含 LIGO 公开应变研究的稿件、六面板主图和折纸龙 Spine。"></a>
 </p>
 
 <p align="center">
-  <strong>给科研 Agent 一个问题、一份数据或一篇初稿。</strong><br>
-  从实验分析和图件审查，到交付一篇能编辑、能核对证据的论文。
+  在对话里调用 <code>$paper-spine</code>，从题目、数据或初稿开始。<br>
+  查文献、做分析、画科研图，交付可编辑论文。
+</p>
+
+<p align="center">
+  <a href="#start-with-skill"><img src="paperspine5/core/07_发布页/v6/readme/action-install-zh.svg" width="122" height="44" alt="安装 Skill"></a>
+  <a href="#research-cases"><img src="paperspine5/core/07_发布页/v6/readme/action-studies-zh.svg" width="122" height="44" alt="查看科研案例"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/WUBING2023/PaperSpine/stargazers"><img src="paperspine5/core/07_发布页/v6/readme/milestone-stars-zh.svg" width="79" height="62" alt="6,000+ GitHub 星标"></a>
+  <a href="#research-cases"><img src="paperspine5/core/07_发布页/v6/readme/milestone-studies-zh.svg" width="79" height="62" alt="3 篇公开数据研究稿"></a>
+  <a href="paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><img src="paperspine5/core/07_发布页/v6/readme/milestone-runs-zh.svg" width="79" height="62" alt="9 次版本试跑，三项研究各跑三版"></a>
 </p>
 
 <p align="center">
   <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2"><img src="paperspine5/core/07_发布页/v6/readme/badge-release-zh.svg" alt="版本 · V6 公测"></a>
   <a href="LICENSE"><img src="paperspine5/core/07_发布页/v6/readme/badge-license-zh.svg" alt="许可证 · MIT"></a>
-  <a href="https://wubing2023.github.io/PaperSpine/v6/zh/#edition-web"><img src="paperspine5/core/07_发布页/v6/readme/badge-workbench-zh.svg" alt="本地工作台 · Windows x64"></a>
   <a href="https://github.com/WUBING2023/PaperSpine/issues"><img src="paperspine5/core/07_发布页/v6/readme/badge-feedback-zh.svg" alt="反馈 · GitHub Issues"></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/WUBING2023/PaperSpine/stargazers"><strong>6,000+ GitHub 星标</strong></a> ·
-  <a href="#research-cases"><strong>3 篇公开数据研究稿</strong></a> ·
-  <a href="paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><strong>9 次版本试跑</strong></a>
-</p>
-
-<p align="center">
-  <a href="#ways-to-work"><strong>选择下载</strong></a> ·
-  <a href="#feature-demos">功能动图</a> ·
-  <a href="#press-kit">媒体素材</a> ·
-  <a href="https://wubing2023.github.io/PaperSpine/v6/zh/">中文官网</a> ·
-  <a href="https://wubing2023.github.io/PaperSpine/zh.html">社区星图</a> ·
-  <a href="https://wubing2023.github.io/PaperSpine/contributors/zh.html">贡献者</a>
 </p>
 
 <a id="ways-to-work"></a>
 
 ## 三种使用方式
+
+<a id="start-with-skill"></a>
 
 ### 新手上手 · 全流程 Skill
 
@@ -53,7 +50,7 @@
 
 ### 满血插件 · 本地 Web 工作台
 
-在 Windows x64 的 Codex 里调用 `$paper-spine-web:paper-spine-web`。包含整套 Skills，支持在本地工作台放大图件、预览论文、提交返修意见和下载成稿。
+需要在浏览器里放大图、预览论文或提交返修意见时，可选装本地工作台。这个版本包含整套 Skills，在 Windows x64 的 Codex 里调用 `$paper-spine-web:paper-spine-web`。
 
 [**下载 ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) · ![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-web-plugin.svg)
 
@@ -148,7 +145,7 @@ Followwriting 短片演示如何借鉴论证写法、用本研究的结果落笔
 
 ## 媒体与创作者素材
 
-> PaperSpine 是一个开源的 AI for Science 工作流，帮助科研 Agent 做实验、绘制科研图、交付可编辑论文。研究者可以选一个全流程 Skill、分阶段调用，或在本地工作台审阅。
+> PaperSpine 是一款面向科研 Agent 的开源 AI for Science Skill。在对话中调用它，就能按需分析证据、绘制科研图和撰写可编辑论文。Skills 包支持按阶段调用，也可以选配本地工作台审阅。
 
 [**下载完整媒体包**](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip) · [双语简介和图注](paperspine5/core/07_发布页/v6/science/press-copy.md) · [横版封面](paperspine5/core/07_发布页/v6/science/press-cover.png) · [竖版封面](paperspine5/core/07_发布页/v6/science/press-portrait.png) · [折纸龙 Spine 透明底](paperspine5/core/07_发布页/v6/science/spine.png)
 
@@ -158,7 +155,7 @@ Followwriting 短片演示如何借鉴论证写法、用本研究的结果落笔
 
 [浏览社区星图](https://wubing2023.github.io/PaperSpine/zh.html) · [查看贡献者名单](https://wubing2023.github.io/PaperSpine/contributors/zh.html)
 
-[V6 源码](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [安装管理器](paperspine5/core/06_插件化/release/edition_manager.py) · [官网源码](paperspine5/core/07_发布页/v6/) · [问题反馈](https://github.com/WUBING2023/PaperSpine/issues)
+[中文官网](https://wubing2023.github.io/PaperSpine/v6/zh/) · [V6 源码](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [安装管理器](paperspine5/core/06_插件化/release/edition_manager.py) · [官网源码](paperspine5/core/07_发布页/v6/) · [问题反馈](https://github.com/WUBING2023/PaperSpine/issues)
 
 <details>
 <summary>V5 文档与源码索引</summary>

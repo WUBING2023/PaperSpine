@@ -2,11 +2,11 @@
 
 ## English
 
-**Headline** · PaperSpine brings an AI for Science workflow to your research agent.
+**Headline** · PaperSpine is an open-source AI for Science Skill.
 
-**One sentence** · PaperSpine helps researchers move from literature and data to analysis, scientific figures, and an editable manuscript, with three ways to work.
+**One sentence** · Call `$paper-spine` in an agent chat to move from a research question, data, or a draft to analysis, scientific figures, and an editable paper.
 
-**Short introduction** · PaperSpine is an open-source AI for Science workflow for research agents. It brings literature, analysis, scientific figures, and editable manuscripts into one research project. Researchers can use one Skill, pick individual stages, or review the work in a local Codex workbench.
+**Short introduction** · PaperSpine is an open-source AI for Science Skill for research agents. Call it in chat to analyze evidence, make scientific figures, and draft an editable paper. The Skills Pack exposes the stages individually, and the optional local workbench is available for review.
 
 **Suggested coverage**
 
@@ -17,11 +17,11 @@
 
 ## 中文
 
-**标题** · PaperSpine 把 AI for Science 工作流带进科研 Agent。
+**标题** · PaperSpine 是面向科研 Agent 的开源 AI for Science Skill。
 
-**一句话** · 从文献和数据出发，做分析、画科研图、交付可编辑论文。研究者可以用一个全流程 Skill、单独调用某一环节，也可以在本地工作台审查。
+**一句话** · 在对话里调用 `$paper-spine`，从题目、数据或初稿开始，完成分析、科研图和可编辑论文。
 
-**简短介绍** · PaperSpine 是一个开源的 AI for Science 研究工作流。它把文献、分析、科研图与可编辑论文放在同一个研究项目里。研究者可以用一个 Skill 跑全流程，按需要单独调用写作、制图或审阅阶段，也可以在 Codex 的本地工作台审查同一篇论文。
+**简短介绍** · PaperSpine 是一款面向科研 Agent 的开源 AI for Science Skill。在对话中调用它，就能按需分析证据、绘制科研图和撰写可编辑论文。Skills 包支持按阶段调用，也可以选配本地工作台审阅。
 
 **可直接使用的讲解顺序**
 

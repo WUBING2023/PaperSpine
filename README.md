@@ -5,39 +5,36 @@
 </div>
 
 <p align="center">
-  <a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/readme/v6-product-en.webp" width="100%" alt="PaperSpine, AI for Science. The Windows workbench displays a four-panel figure from the Ridgecrest aftershock study."></a>
+  <a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/readme/v6-skill-en.webp" width="100%" alt="PaperSpine, an open-source AI for Science Skill. The LIGO public-strain study’s manuscript and six-panel scientific figure appear beside Spine, the origami dragon."></a>
 </p>
 
 <p align="center">
-  <strong>Start with a research question, data, or a draft.</strong><br>
-  Run experiments, review scientific figures, and deliver an editable paper with the evidence attached.
+  Call <code>$paper-spine</code> in your agent chat with a research question, data, or a draft.<br>
+  Review literature, run analyses, make scientific figures, and write an editable manuscript.
+</p>
+
+<p align="center">
+  <a href="#start-with-skill"><img src="paperspine5/core/07_发布页/v6/readme/action-install-en.svg" width="122" height="44" alt="Install the Skill"></a>
+  <a href="#research-cases"><img src="paperspine5/core/07_发布页/v6/readme/action-studies-en.svg" width="122" height="44" alt="See the studies"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/WUBING2023/PaperSpine/stargazers"><img src="paperspine5/core/07_发布页/v6/readme/milestone-stars-en.svg" width="79" height="62" alt="6,000+ GitHub stars"></a>
+  <a href="#research-cases"><img src="paperspine5/core/07_发布页/v6/readme/milestone-studies-en.svg" width="79" height="62" alt="3 studies using public data"></a>
+  <a href="paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><img src="paperspine5/core/07_发布页/v6/readme/milestone-runs-en.svg" width="79" height="62" alt="9 documented edition runs across three studies"></a>
 </p>
 
 <p align="center">
   <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2"><img src="paperspine5/core/07_发布页/v6/readme/badge-release-en.svg" alt="Release · V6 beta"></a>
   <a href="LICENSE"><img src="paperspine5/core/07_发布页/v6/readme/badge-license-en.svg" alt="License · MIT"></a>
-  <a href="https://wubing2023.github.io/PaperSpine/v6/#edition-web"><img src="paperspine5/core/07_发布页/v6/readme/badge-workbench-en.svg" alt="Web Workbench · Windows x64"></a>
   <a href="https://github.com/WUBING2023/PaperSpine/issues"><img src="paperspine5/core/07_发布页/v6/readme/badge-feedback-en.svg" alt="Feedback · GitHub Issues"></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/WUBING2023/PaperSpine/stargazers"><strong>6,000+ GitHub stars</strong></a> ·
-  <a href="#research-cases"><strong>3 studies using public data</strong></a> ·
-  <a href="paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><strong>9 documented edition runs</strong></a>
-</p>
-
-<p align="center">
-  <a href="#ways-to-work"><strong>Get PaperSpine</strong></a> ·
-  <a href="#feature-demos">Feature demos</a> ·
-  <a href="#press-kit">Press kit</a> ·
-  <a href="https://wubing2023.github.io/PaperSpine/v6/">Website</a> ·
-  <a href="https://wubing2023.github.io/PaperSpine/">Stargazer atlas</a> ·
-  <a href="https://wubing2023.github.io/PaperSpine/contributors/">Contributors</a>
 </p>
 
 <a id="ways-to-work"></a>
 
 ## Three ways to work
+
+<a id="start-with-skill"></a>
 
 ### Quick Start · Full Workflow Skill
 
@@ -53,7 +50,7 @@ Use `$paper-spine` for the full workflow or call a stage directly, such as `$pap
 
 ### Full Workbench · Web Plugin
 
-Use `$paper-spine-web:paper-spine-web` in Codex on Windows x64. It includes the Skills Pack and a local workbench to inspect figures, preview the paper, and send revision notes.
+Add the optional local workbench if you want to inspect figures, preview drafts, or send revision notes in a browser. It includes the Skills Pack and uses `$paper-spine-web:paper-spine-web` in Codex on Windows x64.
 
 [**Download ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) · ![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-web-plugin.svg)
 
@@ -148,7 +145,7 @@ Followwriting illustrates how to use a reference’s structure while writing fro
 
 ## Press kit
 
-> PaperSpine is an open-source AI for Science workflow. It helps research agents run experiments, create scientific figures, and deliver editable papers. Choose a full workflow Skill, individual Skills, or a local workbench.
+> PaperSpine is an open-source AI for Science Skill for research agents. Call it in chat to analyze evidence, make scientific figures, and draft an editable paper. The Skills Pack exposes the stages individually, and the optional local workbench is available for review.
 
 [**Download the press kit**](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip) · [Bilingual intro and captions](paperspine5/core/07_发布页/v6/science/press-copy.md) · [Landscape cover](paperspine5/core/07_发布页/v6/science/press-cover.png) · [Portrait cover](paperspine5/core/07_发布页/v6/science/press-portrait.png) · [Spine transparent PNG](paperspine5/core/07_发布页/v6/science/spine.png)
 
@@ -158,7 +155,7 @@ Followwriting illustrates how to use a reference’s structure while writing fro
 
 [Explore the stargazer atlas](https://wubing2023.github.io/PaperSpine/) · [View the contributors roster](https://wubing2023.github.io/PaperSpine/contributors/)
 
-[V6 sources](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [Install manager](paperspine5/core/06_插件化/release/edition_manager.py) · [Website source](paperspine5/core/07_发布页/v6/) · [Report an issue](https://github.com/WUBING2023/PaperSpine/issues)
+[Official site](https://wubing2023.github.io/PaperSpine/v6/) · [V6 sources](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [Install manager](paperspine5/core/06_插件化/release/edition_manager.py) · [Website source](paperspine5/core/07_发布页/v6/) · [Report an issue](https://github.com/WUBING2023/PaperSpine/issues)
 
 <details>
 <summary>V5 documentation and source index</summary>

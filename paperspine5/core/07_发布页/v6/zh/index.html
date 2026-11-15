@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="从文献、实验、科研图到可编辑论文。查看有出处的科研案例，选择全流程 Skill、阶段 Skills 包或本地工作台。">
+  <meta name="description" content="PaperSpine 是面向科研 Agent 的开源 AI for Science Skill。在对话中查文献、设计实验、分析数据并撰写可编辑论文。">
   <meta name="theme-color" content="#f5f2e9">
-  <meta property="og:title" content="PaperSpine V6 — AI for Science 科研工作流">
-  <meta property="og:description" content="从文献、实验、科研图到可编辑论文。查看有出处的科研案例，选择全流程 Skill、阶段 Skills 包或本地工作台。">
+  <meta property="og:title" content="PaperSpine V6 · AI for Science Skill">
+  <meta property="og:description" content="开源 AI for Science Skill。在科研 Agent 的对话里查文献、做分析、画科研图，交付可编辑论文。">
   <meta property="og:image" content="https://wubing2023.github.io/PaperSpine/v6/science/press-cover.png">
   <link rel="canonical" href="https://wubing2023.github.io/PaperSpine/v6/zh/">
   <link rel="alternate" hreflang="en" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/v6/zh/">
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../v6.css?v=product-overview">
+  <link rel="stylesheet" href="../v6.css?v=skill-first">
   <script src="../science.js" defer></script>
   <script src="../study-deck.js?v=product-overview" defer></script>
   <script src="../download-stats.js" defer></script>
-  <title>PaperSpine V6 — AI for Science 科研工作流</title>
+  <title>PaperSpine V6 · AI for Science Skill</title>
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -35,18 +35,18 @@
   <main id="main">
     <section class="shell hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="hero-kicker">AI for Science <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 公测 <span aria-hidden="true">↗</span></a></p>
-        <h1 id="hero-title"><span class="visually-hidden">PaperSpine · </span>从科研问题<br><em>到可编辑论文</em></h1>
-        <p class="hero-description">和科研 Agent 一起做实验、分析数据、绘制科研图。核对证据后，再导出可编辑的论文。</p>
+        <p class="hero-kicker">开源 <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 公测 <span aria-hidden="true">↗</span></a></p>
+        <h1 id="hero-title"><span class="visually-hidden">PaperSpine · </span>科研 Agent 的<br> <em lang="en">AI for Science Skill</em></h1>
+        <p class="hero-description">在对话中调用 <code>$paper-spine</code>，查文献、设计实验、分析数据，把结果整理成科研图和可编辑论文。</p>
         <div class="hero-actions">
-          <a href="#download" class="button">选择下载 <span aria-hidden="true">↓</span></a>
-          <a href="#examples" class="text-link">观看功能演示 <span aria-hidden="true">↘</span></a>
+          <a href="#edition-skill" class="button">安装 Skill <span aria-hidden="true">↓</span></a>
+          <a href="#research" class="text-link">查看科研案例 <span aria-hidden="true">↘</span></a>
         </div>
       </div>
-      <figure class="hero-workbench">
-        <div class="hero-workbench-meta"><span>本地 Web 工作台</span><span>Windows x64 · Codex</span></div>
-        <a class="hero-image" href="../science/research-workbench-zoom.png" aria-label="查看原尺寸工作台截图"><img src="../science/research-workbench-zoom.webp" alt="Windows 本地工作台放大查看里奇克雷斯特余震研究主图，包含两张震中密度图、衰减拟合与敏感性分析。" width="1984" height="1312" fetchpriority="high"></a>
-        <figcaption><span>里奇克雷斯特余震研究</span><a href="../science/research/ridgecrest/paper.pdf">阅读论文 <span aria-hidden="true">↗</span></a></figcaption>
+      <figure class="hero-study">
+        <div class="hero-study-header"><span>LIGO 公开应变数据</span><span>GW150914 · GW170814</span></div>
+        <a class="hero-image" href="../science/research/gravitational-waves/figure.svg"><img src="../science/research/gravitational-waves/figure.webp" alt="六面板主图展示两次 LIGO 事件的时频图、对齐后的应变和时延对比。点击查看原始矢量图。" width="2622" height="1610" fetchpriority="high"></a>
+        <figcaption><span>两次黑洞并合的毫秒级时延</span><a href="../science/research/gravitational-waves/paper.pdf">阅读论文 <span aria-hidden="true">↗</span></a></figcaption>
       </figure>
     </section>
     <nav class="shell milestones" aria-label="项目里程碑">
@@ -56,7 +56,7 @@
     </nav>
     <section class="edition-section section" id="download" aria-labelledby="edition-title">
       <div class="shell">
-        <div class="section-heading"><h2 id="edition-title">三种科研工作方式</h2><p>从一次对话开始，也可以独立调用任意阶段，或在本地界面审查同一篇论文。</p></div>
+        <div class="section-heading"><h2 id="edition-title">安装 PaperSpine</h2><p>从对话里的全流程 Skill 开始。需要单独调用某一阶段时选 Skills 包，需要图形界面时可选装 Windows 本地工作台。</p></div>
         <div class="editions">
         <article class="edition" id="edition-skill">
           <div class="edition-main">
@@ -123,31 +123,6 @@
           <a href="https://github.com/WUBING2023/PaperSpine/blob/@TAG@/INSTALL-V6.md">安装使用指南 <span aria-hidden="true">↗</span></a><a href="../checksums.sha256" download>SHA-256 校验文件</a><a href="../channel.json">更新频道</a><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">发行说明 · @VERSION@</a>
         </div>
       </div>
-    </section>
-
-    <section class="shell demos section" id="examples" aria-labelledby="demo-title">
-      <div class="section-heading"><h2 id="demo-title">功能实拍与演示</h2><p>看看怎样参考原文组织写作、放大检查科研图，以及在本地工作台内返修。</p></div>
-      <div class="workflow-gallery" id="draft">
-        <article class="clip clip-featured" id="revision">
-          <div class="clip-preview"><img src="../science/revision-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/revision-hd.gif" data-demo aria-label="播放功能演示 · 审阅返修"><span aria-hidden="true">▶</span></a></div>
-          <h3>审阅与返修</h3><p>工作台实拍 · 保存返修意见，再打开原任务内的新 PDF。</p>
-        </article>
-      <div class="clip-grid">
-        <article class="clip" id="writing">
-          <div class="clip-preview"><img src="../science/followwriting-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/followwriting-hd.gif" data-demo aria-label="播放功能演示 · Followwriting"><span aria-hidden="true">▶</span></a></div>
-          <h3>Followwriting</h3><p>流程示意 · 围绕自己的结果落笔，参考原论文的论证结构。</p>
-        </article>
-        <article class="clip" id="figure-preview">
-          <div class="clip-preview"><img src="../science/figures-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/figures-hd.gif" data-demo aria-label="播放功能演示 · 科研图预览"><span aria-hidden="true">▶</span></a></div>
-          <h3>科研图预览</h3><p>工作台实拍 · 打开研究图，检查原尺寸细节。</p>
-        </article>
-        <article class="clip" id="workbench">
-          <div class="clip-preview"><img src="../science/workbench-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/workbench-hd.gif" data-demo aria-label="播放功能演示 · 论文预览"><span aria-hidden="true">▶</span></a></div>
-          <h3>论文预览</h3><p>工作台实拍 · 打开同一任务的 PDF 阅读稿。</p>
-        </article>
-        </div>
-      </div>
-      <dialog class="demo-dialog" aria-label="播放功能演示"><button type="button" class="close-demo">关闭 <span aria-hidden="true">×</span></button><img alt=""></dialog>
     </section>
 
     <section class="shell research section" id="research" aria-labelledby="research-title">
@@ -291,6 +266,31 @@
 
     <aside class="shell links research-archive" id="field-test"><a href="../science/edition-field-test.md">读早期安装试跑 ↗</a></aside>
 
+    <section class="shell demos section" id="examples" aria-labelledby="demo-title">
+      <div class="section-heading"><h2 id="demo-title">功能实拍与演示</h2><p>看看怎样参考原文组织写作、放大检查科研图，以及在本地工作台内返修。</p></div>
+      <div class="workflow-gallery" id="draft">
+        <article class="clip clip-featured" id="revision">
+          <div class="clip-preview"><img src="../science/revision-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/revision-hd.gif" data-demo aria-label="播放功能演示 · 审阅返修"><span aria-hidden="true">▶</span></a></div>
+          <h3>审阅与返修</h3><p>工作台实拍 · 保存返修意见，再打开原任务内的新 PDF。</p>
+        </article>
+      <div class="clip-grid">
+        <article class="clip" id="writing">
+          <div class="clip-preview"><img src="../science/followwriting-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/followwriting-hd.gif" data-demo aria-label="播放功能演示 · Followwriting"><span aria-hidden="true">▶</span></a></div>
+          <h3>Followwriting</h3><p>流程示意 · 围绕自己的结果落笔，参考原论文的论证结构。</p>
+        </article>
+        <article class="clip" id="figure-preview">
+          <div class="clip-preview"><img src="../science/figures-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/figures-hd.gif" data-demo aria-label="播放功能演示 · 科研图预览"><span aria-hidden="true">▶</span></a></div>
+          <h3>科研图预览</h3><p>工作台实拍 · 打开研究图，检查原尺寸细节。</p>
+        </article>
+        <article class="clip" id="workbench">
+          <div class="clip-preview"><img src="../science/workbench-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="../science/workbench-hd.gif" data-demo aria-label="播放功能演示 · 论文预览"><span aria-hidden="true">▶</span></a></div>
+          <h3>论文预览</h3><p>工作台实拍 · 打开同一任务的 PDF 阅读稿。</p>
+        </article>
+        </div>
+      </div>
+      <dialog class="demo-dialog" aria-label="播放功能演示"><button type="button" class="close-demo">关闭 <span aria-hidden="true">×</span></button><img alt=""></dialog>
+    </section>
+
     <section class="shell community-feature section" id="community" aria-labelledby="community-title">
       <div class="section-heading">
         <div><h2 id="community-title">PaperSpine 社区</h2><p>在星图查看 GitHub 用户公开填写的地点，在贡献者页查看仓库提交的署名账号。</p></div>
@@ -304,7 +304,7 @@
         <div class="press-copy">
           <h2 id="press-title">媒体与创作者素材</h2>
           <p>可直接引用的项目简介、带图注的科研图、折纸龙 Spine 和可用作转场的功能短片。</p>
-          <blockquote id="press-intro">PaperSpine 是一个开源的 AI for Science 研究工作流。它把文献、分析、科研图与可编辑论文放在同一个研究项目里。研究者可以用一个 Skill 跑全流程，按需要单独调用写作、制图或审阅阶段，也可以在 Codex 的本地工作台审查同一篇论文。</blockquote>
+          <blockquote id="press-intro">PaperSpine 是一款面向科研 Agent 的开源 AI for Science Skill。在对话中调用它，就能按需分析证据、绘制科研图和撰写可编辑论文。Skills 包支持按阶段调用，也可以选配本地工作台审阅。</blockquote>
           <div class="press-actions"><a href="../science/paperspine-v6-press-kit.zip" class="button" download>下载完整媒体包 <span aria-hidden="true">↓</span></a><button type="button" class="button outline copy-press" hidden>复制项目简介</button></div>
           <p class="copy-status" data-done="已复制" data-hint="选中简介文字即可复制。" role="status"></p>
           <div class="spine-signature">
