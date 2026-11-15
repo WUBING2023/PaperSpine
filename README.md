@@ -107,6 +107,8 @@ In a standalone Skill study, PaperSpine compared 42 seasons of NOAA best-track d
 
 [Read paper](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/paper.pdf) · [Main figure SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.svg) · [Sensitivity SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/checks.svg) · [Editable paper and analysis code](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/source.zip)
 
+Change the wind-gain threshold, compare periods, or select an individual track to read five six-hourly wind records. [Explore the cyclone data](https://wubing2023.github.io/PaperSpine/v6/?v=interactive-atlantic#showcase)
+
 <a id="edition-field-test"></a>
 
 ## Three research papers, three modes

@@ -106,6 +106,8 @@ LIGO 案例可以直接查验这条链路。从论文中的到达顺序，回查
 
 [阅读论文](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/paper.pdf) · [主图 SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.svg) · [稳健性图 SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/checks.svg) · [可编辑原稿和分析代码](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/source.zip)
 
+调整风速阈值、分开查看两个时期，或点选一段轨迹查看每六小时的风速记录。 [探索气旋数据](https://wubing2023.github.io/PaperSpine/v6/zh/?v=interactive-atlantic#showcase)
+
 <a id="edition-field-test"></a>
 
 ## 三篇研究，三种模式

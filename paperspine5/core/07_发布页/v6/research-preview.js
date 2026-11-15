@@ -1,3 +1,5 @@
+import { connectAtlanticExplorer } from "./atlantic-explorer.js?v=interactive-atlantic";
+
 const viewer = document.querySelector("[data-research-viewer]");
 
 function initPreviewReader(fields) {
@@ -7,9 +9,7 @@ function initPreviewReader(fields) {
     fields.readerCanvas.dataset.zoom = String(zoom);
     if (!zoom) fields.readerCanvas.scrollTo(0, 0);
   };
-  fields.media.addEventListener("click", (event) => {
-    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();
+  const openReader = () => {
     const preview = fields.media.querySelector("img");
     const enlarged = new Image();
     enlarged.alt = preview.alt;
@@ -22,7 +22,13 @@ function initPreviewReader(fields) {
     fields.readerCanvas.dataset.kind = fields.stage.dataset.kind;
     setZoom(false);
     fields.reader.showModal();
+  };
+  fields.media.addEventListener("click", (event) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    openReader();
   });
+  fields.print.addEventListener("click", openReader);
   fields.readerClose.addEventListener("click", () => fields.reader.close());
   fields.readerZoom.addEventListener("click", () => {
     setZoom(fields.readerZoom.getAttribute("aria-pressed") !== "true");
@@ -53,6 +59,23 @@ async function initResearchPreview(panel) {
   ]));
   let requested = selection;
   let generation = 0;
+  const atlasUrl = new URL("atlantic-ri/explorer.json", catalogUrl);
+  atlasUrl.search = catalogUrl.search;
+  const atlas = panel.querySelector("[data-atlantic-explorer]");
+  const showExplorer = connectAtlanticExplorer(atlas, atlasUrl, chinese, (visible) => {
+    atlas.hidden = !visible;
+    if (visible) fields.stage.dataset.explorer = "active";
+    else delete fields.stage.dataset.explorer;
+    fields.print.hidden = !visible || typeof fields.reader.showModal !== "function";
+  });
+  const figureButton = panel.querySelector('.viewer-mode [value="figure"]');
+  const syncExplorer = () => {
+    const atlantic = selection.study === "atlantic-ri";
+    figureButton.textContent = atlantic
+      ? (chinese ? "交互主图" : "Explore data")
+      : (chinese ? "主图" : "Main figure");
+    void showExplorer(atlantic && selection.mode === "figure");
+  };
 
   async function show(study, mode) {
     requested = { study, mode };
@@ -60,6 +83,7 @@ async function initResearchPreview(panel) {
     fields.error.hidden = true;
     if (study === selection.study && mode === selection.mode) {
       fields.stage.removeAttribute("aria-busy");
+      syncExplorer();
       return;
     }
 
@@ -114,6 +138,7 @@ async function initResearchPreview(panel) {
     fields.original.textContent = isPaper
       ? (chinese ? `打开 PDF · 第 ${page} 页 ↗` : `Open PDF · p. ${page} ↗`)
       : (chinese ? "打开 SVG 原图 ↗" : "Open vector SVG ↗");
+    syncExplorer();
     const label = [];
     for (const group of groups) {
       const key = group.dataset.previewGroup;
@@ -153,6 +178,7 @@ async function initResearchPreview(panel) {
     group.hidden = false;
   }
   initPreviewReader(fields);
+  syncExplorer();
 }
 
 if (viewer) {

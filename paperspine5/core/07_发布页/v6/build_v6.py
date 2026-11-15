@@ -118,7 +118,10 @@ def render(metadata: Path, output: Path) -> None:
         target = output / document
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(text, encoding="utf-8", newline="\n")
-    for file in ("v6.css", "science.js", "locale.js", "study-deck.js", "download-stats.js", "research-preview.js"):
+    for file in (
+        "v6.css", "science.js", "locale.js", "study-deck.js", "download-stats.js",
+        "research-preview.js", "atlantic-explorer.js",
+    ):
         shutil.copyfile(SITE / file, output / file)
     for directory in ("fonts", "science"):
         shutil.copytree(SITE / directory, output / directory, dirs_exist_ok=True)
