@@ -146,11 +146,19 @@ def download_stats(metadata: Path, output: Path) -> None:
     output.write_text(json.dumps(snapshot, indent=2) + "\n", encoding="utf-8", newline="\n")
     for asset in assets:
         count = f"{asset['download_count']:,}"
-        badge = f'''<svg xmlns="http://www.w3.org/2000/svg" width="134" height="23" viewBox="0 0 134 23" role="img">
+        count_width = max(26, len(count) * 7 + 12)
+        width = 69 + count_width
+        badge = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="20" viewBox="0 0 {width} 20" role="img">
   <title>{count} GitHub Release downloads</title>
-  <rect width="134" height="23" rx="3" fill="#e7ede6"/>
-  <text x="10" y="15.5" font-family="Verdana,sans-serif" font-size="11" fill="#314640">Downloads</text>
-  <text x="124" y="15.5" text-anchor="end" font-family="Verdana,sans-serif" font-size="11" font-weight="700" fill="#135e52">{count}</text>
+  <clipPath id="edge"><rect width="{width}" height="20" rx="3"/></clipPath>
+  <g clip-path="url(#edge)">
+    <rect width="69" height="20" fill="#555"/>
+    <rect x="69" width="{count_width}" height="20" fill="#455b55"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="Verdana,sans-serif" font-size="11">
+    <text x="34.5" y="14">downloads</text>
+    <text x="{69 + count_width / 2:g}" y="14">{count}</text>
+  </g>
 </svg>
 '''
         output.with_name(f"downloads-{modes[asset['name']]}.svg").write_text(badge, encoding="utf-8", newline="\n")

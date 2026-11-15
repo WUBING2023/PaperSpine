@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="PaperSpine 是面向科研 Agent 的开源 AI for Science Skill。在对话中查文献、设计实验、分析数据并撰写可编辑论文。">
-  <meta name="theme-color" content="#f5f2e9">
+  <meta name="theme-color" content="#131d1a">
   <meta property="og:title" content="PaperSpine V6 · AI for Science Skill">
   <meta property="og:description" content="开源 AI for Science Skill。在科研 Agent 的对话里查文献、做分析、画科研图，交付可编辑论文。">
   <meta property="og:image" content="https://wubing2023.github.io/PaperSpine/v6/science/press-cover.png">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/v6/zh/">
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../v6.css?v=skill-first">
+  <link rel="stylesheet" href="../v6.css?v=editorial">
   <script src="../science.js" defer></script>
   <script src="../study-deck.js?v=product-overview" defer></script>
   <script src="../download-stats.js" defer></script>
@@ -21,7 +21,7 @@
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
-  <div class="masthead">
+  <div class="masthead dark-surface">
     <header class="site-header">
       <div class="shell navbar">
         <a class="wordmark" href="./"><img src="../../v5/assets/brand/paperspine-mark.svg" width="38" height="38" alt="">PaperSpine</a>
@@ -32,28 +32,33 @@
       </div>
     </header>
   </div>
-  <main id="main">
-    <section class="shell hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="hero-kicker">开源 <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 公测 <span aria-hidden="true">↗</span></a></p>
-        <h1 id="hero-title"><span class="visually-hidden">PaperSpine · </span>科研 Agent 的<br> <em lang="en">AI for Science Skill</em></h1>
-        <p class="hero-description">在对话中调用 <code>$paper-spine</code>，查文献、设计实验、分析数据，把结果整理成科研图和可编辑论文。</p>
-        <div class="hero-actions">
-          <a href="#edition-skill" class="button">安装 Skill <span aria-hidden="true">↓</span></a>
-          <a href="#research" class="text-link">查看科研案例 <span aria-hidden="true">↘</span></a>
+  <main id="main" tabindex="-1">
+    <section class="hero-section dark-surface" aria-labelledby="hero-title">
+      <div class="shell hero">
+        <div class="hero-copy">
+          <p class="hero-kicker">开源 <span aria-hidden="true">·</span> <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 公测 <span aria-hidden="true">↗</span></a></p>
+          <h1 id="hero-title"><span class="visually-hidden">PaperSpine · </span>科研 Agent 的<br> <em lang="en">AI for Science Skill</em></h1>
+          <p class="hero-description">在对话中调用 <code>$paper-spine</code>，查文献、设计实验、分析数据，把结果整理成科研图和可编辑论文。</p>
+          <div class="hero-actions">
+            <a href="#edition-skill" class="button">安装 Skill <span aria-hidden="true">↓</span></a>
+            <a href="#research" class="text-link">查看科研案例 <span aria-hidden="true">↘</span></a>
+          </div>
         </div>
+        <figure class="hero-study">
+          <img class="hero-paper" src="../science/research/gravitational-waves/first-page.webp" width="827" height="1070" alt="" aria-hidden="true" decoding="async" fetchpriority="low">
+          <div class="hero-plate">
+            <div class="hero-study-header"><span>LIGO 公开应变数据</span><span>GW150914 · GW170814</span></div>
+            <a class="hero-image" href="../science/research/gravitational-waves/figure.svg"><img src="../science/research/gravitational-waves/figure.webp" alt="六面板主图展示两次 LIGO 事件的时频图、对齐后的应变和时延对比。点击查看原始矢量图。" width="2622" height="1610" fetchpriority="high"></a>
+          </div>
+          <figcaption><span>两次黑洞并合的毫秒级时延</span><a href="../science/research/gravitational-waves/paper.pdf">阅读论文 <span aria-hidden="true">↗</span></a></figcaption>
+        </figure>
       </div>
-      <figure class="hero-study">
-        <div class="hero-study-header"><span>LIGO 公开应变数据</span><span>GW150914 · GW170814</span></div>
-        <a class="hero-image" href="../science/research/gravitational-waves/figure.svg"><img src="../science/research/gravitational-waves/figure.webp" alt="六面板主图展示两次 LIGO 事件的时频图、对齐后的应变和时延对比。点击查看原始矢量图。" width="2622" height="1610" fetchpriority="high"></a>
-        <figcaption><span>两次黑洞并合的毫秒级时延</span><a href="../science/research/gravitational-waves/paper.pdf">阅读论文 <span aria-hidden="true">↗</span></a></figcaption>
-      </figure>
+      <nav class="shell milestones" aria-label="项目里程碑">
+        <a href="../../zh.html"><strong>6,000+</strong><span>GitHub 星标</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
+        <a href="#research"><strong>3</strong><span>公开数据研究稿</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
+        <a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><strong>9</strong><span>次版本试跑</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
+      </nav>
     </section>
-    <nav class="shell milestones" aria-label="项目里程碑">
-      <a href="../../zh.html"><strong>6,000+</strong><span>GitHub 星标</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
-      <a href="#research"><strong>3</strong><span>公开数据研究稿</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
-      <a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><strong>9</strong><span>次版本试跑 · 三项研究各跑三版</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
-    </nav>
     <section class="edition-section section" id="download" aria-labelledby="edition-title">
       <div class="shell">
         <div class="section-heading"><h2 id="edition-title">安装 PaperSpine</h2><p>从对话里的全流程 Skill 开始。需要单独调用某一阶段时选 Skills 包，需要图形界面时可选装 Windows 本地工作台。</p></div>
@@ -85,7 +90,7 @@
           </div>
           <div class="edition-download">
             <p>支持 Skill 的宿主<br><span>@PACK_SIZE@</span><small data-download-count="下载 {count} 次" hidden></small></p>
-            <a class="button compact" href="@PACK_URL@" aria-label="下载 ZIP · Skills 包" data-release-download>下载 ZIP <span aria-hidden="true">↓</span></a>
+            <a class="button compact outline" href="@PACK_URL@" aria-label="下载 ZIP · Skills 包" data-release-download>下载 ZIP <span aria-hidden="true">↓</span></a>
           </div>
         </article>
         <article class="edition" id="edition-web">
@@ -100,7 +105,7 @@
           </div>
           <div class="edition-download">
             <p>Windows x64 · Codex<br><span>@WEB_SIZE@</span><small data-download-count="下载 {count} 次" hidden></small></p>
-            <a class="button compact" href="@WEB_URL@" aria-label="下载 ZIP · Web 插件包" data-release-download>下载 ZIP <span aria-hidden="true">↓</span></a>
+            <a class="button compact outline" href="@WEB_URL@" aria-label="下载 ZIP · Web 插件包" data-release-download>下载 ZIP <span aria-hidden="true">↓</span></a>
           </div>
         </article>
         </div>
@@ -299,7 +304,7 @@
       <a class="community-preview" href="../../zh.html"><img src="../../atlas-preview-zh.svg" width="1230" height="475" loading="lazy" alt="按城市聚合 GitHub 星标用户公开地理信息的世界地图。"></a>
     </section>
 
-    <section class="press-section section" id="press" aria-labelledby="press-title">
+    <section class="press-section dark-surface section" id="press" aria-labelledby="press-title">
       <div class="shell press-grid">
         <div class="press-copy">
           <h2 id="press-title">媒体与创作者素材</h2>

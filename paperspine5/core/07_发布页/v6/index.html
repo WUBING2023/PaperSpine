@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="PaperSpine is an open-source AI for Science Skill for research agents. Call it in chat to review literature, design experiments, analyze data, and write an editable paper.">
-  <meta name="theme-color" content="#f5f2e9">
+  <meta name="theme-color" content="#131d1a">
   <meta property="og:title" content="PaperSpine V6 · AI for Science Skill">
   <meta property="og:description" content="An open-source research Skill. Review literature, analyze data, make scientific figures, and write an editable paper with your agent.">
   <meta property="og:image" content="https://wubing2023.github.io/PaperSpine/v6/science/press-cover.png">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/v6/zh/">
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="v6.css?v=skill-first">
+  <link rel="stylesheet" href="v6.css?v=editorial">
   <script src="science.js" defer></script>
   <script src="study-deck.js?v=product-overview" defer></script>
   <script src="download-stats.js" defer></script>
@@ -21,7 +21,7 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="masthead">
+  <div class="masthead dark-surface">
     <header class="site-header">
       <div class="shell navbar">
         <a class="wordmark" href="./"><img src="../v5/assets/brand/paperspine-mark.svg" width="38" height="38" alt="">PaperSpine</a>
@@ -32,28 +32,33 @@
       </div>
     </header>
   </div>
-  <main id="main">
-    <section class="shell hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="hero-kicker">Open source <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 beta <span aria-hidden="true">↗</span></a></p>
-        <h1 id="hero-title"><span class="visually-hidden">PaperSpine · </span>An AI for Science<br> <em>Skill for your agent</em></h1>
-        <p class="hero-description">Call <code>$paper-spine</code> in an agent chat. Review literature, design experiments, and turn your results into scientific figures and an editable paper.</p>
-        <div class="hero-actions">
-          <a href="#edition-skill" class="button">Install the Skill <span aria-hidden="true">↓</span></a>
-          <a href="#research" class="text-link">See the studies <span aria-hidden="true">↘</span></a>
+  <main id="main" tabindex="-1">
+    <section class="hero-section dark-surface" aria-labelledby="hero-title">
+      <div class="shell hero">
+        <div class="hero-copy">
+          <p class="hero-kicker">Open source <span aria-hidden="true">·</span> <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 beta <span aria-hidden="true">↗</span></a></p>
+          <h1 id="hero-title"><span class="visually-hidden">PaperSpine · </span>An AI for Science<br> <em>Skill for your agent</em></h1>
+          <p class="hero-description">Call <code>$paper-spine</code> in an agent chat. Review literature, design experiments, and turn your results into scientific figures and an editable paper.</p>
+          <div class="hero-actions">
+            <a href="#edition-skill" class="button">Install the Skill <span aria-hidden="true">↓</span></a>
+            <a href="#research" class="text-link">See the studies <span aria-hidden="true">↘</span></a>
+          </div>
         </div>
+        <figure class="hero-study">
+          <img class="hero-paper" src="science/research/gravitational-waves/first-page.webp" width="827" height="1070" alt="" aria-hidden="true" decoding="async" fetchpriority="low">
+          <div class="hero-plate">
+            <div class="hero-study-header"><span>LIGO public strain</span><span>GW150914 · GW170814</span></div>
+            <a class="hero-image" href="science/research/gravitational-waves/figure.svg"><img src="science/research/gravitational-waves/figure.webp" alt="Six-panel figure with two LIGO spectrograms, aligned strain traces, and time lag comparisons. Open the original vector figure." width="2622" height="1610" fetchpriority="high"></a>
+          </div>
+          <figcaption><span>Two black-hole mergers, millisecond timing</span><a href="science/research/gravitational-waves/paper.pdf">Read the paper <span aria-hidden="true">↗</span></a></figcaption>
+        </figure>
       </div>
-      <figure class="hero-study">
-        <div class="hero-study-header"><span>LIGO public strain</span><span>GW150914 · GW170814</span></div>
-        <a class="hero-image" href="science/research/gravitational-waves/figure.svg"><img src="science/research/gravitational-waves/figure.webp" alt="Six-panel figure with two LIGO spectrograms, aligned strain traces, and time lag comparisons. Open the original vector figure." width="2622" height="1610" fetchpriority="high"></a>
-        <figcaption><span>Two black-hole mergers, millisecond timing</span><a href="science/research/gravitational-waves/paper.pdf">Read the paper <span aria-hidden="true">↗</span></a></figcaption>
-      </figure>
+      <nav class="shell milestones" aria-label="Project milestones">
+        <a href="../"><strong>6,000+</strong><span>GitHub stars</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
+        <a href="#research"><strong>3</strong><span>Studies using public data</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
+        <a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><strong>9</strong><span>Documented edition runs</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
+      </nav>
     </section>
-    <nav class="shell milestones" aria-label="Project milestones">
-      <a href="../"><strong>6,000+</strong><span>GitHub stars</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
-      <a href="#research"><strong>3</strong><span>Studies using public data</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
-      <a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><strong>9</strong><span>Edition runs across three studies</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
-    </nav>
     <section class="edition-section section" id="download" aria-labelledby="edition-title">
       <div class="shell">
         <div class="section-heading"><h2 id="edition-title">Install PaperSpine</h2><p>Start with one Skill in chat. Choose the Skills Pack to call stages separately, or add the optional local review interface on Windows.</p></div>
@@ -85,7 +90,7 @@
           </div>
           <div class="edition-download">
             <p>Skill-capable host<br><span>@PACK_SIZE@</span><small data-download-count="{count} downloads" hidden></small></p>
-            <a class="button compact" href="@PACK_URL@" aria-label="Download ZIP · Skills Pack" data-release-download>Download ZIP <span aria-hidden="true">↓</span></a>
+            <a class="button compact outline" href="@PACK_URL@" aria-label="Download ZIP · Skills Pack" data-release-download>Download ZIP <span aria-hidden="true">↓</span></a>
           </div>
         </article>
         <article class="edition" id="edition-web">
@@ -100,7 +105,7 @@
           </div>
           <div class="edition-download">
             <p>Windows x64 · Codex<br><span>@WEB_SIZE@</span><small data-download-count="{count} downloads" hidden></small></p>
-            <a class="button compact" href="@WEB_URL@" aria-label="Download ZIP · Web Plugin" data-release-download>Download ZIP <span aria-hidden="true">↓</span></a>
+            <a class="button compact outline" href="@WEB_URL@" aria-label="Download ZIP · Web Plugin" data-release-download>Download ZIP <span aria-hidden="true">↓</span></a>
           </div>
         </article>
         </div>
@@ -299,7 +304,7 @@
       <a class="community-preview" href="../"><img src="../atlas-preview.svg" width="1230" height="475" loading="lazy" alt="World map of GitHub stargazer locations aggregated by city."></a>
     </section>
 
-    <section class="press-section section" id="press" aria-labelledby="press-title">
+    <section class="press-section dark-surface section" id="press" aria-labelledby="press-title">
       <div class="shell press-grid">
         <div class="press-copy">
           <h2 id="press-title">For press and creators</h2>

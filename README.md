@@ -5,7 +5,12 @@
 </div>
 
 <p align="center">
-  <a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/readme/v6-skill-en.webp" width="100%" alt="PaperSpine, an open-source AI for Science Skill. The LIGO public-strain study’s manuscript and six-panel scientific figure appear beside Spine, the origami dragon."></a>
+  <a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/readme/v6-editorial-cover.webp" width="100%" alt="PaperSpine, an open-source AI for Science Skill. The LIGO manuscript and six-panel figure appear beside Spine, the origami dragon."></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2"><img alt="V6 beta release" height="20" src="https://img.shields.io/github/v/release/WUBING2023/PaperSpine?include_prereleases&amp;filter=v6.0.0-beta.2&amp;display_name=tag&amp;style=flat&amp;logo=github&amp;color=346457"></a>&nbsp;<a href="LICENSE"><img alt="MIT license" height="20" src="https://img.shields.io/github/license/WUBING2023/PaperSpine?style=flat&amp;color=455b55"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/actions/workflows/validate.yml"><img alt="GitHub Actions · Validate skill" height="20" src="https://github.com/WUBING2023/PaperSpine/actions/workflows/validate.yml/badge.svg?branch=main"></a>&nbsp;<a href="https://github.com/WUBING2023/PaperSpine/stargazers"><img alt="GitHub stars" height="20" src="https://img.shields.io/github/stars/WUBING2023/PaperSpine?style=flat&amp;color=455b55"></a>
 </p>
 
 <p align="center">
@@ -14,20 +19,7 @@
 </p>
 
 <p align="center">
-  <a href="#start-with-skill"><img src="paperspine5/core/07_发布页/v6/readme/action-install-en.svg" width="122" height="44" alt="Install the Skill"></a>
-  <a href="#research-cases"><img src="paperspine5/core/07_发布页/v6/readme/action-studies-en.svg" width="122" height="44" alt="See the studies"></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/WUBING2023/PaperSpine/stargazers"><img src="paperspine5/core/07_发布页/v6/readme/milestone-stars-en.svg" width="79" height="62" alt="6,000+ GitHub stars"></a>
-  <a href="#research-cases"><img src="paperspine5/core/07_发布页/v6/readme/milestone-studies-en.svg" width="79" height="62" alt="3 studies using public data"></a>
-  <a href="paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><img src="paperspine5/core/07_发布页/v6/readme/milestone-runs-en.svg" width="79" height="62" alt="9 documented edition runs across three studies"></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2"><img src="paperspine5/core/07_发布页/v6/readme/badge-release-en.svg" alt="Release · V6 beta"></a>
-  <a href="LICENSE"><img src="paperspine5/core/07_发布页/v6/readme/badge-license-en.svg" alt="License · MIT"></a>
-  <a href="https://github.com/WUBING2023/PaperSpine/issues"><img src="paperspine5/core/07_发布页/v6/readme/badge-feedback-en.svg" alt="Feedback · GitHub Issues"></a>
+  <a href="#start-with-skill"><strong>Install the Skill</strong></a> · <a href="#research-cases">Explore the research</a>
 </p>
 
 <a id="ways-to-work"></a>
@@ -86,7 +78,7 @@ The manager requires Python 3.12+. The Web archive includes Windows Python and r
 
 ## Three research papers, three modes
 
-GPT‑6.1 Sol used the Full Workflow Skill, modular Skills, and the local Web Workbench for each study. Explore the paper figures, open data, reproducible code, and revision records.
+GPT‑6.1 Sol used all three PaperSpine editions for each study. The [nine documented runs](paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted) include the papers, public data, original figures, reproducible code, and revision records.
 
 ### Two black-hole mergers, millisecond timing
 

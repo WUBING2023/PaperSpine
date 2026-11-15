@@ -5,7 +5,12 @@
 </div>
 
 <p align="center">
-  <a href="https://wubing2023.github.io/PaperSpine/v6/zh/"><img src="paperspine5/core/07_发布页/v6/readme/v6-skill-zh.webp" width="100%" alt="PaperSpine，面向科研 Agent 的开源 AI for Science Skill。画面包含 LIGO 公开应变研究的稿件、六面板主图和折纸龙 Spine。"></a>
+  <a href="https://wubing2023.github.io/PaperSpine/v6/zh/"><img src="paperspine5/core/07_发布页/v6/readme/v6-editorial-cover.webp" width="100%" alt="PaperSpine，面向科研 Agent 的开源 AI for Science Skill。封面组合了 LIGO 论文原页、六联图与折纸龙 Spine。"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2"><img alt="V6 公测版" height="20" src="https://img.shields.io/github/v/release/WUBING2023/PaperSpine?include_prereleases&amp;filter=v6.0.0-beta.2&amp;display_name=tag&amp;style=flat&amp;logo=github&amp;color=346457"></a>&nbsp;<a href="LICENSE"><img alt="MIT 许可证" height="20" src="https://img.shields.io/github/license/WUBING2023/PaperSpine?style=flat&amp;color=455b55"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/actions/workflows/validate.yml"><img alt="GitHub Actions · Skill 校验状态" height="20" src="https://github.com/WUBING2023/PaperSpine/actions/workflows/validate.yml/badge.svg?branch=main"></a>&nbsp;<a href="https://github.com/WUBING2023/PaperSpine/stargazers"><img alt="GitHub 星标" height="20" src="https://img.shields.io/github/stars/WUBING2023/PaperSpine?style=flat&amp;color=455b55"></a>
 </p>
 
 <p align="center">
@@ -14,20 +19,7 @@
 </p>
 
 <p align="center">
-  <a href="#start-with-skill"><img src="paperspine5/core/07_发布页/v6/readme/action-install-zh.svg" width="122" height="44" alt="安装 Skill"></a>
-  <a href="#research-cases"><img src="paperspine5/core/07_发布页/v6/readme/action-studies-zh.svg" width="122" height="44" alt="查看科研案例"></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/WUBING2023/PaperSpine/stargazers"><img src="paperspine5/core/07_发布页/v6/readme/milestone-stars-zh.svg" width="79" height="62" alt="6,000+ GitHub 星标"></a>
-  <a href="#research-cases"><img src="paperspine5/core/07_发布页/v6/readme/milestone-studies-zh.svg" width="79" height="62" alt="3 篇公开数据研究稿"></a>
-  <a href="paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><img src="paperspine5/core/07_发布页/v6/readme/milestone-runs-zh.svg" width="79" height="62" alt="9 次版本试跑，三项研究各跑三版"></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2"><img src="paperspine5/core/07_发布页/v6/readme/badge-release-zh.svg" alt="版本 · V6 公测"></a>
-  <a href="LICENSE"><img src="paperspine5/core/07_发布页/v6/readme/badge-license-zh.svg" alt="许可证 · MIT"></a>
-  <a href="https://github.com/WUBING2023/PaperSpine/issues"><img src="paperspine5/core/07_发布页/v6/readme/badge-feedback-zh.svg" alt="反馈 · GitHub Issues"></a>
+  <a href="#start-with-skill"><strong>安装 Skill</strong></a> · <a href="#research-cases">查看科研案例</a>
 </p>
 
 <a id="ways-to-work"></a>
@@ -86,7 +78,7 @@ python -B edition_manager.py install "<原 ZIP 路径>" --sha256 <SHA256>
 
 ## 三篇研究，三种模式
 
-以 GPT‑6.1 Sol 在三篇论文中分别走过全流程 Skill、阶段 Skills 与本地 Web 工作台。图件取自各自论文，附公开数据、可复算代码与同稿返修记录。
+三项研究均采用公开数据，使用 GPT‑6.1 Sol 各跑一遍全流程 Skill、阶段 Skills 和本地 Web 工作台，共有 [九次试跑记录](paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted)。每项研究附论文、原图、可复算代码与同稿返修记录。
 
 ### 两次黑洞并合的毫秒级时延
 
