@@ -32,19 +32,19 @@
 
 Call `$paper-spine` in an agent chat with a question, data, or a draft. Get study notes, analysis, figures, and an editable manuscript for the scope you agree on.
 
-[**Download ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip) · ![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-skill.svg)
+[**Download ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip) · ![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-skill.svg?style=flat)
 
 ### For Research Experts · Skills Pack
 
 Use `$paper-spine` for the full workflow or call a stage directly, such as `$paper-spine-followwriting` to revise a section with your own results and reference papers.
 
-[**Download ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip) · ![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-skills-pack.svg)
+[**Download ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip) · ![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-skills-pack.svg?style=flat)
 
 ### Full Workbench · Web Plugin
 
 Add the optional local workbench if you want to inspect figures, preview drafts, or send revision notes in a browser. It includes the Skills Pack and uses `$paper-spine-web:paper-spine-web` in Codex on Windows x64.
 
-[**Download ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) · ![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-web-plugin.svg)
+[**Download ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) · ![GitHub Release downloads](https://wubing2023.github.io/PaperSpine/v6/downloads-web-plugin.svg?style=flat)
 
 <details>
 <summary><strong>Five stage Skills with example prompts</strong></summary>

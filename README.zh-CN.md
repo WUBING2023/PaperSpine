@@ -32,19 +32,19 @@
 
 在宿主对话里调用 `$paper-spine`，交给它题目、数据或初稿。按约定范围交付研究记录、分析、科研图和可编辑稿件。
 
-[**下载 ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip) · ![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-skill.svg)
+[**下载 ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip) · ![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-skill.svg?style=flat)
 
 ### 科研专家 · Skills 包
 
 用 `$paper-spine` 跑全流程，也可以单独调用各个阶段。例如用 `$paper-spine-followwriting`，参照原论文的论证方式，用自己的实验结果改写一个章节。
 
-[**下载 ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip) · ![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-skills-pack.svg)
+[**下载 ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skills-pack-6.0.0-beta.2.zip) · ![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-skills-pack.svg?style=flat)
 
 ### 满血插件 · 本地 Web 工作台
 
 需要在浏览器里放大图、预览论文或提交返修意见时，可选装本地工作台。这个版本包含整套 Skills，在 Windows x64 的 Codex 里调用 `$paper-spine-web:paper-spine-web`。
 
-[**下载 ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) · ![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-web-plugin.svg)
+[**下载 ZIP**](https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-web-plugin-6.0.0-beta.2-windows-x64.zip) · ![GitHub Release 下载次数](https://wubing2023.github.io/PaperSpine/v6/downloads-web-plugin.svg?style=flat)
 
 <details>
 <summary><strong>五个阶段 Skill 和可以照着写的指令</strong></summary>
