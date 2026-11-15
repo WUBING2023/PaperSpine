@@ -14,11 +14,11 @@
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="icon" href="../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
   <link rel="describedby" href="llms.txt">
-  <link rel="stylesheet" href="v6.css?v=interactive-atlantic">
+  <link rel="stylesheet" href="v6.css?v=research-gallery">
   <script src="science.js?v=agent-install" defer></script>
   <script src="study-deck.js?v=product-overview" defer></script>
   <script src="download-stats.js" defer></script>
-  <script type="module" src="research-preview.js?v=interactive-atlantic"></script>
+  <script type="module" src="research-preview.js?v=research-gallery"></script>
   <title>PaperSpine V6 · AI for Science Skill</title>
 </head>
 <body>
@@ -46,16 +46,20 @@
             <a href="#showcase" class="text-link">Browse the outputs <span aria-hidden="true">↘</span></a>
           </div>
         </div>
-        <aside class="research-viewer" id="showcase" aria-labelledby="preview-title" data-research-viewer data-topic="atlantic-ri" data-catalog="science/research/showcase.json?v=interactive-atlantic">
+        <aside class="research-viewer" id="showcase" aria-labelledby="preview-title" data-research-viewer data-topic="atlantic-ri" data-catalog="science/research/showcase.json?v=research-gallery">
           <div class="viewer-heading">
-            <h2 id="preview-title">Research outputs</h2>
+            <h2 id="preview-title">Research gallery</h2>
             <a href="#research-files">All studies &amp; files <span aria-hidden="true">↓</span></a>
           </div>
-          <div class="viewer-study" data-preview-group="study" role="group" aria-label="Choose a study" hidden>
-            <button type="button" value="atlantic-ri" aria-controls="proof-output" aria-pressed="true">Atlantic storms</button>
-            <button type="button" value="ridgecrest" aria-controls="proof-output" aria-pressed="false">Ridgecrest</button>
-            <button type="button" value="gravitational-waves" aria-controls="proof-output" aria-pressed="false">LIGO strain</button>
-            <button type="button" value="smoke" aria-controls="proof-output" aria-pressed="false">Wildfire smoke</button>
+          <div class="viewer-picker" data-proof="picker" hidden>
+            <button class="viewer-step" type="button" data-proof="previous" aria-controls="proof-output" aria-label="Previous study"><span aria-hidden="true">←</span></button>
+            <div class="viewer-study" data-preview-group="study" role="group" aria-label="Choose a study">
+              <button type="button" value="atlantic-ri" aria-controls="proof-output" aria-pressed="true" aria-label="Atlantic storms"><span class="viewer-domain">Atmosphere</span><span class="viewer-study-name">Atlantic storms</span><span class="viewer-study-short" aria-hidden="true">Atlantic</span></button>
+              <button type="button" value="ridgecrest" aria-controls="proof-output" aria-pressed="false" aria-label="Ridgecrest"><span class="viewer-domain">Seismology</span><span class="viewer-study-name">Ridgecrest</span><span class="viewer-study-short" aria-hidden="true">Quakes</span></button>
+              <button type="button" value="gravitational-waves" aria-controls="proof-output" aria-pressed="false" aria-label="LIGO strain"><span class="viewer-domain">Astrophysics</span><span class="viewer-study-name">LIGO strain</span><span class="viewer-study-short" aria-hidden="true">LIGO</span></button>
+              <button type="button" value="smoke" aria-controls="proof-output" aria-pressed="false" aria-label="Wildfire smoke"><span class="viewer-domain">Air quality</span><span class="viewer-study-name">Wildfire smoke</span><span class="viewer-study-short" aria-hidden="true">Smoke</span></button>
+            </div>
+            <button class="viewer-step" type="button" data-proof="next" aria-controls="proof-output" aria-label="Next study"><span aria-hidden="true">→</span></button>
           </div>
           <div class="viewer-mode" data-preview-group="mode" role="group" aria-label="Choose an output" hidden>
             <button type="button" value="paper" aria-controls="proof-output" aria-pressed="false">Title page</button>
@@ -64,29 +68,18 @@
             <button type="button" value="checks" aria-controls="proof-output" aria-pressed="false">Sensitivity</button>
           </div>
           <figure class="viewer-proof">
+            <div class="viewer-spread" aria-hidden="true"><span></span><span></span></div>
             <div class="viewer-stage" id="proof-output" data-proof="stage" data-kind="figure">
-              <a class="viewer-media" data-proof="media" href="science/research/atlantic-ri/figure.svg?v=interactive-atlantic"><img src="science/research/atlantic-ri/figure.webp?v=interactive-atlantic" width="2400" height="2073" alt="Six-panel Atlantic cyclone figure with 484 recorded 24-hour tracks, disjoint gain bands, a threshold profile with uncertainty, and starting-context and seasonal comparisons." fetchpriority="high"><span class="viewer-magnify" data-proof="magnify" hidden><span aria-hidden="true">+</span><span class="visually-hidden">Enlarge preview</span></span></a>
-              <div class="atlantic-explorer" data-atlantic-explorer hidden></div>
+              <div class="viewer-media" data-proof="media"><img src="science/research/atlantic-ri/figure.webp?v=research-gallery" width="2400" height="1889" alt="Six-panel Atlantic cyclone figure with 484 recorded 24-hour tracks, disjoint gain bands, a threshold profile with uncertainty, and starting-context and seasonal comparisons." fetchpriority="high"></div>
               <div class="viewer-note">
-                <p class="viewer-kind" data-proof="kind">Manuscript figure · main plate</p>
+                <p class="viewer-kind" data-proof="kind">Main figure</p>
                 <h3 data-proof="title">The threshold changes the estimate</h3>
                 <p class="viewer-description" data-proof="note">The estimated difference is −0.93 percentage points at 25 knots and +1.36 at 35 knots. Both 95% intervals include zero.</p>
                 <p class="viewer-metric" data-proof="metric" hidden><strong data-proof="value"></strong><span data-proof="unit"></span></p>
               </div>
             </div>
-            <figcaption class="viewer-source"><span data-proof="source">NOAA NHC · Atlantic HURDAT2</span><div class="viewer-source-actions"><button class="viewer-print" type="button" data-proof="print" aria-haspopup="dialog" hidden>Paper figure</button><a data-proof="original" href="science/research/atlantic-ri/figure.svg?v=interactive-atlantic">Open vector SVG ↗</a></div></figcaption>
+            <figcaption class="viewer-source"><span data-proof="source">NOAA NHC · Atlantic HURDAT2</span><a data-proof="original" href="science/research/atlantic-ri/figure.svg?v=research-gallery">Open vector SVG ↗</a></figcaption>
           </figure>
-          <dialog class="viewer-reader" data-proof="reader" aria-labelledby="reader-title">
-            <div class="reader-header">
-              <div><p data-proof="readerKind"></p><h3 id="reader-title" data-proof="readerTitle"></h3></div>
-              <button type="button" class="reader-close" data-proof="readerClose" aria-label="Close preview" autofocus>×</button>
-            </div>
-            <div class="reader-canvas" data-proof="readerCanvas" role="region" aria-label="Scrollable preview" tabindex="0"></div>
-            <div class="reader-tools">
-              <button type="button" data-proof="readerZoom" aria-pressed="false">Magnify details</button>
-              <a data-proof="readerOriginal" href="science/research/ridgecrest/paper.pdf#page=1">Open PDF ↗</a>
-            </div>
-          </dialog>
           <p class="visually-hidden" role="status" data-proof="status"></p>
           <p class="viewer-error" role="status" data-proof="error" hidden>The preview did not load. Select it again to retry.</p>
         </aside>
@@ -198,9 +191,9 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
           <article class="study-card" data-domain="cyclones">
             <div class="study-top"><span>Atmospheric science · NOAA NHC</span><a href="science/research/atlantic-ri/paper.pdf">Paper PDF ↗</a></div>
             <h3>How fast did Atlantic storms intensify?</h3>
-            <a class="study-figure" href="science/research/atlantic-ri/figure.svg?v=interactive-atlantic"><img src="science/research/atlantic-ri/figure.webp?v=interactive-atlantic" alt="Atlantic cyclone main figure with six panels comparing rapid intensification across two periods." loading="lazy" width="2400" height="2073"></a>
+            <a class="study-figure" href="science/research/atlantic-ri/figure.svg?v=research-gallery"><img src="science/research/atlantic-ri/figure.webp?v=research-gallery" alt="Atlantic cyclone main figure with six panels comparing rapid intensification across two periods." loading="lazy" width="2400" height="1889"></a>
             <p class="study-finding">A 30-knot threshold gives a +0.81 percentage point difference across comparable starts. At 25 knots the point estimate is −0.93 points.</p>
-            <div class="study-bottom"><a href="https://www.nhc.noaa.gov/data/#hurdat">Data source ↗</a><a href="science/research/atlantic-ri/figure.svg?v=interactive-atlantic">Editable figure ↗</a></div>
+            <div class="study-bottom"><a href="https://www.nhc.noaa.gov/data/#hurdat">Data source ↗</a><a href="science/research/atlantic-ri/figure.svg?v=research-gallery">Editable figure ↗</a></div>
           </article>
           <article class="study-card" data-domain="astrophysics">
             <div class="study-top"><span>Astrophysics · LIGO / GWOSC</span><a href="science/research/gravitational-waves/paper.pdf">Paper PDF ↗</a></div>
@@ -241,8 +234,8 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
             <div class="links"><a href="science/research/atlantic-ri/paper.pdf">Read paper ↗</a><a href="science/research/atlantic-ri/source.zip" download>Paper source and code ↓</a><a href="https://www.nhc.noaa.gov/data/#hurdat">Data source ↗</a></div>
           </div>
           <figure class="research-entry-figure">
-            <a href="science/research/atlantic-ri/figure.svg?v=interactive-atlantic"><img src="science/research/atlantic-ri/figure.webp?v=interactive-atlantic" alt="Six-panel Atlantic cyclone figure with 484 recorded 24-hour tracks, disjoint gain bands, a threshold profile with uncertainty, and starting-context and seasonal comparisons." loading="lazy" width="2400" height="2073"></a>
-            <figcaption class="links"><a href="science/research/atlantic-ri/figure.svg?v=interactive-atlantic">Main figure SVG ↗</a><a href="science/research/atlantic-ri/checks.svg">Sensitivity figure SVG ↗</a></figcaption>
+            <a href="science/research/atlantic-ri/figure.svg?v=research-gallery"><img src="science/research/atlantic-ri/figure.webp?v=research-gallery" alt="Six-panel Atlantic cyclone figure with 484 recorded 24-hour tracks, disjoint gain bands, a threshold profile with uncertainty, and starting-context and seasonal comparisons." loading="lazy" width="2400" height="1889"></a>
+            <figcaption class="links"><a href="science/research/atlantic-ri/figure.svg?v=research-gallery">Main figure SVG ↗</a><a href="science/research/atlantic-ri/checks.svg">Sensitivity figure SVG ↗</a></figcaption>
           </figure>
         </article>
       <article class="research-entry" id="gravitational-waves">
