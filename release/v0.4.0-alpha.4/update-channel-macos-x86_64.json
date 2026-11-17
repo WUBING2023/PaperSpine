@@ -1,0 +1,14 @@
+{
+  "protocol": "paperspine-updater/1",
+  "product": "paperspine",
+  "product_version": "0.4.0-alpha.4",
+  "platform": "macos-x86_64",
+  "bundle": {
+    "sha256": "4e399fa8110c64bc29a41eedbbea0d52ecb209377dbb4140174a7e1246cab692",
+    "bytes": 40550116,
+    "platform": "macos-x86_64",
+    "build_id": "review-macos-x86_64-ca38f4c71f272f48",
+    "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4-macos-x86_64.zip",
+    "product_version": "0.4.0-alpha.4"
+  }
+}

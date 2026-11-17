@@ -30,11 +30,13 @@ downloads all go through Web, so a fresh task cannot be started that way.
 
 ## Windows x64
 
+Download [the Windows installer `install.ps1`](https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/install.ps1) as a separate file from the [V5 release](https://github.com/WUBING2023/PaperSpine/releases/tag/v0.4.0-alpha.4). The suite ZIP contains the runtime and has no `install.ps1` at its root. Open PowerShell in the folder containing the downloaded script and run:
+
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\install.ps1 -Target codex -CleanLegacy
 ```
 
-Use `-Target claude-code` or `-Target both` as appropriate.
+The installer downloads and verifies the matching suite. If you already downloaded the ZIP, keep it intact and use the offline steps below. Use `-Target claude-code` or `-Target both` as appropriate.
 
 ## macOS and Linux
 
@@ -61,10 +63,12 @@ sh ./install.sh --manifest /path/to/manifest.json --bundle /path/to/platform-sui
 
 For a fully offline installation, **both installers need the manifest and the
 matching suite ZIP**. Without a local manifest, `--bundle` or `-BundlePath` alone
-still fetches the current manifest online. On Windows, supply both paths:
+still fetches the current manifest online. On Windows, put the installer, the
+[release manifest `manifest.json`](https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/manifest.json)
+and the original ZIP from the same release in one folder. Supply both paths:
 
 ```powershell
-.\install.ps1 -ManifestPath .\manifest.json -BundlePath .\paperspine5-suite-0.4.0-alpha.3.zip -Target codex -CleanLegacy
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -ManifestPath .\manifest.json -BundlePath .\paperspine5-suite-0.4.0-alpha.4.zip -Target codex -CleanLegacy
 ```
 
 When applying a new version or repairing a missing Skill, the installers archive

@@ -1,14 +1,14 @@
 {
   "protocol": "paperspine-updater/1",
   "product": "paperspine",
-  "product_version": "0.4.0-alpha.3",
+  "product_version": "0.4.0-alpha.4",
   "platform": "windows-amd64",
   "bundle": {
-    "sha256": "0b82966ab10c6d5e9f2237a9f9189db43c82a1c438fa95838c2a754954952a2a",
-    "bytes": 26465559,
+    "sha256": "9042c7fd3a5fa961792c9d8e2dfa9bd943ffbeb878179f8501a2705c6095b710",
+    "bytes": 26466108,
     "platform": "windows-amd64",
-    "build_id": "w7a-81c3d2f2bbf6604b5412",
-    "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.3/paperspine5-suite-0.4.0-alpha.3.zip",
-    "product_version": "0.4.0-alpha.3"
+    "build_id": "review-windows-amd64-ddf89f1cc461061c",
+    "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4.zip",
+    "product_version": "0.4.0-alpha.4"
   }
 }
