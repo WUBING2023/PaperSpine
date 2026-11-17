@@ -859,6 +859,10 @@
         "payload_type": {
           "const": "finding.resolved"
         },
+        "review_id": {
+          "$ref": "#/$defs/id",
+          "description": "Review round resolved by new commands. Historical events may omit this field."
+        },
         "finding_id": {
           "$ref": "#/$defs/id"
         },

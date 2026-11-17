@@ -1,47 +1,47 @@
 {
   "protocol": "paperspine-updater/1",
   "product": "paperspine",
-  "product_version": "0.4.0-alpha.3",
+  "product_version": "0.4.0-alpha.4",
   "bundle": {
-    "sha256": "0b82966ab10c6d5e9f2237a9f9189db43c82a1c438fa95838c2a754954952a2a",
-    "bytes": 26465559,
+    "sha256": "9042c7fd3a5fa961792c9d8e2dfa9bd943ffbeb878179f8501a2705c6095b710",
+    "bytes": 26466108,
     "platform": "windows-amd64",
-    "build_id": "w7a-81c3d2f2bbf6604b5412",
-    "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.3/paperspine5-suite-0.4.0-alpha.3.zip",
-    "product_version": "0.4.0-alpha.3"
+    "build_id": "review-windows-amd64-ddf89f1cc461061c",
+    "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4.zip",
+    "product_version": "0.4.0-alpha.4"
   },
   "bundles": {
     "windows-amd64": {
-      "sha256": "0b82966ab10c6d5e9f2237a9f9189db43c82a1c438fa95838c2a754954952a2a",
-      "bytes": 26465559,
+      "sha256": "9042c7fd3a5fa961792c9d8e2dfa9bd943ffbeb878179f8501a2705c6095b710",
+      "bytes": 26466108,
       "platform": "windows-amd64",
-      "build_id": "w7a-81c3d2f2bbf6604b5412",
-      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.3/paperspine5-suite-0.4.0-alpha.3.zip",
-      "product_version": "0.4.0-alpha.3"
+      "build_id": "review-windows-amd64-ddf89f1cc461061c",
+      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4.zip",
+      "product_version": "0.4.0-alpha.4"
     },
     "linux-x86_64": {
-      "sha256": "0c43ebdede41684d3c4f88628513aea7398568984e1e1daaa072c89a74394052",
-      "bytes": 56220807,
+      "sha256": "a95e381e2ebd68e7233b97f3afa0a98090517d240058eae8e8b980b15845ff90",
+      "bytes": 56221414,
       "platform": "linux-x86_64",
-      "build_id": "w7p-linux-x86_64-c96676d77b09",
-      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.3/paperspine5-suite-0.4.0-alpha.3-linux-x86_64.zip",
-      "product_version": "0.4.0-alpha.3"
+      "build_id": "review-linux-x86_64-c5e54d1b3d9c9123",
+      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4-linux-x86_64.zip",
+      "product_version": "0.4.0-alpha.4"
     },
     "macos-arm64": {
-      "sha256": "2e47b3cbff5e1c5a62a4433625a0db91750e7f754d46d58a7f5e6735be578461",
-      "bytes": 40575005,
+      "sha256": "6b98b6669cb44feeae5c33c7d5c8be86e2c532641c2b9490ceb448385fef883d",
+      "bytes": 40575615,
       "platform": "macos-arm64",
-      "build_id": "w7p-macos-arm64-09137e38b749",
-      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.3/paperspine5-suite-0.4.0-alpha.3-macos-arm64.zip",
-      "product_version": "0.4.0-alpha.3"
+      "build_id": "review-macos-arm64-3db3a8268ad8e1ab",
+      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4-macos-arm64.zip",
+      "product_version": "0.4.0-alpha.4"
     },
     "macos-x86_64": {
-      "sha256": "5c5bde15a0cca6e75f622034226b1e8d456aa730e2d6cdd45c29f8b556829a2a",
-      "bytes": 40549514,
+      "sha256": "4e399fa8110c64bc29a41eedbbea0d52ecb209377dbb4140174a7e1246cab692",
+      "bytes": 40550116,
       "platform": "macos-x86_64",
-      "build_id": "w7p-macos-x86_64-cc36c950cc5a",
-      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.3/paperspine5-suite-0.4.0-alpha.3-macos-x86_64.zip",
-      "product_version": "0.4.0-alpha.3"
+      "build_id": "review-macos-x86_64-ca38f4c71f272f48",
+      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4-macos-x86_64.zip",
+      "product_version": "0.4.0-alpha.4"
     }
   }
 }

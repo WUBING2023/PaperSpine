@@ -1,14 +1,14 @@
 {
   "protocol": "paperspine-updater/1",
   "product": "paperspine",
-  "product_version": "0.4.0-alpha.3",
+  "product_version": "0.4.0-alpha.4",
   "platform": "macos-x86_64",
   "bundle": {
-    "sha256": "5c5bde15a0cca6e75f622034226b1e8d456aa730e2d6cdd45c29f8b556829a2a",
-    "bytes": 40549514,
+    "sha256": "4e399fa8110c64bc29a41eedbbea0d52ecb209377dbb4140174a7e1246cab692",
+    "bytes": 40550116,
     "platform": "macos-x86_64",
-    "build_id": "w7p-macos-x86_64-cc36c950cc5a",
-    "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.3/paperspine5-suite-0.4.0-alpha.3-macos-x86_64.zip",
-    "product_version": "0.4.0-alpha.3"
+    "build_id": "review-macos-x86_64-ca38f4c71f272f48",
+    "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4-macos-x86_64.zip",
+    "product_version": "0.4.0-alpha.4"
   }
 }

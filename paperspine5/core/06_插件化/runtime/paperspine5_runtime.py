@@ -33,7 +33,7 @@ for _stream in (sys.stdin, sys.stdout, sys.stderr):
 
 SERVER_NAME = "paperspine5-local"
 RUNTIME_COMPONENT_VERSION = "0.2.0-dev"
-PRODUCT_VERSION = "0.4.0-alpha.2"
+PRODUCT_VERSION = "0.4.0-alpha.4"
 PRODUCT_CHANNEL = "development"
 PRODUCT_BUILD_ID = "local-dev-unverified"
 BRIDGE_PROTOCOL = "paperspine5.host"

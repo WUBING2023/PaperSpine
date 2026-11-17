@@ -243,9 +243,13 @@ async function renderDeliveryManifest(value) {
     summary.textContent=manifest.ready ? '当前任务已满足本地交付清单条件；投稿仍需单独确认。' : `尚未达到本地交付就绪条件（当前版本 ${manifest.task_version}）。`;
     issues.replaceChildren();
     for(const blocker of manifest.blockers||[])issues.appendChild(node('li',blocker));
-    for(const findingId of manifest.open_blocking_finding_ids||[]) issues.appendChild(node('li',`存在未关闭的阻塞审核问题：${findingId}`));
+    const openFindings = manifest.open_blocking_findings ?? (manifest.open_blocking_finding_ids || []).map(finding_id => ({finding_id}));
+    for (const finding of openFindings) {
+      const label = finding.review_id ? `${finding.review_id} / ${finding.finding_id}` : finding.finding_id;
+      issues.appendChild(node('li', `存在未关闭的阻塞审核问题：${label}`));
+    }
     if(manifest.package_artifact_id) issues.appendChild(node('li',`当前交付包：${manifest.package_artifact_id}`));
-    if(!manifest.ready && !(manifest.open_blocking_finding_ids||[]).length && !manifest.package_artifact_id) issues.appendChild(node('li','尚未登记新鲜的本地交付包。'));
+    if(!manifest.ready && !openFindings.length && !manifest.package_artifact_id) issues.appendChild(node('li','尚未登记新鲜的本地交付包。'));
   } catch (_) { summary.textContent='交付清单暂时无法读取；任务文件不会因此丢失。'; }
 }
 function renderWorkflowFiles(value) {

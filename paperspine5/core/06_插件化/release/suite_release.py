@@ -23,7 +23,7 @@ from typing import Any
 SUITE_CONTRACT = "paperspine5.suite-manifest"
 SUITE_SCHEMA_VERSION = "1.0"
 PRODUCT_ID = "paperspine5"
-PRODUCT_VERSION = "0.4.0-alpha.3"
+PRODUCT_VERSION = "0.4.0-alpha.4"
 PRODUCT_CHANNEL = "development"
 PLUGIN_NAME = "paperspine5"
 FIXED_ZIP_TIME = (2026, 8, 24, 0, 0, 0)

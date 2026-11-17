@@ -14,7 +14,7 @@ def build_delivery_manifest(task: Mapping[str, Any]) -> dict[str, Any]:
     artifacts = [a for a in task.get("artifacts", []) if not a.get("stale")
                  and a.get("freshness", "fresh") == "fresh"]
     open_blocking = [f for f in task.get("findings", [])
-                     if f.get("status") == "open" and f.get("severity") == "blocking"]
+                     if f.get("status") == "open" and f.get("severity") in {"blocking", "major"}]
     package = [a for a in artifacts if a.get("artifact_type") == "delivery_package"]
     # Research may begin with a question and collect public sources inside the
     # task workspace. Those files need no external-directory capability grant.
@@ -59,6 +59,8 @@ def build_delivery_manifest(task: Mapping[str, Any]) -> dict[str, Any]:
         "artifact_ids": [a.get("artifact_id") for a in artifacts],
         "artifact_types": sorted({a.get("artifact_type") for a in artifacts if a.get("artifact_type")}),
         "open_blocking_finding_ids": [f.get("finding_id") for f in open_blocking],
+        "open_blocking_findings": [{"review_id": f.get("review_id"), "finding_id": f.get("finding_id")}
+                                  for f in open_blocking],
         "package_artifact_id": (package[-1].get("artifact_id") if package
                                  else ((task.get("runner_delivery_package") or {}).get("artifact_id")
                                        if runner_package_ready else None)),

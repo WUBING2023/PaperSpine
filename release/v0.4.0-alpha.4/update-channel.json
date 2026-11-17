@@ -1,0 +1,47 @@
+{
+  "protocol": "paperspine-updater/1",
+  "product": "paperspine",
+  "product_version": "0.4.0-alpha.4",
+  "bundle": {
+    "sha256": "9042c7fd3a5fa961792c9d8e2dfa9bd943ffbeb878179f8501a2705c6095b710",
+    "bytes": 26466108,
+    "platform": "windows-amd64",
+    "build_id": "review-windows-amd64-ddf89f1cc461061c",
+    "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4.zip",
+    "product_version": "0.4.0-alpha.4"
+  },
+  "bundles": {
+    "windows-amd64": {
+      "sha256": "9042c7fd3a5fa961792c9d8e2dfa9bd943ffbeb878179f8501a2705c6095b710",
+      "bytes": 26466108,
+      "platform": "windows-amd64",
+      "build_id": "review-windows-amd64-ddf89f1cc461061c",
+      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4.zip",
+      "product_version": "0.4.0-alpha.4"
+    },
+    "linux-x86_64": {
+      "sha256": "a95e381e2ebd68e7233b97f3afa0a98090517d240058eae8e8b980b15845ff90",
+      "bytes": 56221414,
+      "platform": "linux-x86_64",
+      "build_id": "review-linux-x86_64-c5e54d1b3d9c9123",
+      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4-linux-x86_64.zip",
+      "product_version": "0.4.0-alpha.4"
+    },
+    "macos-arm64": {
+      "sha256": "6b98b6669cb44feeae5c33c7d5c8be86e2c532641c2b9490ceb448385fef883d",
+      "bytes": 40575615,
+      "platform": "macos-arm64",
+      "build_id": "review-macos-arm64-3db3a8268ad8e1ab",
+      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4-macos-arm64.zip",
+      "product_version": "0.4.0-alpha.4"
+    },
+    "macos-x86_64": {
+      "sha256": "4e399fa8110c64bc29a41eedbbea0d52ecb209377dbb4140174a7e1246cab692",
+      "bytes": 40550116,
+      "platform": "macos-x86_64",
+      "build_id": "review-macos-x86_64-ca38f4c71f272f48",
+      "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4-macos-x86_64.zip",
+      "product_version": "0.4.0-alpha.4"
+    }
+  }
+}

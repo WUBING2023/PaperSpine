@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.2",
+  "product": "PaperSpine5",
+  "version": "0.4.0-alpha.4",
+  "channel": "prerelease",
+  "build_id": "review-windows-amd64-ddf89f1cc461061c",
+  "release_state": "published",
+  "published": true,
+  "repository": "https://github.com/WUBING2023/PaperSpine",
+  "tag": "v0.4.0-alpha.4",
+  "release_url": "https://github.com/WUBING2023/PaperSpine/releases/tag/v0.4.0-alpha.4",
+  "license": "MIT",
+  "artifacts": [
+    {
+      "kind": "suite",
+      "file": "paperspine5-suite-0.4.0-alpha.4.zip",
+      "bytes": 26466108,
+      "sha256": "9042c7fd3a5fa961792c9d8e2dfa9bd943ffbeb878179f8501a2705c6095b710",
+      "download_url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4.zip",
+      "description": "完整 V5 工作区：内置 Windows x64 runtime、Web 工作区、profile 生命周期、更新与回滚。",
+      "install_command": "powershell -ExecutionPolicy Bypass -File .\\install.ps1 -Target codex -CleanLegacy",
+      "platform": "windows-amd64",
+      "build_id": "review-windows-amd64-ddf89f1cc461061c"
+    },
+    {
+      "kind": "suite-linux-x86_64",
+      "platform": "linux-x86_64",
+      "build_id": "review-linux-x86_64-c5e54d1b3d9c9123",
+      "file": "paperspine5-suite-0.4.0-alpha.4-linux-x86_64.zip",
+      "bytes": 56221414,
+      "sha256": "a95e381e2ebd68e7233b97f3afa0a98090517d240058eae8e8b980b15845ff90",
+      "description": "完整 V5 工作区：内置 Linux x86_64 glibc runtime、Web 工作区、profile 生命周期、更新与回滚。",
+      "download_url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4-linux-x86_64.zip",
+      "install_command": "sh ./install.sh --target codex --clean-legacy"
+    },
+    {
+      "kind": "suite-macos-arm64",
+      "platform": "macos-arm64",
+      "build_id": "review-macos-arm64-3db3a8268ad8e1ab",
+      "file": "paperspine5-suite-0.4.0-alpha.4-macos-arm64.zip",
+      "bytes": 40575615,
+      "sha256": "6b98b6669cb44feeae5c33c7d5c8be86e2c532641c2b9490ceb448385fef883d",
+      "description": "完整 V5 工作区：内置 Apple Silicon runtime、Web 工作区、profile 生命周期、更新与回滚。",
+      "download_url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4-macos-arm64.zip",
+      "install_command": "sh ./install.sh --target codex --clean-legacy"
+    },
+    {
+      "kind": "suite-macos-x86_64",
+      "platform": "macos-x86_64",
+      "build_id": "review-macos-x86_64-ca38f4c71f272f48",
+      "file": "paperspine5-suite-0.4.0-alpha.4-macos-x86_64.zip",
+      "bytes": 40550116,
+      "sha256": "4e399fa8110c64bc29a41eedbbea0d52ecb209377dbb4140174a7e1246cab692",
+      "description": "完整 V5 工作区：内置 Intel Mac runtime、Web 工作区、profile 生命周期、更新与回滚。",
+      "download_url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4-macos-x86_64.zip",
+      "install_command": "sh ./install.sh --target codex --clean-legacy"
+    }
+  ],
+  "release_assets": {
+    "manifest_url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/manifest.json",
+    "checksums_url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/checksums.sha256",
+    "installer_url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/install.ps1",
+    "installer_bytes": 12439,
+    "installer_sha256": "8d69ed1386ab3baa656cc5b26ff87cf9977a66813bceefab6a62a1ee99257b7f",
+    "posix_installer_url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/install.sh",
+    "posix_installer_bytes": 13049,
+    "posix_installer_sha256": "e97aa3f1a583fa4373c2167d1b310afed61ac1bd5d1445806d0d98aa0b9176db"
+  },
+  "installation": {
+    "canonical_skill": "paper-spine",
+    "known_legacy_names": [
+      "PaperSpine",
+      "PaperSpineV2",
+      "paperFig",
+      "paperspine5-workspace",
+      "paper-spine-research",
+      "paper-spine-citation",
+      "paper-spine-rewrite",
+      "paper-spine-build",
+      "paper-spine-latex",
+      "paper-spine-audit",
+      "paper-spine-translate",
+      "paper-spine-humanize",
+      "paper-spine-update"
+    ],
+    "legacy_action": "archive_to_user_paperspine5_backups",
+    "task_data_preserved": true,
+    "unknown_paths": "never_guess_or_delete"
+  },
+  "validation": {
+    "suite_build": "Four alpha.4 suites derived from the verified alpha.3 platform archives",
+    "suite_verify": "PASS: four archive content indexes and SHA-256 hashes",
+    "review_rounds": "PASS: original Windows package reproduction; MCP, HTTP and legacy event replay regressions",
+    "runtime": "The platform runtimes are unchanged from alpha.3"
+  },
+  "limitations": [
+    "macOS packages are unsigned and not notarized; Gatekeeper may require an explicit local approval.",
+    "Linux support is glibc x86_64 only; musl/Alpine and Linux arm64 are not claimed.",
+    "Apple Silicon and Intel Mac use separate packages; do not interchange them.",
+    "No independent cryptographic signature.",
+    "Public release does not authorize external manuscript submission.",
+    "The standalone Skill ZIP is not a current release download; select a full platform suite."
+  ],
+  "update": {
+    "check_command": "python scripts/paperspine_update.py --preflight --check-only",
+    "apply_command": "python scripts/paperspine_update.py --preflight --yes",
+    "policy": "check each invocation; update full suite and updater when needed; explicit opt-out respected; task data retained",
+    "channel_url": "https://raw.githubusercontent.com/WUBING2023/PaperSpine/main/website/downloads/update-channel.json"
+  },
+  "compatibility": {
+    "component_version": "4.0.1",
+    "archive_url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.2/paperspine-compat-4.0.1.zip",
+    "bytes": 2845712,
+    "sha256": "c704bf4f5b0612a1d7b5c0d0dceebd946cfa802a1fdc0233062f3d57a689ba1d",
+    "purpose": "One-time bridge for the old component updater; host invocation then selects the full suite."
+  }
+}

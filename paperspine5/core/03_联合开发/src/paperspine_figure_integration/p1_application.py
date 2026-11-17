@@ -306,6 +306,27 @@ class DomainEventStore:
         return rebuilt
 
 
+def _matching_findings(findings: list[dict[str, Any]], payload: Mapping[str, Any]) -> list[dict[str, Any]]:
+    review_id = payload.get("review_id")
+    return [item for item in findings if item["finding_id"] == payload["finding_id"]
+            and (review_id is None or item["review_id"] == review_id)]
+
+
+def _finding_to_resolve(current: Mapping[str, Any], payload: Mapping[str, Any]) -> dict[str, Any]:
+    matches = _matching_findings(current.get("findings", []), payload)
+    if not matches:
+        raise DomainError("not_found", "The review finding does not exist.", category="missing")
+    open_matches = [item for item in matches if item.get("status") == "open"]
+    if not open_matches:
+        raise DomainError("idempotency_conflict", "The review finding is already resolved.", category="conflict")
+    if len(open_matches) > 1 and "review_id" not in payload:
+        raise DomainError("validation_failed", "Multiple open findings share this ID. Specify review_id.",
+                          category="validation", details={"finding_id": payload["finding_id"],
+                          "review_ids": sorted({item["review_id"] for item in open_matches}),
+                          "next_action": "specify_review_id"})
+    return open_matches[0]
+
+
 def _apply_event(
     projection: Mapping[str, Any] | None, event: Mapping[str, Any]
 ) -> dict[str, Any]:
@@ -505,9 +526,12 @@ def _apply_event(
             _invalidate_delivery(updated, 'review_findings_open')
     elif event_type == "finding.resolved":
         findings = [dict(item) for item in projection.get("findings", [])]
-        match = next((item for item in findings if item["finding_id"] == payload["finding_id"]), None)
-        if match is None:
+        matches = _matching_findings(findings, payload)
+        if not matches:
             raise ValueError("finding does not exist")
+        # Unscoped historical events include hotfix writes. Preserve that
+        # writer's first-open rule in submission order and its closed fallback.
+        match = next((item for item in matches if item.get("status") == "open"), matches[0])
         match.update(status="resolved", resolution_artifact_ids=list(payload["resolution_artifact_ids"]),
                      explanation=payload.get("explanation"), revision_id=payload.get("revision_id"))
         updated["findings"] = findings
@@ -1364,6 +1388,10 @@ class ApplicationService:
                                   category="validation", details={"artifact_ids": missing})
             if any(item["review_id"] == payload["review_id"] for item in current.get("reviews", [])):
                 raise DomainError("idempotency_conflict", "review_id already exists.", category="conflict")
+            finding_ids = [item["finding_id"] for item in payload["findings"]]
+            if len(finding_ids) != len(set(finding_ids)):
+                raise DomainError("validation_failed", "finding_id must be unique within a review.",
+                                  category="validation", details={"review_id": payload["review_id"]})
             # Check the exact registered copies before recording intent/effects.
             # A report's prose is not a machine-readable artifact association.
             ids = set(payload['reviewed_artifact_ids'])
@@ -1398,13 +1426,7 @@ class ApplicationService:
                                       category="conflict", retryable=True,
                                       current_version=current.get("task_version"),
                                       details={"current_revision": kernel_revision})
-            finding = next((item for item in current.get("findings", [])
-                            if item["finding_id"] == payload["finding_id"]), None)
-            if finding is None:
-                raise DomainError("not_found", "The review finding does not exist.", category="missing")
-            if finding.get("status") != "open":
-                raise DomainError("idempotency_conflict", "The review finding is already resolved.",
-                                  category="conflict")
+            _finding_to_resolve(current, payload)
             published = {item["artifact_id"] for item in current.get("artifacts", [])}
             missing = sorted(set(payload["resolution_artifact_ids"]) - published)
             if missing:
@@ -1468,9 +1490,10 @@ class ApplicationService:
                 "reviewed_artifact_ids": list(payload["reviewed_artifact_ids"]),
                 "reviewer_id": payload["reviewer_id"], "findings": findings}
         if command_type == "ResolveFinding":
+            finding = _finding_to_resolve(current, payload)
             return "finding.resolved", {"payload_type": "finding.resolved",
-                "finding_id": payload["finding_id"],
-                "revision_id": payload.get("revision_id", current.get("revision")),
+                "review_id": finding["review_id"], "finding_id": finding["finding_id"],
+                **({"revision_id": payload["revision_id"]} if "revision_id" in payload else {}),
                 "resolution_artifact_ids": list(payload["resolution_artifact_ids"]),
                 "explanation": payload["explanation"]}
         if command_type == "PrepareDelivery":
