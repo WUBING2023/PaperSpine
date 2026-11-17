@@ -18,6 +18,10 @@ licenses hiding strong controls, important negative results or uncertainty.
 Reuse the current draft, source/figure binding and existing evidence notes. Keep
 the baseline and protected data, equations, protocols, figures and layout. A
 writing task does not authorize unlocking them or rerunning experiments.
+Verify the version and status of the evidence used in each section. Distinguish
+observations from the Agent's interpretation and the author's explicit requests.
+Check later results, supplementary material and unfavorable controls against the
+main comparison before deciding where they belong.
 
 Before choosing a reference structure, identify:
 
@@ -99,6 +103,13 @@ paper's explanatory sequence does not make it evidence for this study's result.
 Read the relevant full-text passages and context. An abstract, page title or
 unseen figure cannot establish full-text or visual learning.
 
+For a whole-paper comparison, recover each exemplar's argument in its original
+order before choosing transfers. Inspect what the first paragraph establishes,
+how the evidence and panels are ordered, and which transitions make conclusions
+possible. Apply an observed move where this study has the premises and evidence
+for it. For requested sentence or paragraph comparisons, check the actual
+rewritten transitions and record their exemplar locations.
+
 ## Trace actual changes without manufacturing correspondence
 
 Merge a compact writing map into existing notes. For every body paragraph,
@@ -123,20 +134,23 @@ this trace in work notes; the paper is independent prose with scientific citatio
 ## Fresh writing and independent review
 
 For full-paper reconstruction, use a fresh writing Agent with
-`fork_turns="none"` or equivalent isolation when available. Give it the current
-whole draft/source structure, figures/captions/tables, complete supplementary
-evidence index, actual user constraints/target/protected items, all used exemplar
-full texts, and the evidence-backed question/hierarchy/outline as revisable
-proposals. Include strong controls, contrary results and exposure boundaries.
-Do not give recent conversational emphasis, a required winner, anticipated
-scores or an acceptance answer. Assign writes only to a new revision directory;
-tell it others share the codebase and not to revert their edits. The host inspects
-the returned actual manuscript and its evidence use.
+`fork_turns="none"` or equivalent isolation when available. Give it access to the
+complete original material, including the full current draft when one exists,
+figures, raw results, protocols, supplements and full exemplars. Pass the
+author's original instructions and their provenance, the requested deliverable,
+and the protected items. Navigation notes may identify files and versions.
+The writer derives the claim, contribution hierarchy, title, outline and
+exemplar roles independently. Leave the host's proposed answers, sample prose
+and expected judgments out of the handoff. Record author-approved decisions as
+explicit constraints. Assign writes only to a new revision directory and keep
+shared sources read-only. The host verifies access and the manuscript returned.
 
-Use another fresh Agent for review, distinct from the writer. Give actual current
-manuscript, figures/renders, all used references, complete relevant evidence and
-user constraints. It writes only review files. Apply
-[review-policy.md](review-policy.md) and additionally inspect:
+Use another fresh Agent for review, distinct from the writer. First provide the
+actual draft and its figures so it can record the research question, main result
+and reverse outline in its own words. Then provide the original inputs, author
+requirements and exemplars for a source check. Give the reviewer the writer's
+change and comparison notes after that check. It writes only review files. Apply
+[review-policy.md](review-policy.md) and inspect the following points in the draft.
 
 - Whether the title, abstract, contribution, Results and Discussion express the
   same study identity with direct, evidence-matched language.
@@ -163,12 +177,11 @@ which version should win or provide author self-scores. Record unavoidable cues
 scientific evidence adequacy and novelty; scores are editorial judgments, not
 statistical proof or a publication guarantee.
 
-Preserve original review findings. The host repairs the smallest affected source
-and records issue → actual change/location → verification → disposition. Recheck
-headline sections after a core-claim change; obtain independent affected-scope
-re-reading after revision. Do not change reviewers repeatedly to obtain a desired
-score. Compile/render the changed sources and inspect actual pages before
-updating the working pointer. Report concrete unclosed evidence/locked-item
+Preserve original review findings. The original writer repairs the affected
+source and records issue → actual change/location → verification → disposition.
+The host schedules an independent reread of the affected scope. Recheck headline
+sections after a core-claim change. Compile or render the changed sources and
+inspect actual pages before updating the working pointer. Report concrete unclosed evidence/locked-item
 limits separately from completed local improvements.
 
 When fresh Agent contexts are unavailable, continue permitted writing and

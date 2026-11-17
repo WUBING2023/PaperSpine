@@ -8,7 +8,7 @@ For an old install, rerun the latest platform installer or use the unchanged
 protocol-v1 updater with `update-channel-<platform>.json`. The new installed
 preflight completes old bootstrap refresh. V4 4.0.0 users receive compatibility
 4.0.1 through their original component updater, then the invocation preflight
-selects V5 0.4.0-alpha.3 for the current OS. An alpha.2 installation whose
+selects V5 0.4.0-alpha.4 for the current OS. An alpha.2 installation whose
 Skill lacks `references/installed-suite.json` must run the alpha.3 platform
 installer against the same profile; the old Skill-only preflight cannot prove
 that installation's suite identity. These version sequences are separate.

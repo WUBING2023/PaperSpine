@@ -3,7 +3,7 @@
   "product": {
     "name": "PaperSpine5",
     "slug": "paperspine5",
-    "version": "0.4.0-alpha.3",
+    "version": "0.4.0-alpha.4",
     "channel": "prerelease",
     "license": "MIT"
   },

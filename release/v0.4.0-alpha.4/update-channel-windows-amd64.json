@@ -1,0 +1,14 @@
+{
+  "protocol": "paperspine-updater/1",
+  "product": "paperspine",
+  "product_version": "0.4.0-alpha.4",
+  "platform": "windows-amd64",
+  "bundle": {
+    "sha256": "9042c7fd3a5fa961792c9d8e2dfa9bd943ffbeb878179f8501a2705c6095b710",
+    "bytes": 26466108,
+    "platform": "windows-amd64",
+    "build_id": "review-windows-amd64-ddf89f1cc461061c",
+    "url": "https://github.com/WUBING2023/PaperSpine/releases/download/v0.4.0-alpha.4/paperspine5-suite-0.4.0-alpha.4.zip",
+    "product_version": "0.4.0-alpha.4"
+  }
+}

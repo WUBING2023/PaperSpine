@@ -62,12 +62,28 @@ coverage from proof that no previous study exists. A known close comparison may
 turn the project into replication or robustness exploration; retain that useful
 purpose instead of manufacturing novelty.
 
+Start with the decisions the sources could change. For a new empirical study,
+route the search to the closest prior comparison, a result or method that could
+challenge it, and the official source for the proposed data or measurement.
+Search by both field terms and the mechanism or failure mode. Deep-read the
+small set of sources that can change the design, then follow citations or expand
+coverage where an open question still matters. For a narrow lookup, use the
+smallest reading scope that can support the answer. Treat copies of a paper as
+one source and use exact pages, sections, tables, or local file lines as anchors.
+
 Each pivotal reading should alter something concrete: the hypothesis, comparison,
 measurement definition, failure case, design constraint, scientific figure or
 interpretation. Record the source locator and the decision it informed. Abstracts
 support only the points actually stated; they cannot establish detailed protocol,
 figure or page-layout learning. Do not copy a published study's result into this
 study or silently inherit its ethics/participants.
+
+For conflicting results, recover each source's population or system, observation
+window, comparator, outcome and uncertainty. Compare those conditions before
+combining conclusions. Mark the unresolved conflict in the existing notes and
+carry it into the study's claim or design. A search hit, metadata record or
+unread source remains a lead. When evidence is local, locate the actual input
+file and read the relevant lines or rendered passage before citing it.
 
 When a nearby result threatens the proposed contribution, search the phenomenon
 as well as the method name: alternative terms, older formulations, and references
@@ -178,6 +194,16 @@ Report mismatches rather than concealing them. Existing user results remain
 authoritative in a supplied-results request; these new-run requirements do not
 retroactively require reproducing them.
 
+Check the authoritative data dictionary against the actual input bytes. Record
+the release or date, a URL or local locator, and a checksum for the exact input
+when practical. Verify units, identifiers, coverage, and permitted use before a
+full run. For prediction, write down when a prediction is made and when each
+feature becomes available. Trace derived fields back to their inputs. Check for
+same-outcome components, future observations and overlapping units at the split;
+fitting on training rows alone cannot correct those paths. If availability is
+uncertain, use verified inputs for the main comparison and label any diagnostic
+with unavailable information accordingly.
+
 When extending or replicating an existing study, inspect its producing code as
 well as its prose before freezing the new comparison. Score transformations,
 rank-tie and selection-tie rules, and invalid-value handling are part of the
@@ -210,6 +236,14 @@ tuning or design, keep it separate from the later evaluation and retain that
 change. Use constructed data only when it is an explicitly defined scientific
 condition or demonstration; label its construction and never present it as
 collected observations or replace a failed real input with unmarked simulated data.
+
+When two explanations remain plausible, choose one small check that would
+separate them. State what would count against the favored explanation before
+running it. Change the suspected dependency alone where feasible, and keep the
+units, comparator, metric and evaluation slice fixed. For example, audit whether
+the constituent counts reconstruct a total before using that total as a future
+prediction target. Keep that diagnostic distinct from the honest forecast and
+reserve the held-out period for the comparison fixed in advance.
 
 Execute the chosen design, using [agent-orchestration.md](agent-orchestration.md)
 when authorized workers/runtime are available. Preserve producing code, exact
