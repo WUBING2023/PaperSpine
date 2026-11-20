@@ -80,21 +80,6 @@ function renderGitHubStars() {
   starCount.textContent = repoStars === undefined ? "GitHub" : compactCount.format(repoStars);
 }
 
-async function refreshGitHubStars() {
-  try {
-    const response = await fetch("https://api.github.com/repos/WUBING2023/PaperSpine");
-    if (!response.ok) return;
-
-    const { stargazers_count: count } = await response.json();
-    if (!Number.isSafeInteger(count) || count < 0) return;
-
-    repoStars = count;
-    renderGitHubStars();
-  } catch {
-    // The repository link still works when the counter is unavailable.
-  }
-}
-
 const languageSwitch = document.querySelector(".language-switch");
 const contentSlot = document.querySelector("#v6-content");
 contentSlot.addEventListener("pointerover", event => {
@@ -174,7 +159,8 @@ languageSwitch.addEventListener("click", () => {
 languageSwitch.hidden = false;
 showLowerPage(language);
 
-refreshGitHubStars();
-setInterval(() => {
-  if (!document.hidden) refreshGitHubStars();
-}, 5 * 60 * 1000);
+PaperSpineLive.repository(row => {
+  repoStars = row.stargazers_count;
+  renderGitHubStars();
+  starCount.dataset.asOf = row.retrieved_at;
+});

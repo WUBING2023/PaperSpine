@@ -120,7 +120,7 @@ def render(metadata: Path, output: Path) -> None:
         target.write_text(text, encoding="utf-8", newline="\n")
     for file in (
         "v6.css", "science.js", "locale.js", "study-deck.js", "download-stats.js",
-        "research-preview.js", "v6-content.js", "research-background.js",
+        "research-preview.js", "live-data.js", "v6-content.js", "research-background.js",
         "preview.js", "motion-demo.js", "paperspine-dragon.png",
     ):
         shutil.copyfile(SITE / file, output / file)

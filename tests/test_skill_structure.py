@@ -217,9 +217,9 @@ class SkillStructureTests(unittest.TestCase):
         chinese = (ROOT / "README.zh-CN.md").read_text(encoding="utf-8")
         former_english_entry = (ROOT / "README.en.md").read_text(encoding="utf-8")
 
-        self.assertIn("[中文](README.zh-CN.md)", english)
-        self.assertIn("[English](README.md)", chinese)
-        self.assertIn("[English](README.md)", former_english_entry)
+        for text, target in ((english, "README.zh-CN.md"), (chinese, "README.md"),
+                             (former_english_entry, "README.md")):
+            self.assertRegex(text, rf'(?:href="{re.escape(target)}"|\]\({re.escape(target)}\))')
         for text in (english, chinese):
             for fragment in [
                 "dist/codex/skills",

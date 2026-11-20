@@ -78,7 +78,8 @@ def preview(data, features, zh):
 
 
 def main(output):
-    data = load_atlas(ROOT / "data.js")
+    source = output / "data.js"
+    data = load_atlas(source if source.is_file() else ROOT / "data.js")
     validate_atlas(data)
     features = json.loads((ROOT / "world.geo.json").read_text(encoding="utf-8"))["features"]
     for zh, name in ((False, "atlas-preview.svg"), (True, "atlas-preview-zh.svg")):

@@ -5,6 +5,7 @@ import tempfile
 import time
 import urllib.error
 import urllib.request
+from datetime import datetime, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -96,6 +97,12 @@ def main():
     token = get_token()
     repo_meta = api(f"https://api.github.com/repos/{REPO}", token)
     expected_stars = int(repo_meta.get("stargazers_count", 0))
+    if "stargazers_count" not in repo_meta or expected_stars < 0:
+        raise ValueError("Missing repository star count")
+    write_json_atomic(os.path.join(HERE, "repository.json"), {
+        "stargazers_count": expected_stars,
+        "retrieved_at": datetime.now(timezone.utc).isoformat(),
+    })
     log(f"repository metadata loaded: expected stars={expected_stars}")
 
     logins = []
@@ -127,20 +134,29 @@ def main():
             done = {u["login"]: u for u in json.load(open(OUT, encoding="utf-8"))}
         except Exception:
             done = {}
-    todo = [l for l in logins if l not in done]
+    # Keep only fields needed for the aggregate when importing an older cache.
+    done = {login: {field: entry.get(field) for field in ("login", "location", "company", "checked")}
+            for login, entry in done.items()}
+    logins = list(dict.fromkeys(logins))
+    remaining = api("https://api.github.com/rate_limit", token)["resources"]["core"]["remaining"]
+    budget = min(400, max(0, remaining - 45))
+    now = int(time.time())
+    missing = [login for login in logins if login not in done]
+    stale = sorted((login for login in logins if login in done and
+                    now - (done[login]["checked"] or 0) >= 30 * 86400),
+                   key=lambda login: done[login]["checked"] or 0)
+    todo = (missing + stale)[:budget]
     log(f"profiles to fetch: {len(todo)} (cached {len(done)})")
 
     def fetch_user(login):
         u = api(f"https://api.github.com/users/{login}", token, allow_404=True)
         if u is None:
-            return {"login": login, "location": None, "company": None, "name": None, "bio": None, "followers": 0}
+            return {"login": login, "location": None, "company": None, "checked": now}
         return {
-            "login": u.get("login", login),
+            "login": login,
             "location": u.get("location"),
             "company": u.get("company"),
-            "name": u.get("name"),
-            "bio": u.get("bio"),
-            "followers": u.get("followers", 0),
+            "checked": now,
         }
 
     count = len(done)
@@ -158,6 +174,7 @@ def main():
     if not ordered and expected_stars:
         raise RuntimeError("no stargazer profiles were fetched; refusing to overwrite cached data")
     write_json_atomic(OUT, ordered, indent=1)
+    write_json_atomic(os.path.join(HERE, "coverage.json"), {"sampled": len(ordered), "listed": len(logins)})
     log(f"DONE: {len(ordered)} users saved")
 
 if __name__ == "__main__":

@@ -534,6 +534,7 @@ def main():
     data = {
         "repo": "WUBING2023/PaperSpine",
         "generated": datetime.date.today().isoformat(),
+        "retrieved_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "totalStars": len(users),
         "located": located,
         "withOrg": sum(1 for u in users if u.get("company") and norm_org(u["company"])),
@@ -570,8 +571,7 @@ def main():
           f"schools={len(schools)} companies={len(companies)} countries={len(countries)}")
     print("top cities:", [(c['zh'], c['count']) for c in data['cities'][:12]])
     print("unmatched locations:")
-    for k, v in unmatched_loc.most_common(40):
-        print(f"  {v} {k}")
+    print(f"  {sum(unmatched_loc.values())} records")
 
 if __name__ == "__main__":
     main()

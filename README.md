@@ -4,8 +4,8 @@
 
 <p align="center">
   <a href="https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip"><picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/readme-ticker-still.webp">
-    <img src="paperspine5/core/07_发布页/v6/readme/rounded/readme-ticker.webp" width="600" alt="Download the full PaperSpine Skill. Release v6.0.0-beta.2, 6,345 GitHub stars, and 926 downloads across three bundles in November (November 18, 2026 snapshot). Download command: gh release download v6.0.0-beta.2 -R WUBING2023/PaperSpine -p &quot;paperspine-skill-*.zip&quot;">
+    <source media="(prefers-reduced-motion: reduce)" srcset="https://wubing2023.github.io/PaperSpine/v6/activity-still.svg">
+    <img src="https://wubing2023.github.io/PaperSpine/v6/activity.svg" width="600" alt="Current release, repository stars, and release downloads from GitHub.">
   </picture></a>
 </p>
 
@@ -219,7 +219,7 @@ Followwriting illustrates how to use a reference’s structure while writing fro
 
 <a href="https://wubing2023.github.io/PaperSpine/"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="PaperSpine’s GitHub stargazer atlas, aggregated from publicly shared city locations."></a>
 
-[See who contributed to each V6 update](https://wubing2023.github.io/PaperSpine/contributors/#v6-contributions) · [Explore the stargazer atlas](https://wubing2023.github.io/PaperSpine/)
+[See who contributed to each V6 update](https://wubing2023.github.io/PaperSpine/contributors/#v6-contributions) · [Explore the stargazer atlas](https://wubing2023.github.io/PaperSpine/) · [Atlas data (JSON)](https://wubing2023.github.io/PaperSpine/api/v1/atlas.json)
 
 [Official site](https://wubing2023.github.io/PaperSpine/v6/) · [V6 sources](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [Install manager](paperspine5/core/06_插件化/release/edition_manager.py) · [Website source](paperspine5/core/07_发布页/v6/) · [Report an issue](https://github.com/WUBING2023/PaperSpine/issues) · <a id="press-kit"></a>[Project assets](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip)
 

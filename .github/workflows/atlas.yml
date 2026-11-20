@@ -2,7 +2,7 @@ name: Deploy stargazer atlas
 
 on:
   schedule:
-    - cron: "0 1 * * *"   # 每天 UTC 01:00（北京时间 09:00）刷新数据并重新发布
+    - cron: "17 */4 * * *"
   workflow_dispatch:
   release:
     types: [published, prereleased]
@@ -11,10 +11,12 @@ on:
     paths:
       - "atlas/**"
       - "website/**"
+      - "paperspine5/core/07_发布页/v6/**"
+      - "paperspine5/release_tools/*.py"
       - ".github/workflows/atlas.yml"
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -37,10 +39,19 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Check atlas interactions and browser scripts
+        run: |
+          node --test atlas/model.test.cjs
+          for script in atlas/{atlas,contributors}.js paperspine5/core/07_发布页/v6/{live-data,preview,v6-content}.js; do node --check "$script"; done
+
       - name: Restore cached stargazer profiles
         uses: actions/cache@v4
         with:
-          path: atlas/stargazers_raw.json
+          path: |
+            atlas/stargazers_raw.json
+            atlas/data.js
+            atlas/repository.json
+            public-snapshots
           key: atlas-stargazers-${{ github.run_id }}
           restore-keys: |
             atlas-stargazers-
@@ -53,8 +64,13 @@ jobs:
             echo "::error::The GitHub Actions repository token is unavailable."
             exit 1
           fi
-          python atlas/fetch_stargazers.py
-          python atlas/process.py
+          python -B atlas/public_feed.py seed
+          if python atlas/fetch_stargazers.py; then
+            python atlas/public_feed.py refresh
+          else
+            echo "::warning::Profile refresh unavailable; retaining the dated aggregate"
+          fi
+          cp atlas/data.js website/community/data.js
 
       - name: Refuse empty atlas data
         run: python atlas/validate_data.py atlas/data.js
@@ -68,35 +84,31 @@ jobs:
         run: python paperspine5/release_tools/build_site.py
 
       - name: Assemble site (static files only)
-        run: |
-          mkdir _site
-          cp atlas/{index.html,zh.html,atlas-view.css,atlas.js,language.js,model.js,china-provinces.js,worldgeo.js,data.js,community.css} _site/
-          python -B atlas/static_preview.py _site
-          mkdir -p _site/contributors
-          cp atlas/contributors.html _site/contributors/index.html
-          cp atlas/contributors-zh.html _site/contributors/zh.html
-          cp atlas/contributors.js _site/contributors/
-          mkdir -p _site/v5
-          cp -R build/v5-site/. _site/v5/
-          if [ -f website/v6/downloads/channel.json ]; then
-            rm -r _site/v5/v6
-            python -B 'paperspine5/core/07_发布页/v6/build_v6.py' site website/v6/downloads _site/v6
-            cp _site/v6/llms.txt _site/llms.txt
-          fi
+        run: python -B paperspine5/release_tools/assemble_pages.py _site
 
       - name: Snapshot V6 release download statistics
         if: ${{ hashFiles('website/v6/downloads/channel.json') != '' }}
-        continue-on-error: true
         env:
           PAPERSPINE_RELEASE_READ_TOKEN: ${{ github.token }}
         run: |
-          python -B 'paperspine5/core/07_发布页/v6/build_v6.py' download-stats website/v6/downloads _site/v6/download-stats.json
+          tag=$(python -c "import json; print(json.load(open('website/v6/downloads/channel.json'))['editions']['skill']['version'])")
+          dir="public-snapshots/$tag"
+          mkdir -p "$dir"
+          if ! python -B 'paperspine5/core/07_发布页/v6/build_v6.py' download-stats website/v6/downloads "$dir/download-stats.json"; then
+            echo "::warning::Using the previous snapshot for the same release"
+          fi
+          cp "$dir"/download-stats.json "$dir"/downloads-*.svg _site/v6/
+          python -B atlas/readme_activity.py _site
 
       - name: Snapshot GitHub contributors
-        continue-on-error: true
         env:
           ATLAS_GITHUB_TOKEN: ${{ github.token }}
-        run: python -B atlas/community_snapshot.py _site/contributors/contributors-data.json
+        run: |
+          mkdir -p public-snapshots
+          if ! python -B atlas/community_snapshot.py public-snapshots/contributors-data.json; then
+            echo "::warning::Using the previous contributor snapshot"
+          fi
+          cp public-snapshots/contributors-data.json _site/contributors/
 
       - uses: actions/configure-pages@v5
         with:

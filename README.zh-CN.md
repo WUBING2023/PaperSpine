@@ -4,8 +4,8 @@
 
 <p align="center">
   <a href="https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip"><picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/readme-ticker-still.webp">
-    <img src="paperspine5/core/07_发布页/v6/readme/rounded/readme-ticker.webp" width="600" alt="下载 PaperSpine 全流程 Skill。版本 v6.0.0-beta.2，GitHub 星标 6,345，该版本三个安装包 11 月合计下载 926 次（2026-11-18 快照）。下载命令：gh release download v6.0.0-beta.2 -R WUBING2023/PaperSpine -p &quot;paperspine-skill-*.zip&quot;">
+    <source media="(prefers-reduced-motion: reduce)" srcset="https://wubing2023.github.io/PaperSpine/v6/activity-zh-still.svg">
+    <img src="https://wubing2023.github.io/PaperSpine/v6/activity-zh.svg" width="600" alt="当前版本、GitHub 星标和三版发布包累计下载量。">
   </picture></a>
 </p>
 
@@ -216,7 +216,7 @@ Followwriting 短片演示如何借鉴论证写法、用本研究的结果落笔
 
 <a href="https://wubing2023.github.io/PaperSpine/zh.html"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="新版 PaperSpine 社区星图，展示全球星标分布、地域概览和高校分布入口。"></a>
 
-[查看各轮 V6 更新的贡献](https://wubing2023.github.io/PaperSpine/contributors/zh.html#v6-contributions) · [浏览社区星图](https://wubing2023.github.io/PaperSpine/zh.html)
+[查看各轮 V6 更新的贡献](https://wubing2023.github.io/PaperSpine/contributors/zh.html#v6-contributions) · [浏览社区星图](https://wubing2023.github.io/PaperSpine/zh.html) · [星图数据（JSON）](https://wubing2023.github.io/PaperSpine/api/v1/atlas.json)
 
 [中文官网](https://wubing2023.github.io/PaperSpine/v6/zh/) · [V6 源码](paperspine5/core/01_PaperSpine4/src/skill-editions/) · [安装管理器](paperspine5/core/06_插件化/release/edition_manager.py) · [官网源码](paperspine5/core/07_发布页/v6/) · [问题反馈](https://github.com/WUBING2023/PaperSpine/issues) · <a id="press-kit"></a>[项目素材](https://wubing2023.github.io/PaperSpine/v6/science/paperspine-v6-press-kit.zip)
 

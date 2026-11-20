@@ -75,7 +75,7 @@ function initializeV6Content(root, locale) {
 
   const downloads = [...root.querySelectorAll("[data-release-download]")];
 
-  async function showDownloadCounts() {
+  function showDownloadCounts() {
     const source = root.querySelector("[data-release-stats-source]");
     const stamp = root.querySelector("[data-download-stamp]");
     if (!source || !downloads.length) return;
@@ -93,7 +93,8 @@ function initializeV6Content(root, locale) {
         if (!Number.isSafeInteger(count) || count < 0) continue;
         const label = el.closest(".edition-download")?.querySelector("[data-download-count]");
         if (!label) continue;
-        label.textContent = label.dataset.downloadCount.replace("{count}", format.format(count));
+        label.textContent = count === 1 && locale === "en" ? "1 download"
+          : label.dataset.downloadCount.replace("{count}", format.format(count));
         label.hidden = false;
       }
       const date = new Date(timestamp);
@@ -105,22 +106,9 @@ function initializeV6Content(root, locale) {
       }
     }
 
-    try {
-      const response = await fetch(source.getAttribute("data-release-stats-source"));
-      if (!response.ok) throw new Error(response.status);
-      const snapshot = await response.json();
-      display(snapshot.assets, snapshot.retrieved_at);
-    } catch {
-      try {
-        const response = await fetch(source.href, { signal: AbortSignal.timeout(5000) });
-        if (!response.ok) return;
-        const release = await response.json();
-        display(release.assets, new Date().toISOString());
-      } catch {
-        // Download links remain usable if both count sources are unavailable.
-      }
-    }
+    const tag = new URL(source.href).pathname.split("/").pop();
+    const expected = downloads.map(link => new URL(link.href).pathname.split("/").pop());
+    PaperSpineLive.downloads(tag, expected, row => display(row.assets, row.retrieved_at));
   }
-
   showDownloadCounts();
 }

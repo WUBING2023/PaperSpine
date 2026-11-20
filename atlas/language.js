@@ -7,6 +7,7 @@ window.AtlasEnglish = {
   '社区星图': 'Community Atlas',
   '从全球地域到高校网络，探索 PaperSpine 星标的分布。': 'Explore where PaperSpine GitHub stars come from, across cities and universities.',
   '快照统计': 'Snapshot statistics',
+  '已采集资料': 'Profiles sampled',
   'GitHub 星标': 'GitHub stars',
   '国家与地区': 'Countries & regions',
   '高校记录': 'University records',
@@ -45,7 +46,7 @@ window.AtlasEnglish = {
   '地域概览': 'Explore regions',
   '有高校记录的城市': 'Cities with university records',
   '有星标的城市': 'Cities with GitHub stars',
-  '仅按快照中可关联的城市标点，不代表校区坐标。未标点的高校可在不限定地区时搜索。中国省级底图：阿里云 DataV。': 'Markers show cities identified in the snapshot, not campus locations. Unmapped universities are searchable without location filters. China province boundaries: Alibaba Cloud DataV.',
+  '仅按快照中可关联的城市标点，不代表校区坐标。未标点的高校可在不限定地区时搜索。中国省级底图：Natural Earth。': 'Markers show cities identified in the snapshot, not campus locations. Unmapped universities are searchable without location filters. China province boundaries: Natural Earth.',
   '数据来自 PaperSpine 的 GitHub 聚合快照。未注明城市的记录只计入国家与地区汇总，不在地图标点。': 'Source: PaperSpine’s aggregated GitHub snapshot. Records without a known city count toward country and region totals but are not plotted.',
 };
 

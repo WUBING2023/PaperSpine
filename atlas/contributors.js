@@ -37,30 +37,16 @@ function filterList() {
     : status.dataset.empty;
 }
 
-async function initContributors() {
-  try {
-    const response = await fetch("contributors-data.json");
-    if (!response.ok) throw new Error(response.status);
-    const data = await response.json();
-    if (!Array.isArray(data.contributors)) throw new Error("Invalid contributor manifest");
-    for (const entry of data.contributors) {
-      if (/^[a-z0-9-]{1,39}(?:\[bot\])?$/i.test(entry.login) && Number.isSafeInteger(entry.id)
-          && Number.isSafeInteger(entry.contributions) && entry.contributions >= 0) {
-        list.append(contributorCard(entry));
-      }
-    }
-    const stamp = document.querySelector("#data-date");
-    const date = new Date(data.retrieved_at);
-    if (!Number.isNaN(date.valueOf())) {
-      stamp.dateTime = date.toISOString();
-      stamp.textContent = date.toISOString().slice(0, 10);
-    }
-    search.disabled = false;
-    search.addEventListener("input", filterList);
-    filterList();
-  } catch {
-    status.textContent = status.dataset.error;
-  }
+search.addEventListener("input", filterList);
+function showContributors(data) {
+  const fragment = document.createDocumentFragment();
+  for (const entry of data.contributors) fragment.append(contributorCard(entry));
+  list.replaceChildren(fragment);
+  const stamp = document.querySelector("#data-date");
+  const date = new Date(data.retrieved_at);
+  stamp.dateTime = date.toISOString();
+  stamp.textContent = date.toISOString().slice(0, 16).replace("T", " ") + " UTC";
+  search.disabled = false;
+  filterList();
 }
-
-initContributors();
+PaperSpineLive.contributors(showContributors, () => { status.textContent = status.dataset.error; });

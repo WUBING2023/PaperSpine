@@ -3,7 +3,7 @@
   const options = new URLSearchParams(location.search);
   if (options.get('embed') === '1') document.documentElement.dataset.embed = '';
   const { buildAtlas, filterSchools, matches, project, projectGeometry, computeViewBox, zoomCenter } = window.AtlasModel;
-  const snapshot = window.ATLAS;
+  let snapshot = window.ATLAS;
   const map = find('map');
   const card = find('map-card');
   const query = find('query');
@@ -15,10 +15,10 @@
   const selection = find('selection');
   const list = find('list');
   const svgNS = 'http://www.w3.org/2000/svg';
-  const { cities, countries, schools } = buildAtlas(snapshot);
-  const countryMap = new Map(countries.map(country => [country.name, country]));
+  let { cities, countries, schools } = buildAtlas(snapshot);
+  let countryMap = new Map(countries.map(country => [country.name, country]));
   const rowButtons = new Map();
-  const cityMap = new Map(cities.map(item => [item.label, item]));
+  let cityMap = new Map(cities.map(item => [item.label, item]));
   let lang = 'zh-CN';
   let count = new Intl.NumberFormat(lang);
   let cols = new Intl.Collator(lang);
@@ -174,7 +174,7 @@
     terrain.replaceChildren();
     const scope = mapScope();
     for (const feature of window.WORLD_GEO.features) {
-      if (feature.id === 'ATA' || (scope === 'schools' && ['CHN', 'TWN'].includes(feature.id))) continue;
+      if (feature.id === 'ATA') continue;
       svg('path', { d: pathData(feature, scope), fill: '#303235', stroke: '#191b1e', 'stroke-width': .8 }, terrain);
     }
     if (scope === 'global') return;
@@ -378,7 +378,7 @@
     find('directory-title').textContent = translate(isSchools ? '高校筛选' : '地域概览');
     find('legend').textContent = translate(isSchools ? '有高校记录的城市' : '有星标的城市');
     find('source-note').textContent = translate(isSchools
-      ? '仅按快照中可关联的城市标点，不代表校区坐标。未标点的高校可在不限定地区时搜索。中国省级底图：阿里云 DataV。'
+      ? '仅按快照中可关联的城市标点，不代表校区坐标。未标点的高校可在不限定地区时搜索。中国省级底图：Natural Earth。'
       : '数据来自 PaperSpine 的 GitHub 聚合快照。未注明城市的记录只计入国家与地区汇总，不在地图标点。');
     document.querySelectorAll('[data-mode][aria-pressed]').forEach(button =>
       button.setAttribute('aria-pressed', button.dataset.mode === mode));
@@ -394,9 +394,8 @@
     render();
   }
 
-  find('date').dateTime = snapshot.generated;
-  find('date').textContent = snapshot.generated;
-  const schoolCountries = new Set(schools.filter(school => school.location).map(school => school.location.country));
+  let repoStats;
+  let schoolCountries = new Set(schools.filter(school => school.location).map(school => school.location.country));
   function selectLanguage(next) {
     lang = next;
     count = new Intl.NumberFormat(lang);
@@ -411,7 +410,10 @@
     for (const [node, label] of accessibleLabels) node.setAttribute('aria-label', translate(label));
     document.querySelectorAll('[data-lang]').forEach(button =>
       button.setAttribute('aria-pressed', button.dataset.lang === lang));
-    find('total').textContent = count.format(snapshot.totalStars);
+    find('total').textContent = repoStats ? count.format(repoStats.stargazers_count) : '—';
+    find('sample').textContent = count.format(snapshot.totalStars);
+    find('date').dateTime = snapshot.generated;
+    find('date').textContent = snapshot.generated;
     find('regions').textContent = count.format(snapshot.countryCount);
     find('schools').textContent = count.format(snapshot.schoolCount);
     updateOptions(country, '全部国家与地区', [...schoolCountries], value => countryLabel(countryMap.get(value)));
@@ -449,4 +451,21 @@
   updateView();
   const requestedLanguage = options.get('lang');
   selectLanguage(requestedLanguage === 'en' || requestedLanguage === 'zh-CN' ? requestedLanguage : defaultLanguage);
+  window.PaperSpineLive?.repository(row => {
+    repoStats = row;
+    find('total').textContent = count.format(row.stargazers_count);
+    find('total').title = row.retrieved_at;
+  });
+  window.PaperSpineLive?.atlas(row => {
+    if (row.retrieved_at === (snapshot.retrieved_at || snapshot.generated)) return;
+    if (Date.parse(row.retrieved_at) < Date.parse(snapshot.generated)) return;
+    const next = buildAtlas(row);
+    snapshot = row;
+    ({ cities, countries, schools } = next);
+    countryMap = new Map(countries.map(item => [item.name, item]));
+    cityMap = new Map(cities.map(item => [item.label, item]));
+    schoolCountries = new Set(schools.filter(item => item.location).map(item => item.location.country));
+    states.global.selected = states.schools.selected = null;
+    selectLanguage(lang);
+  });
 })();
