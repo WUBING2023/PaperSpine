@@ -7,10 +7,17 @@ from urllib.parse import urljoin, urlsplit
 from playwright.sync_api import expect, sync_playwright
 
 
+def check_hero(page):
+    expect(page.locator(".hero-brand h1")).to_have_text("One Spine,")
+    expect(page.locator(".hero-brand h2")).to_have_text("From Evidence to Paper.")
+    expect(page.locator(".hero-brand em")).to_have_text(["Spine", "Paper"])
+
+
 def check_locales(page, base):
     codes = ("ja", "ko", "es", "fr", "de", "pt", "ru")
     page.goto(base + "v6/", wait_until="domcontentloaded")
     expect(page.locator("html")).to_have_attribute("lang", "en")
+    check_hero(page)
     expect(page.locator(".language-menu a")).to_have_count(9)
     filenames = page.locator("[data-release-download]").evaluate_all("(links) => links.map(link => link.href)")
     case_files = (
@@ -23,6 +30,7 @@ def check_locales(page, base):
     for code in codes:
         page.goto(base + "v6/" + code + "/", wait_until="domcontentloaded")
         expect(page.locator("html")).to_have_attribute("lang", code)
+        check_hero(page)
         expect(page.locator("[data-download-count]").first).to_be_visible()
         assert page.locator("[data-release-download]").evaluate_all("(links) => links.map(link => link.href)") == filenames
         assert page.locator("main section[id]").evaluate_all("(sections) => sections.map(section => section.id)") == section_ids
@@ -134,6 +142,7 @@ def check(browser, base):
     page.locator(".language-menu summary").click()
     page.locator('.language-menu [hreflang="zh-CN"]').click()
     expect(labels.nth(0)).to_have_text("下载 1 次")
+    check_hero(page)
     assert page.locator(".community-preview").get_attribute("src").startswith("../?lang=zh-CN")
     page.set_viewport_size({"width": 390, "height": 844})
     assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")

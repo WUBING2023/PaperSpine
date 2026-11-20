@@ -134,7 +134,7 @@ h1, h2, h3 { margin: 0; }
 .hero-punctuation { font-size: var(--hero-tagline-size); font-weight: 650; letter-spacing: -.04em; }
 .hero-brand em { font-size: 1.38em; font-style: normal; color: var(--hot); }
 .hero-brand h1 em { font-weight: 300; }
-:lang(zh-CN) h1, :lang(zh-CN) h2 { letter-spacing: -.035em; }
+h1:lang(zh-CN), h2:lang(zh-CN) { letter-spacing: -.035em; }
 .hero-copy > p { max-width: 48rem; font-size: clamp(1.03rem, 1.9vw, 1.28rem); color: var(--muted); margin: 0 auto 12px; }
 .quick-start { --quick-scale: 1.2; --quick-row-height: calc(44px * var(--quick-scale)); display: grid; grid-template-columns: minmax(calc(165px * var(--quick-scale)), 1fr) minmax(0, 3fr); align-items: start; gap: calc(14px * var(--quick-scale)) calc(24px * var(--quick-scale)); max-width: calc(900px * var(--quick-scale)); margin: 26px auto 0; text-align: left; }
 .quick-label { margin: 0 0 calc(9px * var(--quick-scale)); color: var(--muted); font: 600 calc(.83rem * var(--quick-scale))/1.3 var(--mono); letter-spacing: .05em; text-transform: uppercase; }

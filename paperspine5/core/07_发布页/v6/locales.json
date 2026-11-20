@@ -116,24 +116,6 @@
     "pt": "CÓDIGO ABERTO",
     "ru": "ОТКРЫТЫЙ КОД"
   },
-  "From Evidence to": {
-    "ja": "研究の根拠から",
-    "ko": "연구 근거에서",
-    "es": "De la evidencia al",
-    "fr": "Des preuves au",
-    "de": "Von der Evidenz zum",
-    "pt": "Da evidência ao",
-    "ru": "От доказательств к"
-  },
-  "Paper": {
-    "ja": "論文へ",
-    "ko": "논문까지",
-    "es": "manuscrito",
-    "fr": "manuscrit",
-    "de": "Manuskript",
-    "pt": "manuscrito",
-    "ru": "рукописи"
-  },
   "Give your AI agent a research question, data, or a draft. PaperSpine brings the analysis, figures, and writing together in an editable manuscript.": {
     "ja": "AI エージェントに研究課題、データ、または草稿を渡してください。PaperSpine が分析、図表、文章を統合し、編集できる論文にまとめます。",
     "ko": "연구 질문, 데이터, 초안을 AI 에이전트에 제공하세요. PaperSpine이 분석, 그림, 글을 편집 가능한 원고로 정리합니다.",

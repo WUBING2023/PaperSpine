@@ -189,7 +189,7 @@ class LocalizedHTML(HTMLParser):
             return f"{space}{name}={quote}{escape(value, quote=True)}{quote}"
 
         self.fragments.append(ATTR.sub(replace, raw))
-        if tag in VERBATIM:
+        if tag in VERBATIM or attributes.get("translate") == "no":
             self.verbatim = tag
 
     handle_startendtag = handle_starttag
