@@ -48,7 +48,9 @@ window.AtlasLocales = {
     "Cities with university records": "大学の記録がある都市",
     "Cities with GitHub stars": "スターがある都市",
     "City unspecified": "都市不明",
-    "results": "件"
+    "results": "件",
+    "Markers show cities identified in the snapshot, not campus locations. Unmapped universities are searchable without location filters. China province boundaries: Natural Earth.": "マーカーはスナップショットで特定した都市を示します。所在地のマーカーがない大学も、地域の絞り込みを外すと検索できます。中国の省境データは Natural Earth によります。",
+    "Source: PaperSpine’s aggregated GitHub snapshot. Records without a known city count toward country and region totals but are not plotted.": "PaperSpine が GitHub データを集計したスナップショットです。都市を特定できない記録は国・地域の合計に含まれます。地図上の表示には都市の情報が必要です。"
   },
   "ko": {
     "PaperSpine · Community Atlas": "PaperSpine · 커뮤니티 지도",
@@ -99,7 +101,9 @@ window.AtlasLocales = {
     "Cities with university records": "대학 기록이 있는 도시",
     "Cities with GitHub stars": "GitHub 스타가 있는 도시",
     "City unspecified": "도시 미상",
-    "results": "개 결과"
+    "results": "개 결과",
+    "Markers show cities identified in the snapshot, not campus locations. Unmapped universities are searchable without location filters. China province boundaries: Natural Earth.": "표시는 스냅샷에서 확인한 도시 위치입니다. 지도에 표시되지 않는 대학도 지역 필터를 해제하면 찾을 수 있습니다. 중국 성 경계는 Natural Earth 자료를 사용합니다.",
+    "Source: PaperSpine’s aggregated GitHub snapshot. Records without a known city count toward country and region totals but are not plotted.": "PaperSpine이 집계한 GitHub 스냅샷입니다. 도시를 알 수 없는 기록은 국가·지역 합계에 포함됩니다. 지도에 표시하려면 도시 정보가 필요합니다."
   },
   "es": {
     "PaperSpine · Community Atlas": "PaperSpine · Atlas de la comunidad",
@@ -150,7 +154,9 @@ window.AtlasLocales = {
     "Cities with university records": "Ciudades con registros universitarios",
     "Cities with GitHub stars": "Ciudades con estrellas en GitHub",
     "City unspecified": "Ciudad sin identificar",
-    "results": "resultados"
+    "results": "resultados",
+    "Markers show cities identified in the snapshot, not campus locations. Unmapped universities are searchable without location filters. China province boundaries: Natural Earth.": "Los marcadores indican la ciudad identificada, sin precisar el campus. Las universidades sin marcador se pueden buscar sin filtro geográfico. Los límites de las provincias chinas son de Natural Earth.",
+    "Source: PaperSpine’s aggregated GitHub snapshot. Records without a known city count toward country and region totals but are not plotted.": "Los datos proceden del resumen de GitHub de PaperSpine. Los registros sin ciudad conocida cuentan en los totales por país o región. Para aparecer en el mapa se necesita una ciudad."
   },
   "fr": {
     "PaperSpine · Community Atlas": "PaperSpine · Atlas de la communauté",
@@ -201,7 +207,9 @@ window.AtlasLocales = {
     "Cities with university records": "Villes avec des données universitaires",
     "Cities with GitHub stars": "Villes avec des étoiles GitHub",
     "City unspecified": "Ville inconnue",
-    "results": "résultats"
+    "results": "résultats",
+    "Markers show cities identified in the snapshot, not campus locations. Unmapped universities are searchable without location filters. China province boundaries: Natural Earth.": "Les repères indiquent la ville identifiée dans l’instantané. Les universités sans repère restent accessibles sans filtre géographique. Les limites provinciales chinoises proviennent de Natural Earth.",
+    "Source: PaperSpine’s aggregated GitHub snapshot. Records without a known city count toward country and region totals but are not plotted.": "Les données proviennent de l’agrégation GitHub de PaperSpine. Les profils dont la ville est inconnue entrent dans les totaux nationaux et régionaux. L’affichage sur la carte requiert une ville."
   },
   "de": {
     "PaperSpine · Community Atlas": "PaperSpine · Community-Atlas",
@@ -252,7 +260,9 @@ window.AtlasLocales = {
     "Cities with university records": "Städte mit Hochschuleinträgen",
     "Cities with GitHub stars": "Städte mit GitHub-Sternen",
     "City unspecified": "Unbekannte Stadt",
-    "results": "Ergebnisse"
+    "results": "Ergebnisse",
+    "Markers show cities identified in the snapshot, not campus locations. Unmapped universities are searchable without location filters. China province boundaries: Natural Earth.": "Markiert sind die im Datenstand ermittelten Städte. Hochschulen ohne Markierung lassen sich ohne Ortsfilter suchen. Die Grenzen chinesischer Provinzen stammen von Natural Earth.",
+    "Source: PaperSpine’s aggregated GitHub snapshot. Records without a known city count toward country and region totals but are not plotted.": "Die Daten stammen aus dem zusammengefassten GitHub-Datenstand von PaperSpine. Profile ohne bekannte Stadt zählen in Länder- und Regionssummen. Eine Markierung auf der Karte setzt eine bekannte Stadt voraus."
   },
   "pt": {
     "PaperSpine · Community Atlas": "PaperSpine · Atlas da comunidade",
@@ -303,7 +313,9 @@ window.AtlasLocales = {
     "Cities with university records": "Cidades com registros universitários",
     "Cities with GitHub stars": "Cidades com estrelas no GitHub",
     "City unspecified": "Cidade não identificada",
-    "results": "resultados"
+    "results": "resultados",
+    "Markers show cities identified in the snapshot, not campus locations. Unmapped universities are searchable without location filters. China province boundaries: Natural Earth.": "Os marcadores indicam a cidade identificada na amostra. Universidades sem marcador podem ser encontradas sem filtros de localização. Os limites entre províncias chinesas vêm do Natural Earth.",
+    "Source: PaperSpine’s aggregated GitHub snapshot. Records without a known city count toward country and region totals but are not plotted.": "Os dados vêm da agregação de perfis do GitHub feita pelo PaperSpine. Registros sem cidade conhecida entram nas somas por país e região. Para exibição no mapa, é necessário identificar a cidade."
   },
   "ru": {
     "PaperSpine · Community Atlas": "PaperSpine · Атлас сообщества",
@@ -354,6 +366,8 @@ window.AtlasLocales = {
     "Cities with university records": "Города с записями о вузах",
     "Cities with GitHub stars": "Города со звёздами GitHub",
     "City unspecified": "Город неизвестен",
-    "results": "результатов"
+    "results": "результатов",
+    "Markers show cities identified in the snapshot, not campus locations. Unmapped universities are searchable without location filters. China province boundaries: Natural Earth.": "Метки обозначают города, определённые по снимку данных. Вузы без отметки можно найти при отключённых фильтрах местоположения. Границы провинций Китая взяты из Natural Earth.",
+    "Source: PaperSpine’s aggregated GitHub snapshot. Records without a known city count toward country and region totals but are not plotted.": "Данные взяты из агрегированного снимка GitHub для PaperSpine. Записи без указанного города входят в итоги по странам и регионам. Для отметки на карте нужен известный город."
   }
 };

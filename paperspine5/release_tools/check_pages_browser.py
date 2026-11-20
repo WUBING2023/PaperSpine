@@ -2,7 +2,7 @@
 
 import argparse
 from datetime import datetime, timezone
-from urllib.parse import urlsplit
+from urllib.parse import urljoin, urlsplit
 
 from playwright.sync_api import expect, sync_playwright
 
@@ -13,26 +13,71 @@ def check_locales(page, base):
     expect(page.locator("html")).to_have_attribute("lang", "en")
     expect(page.locator(".language-menu a")).to_have_count(9)
     filenames = page.locator("[data-release-download]").evaluate_all("(links) => links.map(link => link.href)")
-    page.set_viewport_size({"width": 390, "height": 844})
+    case_files = (
+        "gravitational-waves", "atlantic-ri", "ridgecrest", "smoke",
+    )
+    section_ids = page.locator("main section[id]").evaluate_all("(sections) => sections.map(section => section.id)")
+    study_labels = page.locator("[data-study]").all_inner_texts()
+    page.goto(base + "contributors/", wait_until="domcontentloaded")
+    credits = page.locator(".credit-row").count()
     for code in codes:
         page.goto(base + "v6/" + code + "/", wait_until="domcontentloaded")
         expect(page.locator("html")).to_have_attribute("lang", code)
         expect(page.locator("[data-download-count]").first).to_be_visible()
         assert page.locator("[data-release-download]").evaluate_all("(links) => links.map(link => link.href)") == filenames
-        assert page.locator(".studies-grid article").count() == 4
-        assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), code
+        assert page.locator("main section[id]").evaluate_all("(sections) => sections.map(section => section.id)") == section_ids
+        assert page.locator("[data-study]").all_inner_texts() != study_labels
+        for width in (320, 390, 820, 1024, 1440):
+            page.set_viewport_size({"width": width, "height": 844})
+            assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), (code, width)
+        for slug in case_files:
+            page.locator(f"[data-study={slug}]").click()
+            prompt = page.locator("#research-task")
+            assert prompt.input_value().startswith("$paper-spine ")
+            for step in range(4):
+                page.locator(f"[data-case-step='{step}']").click()
+                expect(page.locator(".case-note")).to_be_visible()
+                assert f"/science/research/{slug}/" in page.locator(".case-original").get_attribute("href")
+            page.locator(".case-original").click()
+            expect(page.locator(".case-file-dialog")).to_be_visible()
+            page.keyboard.press("Escape")
+            expect(page.locator(".case-file-dialog")).to_be_hidden()
+        for clip in page.locator("[data-demo]").all():
+            clip.click()
+            expect(page.locator(".demo-dialog")).to_be_visible()
+            page.locator(".demo-dialog button").click()
+        page.locator(".archive-disclosure summary").click()
+        expect(page.locator("#dry-bean")).to_be_visible()
+        expect(page.locator("#feature-aggregation")).to_be_visible()
         page.goto(f"{base}v6/{code}/install.html", wait_until="domcontentloaded")
         expect(page.locator("html")).to_have_attribute("lang", code)
         expect(page.locator("main")).to_contain_text("edition_manager.py")
+        expect(page.locator(".guide-editions > div")).to_have_count(3)
+        expect(page.locator("#guide-back")).to_have_attribute("href", "./#download")
         page.goto(base + "?lang=" + code, wait_until="domcontentloaded")
         expect(page.locator("html")).to_have_attribute("lang", code)
         expect(page.locator("#sample")).not_to_have_text("—")
         expect(page.locator('a[data-en-href="v6/"]')).to_have_attribute("href", f"v6/{code}/")
+        page.locator("[data-mode='schools']").click()
+        expect(page.locator("#directory-title")).to_be_visible()
         page.goto(f"{base}contributors/{code}.html", wait_until="domcontentloaded")
         expect(page.locator("html")).to_have_attribute("lang", code)
+        expect(page.locator(".credit-row")).to_have_count(credits)
         expect(page.locator(".roster")).to_contain_text("@sample-user")
     page.goto(base + "v6/fr/#research", wait_until="domcontentloaded")
-    page.locator(".language-menu summary").click()
+    page.set_viewport_size({"width": 390, "height": 844})
+    menu = page.locator(".language-menu")
+    trigger = menu.locator("summary")
+    assert "🌐" not in trigger.inner_text()
+    trigger.focus()
+    trigger.press("Enter")
+    expect(menu.locator('[aria-current="page"]')).to_have_text("Français")
+    box = menu.locator(".language-options").bounding_box()
+    assert box["x"] >= 0 and box["x"] + box["width"] <= 390
+    trigger.press("Escape")
+    expect(trigger).to_be_focused()
+    expect(menu.locator(".language-options")).to_be_hidden()
+    trigger.click()
     page.locator('.language-menu [hreflang="en"]').click()
     expect(page).to_have_url(base + "v6/#research")
     expect(page.locator("html")).to_have_attribute("lang", "en")
@@ -77,7 +122,7 @@ def check(browser, base):
         for step in page.locator("[data-case-step]").all():
             step.click()
             href = page.locator(".case-original").get_attribute("href")
-            assert href and ctx.request.get(base + "v6/" + href).ok, href
+            assert href and ctx.request.get(urljoin(page.url, href)).ok, href
     version["n"] = 1
     page.clock.fast_forward(59 * 60_000)
     page.evaluate("window.dispatchEvent(new Event('online'))")
@@ -126,8 +171,8 @@ def check(browser, base):
     version["offline"] = False
     check_locales(page, base)
     assert not errors, errors
-    print("PASS: 4 studies × 4 outputs, EN/ZH, mobile width, hourly polling boundaries, "
-          "genuine zero, contributor search, university filter, rate-limit fallback and download URLs.")
+    print("PASS: nine languages with full research, installation and contribution pages; "
+          "responsive layout, keyboard navigation, hourly polling, fallback and downloads.")
     ctx.close()
 
 

@@ -1,11 +1,15 @@
 const languageParam = new URLSearchParams(location.search).get("lang");
+const siteMessages = JSON.parse(document.getElementById("site-messages")?.textContent ?? "{}");
 
 function showLanguageInMenu(code) {
   for (const menu of document.querySelectorAll(".language-menu")) {
+    const summary = menu.querySelector("summary");
     for (const link of menu.querySelectorAll("[hreflang]")) {
       if (link.hreflang === code) {
-        menu.querySelector("summary span").textContent = link.textContent;
-        menu.querySelector("summary").setAttribute("aria-label", link.dataset.languageLabel);
+        const name = summary.querySelector("span");
+        name.textContent = link.textContent;
+        name.lang = code;
+        summary.setAttribute("aria-label", link.dataset.languageLabel + " · " + link.textContent);
         link.setAttribute("aria-current", "page");
       } else {
         link.removeAttribute("aria-current");
@@ -14,22 +18,25 @@ function showLanguageInMenu(code) {
   }
 }
 
-for (const link of document.querySelectorAll(".language-menu a")) {
-  link.addEventListener("click", () => {
-    if (location.hash) {
+for (const menu of document.querySelectorAll(".language-menu")) {
+  menu.addEventListener("keydown", event => {
+    if (event.key === "Escape" && menu.open) {
+      menu.open = false;
+      menu.querySelector("summary").focus();
+      event.stopPropagation();
+    }
+  });
+  document.addEventListener("pointerdown", event => {
+    if (menu.open && !menu.contains(event.target)) menu.open = false;
+  });
+  menu.addEventListener("focusout", event => {
+    if (event.relatedTarget && !menu.contains(event.relatedTarget)) menu.open = false;
+  });
+  for (const link of menu.querySelectorAll("[hreflang]")) {
+    link.addEventListener("click", () => {
       const destination = new URL(link.href);
       destination.hash = location.hash;
       link.href = destination;
-    }
-  });
-}
-
-const localizedProduct = document.querySelector("[data-localized-product]");
-if (localizedProduct) {
-  const code = document.documentElement.lang;
-  initializeV6Content(localizedProduct, code);
-  PaperSpineLive.repository(row => {
-    localizedProduct.ownerDocument.querySelector("[data-localized-stars]").textContent =
-      new Intl.NumberFormat(code, {notation: "compact"}).format(row.stargazers_count);
-  });
+    });
+  }
 }

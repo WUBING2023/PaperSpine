@@ -46,6 +46,8 @@ jobs:
           python-version: "3.11"
       - name: Verify committed public Skill projections
         run: python paperspine5/release_tools/verify_public_skill_sync.py
+      - name: Verify full localized READMEs
+        run: python -B "paperspine5/core/07_发布页/v6/localization.py" . --check
 
   e2e:
     runs-on: ubuntu-latest

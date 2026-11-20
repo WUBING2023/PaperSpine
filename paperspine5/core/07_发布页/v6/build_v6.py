@@ -120,7 +120,6 @@ def render(metadata: Path, output: Path) -> None:
         target = output / document
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(text, encoding="utf-8", newline="\n")
-    render_v6(output, replacements)
     for file in (
         "languages.css", "language-nav.js", "atlas-locales.js", "v6.css", "science.js", "locale.js", "study-deck.js", "download-stats.js",
         "research-preview.js", "live-data.js", "v6-content.js", "research-background.js",
@@ -129,6 +128,7 @@ def render(metadata: Path, output: Path) -> None:
         shutil.copyfile(SITE / file, output / file)
     for directory in ("fonts", "science", "agent-icons"):
         shutil.copytree(SITE / directory, output / directory, dirs_exist_ok=True)
+    render_v6(output, replacements)
     for file in ("channel.json", "checksums.sha256"):
         shutil.copyfile(metadata / file, output / file)
 

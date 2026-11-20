@@ -1,6 +1,6 @@
 # Website and community data
 
-The V6 site serves the same research files and verified edition manifest in English and Chinese. The four studies link to their deposited manuscript, analysis and figure files. Contributor design credit links to [Lauyanng’s PR #19](https://github.com/WUBING2023/PaperSpine/pull/19). The public site reads public repository data. Manuscripts and annotations from a user’s workbench stay local.
+The V6 site serves the same research files and verified edition manifest in nine languages. The four interactive studies link to the original manuscripts, analysis and figures. Every language has the full installation guide and contributor history. Contributor design credit links to [Lauyanng’s PR #19](https://github.com/WUBING2023/PaperSpine/pull/19). The public site reads public repository data. Manuscripts and annotations from a user’s workbench stay local.
 
 Paths below are relative to the Pages project root, including its `/PaperSpine/` prefix.
 
@@ -13,7 +13,7 @@ Paths below are relative to the Pages project root, including its `/PaperSpine/`
 
 Each feed loads when first opened and refreshes hourly while the page is visible. Returning to the page or reconnecting checks for an overdue refresh. The browser retains the last successful result in memory and respects GitHub rate limits. Snapshots retain their original observation dates. Only aggregate map data and public contributor credit are served. The profile collector budgets up to 400 profile reads per run and rotates older cached entries. During a cold start the site retains the preceding dated map until coverage catches up.
 
-The English and Chinese GitHub READMEs use SVG version and activity indicators regenerated during the hourly Pages build and on release deployments. Their download total covers the three assets of the displayed release. GitHub may cache these images.
+The GitHub READMEs use SVG version and activity indicators regenerated during the hourly Pages build and on release deployments. Their download total covers the three assets of the displayed release. GitHub may cache these images.
 
 China’s province geometry uses Natural Earth 1:50m Admin 1 v5.1.1. The map places university markers at identified cities. To regenerate province shapes, run `node atlas/build-provinces.cjs path/to/ne_50m_admin_1_states_provinces.geojson` in the public checkout. [Dataset](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.1/geojson/ne_50m_admin_1_states_provinces.geojson) · [Public-domain terms](https://www.naturalearthdata.com/about/terms-of-use/)
 
@@ -30,3 +30,7 @@ python -m http.server 8000 --bind 127.0.0.1 --directory build/preview
 ```
 
 Open `/v6/` for the product, `/?lang=en` for the standalone atlas, or `/contributors/` for credits. The GitHub Actions job also publishes the repository fallback when it fetches repository metadata.
+
+## Keep language editions synchronized
+
+The Pages build renders the complete home, installation guide and contributor layouts for every language. Update the matching entries in [locales.json](locales.json) when changing public prose or the four study captions. From the public checkout, regenerate the localized GitHub READMEs with `python -B "paperspine5/core/07_发布页/v6/localization.py" .`. The Pages build checks that the generated READMEs match their source and translation catalog.

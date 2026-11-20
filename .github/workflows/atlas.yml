@@ -42,7 +42,7 @@ jobs:
       - name: Check atlas interactions and browser scripts
         run: |
           node --test atlas/model.test.cjs
-          for script in atlas/{atlas,contributors}.js paperspine5/core/07_发布页/v6/{live-data,preview,v6-content}.js; do node --check "$script"; done
+          for script in atlas/{atlas,contributors}.js paperspine5/core/07_发布页/v6/{live-data,language-nav,motion-demo,preview,v6-content}.js; do node --check "$script"; done
 
       - name: Restore cached stargazer profiles
         uses: actions/cache@v4

@@ -36,8 +36,9 @@ def assemble(output):
         run(V6 / "build_v6.py", "site", metadata, output / "v6")
         shutil.copy2(output / "v6/llms.txt", output / "llms.txt")
         sys.path.insert(0, str(V6))
-        from localization import render_community
+        from localization import render_community, sync_readmes
 
+        sync_readmes(ROOT, check=True)
         render_community(output, "https://wubing2023.github.io/PaperSpine/")
 
 

@@ -1,5 +1,5 @@
-const releaseUrl = document.querySelector('link[rel="canonical"]').href;
-let language = "en";
+const originalLanguage = document.documentElement.lang;
+let language = originalLanguage;
 
 new ResizeObserver(([entry]) => {
   document.documentElement.style.setProperty("--site-header-height", `${entry.contentRect.height}px`);
@@ -7,25 +7,14 @@ new ResizeObserver(([entry]) => {
 
 const copyButton = document.querySelector("#copy-install");
 const copyStatus = document.querySelector("#copy-status");
-const installPrompt = [
-  "Install PaperSpine for this host. Read the official guide first.",
-  releaseUrl + "llms.txt",
-  "",
-  "Choose the edition that fits my task and environment.",
-  "Verify the ZIP with SHA-256. After installing, confirm the version and tell me how to invoke the Skill.",
-].join("\n");
-const chineseInstallPrompt = [
-  "请为当前环境安装 PaperSpine。先阅读官方指南。",
-  releaseUrl + "llms.txt",
-  "",
-  "选择适合我的任务和环境的版本。用 SHA-256 校验 ZIP。安装后，请确认版本并告诉我如何调用该 Skill。",
-].join("\n");
+const copyLabel = copyButton.getAttribute("aria-label");
 let resetCopyLabel;
 
 function renderCopyFeedback() {
   const labels = language === "zh-CN"
     ? { idle: "复制安装提示", copied: "已复制安装提示", failed: "无法访问剪贴板，请打开安装指南。" }
-    : { idle: "Copy install prompt", copied: "Installation prompt copied.", failed: "Clipboard unavailable. Open the installation guide." };
+    : { idle: copyLabel, copied: siteMessages.copied ?? "Installation prompt copied.",
+        failed: siteMessages.clipboardUnavailable ?? "Clipboard unavailable. Open the installation guide." };
   const result = copyButton.dataset.result;
   copyButton.setAttribute("aria-label", labels.idle);
   copyButton.title = labels[result ?? "idle"];
@@ -35,7 +24,7 @@ function renderCopyFeedback() {
 copyButton.addEventListener("click", async () => {
   clearTimeout(resetCopyLabel);
   try {
-    await navigator.clipboard.writeText(language === "zh-CN" ? chineseInstallPrompt : installPrompt);
+    await navigator.clipboard.writeText(document.getElementById("agent-install-prompt").textContent.trim());
     copyButton.dataset.result = "copied";
   } catch {
     copyButton.dataset.result = "failed";
@@ -68,13 +57,15 @@ const updateResearchLanguage = initializeResearchDemo(document.querySelector("#r
 
 const starCount = document.querySelector("#github-stars");
 const githubLink = starCount.closest("a");
-const compactCount = new Intl.NumberFormat("en", { notation: "compact", maximumFractionDigits: 1 });
-const fullCount = new Intl.NumberFormat("en");
+const githubLabel = githubLink.getAttribute("aria-label");
 let repoStars;
 
 function renderGitHubStars() {
-  const label = language === "zh-CN" ? "在 GitHub 查看 PaperSpine" : "PaperSpine on GitHub";
-  const count = repoStars === undefined ? "" : ` · ${fullCount.format(repoStars)} stars`;
+  const label = language === "zh-CN" ? "在 GitHub 查看 PaperSpine" : githubLabel;
+  const pattern = language === "zh-CN" ? "{count} 个星标" : siteMessages.starCount ?? "{count} stars";
+  const fullCount = new Intl.NumberFormat(language);
+  const compactCount = new Intl.NumberFormat(language, { notation: "compact", maximumFractionDigits: 1 });
+  const count = repoStars === undefined ? "" : " · " + pattern.replace("{count}", fullCount.format(repoStars));
   githubLink.setAttribute("aria-label", label + count);
   githubLink.title = label + count;
   starCount.textContent = repoStars === undefined ? "GitHub" : compactCount.format(repoStars);
@@ -90,12 +81,17 @@ contentSlot.addEventListener("pointerover", event => {
   card.style.setProperty("--ripple-y", `${Math.max(0, Math.min(bounds.height, event.clientY - bounds.top))}px`);
 });
 const footerSlot = document.querySelector("#v6-footer");
-const chineseContent = document.querySelector("#v6-chinese").content;
+const chineseContent = document.querySelector("#v6-chinese")?.content;
 const lowerPage = {
-  en: { content: [...contentSlot.childNodes], footer: footerSlot.firstElementChild },
-  "zh-CN": { content: [...chineseContent.querySelector(".v6-content").childNodes], footer: chineseContent.querySelector("footer") },
+  [originalLanguage]: { content: [...contentSlot.childNodes], footer: footerSlot.firstElementChild },
 };
-let visibleLowerPage = "en";
+if (chineseContent) {
+  lowerPage["zh-CN"] = {
+    content: [...chineseContent.querySelector(".v6-content").childNodes],
+    footer: chineseContent.querySelector("footer"),
+  };
+}
+let visibleLowerPage = originalLanguage;
 
 function showLowerPage(locale) {
   const page = lowerPage[locale];
@@ -138,8 +134,8 @@ function setLanguage(nextLanguage) {
   showLowerPage(nextLanguage);
 }
 
-if (languageParam === "zh-CN" || languageParam === "zh") setLanguage("zh-CN");
-else if (languageParam && languageParam !== "en") {
+if (originalLanguage === "en" && (languageParam === "zh-CN" || languageParam === "zh")) setLanguage("zh-CN");
+else if (languageParam && languageParam !== originalLanguage) {
   const alternate = [...document.querySelectorAll(".language-menu [hreflang]")]
     .find(link => link.hreflang === languageParam);
   if (alternate) {

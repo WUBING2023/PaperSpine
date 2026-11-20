@@ -1,3 +1,5 @@
+const researchBase = new URL("science/research/", document.currentScript.src);
+
 function initializeResearchDemo(section) {
   const pauseButton = section.querySelector("#pause-case-demo");
   const prompt = section.querySelector("#research-task");
@@ -28,7 +30,7 @@ function initializeResearchDemo(section) {
   const steps = [...panel.querySelectorAll("[data-case-step]")];
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
-  const assets = "science/research/";
+  const assets = researchBase.href;
   const frames = [
     { key: "paper", image: "first-page.webp" },
     { key: "results", image: "results-page.webp" },
@@ -82,7 +84,7 @@ function initializeResearchDemo(section) {
     const study = currentChoice.dataset.study;
     const task = tasks[study];
     const chinese = document.documentElement.lang === "zh-CN";
-    prompt.value = drafts.get(study) ?? (chinese ? task.zh : task.en);
+    prompt.value = drafts.get(study) ?? siteMessages.prompts?.[study] ?? (chinese ? task.zh : task.en);
     dataSource.textContent = task.source;
     for (const choice of choices) {
       choice.setAttribute("aria-pressed", String(choice === currentChoice));
@@ -94,8 +96,8 @@ function initializeResearchDemo(section) {
     const loading = position === -1;
     pauseButton.hidden = position === lastStep || reduced.matches;
     pauseButton.textContent = playing
-      ? (chinese ? "暂停" : "Pause")
-      : (chinese ? "继续" : "Resume");
+      ? (chinese ? "暂停" : siteMessages.pause ?? "Pause")
+      : (chinese ? "继续" : siteMessages.resume ?? "Resume");
     wave.hidden = !loading;
     result.hidden = loading;
     footer.hidden = loading;
@@ -107,7 +109,7 @@ function initializeResearchDemo(section) {
     const frame = frames[position];
     const study = currentChoice.dataset.study;
     const entry = catalog[study];
-    const localized = entry?.[chinese ? "zh" : "en"];
+    const localized = entry?.[chinese ? "zh" : document.documentElement.lang];
     const details = localized?.[frame.key];
     const paper = !frame.original;
     const page = frame.key === "results" ? entry?.resultPage ?? tasks[study].resultPage : 1;
@@ -116,11 +118,12 @@ function initializeResearchDemo(section) {
     result.dataset.kind = paper ? "paper" : "figure";
     imageLink.href = original.href = assetPath(originalFile);
     original.textContent = paper
-      ? (chinese ? `打开 PDF · 第 ${page} 页` : `Open PDF · p. ${page}`)
-      : (chinese ? "打开 SVG 原图" : "Open SVG");
+      ? (chinese ? `打开 PDF · 第 ${page} 页` : (siteMessages.openPdf ?? "Open PDF · p. {page}").replace("{page}", page))
+      : (chinese ? "打开 SVG 原图" : siteMessages.openSvg ?? "Open SVG");
     imageLink.setAttribute("aria-label", original.textContent);
     kind.textContent = paper && entry?.pages
-      ? (chinese ? `论文原页 · 第 ${page} 页 / 共 ${entry.pages} 页` : `Manuscript · page ${page} of ${entry.pages}`)
+      ? (chinese ? `论文原页 · 第 ${page} 页 / 共 ${entry.pages} 页`
+        : (siteMessages.pageOf ?? "Manuscript · page {page} of {pages}").replace("{page}", page).replace("{pages}", entry.pages))
       : label;
     title.textContent = details?.title || currentChoice.textContent;
     note.textContent = details?.note || "";

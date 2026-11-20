@@ -9,15 +9,16 @@
   <meta property="og:description" content="An open-source research Skill. Review literature, analyze data, make scientific figures, and write an editable paper with your agent.">
   <meta property="og:image" content="https://wubing2023.github.io/PaperSpine/v6/science/press-cover.png">
   <link rel="icon" href="paperspine-dragon.png" type="image/png">
-  <link rel="stylesheet" href="v6.css?v=frontend-refresh">
+  <link rel="stylesheet" href="v6.css?v=full-locales">
   <script src="live-data.js" defer></script>
   <script src="v6-content.js" defer></script>
   <script src="research-background.js" defer></script>
-  <script src="motion-demo.js" defer></script>
+  <script src="motion-demo.js?v=full-locales" defer></script>
   <!-- language-alternates -->
-  <link rel="stylesheet" href="languages.css">
-  <script src="language-nav.js" defer></script>
-  <script src="preview.js" defer></script>
+  <link rel="stylesheet" href="languages.css?v=full-locales">
+  <script src="language-nav.js?v=full-locales" defer></script>
+  <script src="preview.js?v=full-locales" defer></script>
+  <!-- locale-messages -->
 </head>
 <body>
   <canvas class="research-background" aria-hidden="true"></canvas>
@@ -46,9 +47,9 @@
       <div class="shell hero-grid">
         <div class="hero-copy">
           <a class="release mono" href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">@TAG@ <span>·</span> <b data-zh="开源">OPEN SOURCE</b></a>
-          <div class="hero-brand" lang="en">
-            <h1>One <em>Spine</em><span class="hero-punctuation">,</span></h1>
-            <h2>From Evidence to <em>Paper</em><span class="hero-punctuation">.</span></h2>
+          <div class="hero-brand">
+            <h1 lang="en">One <em>Spine</em><span class="hero-punctuation">,</span></h1>
+            <h2><span data-zh="从证据到">From Evidence to</span> <em data-zh="论文">Paper</em><span class="hero-punctuation" data-zh="。">.</span></h2>
           </div>
           <p data-zh="把研究问题、数据或草稿交给你的 AI Agent。PaperSpine 将分析、图表和写作汇集到一份可编辑的论文中。">Give your AI agent a research question, data, or a draft. PaperSpine brings the analysis, figures, and writing together in an editable manuscript.</p>
           <a class="guide" href="#download" data-zh="查看 Agent 安装指南">Read the agent installation guide</a>
@@ -179,7 +180,7 @@ Choose the edition that fits my task and environment.
 Verify the ZIP with SHA-256. After installing, confirm the version and tell me how to invoke the Skill.</blockquote>
           </div>
         </section>
-        <div class="editions-heading" lang="en">
+        <div class="editions-heading">
           <h2 id="editions-title">Paper-Spine Skill</h2>
           <p>Available across many agents</p>
         </div>

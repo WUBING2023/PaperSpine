@@ -118,8 +118,6 @@ nav a { color: var(--muted); }
 .github { display: inline-flex; align-items: center; gap: 8px; padding-block: 8px; font-weight: 650; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .github img { opacity: .48; }
 .header-actions { gap: clamp(10px, 1.5vw, 20px); }
-.language-switch { min-width: 32px; min-height: 36px; padding: 0 3px; border: 0; background: transparent; color: var(--ink); font-size: .9rem; font-weight: 650; }
-.language-switch:hover { color: var(--accent); }
 nav a:hover, .github:hover, .guide:hover, .source-link:hover { color: var(--accent); }
 .button { color: var(--accent); font-weight: 650; text-decoration: underline; text-underline-offset: 4px; }
 .button:hover { color: var(--ink); }
@@ -405,7 +403,7 @@ summary { width: fit-content; cursor: pointer; color: var(--accent); }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; padding-block: 24px 45px; font-size: .9rem; }
 .footer-inner .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-@media (max-width: 740px) {
+@media (max-width: 1050px) {
   .header-inner { flex-wrap: wrap; gap: 0 14px; padding-top: 10px; }
   .header-inner nav { order: 3; width: 100%; padding-block: 10px; gap: 14px; flex-wrap: wrap; }
 }
