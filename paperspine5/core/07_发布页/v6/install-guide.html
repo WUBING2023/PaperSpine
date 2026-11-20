@@ -7,13 +7,16 @@
   <link rel="icon" href="paperspine-dragon.png" type="image/png">
   <link rel="stylesheet" href="v6.css?v=frontend-refresh">
   <script src="research-background.js" defer></script>
+  <!-- language-alternates -->
+  <link rel="stylesheet" href="languages.css">
+  <script src="language-nav.js" defer></script>
 </head>
 <body>
   <canvas class="research-background" aria-hidden="true"></canvas>
   <header class="site-header">
     <div class="shell header-inner">
       <a class="wordmark" href="./"><span class="wordmark-symbol" aria-hidden="true"><img class="wordmark-icon" src="paperspine-dragon.png" width="40" height="40" alt=""></span>PaperSpine<span class="domain">.io</span></a>
-      <a id="guide-back" href="./#download">Back to downloads</a>
+      <div class="header-actions"><a id="guide-back" href="./#download">Back to downloads</a><!-- language-menu --></div>
     </div>
   </header>
   <main class="shell agent-guide-page">
@@ -83,6 +86,7 @@
   <script>
     if (new URLSearchParams(location.search).get("lang") === "zh-CN") {
       document.documentElement.lang = "zh-CN";
+      document.addEventListener("DOMContentLoaded", () => showLanguageInMenu("zh-CN"));
       document.title = "Agent 安装指南 · PaperSpine.io";
       document.querySelector('.agent-guide-page article[lang="en"]').hidden = true;
       document.querySelector('.agent-guide-page article[lang="zh-CN"]').hidden = false;

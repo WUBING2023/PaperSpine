@@ -7,6 +7,37 @@ from urllib.parse import urlsplit
 from playwright.sync_api import expect, sync_playwright
 
 
+def check_locales(page, base):
+    codes = ("ja", "ko", "es", "fr", "de", "pt", "ru")
+    page.goto(base + "v6/", wait_until="domcontentloaded")
+    expect(page.locator("html")).to_have_attribute("lang", "en")
+    expect(page.locator(".language-menu a")).to_have_count(9)
+    filenames = page.locator("[data-release-download]").evaluate_all("(links) => links.map(link => link.href)")
+    page.set_viewport_size({"width": 390, "height": 844})
+    for code in codes:
+        page.goto(base + "v6/" + code + "/", wait_until="domcontentloaded")
+        expect(page.locator("html")).to_have_attribute("lang", code)
+        expect(page.locator("[data-download-count]").first).to_be_visible()
+        assert page.locator("[data-release-download]").evaluate_all("(links) => links.map(link => link.href)") == filenames
+        assert page.locator(".studies-grid article").count() == 4
+        assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), code
+        page.goto(f"{base}v6/{code}/install.html", wait_until="domcontentloaded")
+        expect(page.locator("html")).to_have_attribute("lang", code)
+        expect(page.locator("main")).to_contain_text("edition_manager.py")
+        page.goto(base + "?lang=" + code, wait_until="domcontentloaded")
+        expect(page.locator("html")).to_have_attribute("lang", code)
+        expect(page.locator("#sample")).not_to_have_text("—")
+        expect(page.locator('a[data-en-href="v6/"]')).to_have_attribute("href", f"v6/{code}/")
+        page.goto(f"{base}contributors/{code}.html", wait_until="domcontentloaded")
+        expect(page.locator("html")).to_have_attribute("lang", code)
+        expect(page.locator(".roster")).to_contain_text("@sample-user")
+    page.goto(base + "v6/fr/#research", wait_until="domcontentloaded")
+    page.locator(".language-menu summary").click()
+    page.locator('.language-menu [hreflang="en"]').click()
+    expect(page).to_have_url(base + "v6/#research")
+    expect(page.locator("html")).to_have_attribute("lang", "en")
+
+
 def check(browser, base):
     ctx = browser.new_context(reduced_motion="reduce")
     page = ctx.new_page()
@@ -55,7 +86,8 @@ def check(browser, base):
     page.clock.fast_forward(61_000)
     expect(labels.nth(0)).to_have_text("1 download")
     expect(page.locator(".github")).to_have_attribute("title", "PaperSpine on GitHub · 7,301 stars")
-    page.locator(".language-switch").click()
+    page.locator(".language-menu summary").click()
+    page.locator('.language-menu [hreflang="zh-CN"]').click()
     expect(labels.nth(0)).to_have_text("下载 1 次")
     assert page.locator(".community-preview").get_attribute("src").startswith("../?lang=zh-CN")
     page.set_viewport_size({"width": 390, "height": 844})
@@ -91,6 +123,8 @@ def check(browser, base):
     expect(labels.nth(0)).to_have_text(f"{samples['release']['assets'][0]['download_count']:,} downloads")
     for link in page.locator("[data-release-download]").all():
         assert link.get_attribute("href").startswith("https://github.com/WUBING2023/PaperSpine/releases/download/")
+    version["offline"] = False
+    check_locales(page, base)
     assert not errors, errors
     print("PASS: 4 studies × 4 outputs, EN/ZH, mobile width, hourly polling boundaries, "
           "genuine zero, contributor search, university filter, rate-limit fallback and download URLs.")

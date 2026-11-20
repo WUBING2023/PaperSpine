@@ -1,0 +1,28 @@
+.language-menu { position: relative; color: inherit; flex: none; }
+.language-menu summary { padding: .5rem .7rem; cursor: pointer; white-space: nowrap; border: 1px solid currentColor; border-radius: .55rem; list-style: none; }
+.language-menu summary::-webkit-details-marker { display: none; }
+.language-menu div { position: absolute; z-index: 50; inset: calc(100% + .4rem) 0 auto auto; min-width: 10rem; padding: .35rem; border-radius: .65rem; background: #141b27; box-shadow: 0 8px 25px #0005; }
+.language-menu a { display: block; padding: .42rem .65rem; color: #f2f5fa; border-radius: .35rem; }
+.language-menu a:is(:hover, :focus-visible, [aria-current]) { background: #34425a; color: #fff; }
+.localized-main h1 { font-size: clamp(2.5rem, 6vw, 4.7rem); line-height: 1.08; margin: .2em 0; }
+.localized-main h2 { font-size: clamp(1.6rem, 4vw, 2.8rem); margin-bottom: .6em; }
+.localized-main section { margin-block: 3rem; scroll-margin-top: 6rem; }
+.localized-hero { display: flex; align-items: center; gap: clamp(1rem, 4vw, 4rem); padding-block: clamp(1rem, 5vw, 4rem); }
+.localized-hero > div { max-width: 45rem; }
+.localized-hero img { width: clamp(7rem, 22vw, 16rem); height: auto; }
+.localized-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.localized-grid.studies-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.localized-card { display: grid; align-content: start; gap: .8rem; padding: 1.2rem; min-width: 0; border: 1px solid #6673895c; border-radius: 1rem; background: #66738913; }
+.localized-card h3, .localized-card p { margin: 0; }
+.localized-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: contain; background: #fff; border-radius: .55rem; }
+.localized-card code { overflow-wrap: anywhere; }
+.localized-card .edition-download { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; }
+.localized-card .edition-cli { display: none; }
+.localized :is(.links, .localized-links) { display: flex; gap: .8rem 1.2rem; flex-wrap: wrap; align-items: center; margin-block: 1rem; }
+.localized .community-preview { width: 100%; min-height: 26rem; }
+.localized .header-inner { gap: .7rem; }
+@media (max-width: 740px) {
+  .localized .header-inner nav { display: none; }
+  .localized-grid, .localized-grid.studies-grid { grid-template-columns: 1fr; }
+  .localized-hero { align-items: flex-start; flex-direction: column; }
+}

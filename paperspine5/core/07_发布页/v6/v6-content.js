@@ -18,10 +18,10 @@ function initializeV6Content(root, locale) {
   sizeAtlas();
 
   const dialog = root.querySelector(".demo-dialog");
-  const preview = dialog.querySelector("img");
-  const close = dialog.querySelector("button");
+  const preview = dialog?.querySelector("img");
+  const close = dialog?.querySelector("button");
 
-  if (typeof dialog.showModal === "function") {
+  if (typeof dialog?.showModal === "function") {
     for (const link of root.querySelectorAll("[data-demo]")) {
       link.addEventListener("click", (event) => {
         if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
@@ -31,8 +31,8 @@ function initializeV6Content(root, locale) {
         dialog.showModal();
       });
     }
-    close.addEventListener("click", () => dialog.close());
-    dialog.addEventListener("close", () => preview.removeAttribute("src"));
+    close?.addEventListener("click", () => dialog.close());
+    dialog?.addEventListener("close", () => preview.removeAttribute("src"));
   }
 
   for (const download of root.querySelectorAll("[data-release-download]")) {

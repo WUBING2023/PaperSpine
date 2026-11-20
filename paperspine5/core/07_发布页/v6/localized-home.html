@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="$lang">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="$introduction">
+  <title>PaperSpine · $headline</title>
+  $alternates
+  <link rel="icon" href="../paperspine-dragon.png" type="image/png">
+  <link rel="stylesheet" href="../v6.css?v=languages">
+  <link rel="stylesheet" href="../languages.css">
+  <script src="../live-data.js" defer></script>
+  <script src="../v6-content.js" defer></script>
+  <script src="../language-nav.js" defer></script>
+</head>
+<body class="localized">
+  <header class="site-header"><div class="shell header-inner">
+    <a class="wordmark" href="./"><span class="wordmark-symbol"><img class="wordmark-icon" src="../paperspine-dragon.png" width="40" height="40" alt=""></span>PaperSpine<span class="domain">.io</span></a>
+    <nav><a href="#download">$install</a><a href="#research">$research</a><a href="#community">$community</a></nav>
+    <div class="header-actions"><a class="github" href="$GITHUB"><span>GitHub</span> <span data-localized-stars aria-label="$stars"></span></a>$menu</div>
+  </div></header>
+  <main class="shell localized-main" data-localized-product>
+    <section class="localized-hero">
+      <img src="../paperspine-dragon.png" alt="" width="220">
+      <div><a class="release mono" href="$GITHUB/releases/tag/$TAG">$TAG</a><h1>$headline</h1><p>$introduction</p>
+        <div class="links"><a class="button" href="#download">$install</a><a href="install.html">$guide ↗</a></div></div>
+    </section>
+    <section id="download">
+      <h2>$install</h2><div class="localized-grid">$cards</div>
+      <div class="links localized-links">
+        <a href="install.html">$guide</a><a href="../channel.json">$manifest</a><a href="../checksums.sha256">SHA-256</a>
+        <a href="https://api.github.com/repos/WUBING2023/PaperSpine/releases/tags/$TAG" data-release-stats-source="../download-stats.json">GitHub Release ↗</a>
+        <span data-download-stamp hidden>$as_of <time></time> UTC</span>
+      </div>
+    </section>
+    <section id="research">
+      <h2>$research</h2><div class="localized-grid studies-grid">$cases</div>
+      <p class="localized-links"><a href="../?lang=en#examples" hreflang="en">$demos · <span lang="en">English</span> ↗</a></p>
+    </section>
+    <section id="community">
+      <h2>$community</h2><div class="links localized-links"><a href="../../?lang=$lang">$atlas ↗</a><a href="../../contributors/$lang.html">$contributors ↗</a></div>
+      <iframe class="community-preview" src="../../?lang=$lang&amp;embed=1" title="$atlas" loading="lazy"></iframe>
+    </section>
+  </main>
+  <footer class="shell localized-links"><a href="$GITHUB/blob/main/README.$lang.md">GitHub README · $name</a></footer>
+</body>
+</html>

@@ -35,6 +35,10 @@ def assemble(output):
     if (metadata / "channel.json").exists():
         run(V6 / "build_v6.py", "site", metadata, output / "v6")
         shutil.copy2(output / "v6/llms.txt", output / "llms.txt")
+        sys.path.insert(0, str(V6))
+        from localization import render_community
+
+        render_community(output, "https://wubing2023.github.io/PaperSpine/")
 
 
 if __name__ == "__main__":

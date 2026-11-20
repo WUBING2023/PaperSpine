@@ -98,6 +98,8 @@ def build(output: Path, seed: Path | None) -> None:
 
 
 def render(metadata: Path, output: Path) -> None:
+    from localization import render_v6
+
     editions = checked_index(metadata)
     replacements = {
         "VERSION": VERSION,
@@ -118,8 +120,9 @@ def render(metadata: Path, output: Path) -> None:
         target = output / document
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(text, encoding="utf-8", newline="\n")
+    render_v6(output, replacements)
     for file in (
-        "v6.css", "science.js", "locale.js", "study-deck.js", "download-stats.js",
+        "languages.css", "language-nav.js", "atlas-locales.js", "v6.css", "science.js", "locale.js", "study-deck.js", "download-stats.js",
         "research-preview.js", "live-data.js", "v6-content.js", "research-background.js",
         "preview.js", "motion-demo.js", "paperspine-dragon.png",
     ):

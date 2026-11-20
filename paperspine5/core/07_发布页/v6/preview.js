@@ -80,7 +80,6 @@ function renderGitHubStars() {
   starCount.textContent = repoStars === undefined ? "GitHub" : compactCount.format(repoStars);
 }
 
-const languageSwitch = document.querySelector(".language-switch");
 const contentSlot = document.querySelector("#v6-content");
 contentSlot.addEventListener("pointerover", event => {
   if (event.pointerType === "touch") return;
@@ -131,32 +130,24 @@ function setLanguage(nextLanguage) {
   for (const [element, dataAttribute, target, english] of translatedAttributes) {
     element.setAttribute(target, chinese ? element.getAttribute(dataAttribute) : english);
   }
-  languageSwitch.textContent = chinese ? "中" : "EN";
-  languageSwitch.title = chinese ? "切换至英文" : "Switch to Chinese";
-  languageSwitch.setAttribute("aria-label", languageSwitch.title);
+  showLanguageInMenu(nextLanguage);
+  document.querySelector("#site-guide").href = chinese ? "install-guide.html?lang=zh-CN" : "install-guide.html";
   renderCopyFeedback();
   renderGitHubStars();
   updateResearchLanguage();
   showLowerPage(nextLanguage);
 }
 
-const requestedLanguage = new URLSearchParams(location.search).get("lang");
-let savedLanguage;
-try { savedLanguage = localStorage.getItem("paperspine-language"); } catch {}
-if ((requestedLanguage ?? savedLanguage) === "zh-CN") setLanguage("zh-CN");
-
-languageSwitch.addEventListener("click", () => {
-  setLanguage(language === "en" ? "zh-CN" : "en");
-  try {
-    localStorage.setItem("paperspine-language", language);
-    const url = new URL(location.href);
-    url.searchParams.set("lang", language);
-    history.replaceState(null, "", url);
-  } catch {
-    // The selected language remains active for this visit.
+if (languageParam === "zh-CN" || languageParam === "zh") setLanguage("zh-CN");
+else if (languageParam && languageParam !== "en") {
+  const alternate = [...document.querySelectorAll(".language-menu [hreflang]")]
+    .find(link => link.hreflang === languageParam);
+  if (alternate) {
+    const destination = new URL(alternate.href);
+    destination.hash = location.hash;
+    location.replace(destination);
   }
-});
-languageSwitch.hidden = false;
+}
 showLowerPage(language);
 
 PaperSpineLive.repository(row => {

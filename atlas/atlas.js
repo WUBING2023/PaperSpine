@@ -22,12 +22,18 @@
   let lang = 'zh-CN';
   let count = new Intl.NumberFormat(lang);
   let cols = new Intl.Collator(lang);
-  const translate = label => lang === 'en' ? window.AtlasEnglish[label] || label : label;
-  const countryLabel = item => lang === 'en' ? item.name : item.label;
-  const cityLabel = item => lang === 'en' ? item.name : item.label;
-  const provinceLabel = value => lang === 'en' ? window.AtlasProvinceEnglish[value] || value : value;
-  const stars = amount => count.format(amount) + (lang === 'en' ? (amount === 1 ? ' star' : ' stars') : ' 个星标');
-  const records = amount => count.format(amount) + (lang === 'en' ? (amount === 1 ? ' university record' : ' university records') : ' 条高校记录');
+  const translate = label => {
+    if (lang === 'zh-CN') return label;
+    const english = window.AtlasEnglish[label] || label;
+    return window.AtlasLocales?.[lang]?.[english] ?? english;
+  };
+  const countryLabel = item => lang !== 'zh-CN' ? item.name : item.label;
+  const cityLabel = item => lang !== 'zh-CN' ? item.name : item.label;
+  const provinceLabel = value => lang !== 'zh-CN' ? window.AtlasProvinceEnglish[value] || value : value;
+  const stars = amount => count.format(amount) + (lang === 'en' ? (amount === 1 ? ' star' : ' stars')
+    : lang === 'zh-CN' ? ' 个星标' : ' · ' + translate('Stars'));
+  const records = amount => count.format(amount) + (lang === 'en' ? (amount === 1 ? ' university record' : ' university records')
+    : lang === 'zh-CN' ? ' 条高校记录' : ' · ' + translate('University records'));
   const staticLabels = [...document.querySelectorAll('[data-text]')].map(node => [node, node.textContent]);
   const accessibleLabels = [...document.querySelectorAll('[aria-label]')].map(node => [node, node.getAttribute('aria-label')]);
   const defaultLanguage = document.documentElement.lang;
@@ -182,18 +188,18 @@
       svg('path', { d: path, fill: '#383b3e', stroke: '#16181a', 'stroke-width': 1, 'fill-rule': 'evenodd' }, terrain);
       if (!/香港|澳门|北京|天津|上海/.test(name)) {
         const label = svg('text', { x, y, fill: '#858b91', 'font-size': 10, 'text-anchor': 'middle' }, terrain);
-        label.textContent = lang === 'en' ? provinceLabel(name) : name.replace(/(壮族自治区|回族自治区|维吾尔自治区|自治区|省|市)$/, '');
+        label.textContent = lang !== 'zh-CN' ? provinceLabel(name) : name.replace(/(壮族自治区|回族自治区|维吾尔自治区|自治区|省|市)$/, '');
       }
     }
   }
 
   const schoolRow = school => ({
     key: 'school-' + school.id,
-    name: lang === 'en' ? school.en : school.zh, count: school.count,
+    name: lang !== 'zh-CN' ? school.en : school.zh, count: school.count,
     sub: [school.location
-      ? (lang === 'en' ? school.location.country : school.location.countryLabel) + ' / ' + cityLabel(school.location)
-      : lang === 'en' && school.city.includes('未注明') ? 'City unspecified' : school.city,
-      lang !== 'en' && school.zh !== school.en ? school.en : ''].filter(Boolean).join(' · '),
+      ? (lang !== 'zh-CN' ? school.location.country : school.location.countryLabel) + ' / ' + cityLabel(school.location)
+      : lang !== 'zh-CN' && school.city.includes('未注明') ? translate('City unspecified') : school.city,
+      lang === 'zh-CN' && school.zh !== school.en ? school.en : ''].filter(Boolean).join(' · '),
     location: school.location, school,
   });
   const cityRow = item => ({
@@ -202,7 +208,7 @@
   });
   const countryRow = item => ({
     key: 'country-' + item.name, name: countryLabel(item), count: item.count,
-    sub: lang === 'en' ? '' : item.name, country: item.name,
+    sub: lang !== 'zh-CN' ? '' : item.name, country: item.name,
   });
   const clusterRow = (location, total, size) => ({
     key: 'campus-' + location.label, name: cityLabel(location), count: total, location, sub: records(size), size,
@@ -306,7 +312,8 @@
         current.school && !current.location ? translate('未在此视图标点') : ''].filter(Boolean).join(' · '), selection);
     }
     find('results').textContent = isSchools ? records(rows.length) : count.format(rows.length) +
-      (lang === 'en' ? (rows.length === 1 ? ' result' : ' results') : ' 项地域结果');
+      (lang === 'en' ? (rows.length === 1 ? ' result' : ' results')
+        : lang === 'zh-CN' ? ' 项地域结果' : ' ' + translate('results'));
     rowButtons.clear();
     list.replaceChildren();
     list.scrollTop = 0;
@@ -404,12 +411,13 @@
     document.title = translate(title);
     description.content = translate(originalDescription);
     for (const [link, zhHref] of localizedLinks) {
-      link.setAttribute('href', lang === 'en' ? link.dataset.enHref : zhHref);
+      const href = lang === 'zh-CN' ? zhHref : lang === 'en' ? link.dataset.enHref
+        : link.dataset.enHref === 'v6/' ? 'v6/' + lang + '/' : 'contributors/' + lang + '.html';
+      link.setAttribute('href', href);
     }
     for (const [node, label] of staticLabels) node.textContent = translate(label);
     for (const [node, label] of accessibleLabels) node.setAttribute('aria-label', translate(label));
-    document.querySelectorAll('[data-lang]').forEach(button =>
-      button.setAttribute('aria-pressed', button.dataset.lang === lang));
+    showLanguageInMenu(lang);
     find('total').textContent = repoStats ? count.format(repoStats.stargazers_count) : '—';
     find('sample').textContent = count.format(snapshot.totalStars);
     find('date').dateTime = snapshot.generated;
@@ -425,9 +433,6 @@
     render();
     list.scrollTop = scrollTop;
   }
-  document.querySelectorAll('[data-lang]').forEach(button => button.onclick = () => {
-    selectLanguage(button.dataset.lang);
-  });
   document.querySelectorAll('button[data-mode]').forEach(button => button.onclick = () => selectMode(button.dataset.mode));
   query.oninput = () => { states[mode].query = query.value; activate(null); };
   country.onchange = () => {
@@ -450,7 +455,8 @@
   }).observe(card);
   updateView();
   const requestedLanguage = options.get('lang');
-  selectLanguage(requestedLanguage === 'en' || requestedLanguage === 'zh-CN' ? requestedLanguage : defaultLanguage);
+  selectLanguage(requestedLanguage === 'en' || requestedLanguage === 'zh-CN' || Object.hasOwn(window.AtlasLocales || {}, requestedLanguage)
+    ? requestedLanguage : defaultLanguage);
   window.PaperSpineLive?.repository(row => {
     repoStats = row;
     find('total').textContent = count.format(row.stargazers_count);

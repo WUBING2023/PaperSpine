@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="探索 PaperSpine 社区星标的全球地域与高校分布。">
   <title>PaperSpine · 社区星图</title>
-  <link rel="canonical" href="https://wubing2023.github.io/PaperSpine/zh.html">
-  <link rel="alternate" hreflang="en" href="https://wubing2023.github.io/PaperSpine/">
-  <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/zh.html">
   <link rel="stylesheet" href="atlas-view.css">
   <script defer src="data.js"></script>
   <script defer src="worldgeo.js"></script>
@@ -15,6 +12,10 @@
   <script defer src="model.js"></script>
   <script defer src="language.js"></script>
   <script defer src="v6/live-data.js"></script>
+  <!-- language-alternates -->
+  <link rel="stylesheet" href="v6/languages.css">
+  <script src="v6/language-nav.js" defer></script>
+  <script defer src="v6/atlas-locales.js"></script>
   <script defer src="atlas.js"></script>
 </head>
 <body>
@@ -24,10 +25,7 @@
         <a data-text data-en-href="v6/" href="v6/zh/">V6 官网</a>
         <a data-text data-en-href="contributors/" href="contributors/zh.html">贡献者</a>
         <a href="https://github.com/WUBING2023/PaperSpine">GitHub ↗</a>
-        <div class="language-switch" role="group" aria-label="语言 / Language">
-          <button type="button" data-lang="zh-CN" lang="zh-CN" aria-pressed="true">中文</button>
-          <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
-        </div>
+        <!-- language-menu -->
       </div>
     </div>
   </header>
