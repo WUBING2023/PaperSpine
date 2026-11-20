@@ -112,7 +112,7 @@ def render(metadata: Path, output: Path) -> None:
             f"{item['bytes'] / 1024:.0f} KiB" if item["bytes"] < 1024**2 else f"{item['bytes'] / 1024**2:.2f} MiB"
         )
     output.mkdir(parents=True, exist_ok=True)
-    for document in ("index.html", "zh/index.html", "en/index.html", "llms.txt", "install-agent.md"):
+    for document in ("index.html", "zh/index.html", "en/index.html", "llms.txt", "install-agent.md", "install-guide.html"):
         text = (SITE / document).read_text(encoding="utf-8")
         text = re.sub(r"@([A-Z_]+)@", lambda match: replacements[match[1]], text)
         target = output / document
@@ -120,10 +120,11 @@ def render(metadata: Path, output: Path) -> None:
         target.write_text(text, encoding="utf-8", newline="\n")
     for file in (
         "v6.css", "science.js", "locale.js", "study-deck.js", "download-stats.js",
-        "research-preview.js",
+        "research-preview.js", "v6-content.js", "research-background.js",
+        "preview.js", "motion-demo.js", "paperspine-dragon.png",
     ):
         shutil.copyfile(SITE / file, output / file)
-    for directory in ("fonts", "science"):
+    for directory in ("fonts", "science", "agent-icons"):
         shutil.copytree(SITE / directory, output / directory, dirs_exist_ok=True)
     for file in ("channel.json", "checksums.sha256"):
         shutil.copyfile(metadata / file, output / file)

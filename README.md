@@ -1,26 +1,71 @@
-<div align="center">
-
-**English** · [中文](README.zh-CN.md)
-
-</div>
+<h1 align="center">
+  <img src="paperspine5/core/07_发布页/v6/readme/paperspine-wordmark.png" width="600" alt="PaperSpine wordmark with Spine, the origami dragon">
+</h1>
 
 <p align="center">
-  <a href="https://wubing2023.github.io/PaperSpine/v6/"><img src="paperspine5/core/07_发布页/v6/readme/v6-editorial-cover.webp" width="100%" alt="PaperSpine, an open-source AI for Science Skill. The LIGO manuscript and six-panel figure appear beside Spine, the origami dragon."></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip"><picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/readme-ticker-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/readme-ticker.webp" width="600" alt="Download the full PaperSpine Skill. Release v6.0.0-beta.2, 6,345 GitHub stars, and 926 downloads across three bundles in November (November 18, 2026 snapshot). Download command: gh release download v6.0.0-beta.2 -R WUBING2023/PaperSpine -p &quot;paperspine-skill-*.zip&quot;">
+  </picture></a>
+</p>
+
+<p align="center"><strong>Start with a research question, data, or a draft. Get an editable paper with evidence you can check.</strong></p>
+
+<p align="center">
+  <a href="#install-with-ai"><strong>Quick start</strong></a> · <a href="#quick-demo">Demo</a> · <a href="#research-cases">Research cases</a><br>
+  <small><a href="https://wubing2023.github.io/PaperSpine/v6/">Website</a> · <a href="INSTALL-V6.en.md">Installation guide</a> · <a href="#ways-to-work">Compare editions</a> · <a href="https://wubing2023.github.io/PaperSpine/">Community atlas</a></small>
 </p>
 
 <p align="center">
-  <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2"><img alt="V6 beta release" height="20" src="https://img.shields.io/github/v/release/WUBING2023/PaperSpine?include_prereleases&amp;filter=v6.0.0-beta.2&amp;display_name=tag&amp;style=flat&amp;logo=github&amp;color=346457"></a>&nbsp;<a href="LICENSE"><img alt="MIT license" height="20" src="https://img.shields.io/github/license/WUBING2023/PaperSpine?style=flat&amp;color=455b55"></a>
-  <a href="https://github.com/WUBING2023/PaperSpine/actions/workflows/validate.yml"><img alt="GitHub Actions · Validate skill" height="20" src="https://github.com/WUBING2023/PaperSpine/actions/workflows/validate.yml/badge.svg?branch=main"></a>&nbsp;<a href="https://github.com/WUBING2023/PaperSpine/stargazers"><img alt="GitHub stars" height="20" src="https://img.shields.io/github/stars/WUBING2023/PaperSpine?style=flat&amp;color=455b55"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2"><img src="https://img.shields.io/static/v1?style=flat&amp;label=Release&amp;color=ad512a&amp;message=v6.0.0-beta.2" height="22" alt="Release"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/stargazers"><img src="https://img.shields.io/github/stars/WUBING2023/PaperSpine?style=flat&amp;label=GitHub+stars&amp;color=b36529" height="22" alt="GitHub stars"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/WUBING2023/PaperSpine?style=flat&amp;label=License&amp;color=47566c" height="22" alt="License"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/actions/workflows/validate.yml"><img src="https://github.com/WUBING2023/PaperSpine/actions/workflows/validate.yml/badge.svg?branch=main" height="22" alt="Skill validation"></a>
+  <a href="https://wubing2023.github.io/PaperSpine/contributors/"><img src="https://img.shields.io/github/contributors/WUBING2023/PaperSpine?style=flat&amp;label=Contributors&amp;color=336384" height="22" alt="Contributors"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/WUBING2023/PaperSpine?style=flat&amp;label=Closed+issues&amp;color=5c6785" height="22" alt="Closed issues"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/commits/main/"><img src="https://img.shields.io/github/commit-activity/m/WUBING2023/PaperSpine?style=flat&amp;label=Commit+activity&amp;color=437c60" height="22" alt="Commit activity"></a>
 </p>
 
 <p align="center">
-  Call <code>$paper-spine</code> in chat with a research question, data, or a draft.<br>
-  Deliver an editable paper with the evidence, analysis, and figures needed to review it.
+  <sub>V6</sub>
+  <a href="README.md"><img src="https://img.shields.io/static/v1?label=&amp;message=English&amp;color=4b5563&amp;style=flat" height="22" alt="English"></a>
+  <a href="README.zh-CN.md"><img src="https://img.shields.io/static/v1?label=&amp;message=%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87&amp;color=e8e9ec&amp;style=flat" height="22" alt="简体中文"></a>
+  <a href="README.ja.md"><img src="https://img.shields.io/static/v1?label=&amp;message=%E6%97%A5%E6%9C%AC%E8%AA%9E&amp;color=e8e9ec&amp;style=flat" height="22" alt="日本語"></a>
+  <a href="README.ko.md"><img src="https://img.shields.io/static/v1?label=&amp;message=%ED%95%9C%EA%B5%AD%EC%96%B4&amp;color=e8e9ec&amp;style=flat" height="22" alt="한국어"></a>
+  <a href="README.es.md"><img src="https://img.shields.io/static/v1?label=&amp;message=Espa%C3%B1ol&amp;color=e8e9ec&amp;style=flat" height="22" alt="Español"></a>
+  <a href="README.fr.md"><img src="https://img.shields.io/static/v1?label=&amp;message=Fran%C3%A7ais&amp;color=e8e9ec&amp;style=flat" height="22" alt="Français"></a>
+  <a href="README.de.md"><img src="https://img.shields.io/static/v1?label=&amp;message=Deutsch&amp;color=e8e9ec&amp;style=flat" height="22" alt="Deutsch"></a>
+  <a href="README.pt.md"><img src="https://img.shields.io/static/v1?label=&amp;message=Portugu%C3%AAs&amp;color=e8e9ec&amp;style=flat" height="22" alt="Português"></a>
+  <a href="README.ru.md"><img src="https://img.shields.io/static/v1?label=&amp;message=%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9&amp;color=e8e9ec&amp;style=flat" height="22" alt="Русский"></a>
 </p>
 
+<a id="quick-demo"></a>
+
+## Write a paper like a researcher
+
 <p align="center">
-  <a href="#install-with-ai"><strong>Install with your AI</strong></a> · <a href="#start-with-skill">Install the Skill</a> · <a href="#research-cases">Explore the research</a>
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/paperspine_codex_demo_v3_15s-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/paperspine_codex_demo_v3_15s.webp" width="880" alt="15-second PaperSpine demo in Codex showing Followwriting, figure review, manuscript preview, and revision.">
+  </picture>
 </p>
+
+<p align="center"><small>Followwriting · Figure review · Manuscript preview · Revision</small></p>
+
+<a id="workflow"></a>
+
+## How PaperSpine works
+
+Use reference papers as writing models and support the conclusions with evidence from your own study.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/paperspine-workflow-8s-zh-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/paperspine-workflow-8s-zh.webp" width="880" alt="PaperSpine workflow: gather evidence, write with guidance from reference papers, create editable figures, and review and deliver. The editable manuscript comes with figure sources, code, and data provenance.">
+  </picture>
+</p>
+
+<p align="center"><small>Gather evidence → Write from references → Create editable figures → Review and deliver</small></p>
 
 <a id="install-with-ai"></a>
 
@@ -103,7 +148,7 @@ The LIGO study shows what this looks like in practice. Follow the reported arriv
 
 In a standalone Skill study, PaperSpine compared 42 seasons of NOAA best-track data. Across 6,017 comparable 24-hour windows, the 30-knot difference was +0.81 percentage points (95% season-bootstrap interval −1.69 to +3.43). The 25-knot point estimate changed sign. The six panels trace 484 recorded 24-hour paths, break down the gains into disjoint bands, and show the contrast and uncertainty across nine thresholds.
 
-<a href="https://wubing2023.github.io/PaperSpine/v6/#showcase"><img src="paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.webp" width="790" alt="Six-panel figure showing 484 Atlantic cyclone tracks, three gain bands, a nine-threshold profile, and differences by starting context and season."></a>
+<a href="https://wubing2023.github.io/PaperSpine/v6/#showcase"><img src="paperspine5/core/07_发布页/v6/readme/rounded/atlantic-ri-figure.webp" width="790" alt="Six-panel figure showing 484 Atlantic cyclone tracks, three gain bands, a nine-threshold profile, and differences by starting context and season."></a>
 
 [Read paper](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/paper.pdf) · [Main figure SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.svg) · [Sensitivity SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/checks.svg) · [Editable paper and analysis code](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/source.zip)
 
@@ -121,7 +166,7 @@ GPT‑6.1 Sol used all three PaperSpine editions for each study. The [nine docum
 
 Hanford lagged Livingston by 7.36 and 7.75 ms in two public LIGO events. Both lag signs held across nine preprocessing choices.
 
-<a href="paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.svg"><img src="paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.webp" width="790" alt="Six panels showing measured time–frequency structure, both detectors’ aligned strain, and off-source lag comparisons."></a>
+<a href="paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.svg"><img src="paperspine5/core/07_发布页/v6/readme/rounded/gravitational-waves-figure.webp" width="790" alt="Six panels showing measured time–frequency structure, both detectors’ aligned strain, and off-source lag comparisons."></a>
 
 [Read paper](https://wubing2023.github.io/PaperSpine/v6/science/research/gravitational-waves/paper.pdf) · [High-resolution vector](paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.svg) · [Paper source and code](https://wubing2023.github.io/PaperSpine/v6/science/research/gravitational-waves/source.zip) · [Data](https://doi.org/10.7935/82H3-HH23)
 
@@ -129,15 +174,15 @@ Hanford lagged Livingston by 7.36 and 7.75 ms in two public LIGO events. Both la
 
 At reported M ≥ 1.5 and 1–72 hours after the Mw 7.1 event, fitted decay exponents were 0.55 in ComCat and 0.48 in the relocated Shelly catalog.
 
-<a href="paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.svg"><img src="paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.webp" width="790" alt="Matched epicenter density maps, a fitted rate comparison with a held-out interval, and sensitivity to magnitude and start time."></a>
+<a href="paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.svg"><img src="paperspine5/core/07_发布页/v6/readme/rounded/ridgecrest-figure.webp" width="790" alt="Matched epicenter density maps, a fitted rate comparison with a held-out interval, and sensitivity to magnitude and start time."></a>
 
 [Read paper](https://wubing2023.github.io/PaperSpine/v6/science/research/ridgecrest/paper.pdf) · [High-resolution vector](paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.svg) · [Paper source and code](https://wubing2023.github.io/PaperSpine/v6/science/research/ridgecrest/source.zip) · [Data](https://doi.org/10.5066/P9JN6H0N)
 
 ### June smoke, two different footprints
 
-The Atlantic–Great Lakes PM₂.₅ departure reversed from +74.1 µg/m³ on June 6–8 to −69.1 µg/m³ on June 27–29.
+Relative to each station’s June 20–22 median, the Atlantic–Great Lakes difference in PM₂.₅ departures reversed from +74.1 µg/m³ on June 6–8 to −69.1 µg/m³ on June 27–29.
 
-<a href="paperspine5/core/07_发布页/v6/science/research/smoke/figure.svg"><img src="paperspine5/core/07_发布页/v6/science/research/smoke/figure.webp" width="790" alt="A map of EPA monitors, paired corridor contrasts and a June calendar of PM₂.₅ departures above and below each site’s reference."></a>
+<a href="paperspine5/core/07_发布页/v6/science/research/smoke/figure.svg"><img src="paperspine5/core/07_发布页/v6/readme/rounded/smoke-figure.webp" width="790" alt="A map of EPA monitors, paired corridor contrasts and a June calendar of PM₂.₅ departures above and below each site’s reference."></a>
 
 [Read paper](https://wubing2023.github.io/PaperSpine/v6/science/research/smoke/paper.pdf) · [High-resolution vector](paperspine5/core/07_发布页/v6/science/research/smoke/figure.svg) · [Paper source and code](https://wubing2023.github.io/PaperSpine/v6/science/research/smoke/source.zip) · [Data](https://aqs.epa.gov/aqsweb/airdata/download_files.html)
 
@@ -150,21 +195,21 @@ The Atlantic–Great Lakes PM₂.₅ departure reversed from +74.1 µg/m³ on Ju
 
 <table><tr>
   <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/followwriting-hd.gif"><picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/followwriting-hd-still.webp">
-    <img src="paperspine5/core/07_发布页/v6/science/followwriting-hd.gif" width="385" alt="Followwriting">
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/followwriting-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/followwriting-hd.webp" width="385" alt="Followwriting">
   </picture></a><br><strong>Followwriting</strong></td>
   <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/figures-hd.gif"><picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/figures-hd-still.webp">
-    <img src="paperspine5/core/07_发布页/v6/science/figures-hd.gif" width="385" alt="Figure review">
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/figures-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/figures-hd.webp" width="385" alt="Figure review">
   </picture></a><br><strong>Figure review</strong></td>
 </tr><tr>
   <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/workbench-hd.gif"><picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/workbench-hd-still.webp">
-    <img src="paperspine5/core/07_发布页/v6/science/workbench-hd.gif" width="385" alt="Manuscript preview">
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/workbench-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/workbench-hd.webp" width="385" alt="Manuscript preview">
   </picture></a><br><strong>Manuscript preview</strong></td>
   <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/revision-hd.gif"><picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/revision-hd-still.webp">
-    <img src="paperspine5/core/07_发布页/v6/science/revision-hd.gif" width="385" alt="Review and revise">
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/revision-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/revision-hd.webp" width="385" alt="Review and revise">
   </picture></a><br><strong>Review and revise</strong></td>
 </tr></table>
 
@@ -172,7 +217,7 @@ Followwriting illustrates how to use a reference’s structure while writing fro
 
 ## Development and community
 
-<a href="https://wubing2023.github.io/PaperSpine/"><img src="https://wubing2023.github.io/PaperSpine/atlas-preview.svg" width="790" alt="PaperSpine’s GitHub stargazer atlas, aggregated from publicly shared city locations."></a>
+<a href="https://wubing2023.github.io/PaperSpine/"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="PaperSpine’s GitHub stargazer atlas, aggregated from publicly shared city locations."></a>
 
 [See who contributed to each V6 update](https://wubing2023.github.io/PaperSpine/contributors/#v6-contributions) · [Explore the stargazer atlas](https://wubing2023.github.io/PaperSpine/)
 
@@ -186,7 +231,7 @@ Followwriting illustrates how to use a reference’s structure while writing fro
 - Legacy host projections · [Codex](dist/codex/skills/paper-spine/) · [Claude](dist/claude/skills/paper-spine/) · [OpenClaw](dist/openclaw/skills/paper-spine/) · [Claude command](dist/claude/commands/paperspine.md)
 - V5 installers · [install.ps1](install.ps1) · [install.sh](install.sh)
 
-[V5 archive](https://wubing2023.github.io/PaperSpine/v5/en/?legacy=1) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README.pt.md)
+[V5 archive](https://wubing2023.github.io/PaperSpine/v5/en/?legacy=1)
 
 </details>
 

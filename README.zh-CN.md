@@ -1,25 +1,68 @@
-<div align="center">
-
-[English](README.md) · **简体中文**
-
-</div>
+<h1 align="center">
+  <img src="paperspine5/core/07_发布页/v6/readme/paperspine-wordmark.png" width="600" alt="PaperSpine，折纸龙品牌标识">
+</h1>
 
 <p align="center">
-  <a href="https://wubing2023.github.io/PaperSpine/v6/zh/"><img src="paperspine5/core/07_发布页/v6/readme/v6-editorial-cover.webp" width="100%" alt="PaperSpine，面向科研 Agent 的开源 AI for Science Skill。封面组合了 LIGO 论文原页、六联图与折纸龙 Spine。"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/releases/download/v6.0.0-beta.2/paperspine-skill-6.0.0-beta.2.zip"><picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/readme-ticker-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/readme-ticker.webp" width="600" alt="下载 PaperSpine 全流程 Skill。版本 v6.0.0-beta.2，GitHub 星标 6,345，该版本三个安装包 11 月合计下载 926 次（2026-11-18 快照）。下载命令：gh release download v6.0.0-beta.2 -R WUBING2023/PaperSpine -p &quot;paperspine-skill-*.zip&quot;">
+  </picture></a>
+</p>
+
+<p align="center"><strong>从研究问题、数据或初稿开始，交付可编辑、可复核的论文。</strong></p>
+
+<p align="center">
+  <a href="#install-with-ai"><strong>快速开始</strong></a> · <a href="#quick-demo">演示</a> · <a href="#research-cases">科研案例</a><br>
+  <small><a href="https://wubing2023.github.io/PaperSpine/v6/zh/">官网</a> · <a href="INSTALL-V6.md">安装文档</a> · <a href="#ways-to-work">版本选择</a> · <a href="https://wubing2023.github.io/PaperSpine/zh.html">社区星图</a></small>
 </p>
 
 <p align="center">
-  <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2"><img alt="V6 公测版" height="20" src="https://img.shields.io/github/v/release/WUBING2023/PaperSpine?include_prereleases&amp;filter=v6.0.0-beta.2&amp;display_name=tag&amp;style=flat&amp;logo=github&amp;color=346457"></a>&nbsp;<a href="LICENSE"><img alt="MIT 许可证" height="20" src="https://img.shields.io/github/license/WUBING2023/PaperSpine?style=flat&amp;color=455b55"></a>
-  <a href="https://github.com/WUBING2023/PaperSpine/actions/workflows/validate.yml"><img alt="GitHub Actions · Skill 校验状态" height="20" src="https://github.com/WUBING2023/PaperSpine/actions/workflows/validate.yml/badge.svg?branch=main"></a>&nbsp;<a href="https://github.com/WUBING2023/PaperSpine/stargazers"><img alt="GitHub 星标" height="20" src="https://img.shields.io/github/stars/WUBING2023/PaperSpine?style=flat&amp;color=455b55"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/v6.0.0-beta.2"><img src="https://img.shields.io/static/v1?style=flat&amp;label=%E5%8F%91%E8%A1%8C%E7%89%88&amp;color=ad512a&amp;message=v6.0.0-beta.2" height="22" alt="发行版"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/stargazers"><img src="https://img.shields.io/github/stars/WUBING2023/PaperSpine?style=flat&amp;label=GitHub+%E6%98%9F%E6%A0%87&amp;color=b36529" height="22" alt="GitHub 星标"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/WUBING2023/PaperSpine?style=flat&amp;label=%E8%AE%B8%E5%8F%AF%E8%AF%81&amp;color=47566c" height="22" alt="许可证"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/actions/workflows/validate.yml"><img src="https://github.com/WUBING2023/PaperSpine/actions/workflows/validate.yml/badge.svg?branch=main" height="22" alt="Skill 校验"></a>
+  <a href="https://wubing2023.github.io/PaperSpine/contributors/zh.html"><img src="https://img.shields.io/github/contributors/WUBING2023/PaperSpine?style=flat&amp;label=%E8%B4%A1%E7%8C%AE%E8%80%85&amp;color=336384" height="22" alt="贡献者"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/WUBING2023/PaperSpine?style=flat&amp;label=%E5%B7%B2%E5%85%B3%E9%97%AD%E8%AE%AE%E9%A2%98&amp;color=5c6785" height="22" alt="已关闭议题"></a>
+  <a href="https://github.com/WUBING2023/PaperSpine/commits/main/"><img src="https://img.shields.io/github/commit-activity/m/WUBING2023/PaperSpine?style=flat&amp;label=%E6%8F%90%E4%BA%A4%E6%B4%BB%E8%B7%83%E5%BA%A6&amp;color=437c60" height="22" alt="提交活跃度"></a>
 </p>
 
 <p align="center">
-  在对话里调用 <code>$paper-spine</code>，从题目、数据或初稿开始。<br>
-  交付可编辑论文，同时附上核对结论所需的证据、分析和图件。
+  <sub>V6</sub>
+  <a href="README.md"><img src="https://img.shields.io/static/v1?label=&amp;message=English&amp;color=e8e9ec&amp;style=flat" height="22" alt="English"></a>
+  <a href="README.zh-CN.md"><img src="https://img.shields.io/static/v1?label=&amp;message=%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87&amp;color=4b5563&amp;style=flat" height="22" alt="简体中文"></a>
+  <a href="README.ja.md"><img src="https://img.shields.io/static/v1?label=&amp;message=%E6%97%A5%E6%9C%AC%E8%AA%9E&amp;color=e8e9ec&amp;style=flat" height="22" alt="日本語"></a>
+  <a href="README.ko.md"><img src="https://img.shields.io/static/v1?label=&amp;message=%ED%95%9C%EA%B5%AD%EC%96%B4&amp;color=e8e9ec&amp;style=flat" height="22" alt="한국어"></a>
+  <a href="README.es.md"><img src="https://img.shields.io/static/v1?label=&amp;message=Espa%C3%B1ol&amp;color=e8e9ec&amp;style=flat" height="22" alt="Español"></a>
+  <a href="README.fr.md"><img src="https://img.shields.io/static/v1?label=&amp;message=Fran%C3%A7ais&amp;color=e8e9ec&amp;style=flat" height="22" alt="Français"></a>
+  <a href="README.de.md"><img src="https://img.shields.io/static/v1?label=&amp;message=Deutsch&amp;color=e8e9ec&amp;style=flat" height="22" alt="Deutsch"></a>
+  <a href="README.pt.md"><img src="https://img.shields.io/static/v1?label=&amp;message=Portugu%C3%AAs&amp;color=e8e9ec&amp;style=flat" height="22" alt="Português"></a>
+  <a href="README.ru.md"><img src="https://img.shields.io/static/v1?label=&amp;message=%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9&amp;color=e8e9ec&amp;style=flat" height="22" alt="Русский"></a>
 </p>
 
+<a id="quick-demo"></a>
+
+## 像人类研究员一样产出论文
+
 <p align="center">
-  <a href="#install-with-ai"><strong>让 AI 帮你安装</strong></a> · <a href="#start-with-skill">安装 Skill</a> · <a href="#research-cases">查看科研案例</a>
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/paperspine_codex_demo_v3_15s-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/paperspine_codex_demo_v3_15s.webp" width="880" alt="PaperSpine 在 Codex 中的 15 秒演示，依次展示 Followwriting、科研图审阅、论文预览和同稿返修。">
+  </picture>
+</p>
+
+<p align="center"><small>参考写作 · 图件审阅 · 论文预览 · 同稿返修</small></p>
+
+<a id="workflow"></a>
+
+## PaperSpine 怎么工作
+
+用参考论文借鉴写法，用本研究的证据支撑结论。
+
+<p align="center">
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/paperspine-workflow-8s-zh-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/paperspine-workflow-8s-zh.webp" width="880" alt="PaperSpine 工作机制。从题目、数据或初稿出发，按需要研究取证、用 Followwriting 参考论证写法、绘制可编辑科研图，再审阅与交付。参考论文用于借鉴写法，本研究的数据和分析用于支撑论文结论；图源、代码和数据出处随可编辑稿件交付。">
+  </picture>
 </p>
 
 <a id="install-with-ai"></a>
@@ -102,7 +145,7 @@ LIGO 案例可以直接查验这条链路。从论文中的到达顺序，回查
 
 这次使用独立全流程 Skill 分析了 NOAA 的 42 个气旋季。在 6,017 个可以对照的 24 小时窗口中，以 30 节为阈值，后期高 0.81 个百分点，按气旋季重采样的 95% 区间为 −1.69 至 +3.43。阈值换成 25 节后，点估计转为负值。六联图串起 484 条记录的 24 小时轨迹、三档不重叠的风速增量，以及九个阈值对应的点估计和区间。
 
-<a href="https://wubing2023.github.io/PaperSpine/v6/zh/#showcase"><img src="paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.webp" width="790" alt="大西洋气旋六联图，含 484 条轨迹、三档风速增量、九个阈值的差值和区间，以及起始条件与逐季差异。"></a>
+<a href="https://wubing2023.github.io/PaperSpine/v6/zh/#showcase"><img src="paperspine5/core/07_发布页/v6/readme/rounded/atlantic-ri-figure.webp" width="790" alt="大西洋气旋六联图，含 484 条轨迹、三档风速增量、九个阈值的差值和区间，以及起始条件与逐季差异。"></a>
 
 [阅读论文](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/paper.pdf) · [主图 SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/figure.svg) · [稳健性图 SVG](paperspine5/core/07_发布页/v6/science/research/atlantic-ri/checks.svg) · [可编辑原稿和分析代码](https://wubing2023.github.io/PaperSpine/v6/science/research/atlantic-ri/source.zip)
 
@@ -120,7 +163,7 @@ LIGO 案例可以直接查验这条链路。从论文中的到达顺序，回查
 
 两次公开 LIGO 事件中，汉福德相对利文斯顿分别滞后 7.36 和 7.75 毫秒。九种预处理设定下，时延方向一致。
 
-<a href="paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.svg"><img src="paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.webp" width="790" alt="六个面板呈现两次事件的实测时频谱、双台站对齐应变和事件窗外的时延对照。"></a>
+<a href="paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.svg"><img src="paperspine5/core/07_发布页/v6/readme/rounded/gravitational-waves-figure.webp" width="790" alt="六个面板呈现两次事件的实测时频谱、双台站对齐应变和事件窗外的时延对照。"></a>
 
 [读论文](https://wubing2023.github.io/PaperSpine/v6/science/research/gravitational-waves/paper.pdf) · [高清矢量图](paperspine5/core/07_发布页/v6/science/research/gravitational-waves/figure.svg) · [源稿与代码](https://wubing2023.github.io/PaperSpine/v6/science/research/gravitational-waves/source.zip) · [数据](https://doi.org/10.7935/82H3-HH23)
 
@@ -128,7 +171,7 @@ LIGO 案例可以直接查验这条链路。从论文中的到达顺序，回查
 
 在 Mw 7.1 主震后 1–72 小时、报告震级 ≥1.5 的相同口径下，ComCat 和 Shelly 重定位目录的拟合衰减指数分别为 0.55 与 0.48。
 
-<a href="paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.svg"><img src="paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.webp" width="790" alt="两个目录的同尺度震中密度图、含留出区间的事件率对比，以及震级阈值与起算时间的敏感性分析。"></a>
+<a href="paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.svg"><img src="paperspine5/core/07_发布页/v6/readme/rounded/ridgecrest-figure.webp" width="790" alt="两个目录的同尺度震中密度图、含留出区间的事件率对比，以及震级阈值与起算时间的敏感性分析。"></a>
 
 [读论文](https://wubing2023.github.io/PaperSpine/v6/science/research/ridgecrest/paper.pdf) · [高清矢量图](paperspine5/core/07_发布页/v6/science/research/ridgecrest/figure.svg) · [源稿与代码](https://wubing2023.github.io/PaperSpine/v6/science/research/ridgecrest/source.zip) · [数据](https://doi.org/10.5066/P9JN6H0N)
 
@@ -136,7 +179,7 @@ LIGO 案例可以直接查验这条链路。从论文中的到达顺序，回查
 
 以 6 月 20–22 日各站中位数为参照，大西洋沿岸与五大湖地区 PM₂.₅ 偏离量之差，从 6 月 6–8 日的 +74.1 反转为 27–29 日的 −69.1 µg/m³。
 
-<a href="paperspine5/core/07_发布页/v6/science/research/smoke/figure.svg"><img src="paperspine5/core/07_发布页/v6/science/research/smoke/figure.webp" width="790" alt="EPA 站点地图、两组区域差值与逐日 PM₂.₅ 偏离量热图。"></a>
+<a href="paperspine5/core/07_发布页/v6/science/research/smoke/figure.svg"><img src="paperspine5/core/07_发布页/v6/readme/rounded/smoke-figure.webp" width="790" alt="EPA 站点地图、两组区域差值与逐日 PM₂.₅ 偏离量热图。"></a>
 
 [读论文](https://wubing2023.github.io/PaperSpine/v6/science/research/smoke/paper.pdf) · [高清矢量图](paperspine5/core/07_发布页/v6/science/research/smoke/figure.svg) · [源稿与代码](https://wubing2023.github.io/PaperSpine/v6/science/research/smoke/source.zip) · [数据](https://aqs.epa.gov/aqsweb/airdata/download_files.html)
 
@@ -149,21 +192,21 @@ LIGO 案例可以直接查验这条链路。从论文中的到达顺序，回查
 
 <table><tr>
   <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/followwriting-hd.gif"><picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/followwriting-hd-still.webp">
-    <img src="paperspine5/core/07_发布页/v6/science/followwriting-hd.gif" width="385" alt="Followwriting">
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/followwriting-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/followwriting-hd.webp" width="385" alt="Followwriting">
   </picture></a><br><strong>Followwriting</strong></td>
   <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/figures-hd.gif"><picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/figures-hd-still.webp">
-    <img src="paperspine5/core/07_发布页/v6/science/figures-hd.gif" width="385" alt="科研图审阅">
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/figures-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/figures-hd.webp" width="385" alt="科研图审阅">
   </picture></a><br><strong>科研图审阅</strong></td>
 </tr><tr>
   <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/workbench-hd.gif"><picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/workbench-hd-still.webp">
-    <img src="paperspine5/core/07_发布页/v6/science/workbench-hd.gif" width="385" alt="论文预览">
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/workbench-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/workbench-hd.webp" width="385" alt="论文预览">
   </picture></a><br><strong>论文预览</strong></td>
   <td width="50%"><a href="paperspine5/core/07_发布页/v6/science/revision-hd.gif"><picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/science/revision-hd-still.webp">
-    <img src="paperspine5/core/07_发布页/v6/science/revision-hd.gif" width="385" alt="审阅与返修">
+    <source media="(prefers-reduced-motion: reduce)" srcset="paperspine5/core/07_发布页/v6/readme/rounded/revision-hd-still.webp">
+    <img src="paperspine5/core/07_发布页/v6/readme/rounded/revision-hd.webp" width="385" alt="审阅与返修">
   </picture></a><br><strong>审阅与返修</strong></td>
 </tr></table>
 
@@ -171,7 +214,7 @@ Followwriting 短片演示如何借鉴论证写法、用本研究的结果落笔
 
 ## 开发与社区
 
-<a href="https://wubing2023.github.io/PaperSpine/zh.html"><img src="https://wubing2023.github.io/PaperSpine/atlas-preview-zh.svg" width="790" alt="PaperSpine 的 GitHub 社区星图，由公开城市信息聚合。"></a>
+<a href="https://wubing2023.github.io/PaperSpine/zh.html"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="新版 PaperSpine 社区星图，展示全球星标分布、地域概览和高校分布入口。"></a>
 
 [查看各轮 V6 更新的贡献](https://wubing2023.github.io/PaperSpine/contributors/zh.html#v6-contributions) · [浏览社区星图](https://wubing2023.github.io/PaperSpine/zh.html)
 
@@ -185,7 +228,7 @@ Followwriting 短片演示如何借鉴论证写法、用本研究的结果落笔
 - 旧版宿主投影 · [Codex](dist/codex/skills/paper-spine/) · [Claude](dist/claude/skills/paper-spine/) · [OpenClaw](dist/openclaw/skills/paper-spine/) · [Claude command](dist/claude/commands/paperspine.md)
 - V5 安装器 · [install.ps1](install.ps1) · [install.sh](install.sh)
 
-[V5 存档](https://wubing2023.github.io/PaperSpine/v5/?legacy=1) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README.pt.md)
+[V5 存档](https://wubing2023.github.io/PaperSpine/v5/?legacy=1)
 
 </details>
 

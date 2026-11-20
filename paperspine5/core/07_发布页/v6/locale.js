@@ -1,4 +1,5 @@
-const english = new URL("../", window.location.href);
-english.search = window.location.search;
-english.hash = window.location.hash;
-window.location.replace(english);
+const homepage = new URL("../", window.location.href);
+homepage.search = window.location.search;
+homepage.searchParams.set("lang", document.documentElement.lang);
+homepage.hash = window.location.hash;
+window.location.replace(homepage);

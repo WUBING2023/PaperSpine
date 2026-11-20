@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="PaperSpine is an open-source AI for Science Skill for research agents. Call it in chat to review literature, design experiments, analyze data, and write an editable paper.">
-  <meta name="theme-color" content="#131d1a">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PaperSpine is an open-source research skill for turning evidence into an editable paper.">
+  <title>PaperSpine.io — From Evidence to Paper</title>
   <meta property="og:title" content="PaperSpine V6 · AI for Science Skill">
   <meta property="og:description" content="An open-source research Skill. Review literature, analyze data, make scientific figures, and write an editable paper with your agent.">
   <meta property="og:image" content="https://wubing2023.github.io/PaperSpine/v6/science/press-cover.png">
@@ -12,84 +12,150 @@
   <link rel="alternate" hreflang="en" href="https://wubing2023.github.io/PaperSpine/v6/">
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/v6/zh/">
   <link rel="alternate" hreflang="x-default" href="https://wubing2023.github.io/PaperSpine/v6/">
-  <link rel="icon" href="../v5/assets/brand/paperspine-mark.svg" type="image/svg+xml">
-  <link rel="describedby" href="llms.txt">
-  <link rel="stylesheet" href="v6.css?v=research-gallery">
-  <script src="science.js?v=agent-install" defer></script>
-  <script src="study-deck.js?v=product-overview" defer></script>
-  <script src="download-stats.js" defer></script>
-  <script type="module" src="research-preview.js?v=research-gallery"></script>
-  <title>PaperSpine V6 · AI for Science Skill</title>
+        <div class="header-links"><a class="repo-link" href="https://github.com/WUBING2023/PaperSpine">GitHub <span aria-hidden="true">↗</span></a><a class="language" href="zh/" hreflang="zh-CN" lang="zh-CN">中文</a></div>
+  <link rel="icon" href="paperspine-dragon.png" type="image/png">
+  <link rel="stylesheet" href="v6.css?v=frontend-refresh">
+  <script src="v6-content.js" defer></script>
+  <script src="research-background.js" defer></script>
+  <script src="motion-demo.js" defer></script>
+  <script src="preview.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="masthead dark-surface">
-    <header class="site-header">
-      <div class="shell navbar">
-        <a class="wordmark" href="./"><img src="../v5/assets/brand/paperspine-mark.svg" width="38" height="38" alt="">PaperSpine</a>
-        <nav class="site-nav" aria-label="Main navigation">
-          <a href="#download">Get started</a><a href="#research">Research</a><a href="#examples">Demos</a><a href="#community">Community</a>
-        </nav>
-        <div class="header-links"><a class="repo-link" href="https://github.com/WUBING2023/PaperSpine">GitHub <span aria-hidden="true">↗</span></a><a class="language" href="zh/" hreflang="zh-CN" lang="zh-CN">中文</a></div>
+  <canvas class="research-background" aria-hidden="true"></canvas>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="#" aria-label="PaperSpine home" data-zh-label="PaperSpine 首页"><span class="wordmark-symbol" aria-hidden="true"><img class="wordmark-icon" src="paperspine-dragon.png" width="40" height="40" alt=""></span>PaperSpine<span class="domain">.io</span></a>
+      <nav aria-label="Main navigation" data-zh-label="主导航">
+        <a href="#download" data-zh="安装">Install</a>
+        <a href="#research" data-zh="研究案例">Research</a>
+        <a href="#examples" data-zh="演示">Demos</a>
+        <a href="#community" data-zh="社区">Community</a>
+        <a href="install-agent.md" data-zh="文档">Docs</a>
+      </nav>
+      <div class="header-actions">
+        <a class="github" href="https://github.com/WUBING2023/PaperSpine" aria-label="PaperSpine on GitHub">
+          <img src="agent-icons/github.svg" width="24" height="24" alt="">
+          <span id="github-stars">GitHub</span>
+        </a>
+        <button class="language-switch" type="button" aria-label="Switch to Chinese" title="Switch to Chinese" hidden>EN</button>
       </div>
-    </header>
-  </div>
-  <main id="main" tabindex="-1">
-    <section class="hero-section dark-surface" aria-labelledby="hero-title">
-      <div class="shell hero">
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="shell hero-grid">
         <div class="hero-copy">
-          <p class="hero-kicker">Open source <span aria-hidden="true">·</span> <a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 beta <span aria-hidden="true">↗</span></a></p>
-          <h1 id="hero-title"><span class="visually-hidden">PaperSpine · </span>An AI for Science<br> <em>Skill for your agent</em></h1>
-          <p class="hero-description">Call <code>$paper-spine</code> in chat. Start with a question, data, or a draft and build an editable paper whose key claims can be checked against the evidence.</p>
-          <div class="hero-actions">
-            <a href="#install-with-ai" class="button">Install the Skill <span aria-hidden="true">↓</span></a>
-            <a href="#showcase" class="text-link">Browse the outputs <span aria-hidden="true">↘</span></a>
+          <a class="release mono" href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">V6 BETA <span>·</span> <b data-zh="开源">OPEN SOURCE</b></a>
+          <div class="hero-brand" lang="en">
+            <h1>One <em>Spine</em><span class="hero-punctuation">,</span></h1>
+            <h2>From Evidence to <em>Paper</em><span class="hero-punctuation">.</span></h2>
+          </div>
+          <p data-zh="把研究问题、数据或草稿交给你的 AI Agent。PaperSpine 将分析、图表和写作汇集到一份可编辑的论文中。">Give your AI agent a research question, data, or a draft. PaperSpine brings the analysis, figures, and writing together in an editable manuscript.</p>
+          <a class="guide" href="#download" data-zh="查看 Agent 安装指南">Read the agent installation guide</a>
+          <div class="quick-start">
+            <section aria-labelledby="install-heading">
+              <h2 class="quick-label" id="install-heading" data-zh="立即试用">Try it now</h2>
+              <div class="install" id="install">
+                <code class="command">$paper-spine</code>
+                <button id="copy-install" type="button" aria-label="Copy install prompt" title="Copy install prompt">
+                  <svg class="copy-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="8" y="8" width="12" height="12" rx="2"/>
+                    <path d="M16 4H6a2 2 0 0 0-2 2v10"/>
+                  </svg>
+                  <svg class="copied-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m5 12 4 4L19 6"/>
+                  </svg>
+                </button>
+              </div>
+              <span id="copy-status" class="sr-only" role="status"></span>
+            </section>
+            <section class="host-band" aria-labelledby="host-heading">
+              <h2 class="quick-label" id="host-heading" data-zh="支持的 Agent">Available for</h2>
+              <div class="agent-window" tabindex="0" aria-label="Compatible agents" data-zh-label="支持的 Agent">
+                <div class="agent-track">
+                  <!-- Brand marks from @lobehub/icons-static-svg 1.104.0. -->
+                  <ul class="agent-list" role="list">
+                    <li><img src="agent-icons/codex.svg" width="22" height="22" alt="">OpenAI Codex</li>
+                    <li><img src="agent-icons/claudecode.svg" width="22" height="22" alt="">Claude Code</li>
+                    <li><img src="agent-icons/openclaw.svg" width="22" height="22" alt="">OpenClaw</li>
+                    <li><img src="agent-icons/hermesagent.svg" width="22" height="22" alt="">Hermes CLI</li>
+                    <li><img src="agent-icons/cursor.svg" width="22" height="22" alt="">Cursor</li>
+                    <li><img src="agent-icons/opencode.svg" width="22" height="22" alt="">OpenCode</li>
+                    <li><img src="agent-icons/geminicli.svg" width="22" height="22" alt="">Gemini CLI</li>
+                    <li><img src="agent-icons/githubcopilot.svg" width="22" height="22" alt="">GitHub Copilot</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
-        <aside class="research-viewer" id="showcase" aria-labelledby="preview-title" data-research-viewer data-topic="atlantic-ri" data-catalog="science/research/showcase.json?v=research-gallery">
-          <div class="viewer-heading">
-            <h2 id="preview-title">Research gallery</h2>
-            <a href="#research-files">All studies &amp; files <span aria-hidden="true">↓</span></a>
+
+        <section class="demo" id="research-preview" aria-labelledby="preview-heading">
+          <span id="showcase" aria-hidden="true"></span>
+          <span id="proof-output" aria-hidden="true"></span>
+          <div class="demo-title"><h2 id="preview-heading"><span class="live-dot" aria-hidden="true"></span> <span data-zh="Skill 使用预览">Skill preview</span></h2></div>
+          <div class="study-picker" role="group" aria-label="Choose a research case" data-zh-label="选择研究案例" hidden>
+            <button type="button" data-study="gravitational-waves" aria-pressed="true" data-zh="LIGO 引力波">LIGO waves</button>
+            <button type="button" data-study="atlantic-ri" aria-pressed="false" data-zh="大西洋气旋">Atlantic cyclones</button>
+            <button type="button" data-study="ridgecrest" aria-pressed="false" data-zh="里奇克雷斯特余震">Ridgecrest aftershocks</button>
+            <button type="button" data-study="smoke" aria-pressed="false" data-zh="野火烟霾">Wildfire smoke</button>
           </div>
-          <div class="viewer-picker" data-proof="picker" hidden>
-            <button class="viewer-step" type="button" data-proof="previous" aria-controls="proof-output" aria-label="Previous study"><span aria-hidden="true">←</span></button>
-            <div class="viewer-study" data-preview-group="study" role="group" aria-label="Choose a study">
-              <button type="button" value="atlantic-ri" aria-controls="proof-output" aria-pressed="true" aria-label="Atlantic storms"><span class="viewer-domain">Atmosphere</span><span class="viewer-study-name">Atlantic storms</span><span class="viewer-study-short" aria-hidden="true">Atlantic</span></button>
-              <button type="button" value="ridgecrest" aria-controls="proof-output" aria-pressed="false" aria-label="Ridgecrest"><span class="viewer-domain">Seismology</span><span class="viewer-study-name">Ridgecrest</span><span class="viewer-study-short" aria-hidden="true">Quakes</span></button>
-              <button type="button" value="gravitational-waves" aria-controls="proof-output" aria-pressed="false" aria-label="LIGO strain"><span class="viewer-domain">Astrophysics</span><span class="viewer-study-name">LIGO strain</span><span class="viewer-study-short" aria-hidden="true">LIGO</span></button>
-              <button type="button" value="smoke" aria-controls="proof-output" aria-pressed="false" aria-label="Wildfire smoke"><span class="viewer-domain">Air quality</span><span class="viewer-study-name">Wildfire smoke</span><span class="viewer-study-short" aria-hidden="true">Smoke</span></button>
+          <div class="research-prompt">
+            <label for="research-task" data-zh="提示词">Prompt</label>
+            <textarea id="research-task" rows="3" spellcheck="false">$paper-spine Compare when the signals from two LIGO black-hole mergers reached each detector. Check whether the result holds across nine preprocessing choices, then produce a main figure and an editable paper.</textarea>
+            <div class="research-prompt-actions">
+              <span id="case-data-source" class="mono">LIGO / GWOSC</span>
             </div>
-            <button class="viewer-step" type="button" data-proof="next" aria-controls="proof-output" aria-label="Next study"><span aria-hidden="true">→</span></button>
           </div>
-          <div class="viewer-mode" data-preview-group="mode" role="group" aria-label="Choose an output" hidden>
-            <button type="button" value="paper" aria-controls="proof-output" aria-pressed="false">Title page</button>
-            <button type="button" value="results" aria-controls="proof-output" aria-pressed="false">Results</button>
-            <button type="button" value="figure" aria-controls="proof-output" aria-pressed="true">Main figure</button>
-            <button type="button" value="checks" aria-controls="proof-output" aria-pressed="false">Sensitivity</button>
-          </div>
-          <figure class="viewer-proof">
-            <div class="viewer-spread" aria-hidden="true"><span></span><span></span></div>
-            <div class="viewer-stage" id="proof-output" data-proof="stage" data-kind="figure">
-              <div class="viewer-media" data-proof="media"><img src="science/research/atlantic-ri/figure.webp?v=research-gallery" width="2400" height="1889" alt="Six-panel Atlantic cyclone figure with 484 recorded 24-hour tracks, disjoint gain bands, a threshold profile with uncertainty, and starting-context and seasonal comparisons." fetchpriority="high"></div>
-              <div class="viewer-note">
-                <p class="viewer-kind" data-proof="kind">Main figure</p>
-                <h3 data-proof="title">The threshold changes the estimate</h3>
-                <p class="viewer-description" data-proof="note">The estimated difference is −0.93 percentage points at 25 knots and +1.36 at 35 knots. Both 95% intervals include zero.</p>
-                <p class="viewer-metric" data-proof="metric" hidden><strong data-proof="value"></strong><span data-proof="unit"></span></p>
+          <div class="case-playback" id="case-playback" hidden>
+            <div class="case-toolbar">
+              <div class="case-steps" role="group" aria-label="Demo outputs" data-zh-label="演示成果">
+                <button type="button" data-case-step="0" aria-pressed="false" data-zh="论文首页">Title page</button>
+                <button type="button" data-case-step="1" aria-pressed="false" data-zh="结果页">Results</button>
+                <button type="button" data-case-step="2" aria-pressed="false" data-zh="主图">Main figure</button>
+                <button type="button" data-case-step="3" aria-pressed="false" data-zh="敏感性分析">Sensitivity</button>
               </div>
+              <button type="button" id="pause-case-demo" hidden>Pause</button>
             </div>
-            <figcaption class="viewer-source"><span data-proof="source">NOAA NHC · Atlantic HURDAT2</span><a data-proof="original" href="science/research/atlantic-ri/figure.svg?v=research-gallery">Open vector SVG ↗</a></figcaption>
-          </figure>
-          <p class="visually-hidden" role="status" data-proof="status"></p>
-          <p class="viewer-error" role="status" data-proof="error" hidden>The preview did not load. Select it again to retry.</p>
-        </aside>
+            <div class="case-stage">
+              <div class="case-wave" aria-hidden="true" hidden>
+                <canvas width="700" height="160"></canvas>
+                <span class="case-cursor"></span>
+              </div>
+              <figure class="case-result" hidden>
+                <a class="case-image-link"><img alt="" width="700" height="400"></a>
+                <figcaption>
+                  <div class="case-result-heading">
+                    <span class="case-kind mono"></span>
+                    <h3 class="case-title"></h3>
+                  </div>
+                  <div class="case-result-copy">
+                    <p class="case-note"></p>
+                    <p class="case-metric" hidden><strong></strong><span></span></p>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="case-footer" hidden>
+              <span class="case-source"></span>
+              <a class="case-original"></a>
+            </div>
+          </div>
+          <dialog class="case-file-dialog" aria-labelledby="case-file-title">
+            <div class="case-file-bar">
+              <h3 id="case-file-title"></h3>
+              <a class="case-file-direct" data-zh="打开原文件">Open original</a>
+              <form method="dialog"><button type="submit" aria-label="Close preview" data-zh-label="关闭预览">×</button></form>
+            </div>
+            <iframe class="case-file-pdf" title="Paper PDF" data-zh-label="论文 PDF" aria-label="Paper PDF" hidden></iframe>
+            <img class="case-file-svg" alt="" hidden>
+          </dialog>
+        </section>
       </div>
-      <nav class="shell milestones" aria-label="Project milestones">
-        <a href="../"><strong>6,000+</strong><span>GitHub stars</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
-        <a href="#research"><strong>4</strong><span>Studies using public data</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
-        <a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted"><strong>9</strong><span>Documented edition runs</span><span class="milestone-arrow" aria-hidden="true">↗</span></a>
-      </nav>
     </section>
+
+    <div class="v6-content" id="v6-content">
     <section class="edition-section section" id="download" aria-labelledby="edition-title">
       <div class="shell">
         <div class="section-heading"><h2 id="edition-title">Install PaperSpine</h2><p>Start with one Skill in chat. Choose the Skills Pack to call stages separately, or add the optional local review interface on Windows.</p></div>
@@ -97,21 +163,28 @@
           <div class="agent-install-intro">
             <h3 id="agent-install-title">Install with your AI</h3>
             <p>Paste this request into the AI agent you use for research.</p>
-            <div class="links"><a href="llms.txt">Agent guide (.txt) <span aria-hidden="true">↗</span></a><a href="#edition-skill">Choose a ZIP <span aria-hidden="true">↓</span></a></div>
+            <div class="links"><a class="agent-guide-entry" href="install-guide.html">Agent installation guide</a><a href="#edition-skill">Choose a ZIP <span aria-hidden="true">↓</span></a></div>
           </div>
           <div class="agent-install-request">
+            <div class="agent-install-bar">
+              <span class="terminal-mark" aria-hidden="true">&gt;_</span>
+              <p class="copy-status" id="agent-copy-status" data-done="Copied" data-hint="Select the request text to copy it." role="status"></p>
+              <button type="button" aria-label="Copy install request" title="Copy install request" data-copy-source="agent-install-prompt" data-copy-feedback="agent-copy-status" hidden>
+                <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 4H6a2 2 0 0 0-2 2v10"/></svg>
+              </button>
+            </div>
             <blockquote id="agent-install-prompt">Install PaperSpine for this host. Read the official guide first.
 @SITE@llms.txt
 
 Choose the edition that fits my task and environment.
 Verify the ZIP with SHA-256. After installing, confirm the version and tell me how to invoke the Skill.</blockquote>
-            <div class="agent-install-actions">
-              <button type="button" class="button compact outline copy-install" data-copy-source="agent-install-prompt" data-copy-feedback="agent-copy-status" hidden>Copy install request</button>
-              <p class="copy-status" id="agent-copy-status" data-done="Copied" data-hint="Select the request text to copy it." role="status"></p>
-            </div>
           </div>
         </section>
-        <div class="editions">
+        <div class="editions-heading" lang="en">
+          <h2 id="editions-title">Paper-Spine Skill</h2>
+          <p>Available across many agents</p>
+        </div>
+        <div class="editions" role="group" aria-labelledby="editions-title">
         <article class="edition" id="edition-skill">
           <div class="edition-main">
             <p class="eyeline">Quick Start</p>
@@ -124,7 +197,12 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
           </div>
           <div class="edition-download">
             <p>Skill-capable host<br><span>@SKILL_SIZE@</span><small data-download-count="{count} downloads" hidden></small></p>
-            <a class="button compact" href="@SKILL_URL@" aria-label="Download ZIP · Full Workflow Skill" data-release-download>Download ZIP <span aria-hidden="true">↓</span></a>
+            <div class="edition-cli" hidden>
+              <code id="terminal-skill" tabindex="0"></code>
+              <button type="button" aria-label="Copy terminal download command" title="Copy terminal download command" data-copy-source="terminal-skill" data-copy-feedback="terminal-skill-status" hidden><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 4H6a2 2 0 0 0-2 2v10"/></svg></button>
+            </div>
+            <a class="button compact" href="@SKILL_URL@" aria-label="Download ZIP · Full Workflow Skill" data-release-download>Download ZIP</a>
+            <p class="edition-cli-status" id="terminal-skill-status" data-done="Download command copied" data-hint="Select the command to copy it manually." role="status"></p>
           </div>
         </article>
         <article class="edition" id="edition-pack">
@@ -139,7 +217,12 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
           </div>
           <div class="edition-download">
             <p>Skill-capable host<br><span>@PACK_SIZE@</span><small data-download-count="{count} downloads" hidden></small></p>
-            <a class="button compact outline" href="@PACK_URL@" aria-label="Download ZIP · Skills Pack" data-release-download>Download ZIP <span aria-hidden="true">↓</span></a>
+            <div class="edition-cli" hidden>
+              <code id="terminal-pack" tabindex="0"></code>
+              <button type="button" aria-label="Copy terminal download command" title="Copy terminal download command" data-copy-source="terminal-pack" data-copy-feedback="terminal-pack-status" hidden><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 4H6a2 2 0 0 0-2 2v10"/></svg></button>
+            </div>
+            <a class="button compact outline" href="@PACK_URL@" aria-label="Download ZIP · Skills Pack" data-release-download>Download ZIP</a>
+            <p class="edition-cli-status" id="terminal-pack-status" data-done="Download command copied" data-hint="Select the command to copy it manually." role="status"></p>
           </div>
         </article>
         <article class="edition" id="edition-web">
@@ -154,7 +237,12 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
           </div>
           <div class="edition-download">
             <p>Windows x64 · Codex<br><span>@WEB_SIZE@</span><small data-download-count="{count} downloads" hidden></small></p>
-            <a class="button compact outline" href="@WEB_URL@" aria-label="Download ZIP · Web Plugin" data-release-download>Download ZIP <span aria-hidden="true">↓</span></a>
+            <div class="edition-cli" hidden>
+              <code id="terminal-web" tabindex="0"></code>
+              <button type="button" aria-label="Copy terminal download command" title="Copy terminal download command" data-copy-source="terminal-web" data-copy-feedback="terminal-web-status" hidden><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 4H6a2 2 0 0 0-2 2v10"/></svg></button>
+            </div>
+            <a class="button compact outline" href="@WEB_URL@" aria-label="Download ZIP · Web Plugin" data-release-download>Download ZIP</a>
+            <p class="edition-cli-status" id="terminal-web-status" data-done="Download command copied" data-hint="Select the command to copy it manually." role="status"></p>
           </div>
         </article>
         </div>
@@ -173,57 +261,10 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
           </details>
           <p>Use the install manager to update or roll back the installed edition. Uninstalling keeps your research files and local tasks.</p>
         </div>
-        <div class="links release-links">
-          <a href="https://github.com/WUBING2023/PaperSpine/blob/@TAG@/INSTALL-V6.en.md">Installation guide <span aria-hidden="true">↗</span></a><a href="checksums.sha256" download>SHA-256 checksums</a><a href="channel.json">Update channel</a><a href="https://github.com/WUBING2023/PaperSpine/releases/tag/@TAG@">Release notes · @VERSION@</a>
-        </div>
       </div>
     </section>
 
-    <section class="shell research section" id="research" aria-labelledby="research-title">
-      <div class="research-showcase">
-        <div class="research-lead">
-          <h2 id="research-title">Research you can inspect.</h2>
-          <p>From Atlantic cyclone tracks to LIGO strain, earthquake catalogs, and wildfire smoke. Each paper links to its data, editable manuscript, vector figures, and analysis code.</p>
-          <div class="links"><a href="#research-files">Browse the papers and source files <span aria-hidden="true">↓</span></a><a href="https://github.com/WUBING2023/PaperSpine/blob/main/paperspine5/core/07_发布页/v6/science/research/README.md#how-the-runs-were-conducted">See the three-edition run notes <span aria-hidden="true">↗</span></a></div>
-        </div>
-      <aside class="study-deck" aria-label="Featured research">
-        <div class="deck-stack">
-          <article class="study-card" data-domain="cyclones">
-            <div class="study-top"><span>Atmospheric science · NOAA NHC</span><a href="science/research/atlantic-ri/paper.pdf">Paper PDF ↗</a></div>
-            <h3>How fast did Atlantic storms intensify?</h3>
-            <a class="study-figure" href="science/research/atlantic-ri/figure.svg?v=research-gallery"><img src="science/research/atlantic-ri/figure.webp?v=research-gallery" alt="Atlantic cyclone main figure with six panels comparing rapid intensification across two periods." loading="lazy" width="2400" height="1889"></a>
-            <p class="study-finding">A 30-knot threshold gives a +0.81 percentage point difference across comparable starts. At 25 knots the point estimate is −0.93 points.</p>
-            <div class="study-bottom"><a href="https://www.nhc.noaa.gov/data/#hurdat">Data source ↗</a><a href="science/research/atlantic-ri/figure.svg?v=research-gallery">Editable figure ↗</a></div>
-          </article>
-          <article class="study-card" data-domain="astrophysics">
-            <div class="study-top"><span>Astrophysics · LIGO / GWOSC</span><a href="science/research/gravitational-waves/paper.pdf">Paper PDF ↗</a></div>
-            <h3>Two black-hole mergers, millisecond timing</h3>
-            <a class="study-figure" href="science/research/gravitational-waves/figure.svg"><img src="science/research/gravitational-waves/figure.webp" alt="Six panels showing measured time–frequency structure, both detectors’ aligned strain, and off-source lag comparisons." loading="lazy"></a>
-            <p class="study-finding">Hanford lagged Livingston by 7.36 and 7.75 ms in two public LIGO events. Both lag signs held across nine preprocessing choices.</p>
-            <div class="study-bottom"><a href="https://doi.org/10.7935/82H3-HH23">Data source ↗</a><a href="science/research/gravitational-waves/figure.svg">Editable figure ↗</a></div>
-          </article>
-          <article class="study-card" data-domain="seismology">
-            <div class="study-top"><span>Seismology · USGS Ridgecrest</span><a href="science/research/ridgecrest/paper.pdf">Paper PDF ↗</a></div>
-            <h3>Aftershock decay depends on the catalog</h3>
-            <a class="study-figure" href="science/research/ridgecrest/figure.svg"><img src="science/research/ridgecrest/hero.webp" alt="Matched epicenter density maps, a fitted rate comparison with a held-out interval, and sensitivity to magnitude and start time." loading="lazy"></a>
-            <p class="study-finding">At reported M ≥ 1.5 and 1–72 hours after the Mw 7.1 event, fitted decay exponents were 0.55 in ComCat and 0.48 in the relocated Shelly catalog.</p>
-            <div class="study-bottom"><a href="https://doi.org/10.5066/P9JN6H0N">Data source ↗</a><a href="science/research/ridgecrest/figure.svg">Editable figure ↗</a></div>
-          </article>
-          <article class="study-card" data-domain="air-quality">
-            <div class="study-top"><span>Atmospheric science · EPA AirData</span><a href="science/research/smoke/paper.pdf">Paper PDF ↗</a></div>
-            <h3>June smoke, two different footprints</h3>
-            <a class="study-figure" href="science/research/smoke/figure.svg"><img src="science/research/smoke/figure.webp" alt="A map of EPA monitors, paired corridor contrasts and a June calendar of PM₂.₅ departures above and below each site’s reference." loading="lazy"></a>
-            <p class="study-finding">The Atlantic–Great Lakes PM₂.₅ departure reversed from +74.1 µg/m³ on June 6–8 to −69.1 µg/m³ on June 27–29.</p>
-            <div class="study-bottom"><a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html">Data source ↗</a><a href="science/research/smoke/figure.svg">Editable figure ↗</a></div>
-          </article>
-        </div>
-        <div class="deck-controls" hidden>
-          <div class="deck-pages"><button type="button" data-deck-target>Atlantic storms</button> <button type="button" data-deck-target>LIGO strain</button> <button type="button" data-deck-target>Aftershocks</button> <button type="button" data-deck-target>Wildfire smoke</button></div>
-          <div class="deck-actions"><button type="button" data-deck-toggle data-play="Play" data-pause="Pause">Pause</button><button type="button" data-deck-next>Next ↷</button></div>
-        </div>
-        <p class="deck-status" role="status"></p>
-      </aside>
-      </div>
+    <section class="shell research section" id="research" aria-label="Research cases">
       <div id="research-files">
         <article class="research-entry" id="atlantic-ri">
           <div class="research-entry-text">
@@ -276,7 +317,6 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
           </figure>
         </article>
       </div>
-      <div class="links research-archive"><a href="#older-research">Earlier cases and edition smoke test ↗</a></div>
     </section>
 
     <section class="shell research section" id="older-research" aria-labelledby="older-research-title">
@@ -338,8 +378,6 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
       </details>
     </section>
 
-    <aside class="shell links research-archive" id="field-test"><a href="science/edition-field-test.md">Read the earlier edition smoke test ↗</a></aside>
-
     <section class="shell demos section" id="examples" aria-labelledby="demo-title">
       <div class="section-heading"><h2 id="demo-title">A paper you can audit</h2><p>Check a claim, trace a plotted number, or pick up a revision from the files the agent has already saved.</p></div>
       <ul class="workflow-principles">
@@ -371,14 +409,271 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
     </section>
 
     <section class="shell community-feature section" id="community" aria-labelledby="community-title">
-      <div class="section-heading">
-        <div><h2 id="community-title">Community</h2><p>See who shipped each V6 update and what they changed, or explore the stargazer atlas.</p></div>
-        <div class="links"><a href="../">Open the stargazer atlas ↗</a><a href="../contributors/#v6-contributions">View V6 contributions ↗</a></div>
+      <h2 class="section-heading" id="community-title">Community</h2>
+      <iframe class="community-preview" src="../?lang=en&amp;embed=1&amp;v=unified-map" title="PaperSpine community atlas" loading="lazy"></iframe>
+    </section>
+    </div>
+  </main>
+  <div id="v6-footer"><footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="../?lang=en">Stargazer atlas</a><a href="../contributors/">Contributors</a><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../v5/en/?legacy=1">V5 archive</a><a href="../v5/en/?support=1">Support the project</a><a id="press" href="science/paperspine-v6-press-kit.zip" download>Project assets</a><a href="https://github.com/WUBING2023/PaperSpine/issues">Report an issue</a></div></div></footer></div>
+  <template id="v6-chinese">
+    <div class="v6-content">
+    <section class="edition-section section" id="download" aria-labelledby="edition-title">
+      <div class="shell">
+        <div class="section-heading"><h2 id="edition-title">安装 PaperSpine</h2><p>从对话里的全流程 Skill 开始。需要单独调用某一阶段时选 Skills 包，需要图形界面时可选装 Windows 本地工作台。</p></div>
+        <section class="agent-install" id="install-with-ai" aria-labelledby="agent-install-title">
+          <div class="agent-install-intro">
+            <h3 id="agent-install-title">让 AI 帮你安装</h3>
+            <p>把下方指令发给你正在使用的 AI 助手。</p>
+            <div class="links"><a class="agent-guide-entry" href="install-guide.html?lang=zh-CN">给 AI 读的指南</a><a href="#edition-skill">自行选择 ZIP <span aria-hidden="true">↓</span></a></div>
+          </div>
+          <div class="agent-install-request">
+            <div class="agent-install-bar">
+              <span class="terminal-mark" aria-hidden="true">&gt;_</span>
+              <p class="copy-status" id="agent-copy-status" data-done="已复制" data-hint="可选中安装指令手动复制。" role="status"></p>
+              <button type="button" aria-label="复制安装指令" title="复制安装指令" data-copy-source="agent-install-prompt" data-copy-feedback="agent-copy-status" hidden>
+                <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 4H6a2 2 0 0 0-2 2v10"/></svg>
+              </button>
+            </div>
+            <blockquote id="agent-install-prompt">请在我当前使用的 AI 宿主里安装 PaperSpine。先读官方安装入口。
+@SITE@llms.txt
+
+按我的用途和环境选择一种版本，核对 ZIP 的 SHA-256，安装后确认版本并告诉我怎么调用 Skill。</blockquote>
+          </div>
+        </section>
+        <div class="editions-heading" lang="en">
+          <h2 id="editions-title">Paper-Spine Skill</h2>
+          <p>Available across many agents</p>
+        </div>
+        <div class="editions" role="group" aria-labelledby="editions-title">
+        <article class="edition" id="edition-skill">
+          <div class="edition-main">
+            <p class="eyeline">新手上手</p>
+            <h3>全流程 Skill</h3>
+            <p>把研究问题、结果目录或初稿交给宿主，调用 $paper-spine，再确认需要推进的研究或写作范围。</p>
+          </div>
+          <div class="edition-output">
+            <h4>能得到什么</h4><p>按范围交付文献和证据记录、分析、科研图和可编辑稿件。</p>
+            <p class="command"><code>$paper-spine</code></p>
+          </div>
+          <div class="edition-download">
+            <p>支持 Skill 的宿主<br><span>@SKILL_SIZE@</span><small data-download-count="下载 {count} 次" hidden></small></p>
+            <div class="edition-cli" hidden>
+              <code id="terminal-skill" tabindex="0"></code>
+              <button type="button" aria-label="复制终端下载指令" title="复制终端下载指令" data-copy-source="terminal-skill" data-copy-feedback="terminal-skill-status" hidden><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 4H6a2 2 0 0 0-2 2v10"/></svg></button>
+            </div>
+            <a class="button compact" href="@SKILL_URL@" aria-label="下载 ZIP · 全流程 Skill" data-release-download>下载 ZIP</a>
+            <p class="edition-cli-status" id="terminal-skill-status" data-done="已复制下载指令" data-hint="可选择指令并手动复制。" role="status"></p>
+          </div>
+        </article>
+        <article class="edition" id="edition-pack">
+          <div class="edition-main">
+            <p class="eyeline">科研专家</p>
+            <h3>Skills 包</h3>
+            <p>安装全流程入口和五个独立阶段 Skill。只想修一段、重画一幅图或审阅现稿时，可以从现有结果开始。</p>
+          </div>
+          <div class="edition-output">
+            <h4>能得到什么</h4><p>引用对照的改稿、可编辑图件、审阅意见或论文交付包。</p>
+            <p class="command"><code>$paper-spine-followwriting</code></p>
+          </div>
+          <div class="edition-download">
+            <p>支持 Skill 的宿主<br><span>@PACK_SIZE@</span><small data-download-count="下载 {count} 次" hidden></small></p>
+            <div class="edition-cli" hidden>
+              <code id="terminal-pack" tabindex="0"></code>
+              <button type="button" aria-label="复制终端下载指令" title="复制终端下载指令" data-copy-source="terminal-pack" data-copy-feedback="terminal-pack-status" hidden><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 4H6a2 2 0 0 0-2 2v10"/></svg></button>
+            </div>
+            <a class="button compact outline" href="@PACK_URL@" aria-label="下载 ZIP · Skills 包" data-release-download>下载 ZIP</a>
+            <p class="edition-cli-status" id="terminal-pack-status" data-done="已复制下载指令" data-hint="可选择指令并手动复制。" role="status"></p>
+          </div>
+        </article>
+        <article class="edition" id="edition-web">
+          <div class="edition-main">
+            <p class="eyeline">满血插件</p>
+            <h3>Web 插件包</h3>
+            <p>从宿主打开论文任务，在工作台保存设置、比较图件、预览文件并提交返修意见。</p>
+          </div>
+          <div class="edition-output">
+            <h4>能得到什么</h4><p>保存选择、反馈和预览，下载同一论文任务的文件。</p>
+            <p class="command"><code>$paper-spine-web:paper-spine-web</code></p>
+          </div>
+          <div class="edition-download">
+            <p>Windows x64 · Codex<br><span>@WEB_SIZE@</span><small data-download-count="下载 {count} 次" hidden></small></p>
+            <div class="edition-cli" hidden>
+              <code id="terminal-web" tabindex="0"></code>
+              <button type="button" aria-label="复制终端下载指令" title="复制终端下载指令" data-copy-source="terminal-web" data-copy-feedback="terminal-web-status" hidden><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 4H6a2 2 0 0 0-2 2v10"/></svg></button>
+            </div>
+            <a class="button compact outline" href="@WEB_URL@" aria-label="下载 ZIP · Web 插件包" data-release-download>下载 ZIP</a>
+            <p class="edition-cli-status" id="terminal-web-status" data-done="已复制下载指令" data-hint="可选择指令并手动复制。" role="status"></p>
+          </div>
+        </article>
+        </div>
+        <div class="download-attribution">
+          <a href="https://api.github.com/repos/WUBING2023/PaperSpine/releases/tags/@TAG@" data-release-stats-source="download-stats.json">GitHub Release 下载统计 ↗</a>
+          <span data-download-stamp hidden>数据截至 <time></time> UTC</span>
+        </div>
+        <div class="edition-usage">
+          <details>
+            <summary>可以怎么向 PaperSpine 提需求？</summary>
+            <ul>
+              <li><strong>全流程 Skill。</strong>「基于这份测量数据设计配对比较，保留分析代码和图，最后给我可编辑研究稿。」</li>
+              <li><strong>Skills 包。</strong>「用我的结果与这两篇参考文改写 Results，保留估计值和原来的结论范围。」</li>
+              <li><strong>Web 插件包。</strong>「在工作台打开这项研究，我想比较图件、预览稿件，再给你返修意见。」</li>
+            </ul>
+          </details>
+          <p>安装管理器支持整版更新和回退。卸载时保留论文、研究文件和本地任务。</p>
+        </div>
       </div>
-      <a class="community-preview" href="../"><img src="../atlas-preview.svg" width="1230" height="475" loading="lazy" alt="World map of GitHub stargazer locations aggregated by city."></a>
     </section>
 
-  </main>
-  <footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="../">Stargazer atlas</a><a href="../contributors/">Contributors</a><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../v5/en/?legacy=1">V5 archive</a><a href="../v5/en/?support=1">Support the project</a><a id="press" href="science/paperspine-v6-press-kit.zip" download>Project assets</a><a href="https://github.com/WUBING2023/PaperSpine/issues">Report an issue</a></div></div></footer>
+    <section class="shell research section" id="research" aria-label="研究案例">
+      <div id="research-files">
+        <article class="research-entry" id="atlantic-ri">
+          <div class="research-entry-text">
+            <p class="eyeline">大气科学 · NOAA NHC</p>
+            <h3>可比起始条件下的气旋快速增强</h3>
+            <p>42 个气旋季，6,017 个可比的 24 小时窗口，按完整气旋季做 2,400 次自助抽样。六联主图连起 484 条快速增强的记录轨迹，拆开三档风速增量，再把九个阈值下的差值与区间画出来。</p>
+            <p class="research-entry-finding">30 节阈值下，两期差值为 +0.81 个百分点，95% 区间为 −1.69 至 +3.43。稳健性图展示更换阈值和筛选规则时估计如何变化。</p>
+            <div class="links"><a href="science/research/atlantic-ri/paper.pdf">读完整论文 ↗</a><a href="science/research/atlantic-ri/source.zip" download>原稿与分析代码 ↓</a><a href="https://www.nhc.noaa.gov/data/#hurdat">数据来源 ↗</a></div>
+          </div>
+          <figure class="research-entry-figure">
+            <a href="science/research/atlantic-ri/figure.svg?v=research-gallery"><img src="science/research/atlantic-ri/figure.webp?v=research-gallery" alt="大西洋气旋六联图，包括最佳路径记录、三档风速增量、九个阈值对应的区间及逐季变化。" loading="lazy" width="2400" height="1889"></a>
+            <figcaption class="links"><a href="science/research/atlantic-ri/figure.svg?v=research-gallery">主图 SVG ↗</a><a href="science/research/atlantic-ri/checks.svg">稳健性图 SVG ↗</a></figcaption>
+          </figure>
+        </article>
+      <article class="research-entry" id="gravitational-waves">
+          <div class="research-entry-text">
+            <p class="eyeline">天体物理 · LIGO / GWOSC</p>
+            <h3>两次黑洞并合的毫秒级时延</h3>
+            <p>使用 GW150914 与 GW170814 的 H1/L1 公开应变，在相同的物理时延范围内搜索，并检查事件窗外对照及预处理敏感性。</p>
+            <p class="research-entry-finding">两次公开 LIGO 事件中，汉福德相对利文斯顿分别滞后 7.36 和 7.75 毫秒。九种预处理设定下，时延方向一致。</p>
+            <div class="links"><a href="science/research/gravitational-waves/paper.pdf">阅读论文 ↗</a><a href="science/research/gravitational-waves/source.zip" download>论文源稿与代码 ↓</a><a href="https://doi.org/10.7935/82H3-HH23">数据来源 ↗</a></div>
+          </div>
+          <figure class="research-entry-figure">
+            <a href="science/research/gravitational-waves/figure.svg"><img src="science/research/gravitational-waves/figure.webp" alt="六个面板呈现两次事件的实测时频谱、双台站对齐应变和事件窗外的时延对照。" loading="lazy"></a>
+            <figcaption><a href="science/research/gravitational-waves/figure.svg">矢量图 ↗</a></figcaption>
+          </figure>
+        </article><article class="research-entry" id="ridgecrest">
+          <div class="research-entry-text">
+            <p class="eyeline">地震学 · USGS 里奇克雷斯特</p>
+            <h3>余震衰减估计随目录而变</h3>
+            <p>将两个地震目录放在同一时空窗口，比较拟合衰减，并检查留出时段和 25 组震级阈值与起算时间组合。</p>
+            <p class="research-entry-finding">在 Mw 7.1 主震后 1–72 小时、报告震级 ≥1.5 的相同口径下，ComCat 和 Shelly 重定位目录的拟合衰减指数分别为 0.55 与 0.48。</p>
+            <div class="links"><a href="science/research/ridgecrest/paper.pdf">阅读论文 ↗</a><a href="science/research/ridgecrest/source.zip" download>论文源稿与代码 ↓</a><a href="https://doi.org/10.5066/P9JN6H0N">数据来源 ↗</a></div>
+          </div>
+          <figure class="research-entry-figure">
+            <a href="science/research/ridgecrest/figure.svg"><img src="science/research/ridgecrest/figure.webp" alt="两个目录的同尺度震中密度图、含留出区间的事件率对比，以及震级阈值与起算时间的敏感性分析。" loading="lazy"></a>
+            <figcaption><a href="science/research/ridgecrest/figure.svg">矢量图 ↗</a></figcaption>
+          </figure>
+        </article><article class="research-entry" id="smoke">
+          <div class="research-entry-text">
+            <p class="eyeline">大气科学 · EPA AirData</p>
+            <h3>六月烟霾，两种区域分布</h3>
+            <p>27 个监测站、8 个县级分组、810 个站点日。用同一组监测站比较 2023 年 6 月两次过程，再检验替代基线和逐组剔除结果。</p>
+            <p class="research-entry-finding">以 6 月 20–22 日各站中位数为参照，大西洋沿岸与五大湖地区 PM₂.₅ 偏离量之差，从 6 月 6–8 日的 +74.1 反转为 27–29 日的 −69.1 µg/m³。</p>
+            <div class="links"><a href="science/research/smoke/paper.pdf">阅读论文 ↗</a><a href="science/research/smoke/source.zip" download>论文源稿与代码 ↓</a><a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html">数据来源 ↗</a></div>
+          </div>
+          <figure class="research-entry-figure">
+            <a href="science/research/smoke/figure.svg"><img src="science/research/smoke/figure.webp" alt="EPA 站点地图、两组区域差值与逐日 PM₂.₅ 偏离量热图。" loading="lazy"></a>
+            <figcaption><a href="science/research/smoke/figure.svg">矢量图 ↗</a></figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell research section" id="older-research" aria-labelledby="older-research-title">
+      <details class="archive-disclosure"><summary>展开早期研究和图件</summary>
+      <div class="section-heading">
+        <h2 id="older-research-title">早期研究案例与图件</h2>
+        <p>两项已完成的研究，附原始图和论文。另有材料科学与催化方向的公开制图案例。</p>
+      </div>
+      <article class="case" id="dry-bean">
+        <div class="case-copy">
+          <p class="eyeline">受控压力测试 · 公开测量数据</p>
+          <h3>当缺失信息变成预测捷径</h3>
+          <p>给定研究问题和公开数据来源，Agent 用 UCI Dry Bean 测量数据设计缺失模式变化实验，比较两个分类器，并交付图件和可编辑论文。</p>
+          <p class="case-stat">13,543 条去重样本 · 2,160 个评估单元</p>
+          <p class="case-result">在 30% 人工缺失率下，为逻辑回归加入缺失指示变量。训练测试机制一致时平衡准确率增加 3.14 个百分点，机制反转时下降 20.75 个百分点。</p>
+          <div class="links">
+            <a href="science/dry-bean-paper.pdf">阅读研究稿 <span aria-hidden="true">↗</span></a>
+            <a href="https://doi.org/10.24432/C50S4B">数据来源 <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <figure class="case-visual">
+          <a href="science/dry-bean-figure.svg" aria-label="打开矢量图"><img src="science/dry-bean.webp" alt="六个面板，展示两类模型在三种人工缺失率下加入缺失标记的配对效应。" loading="lazy" width="1480" height="960"></a>
+          <figcaption><a href="science/dry-bean-figure.svg">打开矢量图 <span aria-hidden="true">↗</span></a></figcaption>
+        </figure>
+      </article>
+      <article class="case" id="feature-aggregation">
+        <div class="case-copy">
+          <p class="eyeline">实现诊断 · 三个公开数据集及一个合成条件</p>
+          <h3>特征相同，预测结果为什么变了</h3>
+          <p>Agent 在重复嵌套评估中追踪特征选择，定位了正文中一个由阈值并列传导到后续预测的具体实例。</p>
+          <p class="case-stat">每个条件 10 个外层划分 · 保留完整调参轨迹</p>
+          <p class="case-result">在 Digits 的一次划分中，列顺序变化使调参结果从 C = 10 变到 C = 1。最终选中的特征 ID 相同，仍有八个样本的预测标签发生变化。</p>
+          <div class="links">
+            <a href="science/feature-aggregation-paper.pdf">阅读研究稿 <span aria-hidden="true">↗</span></a>
+            <a href="science/case-notes.md">方法与来源 <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <figure class="case-visual">
+          <a href="science/feature-aggregation-figure.svg" aria-label="打开矢量图"><img src="science/feature-aggregation.webp" alt="三个原生面板，展示阈值的并列情况、Digits 完整调参轨迹及构造信息组的覆盖率。" loading="lazy" width="1600" height="1600"></a>
+          <figcaption><a href="science/feature-aggregation-figure.svg">打开矢量图 <span aria-hidden="true">↗</span></a></figcaption>
+        </figure>
+      </article>
+      <div class="gallery" id="figures">
+        <div class="section-heading">
+          <div><h3>科研制图案例</h3><p>可编辑图件，适合讲清研究设计、机理和多面板结果。</p></div>
+          <a href="../v5/figure-studies/">看全部八幅图 <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="gallery-grid">
+        <figure>
+          <a href="../v5/assets/figure-showcase/02_images/png/303.png"><img src="science/solid-state-interface.webp" alt="循环中硫化物固态电解质与锂金属界面的机理示意图。" loading="lazy"></a>
+          <figcaption><h4>固态电池界面演化</h4><p>机理示意</p><div class="links"><a href="../v5/assets/figure-showcase/02_images/png/303.png" download>原尺寸 PNG</a><a href="../v5/assets/figure-showcase/02_images/svg/303.svg" download>可编辑 SVG</a></div></figcaption>
+        </figure>
+        <figure>
+          <a href="../v5/assets/figure-showcase/02_images/png/307.png"><img src="science/catalyst-workflow.webp" alt="用模拟数据绘制的多面板闭环催化剂筛选流程图。" loading="lazy"></a>
+          <figcaption><h4>闭环催化剂发现</h4><p>模拟数据可视化</p><div class="links"><a href="../v5/assets/figure-showcase/02_images/png/307.png" download>原尺寸 PNG</a><a href="../v5/assets/figure-showcase/02_images/svg/307.svg" download>可编辑 SVG</a></div></figcaption>
+        </figure>
+        </div>
+      </div>
+      </details>
+    </section>
+
+    <section class="shell demos section" id="examples" aria-labelledby="demo-title">
+      <div class="section-heading"><h2 id="demo-title">一篇能复核的论文</h2><p>打开稿件和配套文件，就能核对结论、复查图里的数字，也能接着上一次的审阅继续改。</p></div>
+      <ul class="workflow-principles">
+        <li><h3>先确定研究范围</h3><p>只有题目时，先确定需要什么证据、做哪些分析。已经有结果时，可以直接从要做的图、要写的段落或要审阅的稿件开始。</p></li>
+        <li><h3>把证据交到读者手里</h3><p>把分析和制图源文件随稿交付。Followwriting 标出写作决策参照了哪些原文，结论由本研究的证据决定。</p></li>
+        <li><h3>在同一篇稿子上返修</h3><p>保存选定的图件和审阅意见，让 Agent 沿用同一任务，修订稿件及受影响的图件。</p></li>
+      </ul>
+      <div class="workflow-gallery" id="draft">
+        <article class="clip clip-featured" id="revision">
+          <div class="clip-preview"><img src="science/revision-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="science/revision-hd.gif" data-demo aria-label="播放功能演示 · 审阅返修"><span aria-hidden="true">▶</span></a></div>
+          <h3>审阅与返修</h3><p>工作台实拍 · 保存返修意见，再打开原任务内的新 PDF。</p>
+        </article>
+      <div class="clip-grid">
+        <article class="clip" id="writing">
+          <div class="clip-preview"><img src="science/followwriting-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="science/followwriting-hd.gif" data-demo aria-label="播放功能演示 · Followwriting"><span aria-hidden="true">▶</span></a></div>
+          <h3>Followwriting</h3><p>流程示意 · 围绕自己的结果落笔，参考原论文的论证结构。</p>
+        </article>
+        <article class="clip" id="figure-preview">
+          <div class="clip-preview"><img src="science/figures-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="science/figures-hd.gif" data-demo aria-label="播放功能演示 · 科研图预览"><span aria-hidden="true">▶</span></a></div>
+          <h3>科研图预览</h3><p>工作台实拍 · 打开研究图，检查原尺寸细节。</p>
+        </article>
+        <article class="clip" id="workbench">
+          <div class="clip-preview"><img src="science/workbench-hd-still.webp" alt="" loading="lazy" width="1280" height="720"><a class="play" href="science/workbench-hd.gif" data-demo aria-label="播放功能演示 · 论文预览"><span aria-hidden="true">▶</span></a></div>
+          <h3>论文预览</h3><p>工作台实拍 · 打开同一任务的 PDF 阅读稿。</p>
+        </article>
+        </div>
+      </div>
+      <dialog class="demo-dialog" aria-label="播放功能演示"><button type="button" class="close-demo">关闭 <span aria-hidden="true">×</span></button><img alt=""></dialog>
+    </section>
+
+    <section class="shell community-feature section" id="community" aria-labelledby="community-title">
+      <h2 class="section-heading" id="community-title">PaperSpine 社区</h2>
+      <iframe class="community-preview" src="../?lang=zh-CN&amp;embed=1&amp;v=unified-map" title="PaperSpine 社区星图" loading="lazy"></iframe>
+    </section>
+    </div>
+    <footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="../?lang=zh-CN">社区星图</a><a href="../contributors/zh.html">项目贡献者</a><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../v5/?legacy=1">V5 存档</a><a href="../v5/?support=1">支持维护</a><a id="press" href="science/paperspine-v6-press-kit.zip" download>项目素材</a><a href="https://github.com/WUBING2023/PaperSpine/issues">问题反馈</a></div></div></footer>
+  </template>
 </body>
 </html>

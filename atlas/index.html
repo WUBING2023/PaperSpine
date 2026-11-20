@@ -2,52 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Explore where PaperSpine’s GitHub stargazers have shared a location on their public profiles.">
-  <title>PaperSpine · Stargazer atlas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="探索 PaperSpine 社区星标的全球地域与高校分布。">
+  <title>PaperSpine · 社区星图</title>
   <link rel="canonical" href="https://wubing2023.github.io/PaperSpine/">
   <link rel="alternate" hreflang="en" href="https://wubing2023.github.io/PaperSpine/">
   <link rel="alternate" hreflang="zh-CN" href="https://wubing2023.github.io/PaperSpine/zh.html">
-  <link rel="stylesheet" href="community.css">
-  <script src="echarts.min.js" defer></script><script src="worldgeo.js" defer></script>
-  <script src="data.js" defer></script><script src="community-map.js" defer></script>
+  <link rel="stylesheet" href="atlas-view.css">
+  <script defer src="data.js"></script>
+  <script defer src="worldgeo.js"></script>
+  <script defer src="china-provinces.js"></script>
+  <script defer src="model.js"></script>
+  <script defer src="language.js"></script>
+  <script defer src="atlas.js"></script>
 </head>
 <body>
-  <a href="#content" class="skip">Skip to content</a>
-  <header class="nav"><div class="wrap"><strong><img src="v5/assets/brand/paperspine-mark.svg" alt="">PaperSpine</strong>
-    <nav aria-label="Community navigation">
-      <a href="v6/">V6 website</a><a href="./" aria-current="page">Stargazer atlas</a><a href="contributors/">Contributors</a><a href="zh.html" hreflang="zh-CN" lang="zh-CN" aria-label="社区星图">中文</a>
-    </nav>
-  </div></header>
-  <main id="content">
-      <section class="wrap hero">
-        <div><h1>Stargazer atlas</h1><p class="intro">Explore where PaperSpine’s GitHub stargazers have shared a location on their public profiles.</p></div>
-        <dl class="stats">
-          <div><dt>Stargazers sampled</dt><dd data-stat="total">—</dd></div>
-          <div><dt>Located profiles</dt><dd data-stat="located">—</dd></div>
-          <div><dt>Countries / regions</dt><dd data-stat="coverage">—</dd></div>
-        </dl>
-      </section>
-      <div class="wrap layout">
-        <section class="map-panel" aria-label="Map of stargazer locations">
-          <div class="map-header"><p>Public profile locations · aggregated by city</p>
-            <div class="map-controls"><button type="button" data-map-view="world" aria-pressed="true">World</button><button type="button" data-map-view="asia" aria-pressed="false">East Asia</button></div>
+  <header class="topbar">
+    <div class="top-inner"><div class="brand"><span class="brand-icon" aria-hidden="true">✦</span> PaperSpine <span class="brand-divider"></span><span class="brand-section" data-text>社区</span></div>
+      <div class="top-actions">
+        <a data-text data-en-href="v6/" href="v6/zh/">V6 官网</a>
+        <a data-text data-en-href="contributors/" href="contributors/zh.html">贡献者</a>
+        <a href="https://github.com/WUBING2023/PaperSpine">GitHub ↗</a>
+        <div class="language-switch" role="group" aria-label="语言 / Language">
+          <button type="button" data-lang="zh-CN" lang="zh-CN" aria-pressed="true">中文</button>
+          <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="intro">
+      <div>
+        <h1 data-text>社区星图</h1>
+        <p data-text>从全球地域到高校网络，探索 PaperSpine 星标的分布。</p>
+      </div>
+      <div class="stats" aria-label="快照统计">
+        <div><strong id="total">—</strong><span data-text>GitHub 星标</span></div>
+        <div><strong id="regions">—</strong><span data-text>国家与地区</span></div>
+        <div><strong id="schools">—</strong><span data-text>高校记录</span></div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="switcher" role="group" aria-label="地图视图">
+        <button data-mode="global" aria-pressed="true"><span aria-hidden="true">◎</span><span data-text>全球分布</span></button>
+        <button data-mode="schools" aria-pressed="false"><span aria-hidden="true">◇</span><span data-text>高校分布</span></button>
+      </div>
+      <span class="snapshot"><i></i> <span data-text>聚合快照</span> <time id="date"></time></span>
+    </div>
+    <div class="workspace">
+      <section class="map-card" id="map-card" aria-labelledby="map-title">
+        <div class="map-header">
+          <h2 id="map-title"></h2>
+          <div class="tools" aria-label="地图缩放">
+            <button id="zoom-in" aria-label="放大">+</button>
+            <button id="zoom-out" aria-label="缩小">−</button>
+            <button id="reset-view" aria-label="重置视野">⌂</button>
           </div>
-          <div id="map" aria-hidden="true"></div>
-          <div class="map-foot"><span><strong>●</strong> Larger marks represent more stars</span><span id="map-status" role="status" data-hint="Select a city to zoom" data-error="Map data unavailable">Select a city to zoom</span></div>
-        </section>
-        <section class="sidebar" aria-labelledby="region-title">
-          <h2 id="region-title">Locations</h2>
-          <div class="sort"><button type="button" data-region-list="cities" aria-pressed="true">Cities</button><button type="button" data-region-list="countries" aria-pressed="false">Countries / regions</button><button type="button" data-region-list="schools" aria-pressed="false">Universities</button><button type="button" data-region-list="companies" aria-pressed="false">Companies</button></div>
-          <label class="search" for="region-search">Find a place or affiliation<input type="search" id="region-search" autocomplete="off"></label>
-          <ul id="rank"></ul><p class="status" id="rank-empty" hidden>No matches</p>
-        </section>
-      </div>
-      <div class="wrap source">
-        <p>Snapshot dated <time id="data-date">—</time>. Locations come from public, self-reported profile fields and recognizable affiliations. Country-only records count in the totals and are omitted from the city map. Counts refer to GitHub stars. <a href="https://github.com/WUBING2023/PaperSpine/stargazers">GitHub stargazers ↗</a></p>
-        <noscript><p>Enable JavaScript to explore the map and location list.</p></noscript>
-      </div>
+        </div>
+        <div class="map-stage">
+          <svg id="map" viewBox="0 0 960 500" role="group" aria-labelledby="map-title">
+            <defs>
+              <pattern id="dots" width="7.5" height="7.5" patternUnits="userSpaceOnUse">
+                <circle cx="3.75" cy="3.75" r="2.05" fill="#2c4053"/>
+              </pattern>
+              <filter id="glow" x="-250%" y="-250%" width="600%" height="600%">
+                <feGaussianBlur stdDeviation="4"/>
+              </filter>
+            </defs>
+            <g id="terrain" aria-hidden="true"></g>
+            <g id="markers"></g>
+          </svg>
+          <div id="map-selection" class="map-selection" aria-hidden="true" hidden>
+            <strong></strong><span></span>
+          </div>
+          <div id="tooltip" class="tooltip" hidden></div>
+        </div>
+        <div class="map-footer">
+          <span><i></i><span id="legend"></span></span>
+          <span class="map-hint" data-text>滚轮缩放 · 按住拖拽</span><span id="map-scope"></span>
+        </div>
+      </section>
+      <aside class="directory" aria-labelledby="directory-title">
+        <div class="directory-head">
+          <h2 id="directory-title"></h2>
+          <label class="search"><span aria-hidden="true">⌕</span><input type="search" id="query" aria-label="搜索"></label>
+          <div class="controls" id="school-filters" hidden>
+            <select id="country" aria-label="国家或地区"></select>
+            <select id="province" aria-label="省级地区"></select>
+            <select id="city" aria-label="城市"></select>
+          </div>
+        </div>
+        <div id="selection" class="selection" aria-live="polite" hidden></div>
+        <div class="list-head"><span id="results" aria-live="polite"></span><span data-text>星标</span></div>
+        <ol id="list" aria-label="分布列表"></ol>
+      </aside>
+    </div>
+    <footer><p id="source-note"></p><a data-text href="https://github.com/WUBING2023/PaperSpine/stargazers">查看 GitHub 星标 ↗</a></footer>
+    <noscript>探索星图需要启用 JavaScript。 Enable JavaScript to explore the atlas.</noscript>
   </main>
-  <footer><div class="wrap"><span>PaperSpine · AI for Science</span><nav aria-label="GitHub"><a href="https://github.com/WUBING2023/PaperSpine">GitHub ↗</a><a href="https://github.com/WUBING2023/PaperSpine/stargazers">View source records ↗</a></nav></div></footer>
 </body>
 </html>

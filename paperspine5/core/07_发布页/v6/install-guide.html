@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent installation guide · PaperSpine.io</title>
+  <link rel="icon" href="paperspine-dragon.png" type="image/png">
+  <link rel="stylesheet" href="v6.css?v=frontend-refresh">
+  <script src="research-background.js" defer></script>
+</head>
+<body>
+  <canvas class="research-background" aria-hidden="true"></canvas>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="./"><span class="wordmark-symbol" aria-hidden="true"><img class="wordmark-icon" src="paperspine-dragon.png" width="40" height="40" alt=""></span>PaperSpine<span class="domain">.io</span></a>
+      <a id="guide-back" href="./#download">Back to downloads</a>
+    </div>
+  </header>
+  <main class="shell agent-guide-page">
+    <article lang="en">
+      <header class="agent-guide-heading">
+        <h1>Agent installation guide</h1>
+        <p>Choose a PaperSpine V6 edition, verify its release archive, and confirm that your AI agent can find the Skill.</p>
+        <a href="@SITE@llms.txt">Plain text for agents (.txt)</a>
+      </header>
+      <section>
+        <h2>Choose an edition</h2>
+        <dl class="guide-editions">
+          <div><dt>Full Workflow Skill <code>skill</code></dt><dd>For working on a research question, results, or a draft in chat. Invoke <code>$paper-spine</code>.</dd></div>
+          <div><dt>Skills Pack <code>skills-pack</code></dt><dd>The full workflow and five individually callable stages. Invoke <code>$paper-spine</code> or a stage such as <code>$paper-spine-followwriting</code>.</dd></div>
+          <div><dt>Web Plugin <code>web-plugin</code></dt><dd>The Skills Pack with a local workbench. Requires Windows x64 and the Codex CLI. Invoke <code>$paper-spine-web:paper-spine-web</code> in a new Codex chat.</dd></div>
+        </dl>
+      </section>
+      <section>
+        <h2>Verify and install</h2>
+        <ol>
+          <li>Identify your host and its Skill directory. The edition manager defaults to the current user's Codex Skill directory and requires Python 3.12 or later. The Web Plugin archive includes Windows Python.</li>
+          <li>Find the edition in the <a href="@SITE@channel.json">V6 manifest</a>. Download its ZIP and compare the full SHA-256 with the manifest and <a href="@SITE@checksums.sha256">published checksums</a>.</li>
+          <li>Extract the verified ZIP. From its extracted folder, run the manager with the absolute path to the original ZIP.</li>
+        </ol>
+        <pre><code>python -B edition_manager.py install "&lt;absolute path to original ZIP&gt;" --sha256 &lt;SHA256&gt;</code></pre>
+        <p>For another host's Skill directory, pass <code>--skills-root "&lt;host Skill directory&gt;"</code> before <code>install</code>. Use the same directory for subsequent manager commands.</p>
+      </section>
+      <section>
+        <h2>Confirm the installation</h2>
+        <pre><code>python -B "&lt;manager path&gt;" status</code></pre>
+        <p>Use the manager path printed by the installer and the same interpreter and Skill directory. Confirm the edition and version, then open a new chat in your host and check that the Skill appears.</p>
+        <p><a href="https://github.com/WUBING2023/PaperSpine/blob/@TAG@/INSTALL-V6.en.md">Versioned install, update, and uninstall instructions</a></p>
+      </section>
+    </article>
+    <article lang="zh-CN" hidden>
+      <header class="agent-guide-heading">
+        <h1>Agent 安装指南</h1>
+        <p>选择适合当前 AI 宿主的 PaperSpine V6 版本，校验发布包，然后在新对话中确认 Skill 已可调用。</p>
+        <a href="@SITE@llms.txt">给 Agent 读的纯文本（.txt）</a>
+      </header>
+      <section>
+        <h2>选择版本</h2>
+        <dl class="guide-editions">
+          <div><dt>全流程 Skill <code>skill</code></dt><dd>从研究问题、数据、结果或草稿出发，在对话中调用 <code>$paper-spine</code>。</dd></div>
+          <div><dt>Skills 包 <code>skills-pack</code></dt><dd>包含全流程入口和五个可独立调用的阶段。可调用 <code>$paper-spine</code>，也可调用 <code>$paper-spine-followwriting</code> 等阶段 Skill。</dd></div>
+          <div><dt>Web 插件包 <code>web-plugin</code></dt><dd>在 Skills 包基础上提供本地工作台。需要 Windows x64 和 Codex CLI。在新 Codex 对话中调用 <code>$paper-spine-web:paper-spine-web</code>。</dd></div>
+        </dl>
+      </section>
+      <section>
+        <h2>校验并安装</h2>
+        <ol>
+          <li>确认宿主和它的 Skill 目录。管理器默认使用当前用户的 Codex Skill 目录，需要 Python 3.12 或更新版本。Web 插件包内含 Windows Python。</li>
+          <li>在 <a href="@SITE@channel.json">V6 版本清单</a>中找到所选版本的 ZIP。下载后，将完整的 SHA-256 与清单和<a href="@SITE@checksums.sha256">官方校验值</a>比对。</li>
+          <li>解压通过校验的 ZIP。在解压目录中运行管理器，将原始 ZIP 的绝对路径传给它。</li>
+        </ol>
+        <pre><code>python -B edition_manager.py install "&lt;原始 ZIP 的绝对路径&gt;" --sha256 &lt;SHA256&gt;</code></pre>
+        <p>使用其他宿主目录时，在 <code>install</code> 前加 <code>--skills-root "&lt;宿主 Skill 目录&gt;"</code>。后续管理命令也用同一目录。</p>
+      </section>
+      <section>
+        <h2>确认安装结果</h2>
+        <pre><code>python -B "&lt;管理器路径&gt;" status</code></pre>
+        <p>使用安装器输出的管理器路径、相同的 Python 解释器和 Skill 目录。核对版本后，在宿主里新开一个对话，检查 Skill 是否可以调用。</p>
+        <p><a href="https://github.com/WUBING2023/PaperSpine/blob/@TAG@/INSTALL-V6.md">对应版本的安装、更新与卸载说明</a></p>
+      </section>
+    </article>
+  </main>
+  <script>
+    if (new URLSearchParams(location.search).get("lang") === "zh-CN") {
+      document.documentElement.lang = "zh-CN";
+      document.title = "Agent 安装指南 · PaperSpine.io";
+      document.querySelector('.agent-guide-page article[lang="en"]').hidden = true;
+      document.querySelector('.agent-guide-page article[lang="zh-CN"]').hidden = false;
+      document.querySelector("#guide-back").textContent = "返回下载区";
+      document.querySelector("#guide-back").href = "./?lang=zh-CN#download";
+    }
+  </script>
+</body>
+</html>
