@@ -2,7 +2,7 @@
 (() => {
   const site = new URL("../", document.currentScript.src);
   const api = "https://api.github.com/repos/WUBING2023/PaperSpine";
-  const interval = 300_000;
+  const interval = 60 * 60 * 1000;
   const feeds = new Map();
   const integer = value => Number.isSafeInteger(value) && value >= 0;
   let apiRetryAfter = 0;
@@ -39,6 +39,8 @@
         if (document.hidden || feed.busy || Date.now() < feed.due) return;
         feed.busy = true;
         feed.due = Date.now() + interval;
+        clearTimeout(feed.timer);
+        feed.timer = setTimeout(feed.refresh, interval);
         try {
           const fallback = () => json(new URL(backup, site)).then(deliver);
           const known = Boolean(feed.value);
@@ -56,12 +58,8 @@
     feed.refresh();
   }
   function refresh() { for (const feed of feeds.values()) feed.refresh(); }
-  setInterval(refresh, 15000);
   document.addEventListener("visibilitychange", refresh);
-  addEventListener("online", () => {
-    for (const feed of feeds.values()) feed.due = 0;
-    refresh();
-  });
+  addEventListener("online", refresh);
   const dated = value => value && Number.isFinite(Date.parse(value.retrieved_at));
   window.PaperSpineLive = {
     repository(listener) {

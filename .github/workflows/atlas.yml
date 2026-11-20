@@ -2,7 +2,7 @@ name: Deploy stargazer atlas
 
 on:
   schedule:
-    - cron: "17 */4 * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
   release:
     types: [published, prereleased]

@@ -48,7 +48,11 @@ def check(browser, base):
             href = page.locator(".case-original").get_attribute("href")
             assert href and ctx.request.get(base + "v6/" + href).ok, href
     version["n"] = 1
-    page.clock.fast_forward(301_000)
+    page.clock.fast_forward(59 * 60_000)
+    page.evaluate("window.dispatchEvent(new Event('online'))")
+    expect(labels.nth(0)).to_have_text("0 downloads")
+    expect(page.locator(".github")).to_have_attribute("title", "PaperSpine on GitHub · 7,300 stars")
+    page.clock.fast_forward(61_000)
     expect(labels.nth(0)).to_have_text("1 download")
     expect(page.locator(".github")).to_have_attribute("title", "PaperSpine on GitHub · 7,301 stars")
     page.locator(".language-switch").click()
@@ -67,14 +71,18 @@ def check(browser, base):
     next_geo = dict(samples["geo"], totalStars=samples["geo"]["totalStars"] + 2,
                     retrieved_at=page.evaluate("new Date(Date.now() + 1000).toISOString()"))
     page.route("**/api/v1/atlas.json", lambda route: route.fulfill(json=next_geo))
-    page.clock.fast_forward(316_000)
+    page.clock.fast_forward(59 * 60_000)
+    expect(page.locator("#sample")).to_have_text(f"{samples['geo']['totalStars']:,}")
+    page.clock.fast_forward(61_000)
     expect(page.locator("#sample")).to_have_text(f"{next_geo['totalStars']:,}")
     expect(page.locator("#query")).to_have_value("Tsinghua")
     page.goto(base + "contributors/", wait_until="domcontentloaded")
     page.locator("#contributor-search").fill("sample")
     expect(page.locator(".roster")).to_contain_text("19")
     version["n"] = 2
-    page.clock.fast_forward(301_000)
+    page.clock.fast_forward(59 * 60_000)
+    expect(page.locator(".roster")).to_contain_text("19")
+    page.clock.fast_forward(61_000)
     expect(page.locator(".roster")).to_contain_text("20")
     expect(page.locator("#contributor-search")).to_have_value("sample")
     assert page.locator('a[href$="/pull/19"]').count()
@@ -84,7 +92,7 @@ def check(browser, base):
     for link in page.locator("[data-release-download]").all():
         assert link.get_attribute("href").startswith("https://github.com/WUBING2023/PaperSpine/releases/download/")
     assert not errors, errors
-    print("PASS: 4 studies × 4 outputs, EN/ZH, mobile width, two successive live responses, "
+    print("PASS: 4 studies × 4 outputs, EN/ZH, mobile width, hourly polling boundaries, "
           "genuine zero, contributor search, university filter, rate-limit fallback and download URLs.")
     ctx.close()
 
