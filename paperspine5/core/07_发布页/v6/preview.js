@@ -127,6 +127,7 @@ function setLanguage(nextLanguage) {
     element.setAttribute(target, chinese ? element.getAttribute(dataAttribute) : english);
   }
   showLanguageInMenu(nextLanguage);
+  document.querySelector("#contributors-link").href = "contributors/?lang=" + (chinese ? "zh-CN" : "en");
   document.querySelector("#site-guide").href = chinese ? "install-guide.html?lang=zh-CN" : "install-guide.html";
   renderCopyFeedback();
   renderGitHubStars();

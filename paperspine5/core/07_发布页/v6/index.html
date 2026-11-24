@@ -9,15 +9,15 @@
   <meta property="og:description" content="An open-source research Skill. Review literature, analyze data, make scientific figures, and write an editable paper with your agent.">
   <meta property="og:image" content="https://wubing2023.github.io/PaperSpine/v6/science/press-cover.png">
   <link rel="icon" href="paperspine-dragon.png" type="image/png">
-  <link rel="stylesheet" href="v6.css?v=brand-title">
+  <link rel="stylesheet" href="v6.css?v=organization-atlas">
   <script src="live-data.js" defer></script>
-  <script src="v6-content.js" defer></script>
+  <script src="v6-content.js?v=organization-atlas" defer></script>
   <script src="research-background.js" defer></script>
   <script src="motion-demo.js?v=full-locales" defer></script>
   <!-- language-alternates -->
   <link rel="stylesheet" href="languages.css?v=full-locales">
   <script src="language-nav.js?v=full-locales" defer></script>
-  <script src="preview.js?v=full-locales" defer></script>
+  <script src="preview.js?v=organization-atlas" defer></script>
   <!-- locale-messages -->
 </head>
 <body>
@@ -30,6 +30,7 @@
         <a href="#research" data-zh="研究案例">Research</a>
         <a href="#examples" data-zh="演示">Demos</a>
         <a href="#community" data-zh="社区">Community</a>
+        <a id="contributors-link" href="contributors/?lang=en" data-zh="贡献者">Contributors</a>
         <a id="site-guide" href="install-guide.html" data-zh="文档">Docs</a>
       </nav>
       <div class="header-actions">
@@ -410,11 +411,15 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
 
     <section class="shell community-feature section" id="community" aria-labelledby="community-title">
       <h2 class="section-heading" id="community-title">Community</h2>
-      <iframe class="community-preview" src="../?lang=en&amp;embed=1&amp;v=unified-map" title="PaperSpine community atlas" loading="lazy"></iframe>
+      <iframe class="community-preview" src="../?lang=en&amp;embed=geography&amp;v=organization-atlas" title="PaperSpine community atlas" loading="lazy"></iframe>
+      <section class="community-organizations" aria-labelledby="community-organizations-title">
+        <h3 id="community-organizations-title">Companies and organizations</h3>
+        <iframe class="community-preview" src="../?lang=en&amp;embed=organizations&amp;v=organization-atlas" title="PaperSpine companies and organizations" loading="lazy"></iframe>
+      </section>
     </section>
     </div>
   </main>
-  <div id="v6-footer"><footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="../?lang=en">Stargazer atlas</a><a href="../contributors/">Contributors</a><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../v5/en/?legacy=1">V5 archive</a><a href="../v5/en/?support=1">Support the project</a><a id="press" href="science/paperspine-v6-press-kit.zip" download>Project assets</a><a href="https://github.com/WUBING2023/PaperSpine/issues">Report an issue</a></div></div></footer></div>
+  <div id="v6-footer"><footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="../?lang=en">Stargazer atlas</a><a href="contributors/?lang=en">Contributors</a><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../v5/en/?legacy=1">V5 archive</a><a href="../v5/en/?support=1">Support the project</a><a id="press" href="science/paperspine-v6-press-kit.zip" download>Project assets</a><a href="https://github.com/WUBING2023/PaperSpine/issues">Report an issue</a></div></div></footer></div>
   <template id="v6-chinese">
     <div class="v6-content">
     <section class="edition-section section" id="download" aria-labelledby="edition-title">
@@ -670,10 +675,14 @@ Verify the ZIP with SHA-256. After installing, confirm the version and tell me h
 
     <section class="shell community-feature section" id="community" aria-labelledby="community-title">
       <h2 class="section-heading" id="community-title">PaperSpine 社区</h2>
-      <iframe class="community-preview" src="../?lang=zh-CN&amp;embed=1&amp;v=unified-map" title="PaperSpine 社区星图" loading="lazy"></iframe>
+      <iframe class="community-preview" src="../?lang=zh-CN&amp;embed=geography&amp;v=organization-atlas" title="PaperSpine 社区星图" loading="lazy"></iframe>
+      <section class="community-organizations" aria-labelledby="community-organizations-title">
+        <h3 id="community-organizations-title">公司 / 组织</h3>
+        <iframe class="community-preview" src="../?lang=zh-CN&amp;embed=organizations&amp;v=organization-atlas" title="PaperSpine 公司与组织星图" loading="lazy"></iframe>
+      </section>
     </section>
     </div>
-    <footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="../?lang=zh-CN">社区星图</a><a href="../contributors/zh.html">项目贡献者</a><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../v5/?legacy=1">V5 存档</a><a href="../v5/?support=1">支持维护</a><a id="press" href="science/paperspine-v6-press-kit.zip" download>项目素材</a><a href="https://github.com/WUBING2023/PaperSpine/issues">问题反馈</a></div></div></footer>
+    <footer class="site-footer"><div class="shell footer-inner"><span>PaperSpine V6 · MIT</span><div class="links"><a href="../?lang=zh-CN">社区星图</a><a href="contributors/?lang=zh-CN">项目贡献者</a><a href="https://github.com/WUBING2023/PaperSpine">GitHub</a><a href="../v5/?legacy=1">V5 存档</a><a href="../v5/?support=1">支持维护</a><a id="press" href="science/paperspine-v6-press-kit.zip" download>项目素材</a><a href="https://github.com/WUBING2023/PaperSpine/issues">问题反馈</a></div></div></footer>
   </template>
 </body>
 </html>

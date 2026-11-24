@@ -17,8 +17,9 @@ def run(script, *args):
 def assemble(output):
     output.mkdir(parents=True, exist_ok=True)
     for name in ("index.html", "zh.html", "atlas-view.css", "atlas.js", "language.js", "model.js",
-                 "china-provinces.js", "worldgeo.js", "data.js", "community.css"):
+                 "china-provinces.js", "worldgeo.js", "data.js", "community.css", "organization-globe.js"):
         shutil.copy2(ATLAS / name, output / name)
+    shutil.copytree(ATLAS / "organization-logos", output / "organization-logos", dirs_exist_ok=True)
     run(ATLAS / "public_feed.py", output / "api/v1/atlas.json")
     if (ATLAS / "repository.json").exists():
         shutil.copy2(ATLAS / "repository.json", output / "api/v1/repository.json")

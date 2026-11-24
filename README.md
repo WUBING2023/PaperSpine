@@ -217,7 +217,7 @@ Followwriting illustrates how to use a reference’s structure while writing fro
 
 ## Development and community
 
-<a href="https://wubing2023.github.io/PaperSpine/"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="PaperSpine’s GitHub stargazer atlas, aggregated from publicly shared city locations."></a>
+<a href="https://wubing2023.github.io/PaperSpine/"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="PaperSpine community atlas with global, university, and organization views."></a>
 
 [See who contributed to each V6 update](https://wubing2023.github.io/PaperSpine/contributors/#v6-contributions) · [Explore the stargazer atlas](https://wubing2023.github.io/PaperSpine/) · [Atlas data (JSON)](https://wubing2023.github.io/PaperSpine/api/v1/atlas.json)
 

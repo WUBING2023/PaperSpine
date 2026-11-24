@@ -23,6 +23,37 @@
   const regionNames = new Intl.DisplayNames(['zh-CN'], { type: 'region' });
   const normalize = value => String(value || '').normalize('NFKC').toLowerCase().trim();
   const normalizeLongitude = lng => lng > 180 ? lng - 360 : lng;
+  const organizationPlaceholders = new Set(['暂无', '无', 'none', 'n/a', 'empty', 'chongqing', 'nanjing']);
+  const organizationCountries = new Map(Object.entries({
+    'Deepseek-Harness': 'China',
+    'Shanghai Innovation Institution': 'China',
+    '自由研究の株式会社 サンダーワールド': 'Japan',
+    'Integral Analytics': 'United States',
+    'Ultra Heavy LLC': 'United States',
+    Shanda: 'United States',
+  }));
+  // Organization locations apply only where the snapshot has no usable city.
+  const organizationBases = new Map(Object.entries({
+    Huawei: ['Shenzhen', '深圳', 'China', 114.06, 22.54, 'https://www.huawei.com/en/media-center/company-facts'],
+    Baidubce: ['Beijing', '北京', 'China', 116.40, 39.90, 'https://cloud.baidu.com/doc/Agreements/s/Gm4ayxue1'],
+    SpaceX: ['Starbase, Texas', '星港（德州）', 'United States', -97.16, 25.99, 'https://ir.spacex.com/faqs-and-contact/'],
+    'WEX Inc': ['Portland, Maine', '波特兰（缅因州）', 'United States', -70.26, 43.66, 'https://www.sec.gov/Archives/edgar/data/1309108/000130910826000010/wex-20251231.htm'],
+    'Carcinize Corp': ['Boise, Idaho', '博伊西（爱达荷州）', 'United States', -116.20, 43.62, 'https://www.carcinize.net/'],
+    'Institut de Recherche sur les Phénomènes Hors Équilibre, AMU, CNRS': ['Marseille', '马赛', 'France', 5.37, 43.30, 'https://emploi.cnrs.fr/Unites/UMR7342/Default.aspx'],
+  }));
+  // University names and affiliations misclassified in the existing snapshot.
+  const universityAliases = new Set([
+    'anhui unversity', 'beijing intitute of technology', 'cau', 'cupk',
+    'chongqing uninversity of technology', 'cvc,uab', 'isu', 'lzjtu', 'must',
+    'monash centre for electron microscopy', 'njau', 'njust', 'nuist', 'nus',
+    'swust', 'stanford', 'szu', 'tu münchen', 'utfpr', 'xdu', "xi'dian uiv",
+    'yunnan unversity', 'bupt -> ntu', 'caras lab@tokyo tech', 'ccnu', 'cqu', 'cqupt',
+    'cqupt-fusion lab', 'cuhk(sz)', 'cuhk', 'dianzikejidaxue', 'fiu', 'gdpu', 'glassgow,uestc',
+    'hkust(gz)', 'inha', 'kaust', 'kcl', 'ku leuven', 'ncuhome', 'njupt-sast', 'scau', 'shu',
+    'srl-ethz', 'sun yat-sen unviersity', 'polyu', 'tongji & sii', 'ustb', 'ut arlington',
+    'ut health houston', 'uvic', 'udem', 'ustc & eit', 'virginia tech', 'xmu', 'zzu', 'cardiff',
+    'uwc changshu china',
+  ]);
   const matches = (values, query) => normalize(query).split(/\s+/).every(term =>
     values.some(value => normalize(value).includes(term))
   );
@@ -41,10 +72,37 @@
         province: city.country === 'China' ? cityProvinces.get(city.zh) : null };
       campusCities.set(city.zh, campusCities.has(city.zh) ? null : location);
     }
-    const schools = snapshot.schools.map((school, id) => ({
-      ...school, id, location: campusCities.get(school.city) || null,
+    const locate = records => records.map((record, id) => ({
+      ...record, id, location: campusCities.get(record.city) || null,
     }));
-    return { countries, cities, schools };
+    const schoolNames = new Set(snapshot.schools.flatMap(school => [normalize(school.en), normalize(school.zh)]).filter(Boolean));
+    const companies = (snapshot.companies ?? []).filter(record => [record.en, record.zh].some(name => {
+      const key = normalize(name);
+      return key && !organizationPlaceholders.has(key);
+    }) && [record.en, record.zh].every(name => {
+      const key = normalize(name);
+      return !key.includes('@tongji.edu.cn') && key.split('|').every(part => {
+        const alias = part.trim();
+        return !schoolNames.has(alias) && !universityAliases.has(alias);
+      });
+    }));
+    const organizations = locate(companies).map(record => {
+      if (/^https:\/\/non-convex\.com\/?$/i.test(record.en)) {
+        record = { ...record, en: 'Non-Convex', zh: 'Non-Convex' };
+      }
+      const base = organizationBases.get(record.en);
+      if (record.location) return record;
+      if (!base) {
+        const statedCountry = countries.find(({ label }) => record.city === label + '·未注明城市');
+        return { ...record, countryOnly: statedCountry?.name ?? organizationCountries.get(record.en),
+          locationSource: record.en === 'Shanda' ? 'https://www.linkedin.com/company/shanda-group' : undefined };
+      }
+      const [name, label, country, lng, lat, source] = base;
+      const location = campusCities.get(label) ?? { name, label, country, lng, lat,
+        countryLabel: countryLabels.get(country) ?? country };
+      return { ...record, location, locationSource: source };
+    });
+    return { countries, cities, schools: locate(snapshot.schools), companies: organizations };
   }
 
   function filterSchools(schools, { country, province, city, query }) {
