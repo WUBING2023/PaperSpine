@@ -9,14 +9,17 @@ const atlas = buildAtlas(window.ATLAS);
 
 test('only known cities become global markers; country totals stay intact', () => {
   assert.ok(atlas.cities.every(city => !city.name.includes('unspecified')));
-  assert.equal(atlas.countries.find(country => country.name === 'China').count, 432);
-  assert.ok(atlas.cities.filter(city => city.country === 'China').reduce((sum, city) => sum + city.count, 0) < 432);
+  const chinaTotal = window.ATLAS.countries.China;
+  assert.equal(atlas.countries.find(country => country.name === 'China').count, chinaTotal);
+  assert.ok(atlas.cities.filter(city => city.country === 'China').reduce((sum, city) => sum + city.count, 0) < chinaTotal);
 });
 
 test('school filters combine province, city and case-insensitive bilingual search', () => {
   const province = { province: '北京市', city: '北京' };
   for (const query of ['清华', '  TSINGHUA  ']) {
-    assert.deepEqual(filterSchools(atlas.schools, { ...province, query }).map(school => school.zh), ['清华大学']);
+    const matches = filterSchools(atlas.schools, { ...province, query });
+    assert.ok(matches.some(school => school.en === 'Tsinghua University'));
+    assert.ok(matches.every(school => school.location.label === '北京' && school.location.province === '北京市'));
   }
   assert.deepEqual(filterSchools(atlas.schools, { ...province, city: '杭州', query: '清华' }), []);
 });

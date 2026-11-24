@@ -216,7 +216,7 @@ Followwriting montre comment s’appuyer sur la structure d’un article de réf
 
 ## Développement et communauté
 
-<a href="https://wubing2023.github.io/PaperSpine/?lang=fr"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="Atlas des étoiles GitHub de PaperSpine, agrégé à partir des villes indiquées publiquement."></a>
+<a href="https://wubing2023.github.io/PaperSpine/?lang=fr"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="Atlas de la communauté PaperSpine avec des vues mondiale, universitaire et des organisations."></a>
 
 [Voir les contributions à chaque mise à jour de V6](https://wubing2023.github.io/PaperSpine/contributors/fr.html#v6-contributions) · [Explorer l’atlas des étoiles](https://wubing2023.github.io/PaperSpine/?lang=fr) · [Données de l’atlas (JSON)](https://wubing2023.github.io/PaperSpine/api/v1/atlas.json)
 

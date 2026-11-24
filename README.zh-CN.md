@@ -214,7 +214,7 @@ Followwriting 短片演示如何借鉴论证写法、用本研究的结果落笔
 
 ## 开发与社区
 
-<a href="https://wubing2023.github.io/PaperSpine/zh.html"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="新版 PaperSpine 社区星图，展示全球星标分布、地域概览和高校分布入口。"></a>
+<a href="https://wubing2023.github.io/PaperSpine/zh.html"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="PaperSpine 社区星图，可切换全球分布、高校分布和公司 / 组织视图。"></a>
 
 [查看各轮 V6 更新的贡献](https://wubing2023.github.io/PaperSpine/contributors/zh.html#v6-contributions) · [浏览社区星图](https://wubing2023.github.io/PaperSpine/zh.html) · [星图数据（JSON）](https://wubing2023.github.io/PaperSpine/api/v1/atlas.json)
 

@@ -1,21 +1,21 @@
 // Interactions adapted from the V6 release page and scoped to each language.
 function initializeV6Content(root, locale) {
-  const atlas = root.querySelector(".community-preview");
-  let atlasResize;
-  function sizeAtlas() {
-    atlasResize?.disconnect();
-    const atlasPage = atlas.contentDocument;
-    const atlasMain = atlasPage?.querySelector("html[data-embed] main");
-    if (!atlasMain) return;
-    const syncHeight = () => {
-      atlas.style.height = Math.ceil(atlasMain.getBoundingClientRect().height) + "px";
-    };
-    syncHeight();
-    atlasResize = new ResizeObserver(syncHeight);
-    atlasResize.observe(atlasMain);
+  for (const atlas of root.querySelectorAll(".community-preview")) {
+    let atlasResize;
+    function sizeAtlas() {
+      atlasResize?.disconnect();
+      const atlasMain = atlas.contentDocument?.querySelector("html[data-embed] main");
+      if (!atlasMain) return;
+      const syncHeight = () => {
+        atlas.style.height = Math.ceil(atlasMain.getBoundingClientRect().height) + "px";
+      };
+      syncHeight();
+      atlasResize = new ResizeObserver(syncHeight);
+      atlasResize.observe(atlasMain);
+    }
+    atlas.addEventListener("load", sizeAtlas);
+    sizeAtlas();
   }
-  atlas.addEventListener("load", sizeAtlas);
-  sizeAtlas();
 
   const dialog = root.querySelector(".demo-dialog");
   const preview = dialog?.querySelector("img");

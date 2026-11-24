@@ -216,7 +216,7 @@ Followwriting は、自分の研究結果で論文を書きながら、参考論
 
 ## 開発とコミュニティ
 
-<a href="https://wubing2023.github.io/PaperSpine/?lang=ja"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="公開された都市情報を集計した、PaperSpine の GitHub スター分布マップ。"></a>
+<a href="https://wubing2023.github.io/PaperSpine/?lang=ja"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="世界・大学・組織別の分布を表示する PaperSpine コミュニティマップ。"></a>
 
 [V6 の更新ごとの貢献者を見る](https://wubing2023.github.io/PaperSpine/contributors/ja.html#v6-contributions) · [スターの分布を調べる](https://wubing2023.github.io/PaperSpine/?lang=ja) · [マップデータ（JSON）](https://wubing2023.github.io/PaperSpine/api/v1/atlas.json)
 

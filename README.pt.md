@@ -216,7 +216,7 @@ Followwriting mostra como usar a estrutura de uma referência para escrever a pa
 
 ## Desenvolvimento e comunidade
 
-<a href="https://wubing2023.github.io/PaperSpine/?lang=pt"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="Atlas das estrelas do PaperSpine no GitHub, agregado a partir de cidades informadas publicamente."></a>
+<a href="https://wubing2023.github.io/PaperSpine/?lang=pt"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="Atlas da comunidade PaperSpine com visualizações globais, de universidades e de organizações."></a>
 
 [Ver quem contribuiu em cada atualização da V6](https://wubing2023.github.io/PaperSpine/contributors/pt.html#v6-contributions) · [Explorar o atlas de estrelas](https://wubing2023.github.io/PaperSpine/?lang=pt) · [Dados do atlas (JSON)](https://wubing2023.github.io/PaperSpine/api/v1/atlas.json)
 

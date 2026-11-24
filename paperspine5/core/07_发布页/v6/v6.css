@@ -414,3 +414,6 @@ summary { width: fit-content; cursor: pointer; color: var(--accent); }
   .editions, .workflow-principles, .agent-install, .research-entry, .case, .gallery-grid, .workflow-gallery { grid-template-columns: minmax(0, 1fr); }
   .edition { grid-row: auto; grid-template-rows: auto; gap: 18px; }
 }
+
+.community-organizations { margin-top: clamp(28px, 4vw, 56px); }
+.community-organizations > h3 { margin: 0 8px 8px; font-size: clamp(1.2rem, 2vw, 1.55rem); }

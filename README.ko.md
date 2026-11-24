@@ -216,7 +216,7 @@ Followwriting은 자기 연구의 결과를 쓰면서 참고 논문의 구성을
 
 ## 개발과 커뮤니티
 
-<a href="https://wubing2023.github.io/PaperSpine/?lang=ko"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="공개 도시 위치를 집계한 PaperSpine GitHub 스타 지도."></a>
+<a href="https://wubing2023.github.io/PaperSpine/?lang=ko"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="전 세계, 대학 및 조직별 분포를 보여 주는 PaperSpine 커뮤니티 지도."></a>
 
 [V6 업데이트별 기여자 보기](https://wubing2023.github.io/PaperSpine/contributors/ko.html#v6-contributions) · [스타 지도 탐색](https://wubing2023.github.io/PaperSpine/?lang=ko) · [지도 데이터(JSON)](https://wubing2023.github.io/PaperSpine/api/v1/atlas.json)
 

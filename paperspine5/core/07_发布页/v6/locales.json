@@ -3526,5 +3526,32 @@
     "de": "V5-Installationsprogramme · {1} · {2}",
     "pt": "Instaladores da V5 · {1} · {2}",
     "ru": "Установщики V5 · {1} · {2}"
+  },
+  "Companies and organizations": {
+    "ja": "企業・組織",
+    "ko": "기업 및 조직",
+    "es": "Empresas y organizaciones",
+    "fr": "Entreprises et organisations",
+    "de": "Unternehmen und Organisationen",
+    "pt": "Empresas e organizações",
+    "ru": "Компании и организации"
+  },
+  "PaperSpine companies and organizations": {
+    "ja": "PaperSpine の企業・組織分布",
+    "ko": "PaperSpine 기업 및 조직 분포",
+    "es": "Distribución de empresas y organizaciones de PaperSpine",
+    "fr": "Répartition des entreprises et organisations de PaperSpine",
+    "de": "Verteilung der Unternehmen und Organisationen bei PaperSpine",
+    "pt": "Distribuição de empresas e organizações do PaperSpine",
+    "ru": "География компаний и организаций PaperSpine"
+  },
+  "PaperSpine community atlas with global, university, and organization views.": {
+    "ja": "世界・大学・組織別の分布を表示する PaperSpine コミュニティマップ。",
+    "ko": "전 세계, 대학 및 조직별 분포를 보여 주는 PaperSpine 커뮤니티 지도.",
+    "es": "Atlas de la comunidad PaperSpine con mapas globales, universitarios y de organizaciones.",
+    "fr": "Atlas de la communauté PaperSpine avec des vues mondiale, universitaire et des organisations.",
+    "de": "PaperSpine-Community-Atlas mit Ansichten für die weltweite Verteilung, Hochschulen und Organisationen.",
+    "pt": "Atlas da comunidade PaperSpine com visualizações globais, de universidades e de organizações.",
+    "ru": "Атлас сообщества PaperSpine с глобальным распределением, университетами и организациями."
   }
 }

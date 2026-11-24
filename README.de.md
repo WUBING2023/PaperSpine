@@ -216,7 +216,7 @@ Followwriting zeigt, wie die Struktur eines Referenzartikels beim Schreiben aus 
 
 ## Entwicklung und Community
 
-<a href="https://wubing2023.github.io/PaperSpine/?lang=de"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="Atlas der GitHub-Sterne von PaperSpine, aggregiert aus öffentlich angegebenen Städten."></a>
+<a href="https://wubing2023.github.io/PaperSpine/?lang=de"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="PaperSpine-Community-Atlas mit Ansichten für die weltweite Verteilung, Hochschulen und Organisationen."></a>
 
 [Mitwirkende der einzelnen V6-Updates ansehen](https://wubing2023.github.io/PaperSpine/contributors/de.html#v6-contributions) · [Sternatlas erkunden](https://wubing2023.github.io/PaperSpine/?lang=de) · [Atlasdaten (JSON)](https://wubing2023.github.io/PaperSpine/api/v1/atlas.json)
 

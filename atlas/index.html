@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="探索 PaperSpine 社区星标的全球地域与高校分布。">
   <title>PaperSpine · 社区星图</title>
-  <link rel="stylesheet" href="atlas-view.css">
+  <link rel="stylesheet" href="atlas-view.css?v=organization-atlas">
   <script defer src="data.js"></script>
   <script defer src="worldgeo.js"></script>
   <script defer src="china-provinces.js"></script>
@@ -16,14 +16,15 @@
   <link rel="stylesheet" href="v6/languages.css?v=full-locales">
   <script src="v6/language-nav.js?v=full-locales" defer></script>
   <script defer src="v6/atlas-locales.js?v=full-locales"></script>
-  <script defer src="atlas.js?v=full-locales"></script>
+  <script defer src="organization-globe.js?v=uniform-rotation"></script>
+  <script defer src="atlas.js?v=organization-atlas"></script>
 </head>
 <body>
   <header class="topbar">
     <div class="top-inner"><div class="brand"><span class="brand-icon" aria-hidden="true">✦</span> PaperSpine <span class="brand-divider"></span><span class="brand-section" data-text>社区</span></div>
       <div class="top-actions">
         <a data-text data-en-href="v6/" href="v6/zh/">V6 官网</a>
-        <a data-text data-en-href="contributors/" href="contributors/zh.html">贡献者</a>
+        <a data-text href="v6/contributors/?lang=zh-CN" data-contributor-ledger>贡献者</a>
         <a href="https://github.com/WUBING2023/PaperSpine">GitHub ↗</a>
         <!-- language-menu -->
       </div>
@@ -36,35 +37,33 @@
         <p data-text>从全球地域到高校网络，探索 PaperSpine 星标的分布。</p>
       </div>
       <div class="stats" aria-label="快照统计">
-        <div><strong id="sample">—</strong><span data-text>已采集资料</span></div>
         <div><strong id="total">—</strong><span data-text>GitHub 星标</span></div>
+        <div><strong id="sample">—</strong><span data-text>已采集资料</span></div>
         <div><strong id="regions">—</strong><span data-text>国家与地区</span></div>
         <div><strong id="schools">—</strong><span data-text>高校记录</span></div>
+        <div><strong id="companies">—</strong><span data-text>组织记录</span></div>
       </div>
     </div>
     <div class="toolbar">
       <div class="switcher" role="group" aria-label="地图视图">
         <button data-mode="global" aria-pressed="true"><span aria-hidden="true">◎</span><span data-text>全球分布</span></button>
         <button data-mode="schools" aria-pressed="false"><span aria-hidden="true">◇</span><span data-text>高校分布</span></button>
+        <button data-mode="companies" aria-pressed="false"><span aria-hidden="true">▦</span><span data-text>公司 / 组织</span></button>
       </div>
       <span class="snapshot"><i></i> <span data-text>聚合快照</span> <time id="date"></time></span>
     </div>
     <div class="workspace">
       <section class="map-card" id="map-card" aria-labelledby="map-title">
-        <div class="map-header">
-          <h2 id="map-title"></h2>
-          <div class="tools" aria-label="地图缩放">
-            <button id="zoom-in" aria-label="放大">+</button>
-            <button id="zoom-out" aria-label="缩小">−</button>
-            <button id="reset-view" aria-label="重置视野">⌂</button>
-          </div>
-        </div>
+        <h2 id="map-title" hidden></h2>
         <div class="map-stage">
           <svg id="map" viewBox="0 0 960 500" role="group" aria-labelledby="map-title">
             <defs>
-              <pattern id="dots" width="7.5" height="7.5" patternUnits="userSpaceOnUse">
-                <circle cx="3.75" cy="3.75" r="2.05" fill="#2c4053"/>
-              </pattern>
+              <radialGradient id="pin-orange">
+                <stop offset="0%" stop-color="#ef6a20" stop-opacity=".96"/>
+                <stop offset="62%" stop-color="#ef611b" stop-opacity=".84"/>
+                <stop offset="84%" stop-color="#ef611b" stop-opacity=".42"/>
+                <stop offset="100%" stop-color="#ef611b" stop-opacity="0"/>
+              </radialGradient>
               <filter id="glow" x="-250%" y="-250%" width="600%" height="600%">
                 <feGaussianBlur stdDeviation="4"/>
               </filter>
@@ -77,9 +76,11 @@
           </div>
           <div id="tooltip" class="tooltip" hidden></div>
         </div>
-        <div class="map-footer">
-          <span><i></i><span id="legend"></span></span>
-          <span class="map-hint" data-text>滚轮缩放 · 按住拖拽</span><span id="map-scope"></span>
+      </section>
+      <section id="organization-globe" hidden>
+        <div class="globe-stage">
+          <canvas tabindex="0"></canvas>
+          <div class="globe-destinations"></div>
         </div>
       </section>
       <aside class="directory" aria-labelledby="directory-title">
@@ -93,12 +94,13 @@
           </div>
         </div>
         <div id="selection" class="selection" aria-live="polite" hidden></div>
-        <div class="list-head"><span id="results" aria-live="polite"></span><span data-text>星标</span></div>
+        <div class="list-head"><span id="results" aria-live="polite"></span><span id="list-stars" data-text>星标</span></div>
         <ol id="list" aria-label="分布列表"></ol>
+        <div id="organizations" hidden></div>
       </aside>
     </div>
     <footer><p id="source-note"></p><a data-text href="https://github.com/WUBING2023/PaperSpine/stargazers">查看 GitHub 星标 ↗</a></footer>
-    <noscript>探索星图需要启用 JavaScript。 Enable JavaScript to explore the atlas.</noscript>
+    <noscript>此预览需要启用 JavaScript。</noscript>
   </main>
 </body>
 </html>

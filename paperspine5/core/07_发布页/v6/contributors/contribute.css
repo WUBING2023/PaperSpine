@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "Mona Sans";
+  src: url("mona-sans-latin.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --ink: #181818;
+  --muted: #525252;
+  --line: #e4e4e4;
+  --subtle: #f7f7f7;
+  --mono: Consolas, "Microsoft YaHei", monospace;
+  font-family: "Instrument Sans", "Mona Sans", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--ink);
+  background: #fff;
+}
+
+body { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }
+p { line-height: 1.65; }
+button { cursor: pointer; }
+button:disabled { cursor: wait; opacity: .65; }
+::selection { background: var(--ink); color: #fff; }
+:focus-visible, .focus-ring:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.shell { width: min(1160px, calc(100% - 64px)); margin-inline: auto; }
+.icon { display: inline-block; vertical-align: middle; flex: none; }
+.contribute-hero {
+  padding: clamp(22px, 3.5vw, 44px);
+  text-align: center;
+  background-image: radial-gradient(ellipse at center, #fff 18%, transparent 62%, #fff 98%),
+    linear-gradient(#18181807 1px, transparent 1px),
+    linear-gradient(90deg, #18181807 1px, transparent 1px);
+  background-size: auto, 24px 24px, 24px 24px;
+}
+.contribute-hero h1 { font-size: clamp(2rem, 4.7vw, 3.85rem); font-weight: 750; letter-spacing: -.055em; line-height: 1.15; }
+.contribute-hero h1 span { white-space: nowrap; }
+.contribute-hero p { max-width: 34rem; margin: 12px auto 0; color: var(--muted); font-size: clamp(.9rem, 1.35vw, 1rem); text-wrap: pretty; }
+
+.overview-body { padding-block: clamp(18px, 2.5vw, 32px) 60px; }
+.section-title { font-size: clamp(1.25rem, 3vw, 1.65rem); font-weight: 700; letter-spacing: -.035em; }
+.metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 7px; background: var(--line); }
+.metric { padding: 12px clamp(12px, 2vw, 22px); background: #fff; }
+.metric dt { color: var(--muted); font-size: .8rem; }
+.metric dd { margin-top: 2px; color: var(--ink); font-size: clamp(1.35rem, 2.8vw, 1.95rem); font-weight: 650; font-variant-numeric: tabular-nums; letter-spacing: -.04em; }
+.metrics-link { color: var(--muted); text-underline-offset: 3px; }
+.metrics-link:hover { color: var(--ink); text-decoration: underline; }
+.card-hover { transition: border-color 160ms ease; }
+.card-hover:hover, .card-hover:focus-within { border-color: #717171; }
+.contributor-card { position: relative; isolation: isolate; min-width: 0; border-radius: 6px; }
+.card-effect {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: -1;
+  width: 60%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.58;
+  mask-image: linear-gradient(90deg, transparent, #000 46%);
+}
+.contributor-card h3 { font-size: 1.05rem; }
+.owner-tag { display: inline-block; padding: 1px 5px; border: 1px solid var(--line); border-radius: 3px; background: var(--subtle); color: var(--muted); font: .67rem/1.4 var(--mono); }
+.contributor-card .avatar { border-radius: 4px; }
+.contributor-card .avatar-fallback { background: var(--subtle); color: var(--ink); }
+.contributor-card .card-bio { font-size: .83rem; }
+.contributor-card .card-tag { padding: 2px 6px; border: 1px solid var(--line); border-radius: 2px; color: var(--muted); font: .71rem/1.4 var(--mono); }
+.contributor-card .profile-prompt { color: var(--muted); font-size: .74rem; white-space: nowrap; }
+.contributor-card:is(:hover, :focus-visible) .profile-prompt { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.view-shell { padding-block: clamp(36px, 6vw, 66px) 64px; }
+.view-heading h1 { font-size: clamp(1.9rem, 4.8vw, 3.25rem); font-weight: 730; letter-spacing: -.045em; line-height: 1.2; }
+.view-heading p { margin-top: 8px; font-size: .9rem; }
+
+.record-dialog { position: fixed; inset: 0 0 0 auto; width: min(100%, 576px); max-width: none; height: 100%; max-height: none; margin: 0; padding: 0; border: 0; border-left: 1px solid var(--line); color: var(--ink); }
+.record-dialog::backdrop { background: #18181852; }
+.record-drawer { display: flex; flex-direction: column; height: 100%; }
+body:has(.record-dialog[open]) { overflow: hidden; }
+.icon-library { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+@media (max-width: 640px) {
+  .shell { width: calc(100% - 32px); }
+}

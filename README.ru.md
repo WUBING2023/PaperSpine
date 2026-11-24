@@ -216,7 +216,7 @@ Followwriting показывает, как использовать структ
 
 ## Разработка и сообщество
 
-<a href="https://wubing2023.github.io/PaperSpine/?lang=ru"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="Атлас звёзд PaperSpine на GitHub, составленный по открытым сведениям о городах."></a>
+<a href="https://wubing2023.github.io/PaperSpine/?lang=ru"><img src="paperspine5/core/07_发布页/v6/readme/rounded/community-atlas-map-only-zh.webp" width="790" alt="Атлас сообщества PaperSpine с глобальным распределением, университетами и организациями."></a>
 
 [Кто участвовал в каждом обновлении V6](https://wubing2023.github.io/PaperSpine/contributors/ru.html#v6-contributions) · [Открыть атлас звёзд](https://wubing2023.github.io/PaperSpine/?lang=ru) · [Данные атласа (JSON)](https://wubing2023.github.io/PaperSpine/api/v1/atlas.json)
 
