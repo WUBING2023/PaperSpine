@@ -45,8 +45,10 @@
   const originalDescription = description.content;
   const organizationGlobe = window.createOrganizationGlobe(find('organization-globe'));
   const states = Object.fromEntries(['global', 'schools', 'companies'].map(key => [key, { query: '', selected: null }]));
-  let mode = embed === 'organizations' || (embed !== 'geography' && options.get('view') === 'companies')
-    ? 'companies' : 'global';
+  const view = options.get('view');
+  let mode = 'global';
+  if (embed === 'organizations') mode = 'companies';
+  else if (embed !== 'geography' && (view === 'schools' || view === 'companies')) mode = view;
   let zoom = 1;
   let center = [480, 250];
   let drag = null;
