@@ -3,11 +3,241 @@
 // The public task projection and user decisions drive this view. The host owns
 // scholarly work; there are no Runner mutations or client-side stage transitions.
 const PHASES = [
-  ["intake", "配置与材料"], ["research", "研究"], ["contribution", "动机与贡献"],
-  ["evidence", "证据"], ["draft", "主稿"], ["figure", "图件"],
-  ["review", "审阅"], ["delivery", "交付"],
+  ["intake", "配置与材料", "Setup"], ["research", "研究", "Research"], ["contribution", "动机与贡献", "Motivation"],
+  ["evidence", "证据", "Evidence"], ["draft", "主稿", "Draft"], ["figure", "图件", "Figures"],
+  ["review", "审阅", "Review"], ["delivery", "交付", "Delivery"],
 ];
-const phaseLabel = (phase) => PHASES.find(([id]) => id === phase)?.[1] || "尚未记录阶段";
+const UI_LANG_KEY = "paperspine5.ui-lang.v1";
+let uiLang = (() => {
+  try { return globalThis.localStorage?.getItem(UI_LANG_KEY) === "en" ? "en" : "zh"; } catch (_) { return "zh"; }
+})();
+const UI_EN = {
+  "收起任务栏": "Hide tasks",
+  "展开任务栏": "Show tasks",
+  "审阅与返修记录": "Review and revisions",
+  "当前稿件与核查材料": "Current manuscript and review materials",
+  "历史稿件与核查材料": "Earlier manuscripts and review materials",
+  "正式审阅结论尚未登记": "No formal review verdict recorded",
+  "已保存的返修意见": "Saved revision requests",
+  "正在加载 Markdown…": "Loading Markdown…",
+  "Markdown 无法读取，可打开原文件。": "Could not read Markdown. Open the original file to view it.",
+  "全屏阅读": "Expand reader",
+  "正在加载 Word…": "Loading Word document…",
+  "Word 预览无法加载，请下载原文件。": "Could not load the Word preview. Download the original file.",
+  "适合窗口 · 滚动翻页": "Fit page · scroll to turn pages",
+  "此文件可打开原 PDF 阅读。": "Open the original PDF to read this file.",
+  "使用文档": "Docs",
+  "正在连接": "Connecting",
+  "正在读取本机服务…": "Checking local server…",
+  "本机服务已连接 · AI 状态未确认": "Local connected · AI idle",
+  "配置与文件保存在本机": "Saved locally",
+  "连接未完成": "Disconnected",
+  "论文流程": "Workflow",
+  "收起": "Hide",
+  "展开": "Show",
+  "收起 Spine": "Hide Spine",
+  "展开 Spine": "Show Spine",
+  "等待任务": "Waiting for task",
+  "当前论文": "Current paper",
+  "当前任务": "Active task",
+  "论文任务名称": "Task title",
+  "材料文件夹路径": "Material roots",
+  "论文任务": "Tasks",
+  "继续你的论文工作": "Resume your research paper",
+  "回到最近保存的阶段，或从 Codex 开始一篇论文。": "Pick up from your last saved stage, or launch a new paper from Codex.",
+  "最近任务": "Recent task",
+  "打开最近任务": "Open recent task",
+  "打开已保存的工作区后，可查看继续指令。": "Open a saved workspace to view host continuation prompts.",
+  "从 Codex 开始": "Start from Codex",
+  "在 Codex 运行 PaperSpine Web 技能，再打开它给出的任务链接。": "Run the PaperSpine Web skill in Codex, then open the task URL it provides.",
+  "查看启动命令": "Show launch command",
+  "当前论文任务": "Active task",
+  "识别码与本机版本绑定": "Task ID & local version binding",
+  "返回当前工作": "Return to active stage",
+  "当前工作": "Focus",
+  "配置与材料": "Setup & Materials",
+  "设置保存为本地文件，宿主读取后继续。研究步骤由宿主根据材料判断。": "Settings save locally for the host agent to read. Research steps are determined from your materials.",
+  "论文设置": "Paper configuration",
+  "本次工作": "Workflow type",
+  "由材料形成论文": "Build from materials",
+  "改写已有稿件": "Rewrite manuscript",
+  "核查已有论文": "Audit paper",
+  "独立审阅": "Independent review",
+  "按意见返修": "Revise by feedback",
+  "适配其他目标": "Adapt target venue",
+  "使用场景": "Venue type",
+  "期刊": "Journal",
+  "会议": "Conference",
+  "研究报告": "Report",
+  "综述": "Review",
+  "竞赛": "Competition",
+  "其他": "Other",
+  "输出语言": "Output language",
+  "英文": "English",
+  "中文": "Chinese",
+  "中英": "Bilingual",
+  "填写输出语言，例如：日文、法文": "Specify output language (e.g. Japanese, French)",
+  "其他输出语言": "Custom output language",
+  "目标名称（选填）": "Target venue (optional)",
+  "暂未确定": "Unspecified",
+  "已指定目标": "Target set",
+  "填写目标期刊、会议或其他发表去向；留空则按暂未确定处理": "Enter journal/conference name, or leave blank if undecided",
+  "研究分析": "Analysis mode",
+  "由宿主判断": "Host decides",
+  "需要新增分析": "New analysis",
+  "仅用已有材料": "Materials only",
+  "交付内容": "Deliverables",
+  "论文稿件": "Manuscript",
+  "完整本地稿包": "Full local bundle",
+  "投稿材料包": "Submission package",
+  "保留作者表达": "Author voice",
+  "不特别要求": "Standard",
+  "适度保留": "Moderate",
+  "严格保留": "Strict",
+  "期刊与文献学习": "Literature & venue study",
+  "学习篇数": "Reference count",
+  "3 + 3 篇（默认）": "3 + 3 papers (Default)",
+  "6 + 6 篇（深入）": "6 + 6 papers (Deep)",
+  "自定义篇数": "Custom count",
+  "同方向论文篇数": "Same-field papers",
+  "目标期刊论文篇数": "Target-venue papers",
+  "参考文献目标": "Citation target",
+  "高于样本平均（默认）": "Above sample avg (Default)",
+  "自定数量": "Custom count",
+  "自定参考文献数量": "Custom citation count",
+  "请输入篇数": "Enter count",
+  "机制 / 架构图": "Mechanism / architecture figure",
+  "优先考虑（默认）": "Prefer if warranted (Default)",
+  "不采用": "Omit",
+  "宿主学习相关研究及目标期刊同类型论文（记录实际样本与限制），用于正文、图件和期刊格式。": "The host studies related work and target-venue style for writing, figures, and formatting.",
+  "交付格式": "Output formats",
+  "LaTeX 源文件": "LaTeX source",
+  "仅使用已有材料与结果时，不新增分析、实验或模型运行；仍可学习公开文献、核对引用和读取参考图。私有材料保留在本地，明确的离线要求仍有效。": "When using existing materials only, no new experiments or model runs are added; public literature and reference checks still apply.",
+  "恢复已保存配置": "Reset to saved",
+  "保存设置": "Save configuration",
+  "宿主提供的材料": "Host materials",
+  "材料": "File",
+  "大小": "Size",
+  "上一页": "Previous",
+  "下一页": "Next",
+  "研究进展": "Research progress",
+  "宿主依据材料和设置开展必要研究；已有研究结果可直接使用。": "Host carries out needed analysis per materials & setup.",
+  "动机与贡献": "Motivation & contributions",
+  "请核对宿主提供的候选并保存你的选择与意见。": "Review host candidates and save your selection.",
+  "论证与证据": "Evidence & claims",
+  "宿主保存的证据和论证记录，仅供查看。": "Saved evidence and claim links (read-only).",
+  "论文主稿": "Manuscript",
+  "查看已登记的论文正文、PDF、Word或TeX源文件。": "View registered manuscript PDF, Word, or LaTeX sources.",
+  "图件工作台": "Figures workbench",
+  "左列是我们的图，右列是对应参考图；按图号和子图逐行排列。参考旁可查看原文，保留／修改意见仍分别保存。": "Compare manuscript figures against paired references, inspect originals, and save per-figure choices.",
+  "浏览全部目录文件（含历史文件和可编辑源）": "Browse all directory files (history & sources)",
+  "审阅记录": "Review records",
+  "显示宿主提供的真实审阅记录。": "Displays host-recorded peer/audit reviews.",
+  "完成稿与论文包": "Deliverables & packages",
+  "意见与返修": "Feedback & revisions",
+  "提交跨阶段或整稿修改意见，保留当前版本后继续返修。": "Submit cross-stage or manuscript-wide revision notes while preserving saved versions.",
+  "本次意见": "Current note",
+  "意见范围": "Scope",
+  "稿件": "Manuscript",
+  "整项工作": "Whole task",
+  "图件": "Figures",
+  "意见": "Comment",
+  "描述希望调整的内容。": "Describe requested changes.",
+  "保存意见": "Save feedback",
+  "交给当前 AI 接手": "Hand off to host AI",
+  "复制接手指令": "Copy handoff prompt",
+  "本地目录与历史": "Local folder & history",
+  "打开任务目录": "Open folder",
+  "交接文件": "Handoff files",
+  "归属未明的文件": "Unassigned files",
+  "任务历史（只读）": "Task history (read-only)",
+  "查看接手指令": "View handoff prompt",
+  "复制继续指令": "Copy prompt",
+  "知道了，关闭": "Close",
+  "支持 PaperSpine": "Support PaperSpine",
+  "等待你的选择": "Awaiting selection",
+  "请核对宿主提供的候选": "Please review host candidates",
+  "选择与意见会保存为本地交接文件，等待中的宿主读取后继续。": "Selections save locally for the host agent to resume.",
+  "等待配置": "Awaiting setup",
+  "请保存本次论文配置": "Please save paper configuration",
+  "配置保存后，宿主可读取实际设置。": "Once saved, the host agent reads your configuration.",
+  "进度已保存": "Saved",
+  "进度已保存；宿主运行状态未确认。": "Progress saved; host runtime status unconfirmed.",
+  "已交付": "Delivered",
+  "查看完成稿与论文包": "View deliverables & packages",
+  "你可以查看已有文件或提出返修意见。": "Inspect generated files or submit revision feedback.",
+  "已保存；宿主读取相同配置。": "Saved; synced with host configuration.",
+  "宿主预填的草案，尚待你确认并保存。": "Host draft awaiting your confirmation.",
+  "请核对本次论文的设置和材料后保存。": "Review configuration & materials before saving.",
+  "宿主尚未提供可读取的材料清单。": "No readable material inventory from host yet.",
+  "材料由宿主提供。": "Materials provided by host.",
+  "我们的图": "Our figure",
+  "对应参考图": "Reference figure",
+  "尚未关联对应参考图；不会自动拿其他图来凑对。": "No paired reference yet; unrelated figures are never auto-matched.",
+  "放大查看": "Zoom",
+  "缩小": "Zoom out",
+  "放大": "Zoom in",
+  "复位": "Reset",
+  "滚轮放大 · 拖拽平移 · 双击切换": "Wheel to zoom · Drag to pan · Double-click",
+  "打开原文件 ↗": "Open file ↗",
+  "关闭放大预览": "Close zoom",
+  "图像缩放": "Zoom",
+  "适合窗口": "Fit window",
+  "100%（窗口内）": "100% (Fit)",
+  "150% 放大": "150%",
+  "200% 放大": "200%",
+  "对此图提意见": "Comment on figure",
+  "对此文件提意见": "Comment on file",
+  "此文件的修改意见": "Revision note for this file",
+  "保存此图意见": "Save note",
+  "查看完整问题与方案说明": "View full prompt & option details",
+  "已有整页对照文件": "Comparison sheets",
+  "预览此文件": "Preview file",
+  "查看历史版本": "Version history",
+  "请选择一个方案": "Select an option",
+  "选择理由或修改意见（选填）": "Reason or revision note (optional)",
+  "可选：填写选择理由、局部修改建议或细节要求…": "Optional: reason, local edits, or style notes…",
+  "保存我的选择": "Save selection",
+  "待选择 · 尚未保存本图意见": "Pending · Not saved yet",
+  "宿主尚未提供交接文件。": "No handoff files provided by host yet.",
+  "目录由宿主建立后可打开。": "Folder can be opened once created by host.",
+  "尚无可读取的审阅记录。": "No review records available yet.",
+  "尚无可读取的研究记录。": "No research records available yet.",
+  "尚无可读取的证据记录。": "No evidence records available yet.",
+  "刷新任务列表": "Refresh tasks",
+  "宿主打开任务后会出现在这里。": "Tasks opened by the host appear here.",
+  "当前为只读回看。可回到当前阶段保存意见，或直接与宿主 Agent 对话，并附上此文件路径。": "Read-only historical view. Return to the active stage to submit feedback.",
+};
+function tr(text) {
+  if (uiLang !== "en" || typeof text !== "string" || !text) return text;
+  if (Object.hasOwn(UI_EN, text)) return UI_EN[text];
+  const mId = text.match(/^识别码：(.+)$/);
+  if (mId) return `ID: ${mId[1]}`;
+  const mTaskId = text.match(/^任务识别码：(.+)$/);
+  if (mTaskId) return `Task ID: ${mTaskId[1]}`;
+  const mUnsaved = text.match(/^未保存：(.+)$/);
+  if (mUnsaved) return `Unsaved: ${mUnsaved[1]}`;
+  const mChosen = text.match(/^已选择：(.+)$/);
+  if (mChosen) return `Selected: ${mChosen[1]}`;
+  const mRecent = text.match(/^最近记录：(.+)$/);
+  if (mRecent) return `Latest: ${mRecent[1]}`;
+  const mLit = text.match(/^同方向 (\d+) \+ 目标期刊 (\d+) 篇$/);
+  if (mLit) return `${mLit[1]} same-field + ${mLit[2]} venue papers`;
+  const mDir = text.match(/^(.+) · (\d+) 个文件$/);
+  if (mDir) return `${mDir[1]} · ${mDir[2]} file(s)`;
+  const mDisc = text.match(/^自动发现 (\d+) 个实际文件。/);
+  if (mDisc) return `Discovered ${mDisc[1]} files. Click to expand previews.`;
+  const mRefNote = text.match(/^参考说明：(.+)$/);
+  if (mRefNote) return `Reference note: ${mRefNote[1]}`;
+  const mRange = text.match(/^选择范围：(.+)$/);
+  if (mRange) return `Scope: ${mRange[1]}`;
+  return text;
+}
+const phaseLabel = (phase) => {
+  const entry = PHASES.find(([id]) => id === phase);
+  if (!entry) return uiLang === "en" ? "Unrecorded stage" : "尚未记录阶段";
+  return uiLang === "en" ? entry[2] : entry[1];
+};
 const taskPath = (id) => `/api/v1/tasks/${encodeURIComponent(id)}`;
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const decisionsOf = (task) => task?.domain_decisions ?? task?.decisions ?? [];
@@ -311,7 +541,7 @@ if (typeof document !== "undefined") {
     feedbackDrafts: new Map(), feedbackReceipts: new Map(), figureViews: new Map(), discoveredFigureViews: new Map(), figureCatalogViews: new Map(), pending: new Map(), inFlight: new Set(), renderingChoices: "", activeFigure: null};
   function el(tag, text, className) {
     const node = document.createElement(tag);
-    if (text != null) node.textContent = text;
+    if (text != null) node.textContent = tr(text);
     if (className) node.className = className;
     return node;
   }
@@ -396,7 +626,7 @@ if (typeof document !== "undefined") {
     notice = text ? {taskId: state.taskId, phase: currentPhase(state.task), error} : null;
     if (text && !error) noticeTimer = setTimeout(() => message(""), 6000);
   }
-  function setText(selector, text) { $(selector).textContent = text; }
+  function setText(selector, text) { $(selector).textContent = tr(text); }
   function size(bytes) { return Number.isFinite(bytes) ? (bytes < 1024 ? bytes + " B" : bytes < 1048576 ? (bytes / 1024).toFixed(1) + " KB" : (bytes / 1048576).toFixed(1) + " MB") : ""; }
   async function request(route, body) {
     const headers = {"X-PaperSpine5-Session": state.session};
@@ -470,7 +700,7 @@ if (typeof document !== "undefined") {
         const saved = result.projection;
         if (saved?.task_id === taskId && Number.isInteger(saved.task_version)
             && saved.task_version >= (state.task?.task_version ?? 0)) state.task = {...state.task, ...saved};
-        if (entry.kind === "feedback" && !entry.figurePath) { $("#feedback-form").reset(); setText("#feedback-file-name", ""); setText("#feedback-status", result.feedback_file ? `意见已保存：${result.feedback_file}` : "意见已保存到同一任务，宿主 Agent 可读取后继续。"); }
+        if (entry.kind === "feedback" && !entry.figurePath) { $("#feedback-form").reset(); requestAnimationFrame(syncConfigVisuals); setText("#feedback-status", result.feedback_file ? `意见已保存：${result.feedback_file}` : "意见已保存到同一任务，宿主 Agent 可读取后继续。"); }
         message("");
         showSaveToast(taskId, {}, returnFocus);
         await refreshTask({force: true});
@@ -496,8 +726,7 @@ if (typeof document !== "undefined") {
   }
   function saveDrafts() {
     if (!state.taskId) return;
-    state.feedbackDrafts.set(state.taskId, {text: $("#feedback-text").value, scope: $("#feedback-scope").value,
-      file: $("#feedback-file").files[0] || state.feedbackDrafts.get(state.taskId)?.file});
+    state.feedbackDrafts.set(state.taskId, {text: $("#feedback-text").value, scope: $("#feedback-scope").value});
   }
   async function loadTask(id) {
     hideSaveToast();
@@ -522,8 +751,8 @@ if (typeof document !== "undefined") {
     if (draft) { $("#feedback-text").value = draft.text; $("#feedback-scope").value = draft.scope; }
     const pendingFeedback = state.pending.get(keyFor("feedback"));
     if (pendingFeedback) { $("#feedback-text").value = pendingFeedback.body.feedback; $("#feedback-scope").value = pendingFeedback.body.scope; }
-    setText("#feedback-file-name", draft?.file ? `待上传：${draft.file.name}` : "");
     setText("#feedback-status", "");
+    requestAnimationFrame(syncConfigVisuals);
     await refreshTask({force: true});
   }
   function refreshTask({force = false} = {}) {
@@ -583,15 +812,25 @@ if (typeof document !== "undefined") {
     });
     return refresh.promise;
   }
-  async function refreshTasks() {
-    const result = await request("/api/v1/tasks");
-    state.tasks = result.tasks || [];
+  function renderHomeRecent(unavailable = false) {
+    const recent = state.tasks[0];
+    setText("#home-recent-title", recent ? recent.title || "未命名论文"
+      : unavailable ? "暂时无法读取论文任务" : "还没有已保存的论文任务");
+    setText("#home-recent-stage", recent ? phaseLabel(recent.stage) : "");
+    $("#home-recent-stage").hidden = !recent;
+    $("#home-open-recent").hidden = !recent;
+  }
+
+  function renderTaskList() {
+    renderHomeRecent();
     const list = $("#task-list"); list.replaceChildren();
     for (const task of state.tasks) {
       const button = el("button", null, "task-card"); button.type = "button";
-      button.append(el("strong", task.title || "未命名论文"),
-        el("span", task.description || "任务简介暂不可用", "task-description"),
-        el("small", `${task.task_id || ""} · ${phaseLabel(task.stage)}`, "task-identity"));
+      const meta = el("div", null, "task-card-meta");
+      meta.append(el("span", phaseLabel(task.stage), "task-stage-badge"), el("small", task.task_id || "", "task-identity"));
+      button.append(el("strong", task.title || (uiLang === "en" ? "Untitled paper" : "未命名论文")),
+        el("span", task.description || (uiLang === "en" ? "Description unavailable" : "任务简介暂不可用"), "task-description"),
+        meta);
       button.dataset.taskId = task.task_id;
       button.setAttribute("aria-current", task.task_id === state.taskId ? "true" : "false");
       button.title = `${task.title || "论文任务"}\n${task.description || ""}\n${task.task_id}`;
@@ -600,13 +839,21 @@ if (typeof document !== "undefined") {
     }
     if (!state.tasks.length) list.append(el("p", "宿主打开任务后会出现在这里。", "muted"));
   }
+  async function refreshTasks() {
+    let result;
+    try { result = await request("/api/v1/tasks"); }
+    catch (error) { renderHomeRecent(true); throw error; }
+    state.tasks = result.tasks || [];
+    renderTaskList();
+  }
   function buildNavigation() {
+    $("#home-workflow").replaceChildren(...PHASES.map(([phase]) => el("li", phaseLabel(phase))));
     for (const nav of document.querySelectorAll(".workflow-progress")) {
       nav.replaceChildren();
-      PHASES.forEach(([phase, label], index) => {
+      PHASES.forEach(([phase], index) => {
         const item = el("li"); item.dataset.phase = phase;
         const button = el("button"); button.type = "button";
-        button.append(el("b", index + 1), el("span", label));
+        button.append(el("b", index + 1), el("span", phaseLabel(phase)));
         button.addEventListener("click", () => { state.view = phase === currentPhase(state.task) ? null : phase; render(); });
         item.append(button); nav.append(item);
       });
@@ -628,6 +875,8 @@ if (typeof document !== "undefined") {
       const available = index <= currentIndex || (phase === "figure" && state.files.length > 0)
         || (phase === "delivery" && (Boolean(state.task.delivery) || readableArtifacts));
       const button = item.querySelector("button"); button.disabled = !available;
+      if (phase === selected) button.setAttribute("aria-current", "step");
+      else button.removeAttribute("aria-current");
       button.setAttribute("aria-label", `${phaseLabel(phase)}${phase === current ? "（当前）" : phase === "figure" && earlyFigures ? `（${figureAccess}）` : phase === "delivery" && earlyDelivery ? "（已有文件，只读）" : available ? "（只读回看）" : "（尚无可读记录）"}`);
     }
     for (const panel of document.querySelectorAll("[data-phase-panel]")) {
@@ -642,6 +891,17 @@ if (typeof document !== "undefined") {
     setText("#global-stage-label", phaseLabel(current));
     $("#feedback-panel").hidden = historical;
     $("#host-handoff-panel").hidden = historical;
+    requestAnimationFrame(syncStageSlider);
+  }
+  function syncStageSlider() {
+    const nav = $("#global-workflow-progress"), thumb = $("#stage-slider-thumb"), shell = $("#global-workflow-shell");
+    if (!nav || !thumb || !shell || $("#global-stage-strip")?.classList.contains("hidden") || $("#global-stage-strip")?.classList.contains("is-collapsed")) return;
+    const target = nav.querySelector("li.viewing") || nav.querySelector("li.active");
+    const rect = target?.getBoundingClientRect(), shellRect = shell.getBoundingClientRect();
+    if (!target || !rect?.width) { thumb.style.opacity = "0"; return; }
+    thumb.style.opacity = "1";
+    thumb.style.width = `${rect.width}px`;
+    thumb.style.transform = `translate3d(${rect.left - shellRect.left}px, 0, 0)`;
   }
   function render() {
     if (!state.task) return;
@@ -649,7 +909,7 @@ if (typeof document !== "undefined") {
     if (notice && !notice.error && (notice.taskId !== task.task_id || notice.phase !== currentPhase(task))) message("");
     $("#task-workspace").classList.remove("hidden"); $("#workspace-empty").classList.add("hidden");
     $("#global-stage-strip").classList.remove("hidden"); $("#active-context-card").classList.remove("hidden");
-    $("#start-card").classList.add("hidden"); document.body.dataset.taskId = task.task_id; document.body.classList.add("task-open");
+    document.body.dataset.taskId = task.task_id; document.body.classList.add("task-open");
     document.title = `${task.title || "论文任务"} · ${task.task_id} · PaperSpine`;
     for (const card of document.querySelectorAll(".task-card[data-task-id]"))
       card.setAttribute("aria-current", card.dataset.taskId === task.task_id ? "true" : "false");
@@ -692,10 +952,28 @@ if (typeof document !== "undefined") {
     $(".focus-card").classList.toggle("progress-summary", !pending && !delivered
       && !(phase === "intake" && (configurationStatus(task) !== "confirmed" || draft || submission)));
   }
+  function customLangStorageKey(id = state.taskId) {
+    return id ? `paperspine5.custom-lang.v1:${location.origin}:${id}` : "";
+  }
+  function readSavedCustomLanguage(id = state.taskId) {
+    const key = customLangStorageKey(id);
+    if (!key) return "";
+    try { return globalThis.localStorage?.getItem(key) || ""; } catch (_) { return ""; }
+  }
+  function writeSavedCustomLanguage(val, id = state.taskId) {
+    const key = customLangStorageKey(id);
+    if (!key) return;
+    try {
+      const cleaned = String(val || "").trim();
+      if (cleaned) globalThis.localStorage?.setItem(key, cleaned);
+      else globalThis.localStorage?.removeItem(key);
+    } catch (_) {}
+  }
   function configValues() {
     const formats = [...document.querySelectorAll('[name="formats"]:checked')].map((input) => input.value);
+    const targetName = $("#target-name").value.trim();
     return {workflow: $("#workflow").value, scene: $("#scene").value,
-      target: $("#target-status").value === "known" ? {status: "known", name: $("#target-name").value.trim()} : {status: "unknown", name: null},
+      target: targetName ? {status: "known", name: targetName} : {status: "unknown", name: null},
       output_language: $("#output-language").value, formats, research_mode: $("#research-mode").value,
       literature: {same_field_papers: $("#same-field-papers").value, target_venue_papers: $("#target-venue-papers").value,
         reference_count_mode: $("#reference-count-mode").value, reference_count: $("#reference-count").value || null,
@@ -703,16 +981,128 @@ if (typeof document !== "undefined") {
       requested_scope: $("#requested-scope").value, author_voice_restoration: $("#author-voice-restoration").value,
       network_policy: {allow_network: true, allow_external_upload: false}};
   }
+  function syncTargetPill() {
+    const known = Boolean($("#target-name")?.value.trim());
+    const pill = $("#target-status-pill");
+    if (!pill) return;
+    pill.textContent = tr(known ? "已指定目标" : "暂未确定");
+    pill.dataset.known = String(known);
+  }
+  function syncConfigLabels() {
+    for (const group of document.querySelectorAll("#configuration-form .ui-choice-group, #feedback-form .ui-choice-group")) {
+      const select = group.previousElementSibling;
+      if (!select || select.tagName !== "SELECT") continue;
+      for (const btn of group.querySelectorAll("button[data-value]")) {
+        const opt = [...select.options].find((o) => o.value === btn.dataset.value);
+        const span = btn.querySelector("span");
+        if (opt && span) span.textContent = tr(opt.dataset.zh || opt.textContent);
+      }
+    }
+  }
+  function syncConfigVisuals() {
+    for (const group of document.querySelectorAll("#configuration-form .ui-choice-group, #feedback-form .ui-choice-group")) {
+      const select = group.previousElementSibling;
+      if (!select || select.tagName !== "SELECT") continue;
+      const val = select.value;
+      const buttons = [...group.querySelectorAll("button[data-value]")];
+      let activeBtn = null;
+      for (const btn of buttons) {
+        const active = btn.dataset.value === val;
+        btn.setAttribute("aria-checked", String(active));
+        btn.classList.toggle("is-active", active);
+        if (active) activeBtn = btn;
+      }
+      const thumb = group.querySelector(".seg-thumb");
+      if (thumb) {
+        if (activeBtn && activeBtn.offsetWidth) {
+          thumb.style.opacity = "1";
+          thumb.style.width = `${activeBtn.offsetWidth}px`;
+          thumb.style.transform = `translate3d(${activeBtn.offsetLeft - 3}px, 0, 0)`;
+        } else {
+          thumb.style.opacity = "0";
+        }
+      }
+    }
+    syncTargetPill();
+    const litSummary = $("#literature-summary-chip");
+    if (litSummary) litSummary.textContent = tr(`同方向 ${$("#same-field-papers").value || 3} + 目标期刊 ${$("#target-venue-papers").value || 3} 篇`);
+  }
+  function enhanceConfigControls() {
+    for (const select of document.querySelectorAll("#configuration-form select[data-ui], #feedback-form select[data-ui]")) {
+      if (select.dataset.enhanced === "true") continue;
+      select.dataset.enhanced = "true";
+      const mode = select.dataset.ui;
+      select.classList.add("sr-only");
+      select.tabIndex = -1;
+      select.setAttribute("aria-hidden", "true");
+      const group = el("div", null, mode === "segmented" ? "ui-choice-group segmented-control" : "ui-choice-group chip-selector");
+      group.setAttribute("role", "radiogroup");
+      if (mode === "segmented") group.append(el("span", null, "seg-thumb"));
+      for (const option of select.options) {
+        if (!option.value) continue;
+        const btn = el("button", null, mode === "segmented" ? "seg-option" : "choice-chip");
+        btn.type = "button";
+        btn.setAttribute("role", "radio");
+        btn.dataset.value = option.value;
+        btn.append(el("span", option.textContent));
+        btn.addEventListener("click", () => {
+          if (select.disabled || select.closest("fieldset")?.disabled) return;
+          select.value = option.value;
+          select.dispatchEvent(new Event("input", {bubbles: true}));
+          select.dispatchEvent(new Event("change", {bubbles: true}));
+          syncConfigVisuals();
+          if (select.id === "output-language" && option.value === "other") {
+            requestAnimationFrame(() => {
+              const input = $("#output-language-custom");
+              if (input && !input.disabled) input.focus({preventScroll: true});
+            });
+          }
+        });
+        group.append(btn);
+      }
+      select.after(group);
+    }
+    for (const wrap of document.querySelectorAll("#configuration-form .stepper-input")) {
+      if (wrap.dataset.enhanced === "true") continue;
+      wrap.dataset.enhanced = "true";
+      const input = wrap.querySelector("input[type='number']");
+      if (!input) continue;
+      const minus = el("button", "−", "stepper-btn"), plus = el("button", "+", "stepper-btn");
+      minus.type = "button"; plus.type = "button";
+      minus.setAttribute("aria-label", "减少"); plus.setAttribute("aria-label", "增加");
+      const stepBy = (delta) => {
+        if (input.disabled || input.readOnly || $("#configuration-fields").disabled) return;
+        const current = Number(input.value || input.min || 1) || 1;
+        const next = Math.max(Number(input.min || 1), current + delta);
+        input.value = String(next);
+        input.dispatchEvent(new Event("input", {bubbles: true}));
+      };
+      minus.addEventListener("click", () => stepBy(-1));
+      plus.addEventListener("click", () => stepBy(1));
+      wrap.prepend(minus);
+      wrap.append(plus);
+    }
+  }
   function renderConfiguration() {
     const saved = state.task.configuration || {}, draft = state.configDrafts.get(state.taskId);
     const values = {...saved, ...(draft?.values || {}), ...(state.pending.get(keyFor("configuration"))?.body.payload || {})};
     values.scene ??= "journal";
     values.research_mode ??= "agent_decide";
-    const fields = {workflow: "workflow", scene: "scene", output_language: "output-language", research_mode: "research-mode", requested_scope: "requested-scope", author_voice_restoration: "author-voice-restoration"};
+    const fields = {workflow: "workflow", scene: "scene", research_mode: "research-mode", requested_scope: "requested-scope", author_voice_restoration: "author-voice-restoration"};
     for (const [key, id] of Object.entries(fields)) $("#" + id).value = values[key] ?? "";
-    $("#target-status").value = values.target?.status || "unknown"; $("#target-name").value = values.target?.name || "";
-    $("#target-name").disabled = $("#target-status").value !== "known";
-    $("#target-name").required = $("#target-status").value === "known";
+    const presetLangs = new Set(["", "en", "zh", "multilingual", "other"]);
+    const rawLang = values.output_language ?? "";
+    const savedCustom = readSavedCustomLanguage();
+    $("#output-language").value = presetLangs.has(rawLang) ? rawLang : "other";
+    if ($("#output-language-custom")) {
+      $("#output-language-custom").value = presetLangs.has(rawLang)
+        ? (draft?.customLanguage ?? (rawLang === "other" ? savedCustom : ""))
+        : rawLang;
+    }
+    renderLanguageEditability();
+    $("#target-name").value = values.target?.name || "";
+    $("#target-name").disabled = false;
+    $("#target-name").required = false;
     const literature = literatureValues(values.literature);
     $("#literature-preset").value = draft?.literaturePreset || literaturePreset(literature);
     $("#same-field-papers").value = literature.same_field_papers;
@@ -724,13 +1114,25 @@ if (typeof document !== "undefined") {
     $("#reload-saved-configuration").hidden = !draft;
     for (const input of document.querySelectorAll('[name="formats"]')) input.checked = (values.formats || []).includes(input.value);
     setText("#configuration-status", state.pending.has(keyFor("configuration")) ? "本次提交结果尚待确认，请重试原提交。" : draft ? configurationDraftMessage(state.task, draft) : configurationStatus(state.task) === "confirmed" ? "已保存；宿主读取相同配置。" : configurationStatus(state.task) === "proposal" ? "宿主预填的草案，尚待你确认并保存。" : "请核对本次论文的设置和材料后保存。");
+    requestAnimationFrame(syncConfigVisuals);
+  }
+  function renderLanguageEditability() {
+    const isOther = $("#output-language")?.value === "other";
+    const customInput = $("#output-language-custom");
+    const drawer = $("#custom-language-drawer");
+    if (customInput) customInput.disabled = !isOther;
+    if (drawer) drawer.dataset.open = String(Boolean(isOther));
   }
   function renderLiteratureEditability() {
     const custom = $("#literature-preset").value === "custom";
+    const refCustom = $("#reference-count-mode").value === "custom";
     $("#same-field-papers").readOnly = !custom;
     $("#target-venue-papers").readOnly = !custom;
-    $("#reference-count").disabled = $("#reference-count-mode").value !== "custom";
-    $("#reference-count").required = $("#reference-count-mode").value === "custom";
+    $("#reference-count").disabled = !refCustom;
+    $("#reference-count").required = refCustom;
+    const litDrawer = $("#custom-literature-drawer"), refDrawer = $("#custom-reference-drawer");
+    if (litDrawer) litDrawer.dataset.open = String(custom);
+    if (refDrawer) refDrawer.dataset.open = String(refCustom);
   }
   const MATERIAL_PAGE_SIZE = 50;
   let materialPage = 0, renderedMaterials = "";
@@ -792,32 +1194,327 @@ if (typeof document !== "undefined") {
     if (version != null) url.searchParams.set("file_version", String(version));
     return {...file, content_url: url.href};
   }
-  function filePreview(file, container, {enlarge = true} = {}) {
-    let url = allowedTaskUrl(file.content_url, state.taskId, location.origin);
+  function attachPanZoom(stage, image, {modal = false} = {}) {
+    let scale = 1, tx = 0, ty = 0, dragging = false, startX = 0, startY = 0, baseTx = 0, baseTy = 0;
+    const minScale = 1, maxScale = modal ? 8 : 6;
+    image.draggable = false;
+
+    const hud = el("div", null, "figure-zoom-hud");
+    hud.title = tr("滚轮放大 · 拖拽平移 · 双击切换");
+    const zoomOut = el("button", "−", "zoom-hud-btn"); zoomOut.type = "button"; zoomOut.setAttribute("aria-label", tr("缩小"));
+    const readout = el("button", "100%", "zoom-hud-readout"); readout.type = "button"; readout.title = tr("复位");
+    const zoomIn = el("button", "+", "zoom-hud-btn"); zoomIn.type = "button"; zoomIn.setAttribute("aria-label", tr("放大"));
+    hud.append(zoomOut, readout, zoomIn);
+    stage.append(hud);
+
+    const clampPan = (nextScale, nextTx, nextTy) => {
+      if (nextScale <= 1.001) return [0, 0];
+      const rect = stage.getBoundingClientRect();
+      const maxTx = Math.max(0, (rect.width * (nextScale - 1)) / 2 + 48);
+      const maxTy = Math.max(0, (rect.height * (nextScale - 1)) / 2 + 48);
+      return [Math.max(-maxTx, Math.min(maxTx, nextTx)), Math.max(-maxTy, Math.min(maxTy, nextTy))];
+    };
+    const apply = (animate = false) => {
+      stage.classList.toggle("is-zoomed", scale > 1.001);
+      stage.classList.toggle("is-animating", animate && !dragging);
+      image.style.transform = `translate3d(${tx.toFixed(1)}px, ${ty.toFixed(1)}px, 0) scale(${scale.toFixed(4)})`;
+      const pct = `${Math.round(scale * 100)}%`;
+      readout.textContent = pct;
+      zoomOut.disabled = scale <= minScale + 0.001;
+      zoomIn.disabled = scale >= maxScale - 0.001;
+      stage.dataset.zoomScale = scale.toFixed(2);
+    };
+    const zoomAt = (nextScale, clientX, clientY, animate = false) => {
+      const clamped = Math.max(minScale, Math.min(maxScale, nextScale));
+      const cleanScale = clamped <= 1.02 ? 1 : clamped;
+      if (cleanScale === 1) {
+        scale = 1; tx = 0; ty = 0; apply(animate); return;
+      }
+      const rect = stage.getBoundingClientRect();
+      const px = (clientX ?? rect.left + rect.width / 2) - (rect.left + rect.width / 2);
+      const py = (clientY ?? rect.top + rect.height / 2) - (rect.top + rect.height / 2);
+      const ix = (px - tx) / scale, iy = (py - ty) / scale;
+      [tx, ty] = clampPan(cleanScale, px - ix * cleanScale, py - iy * cleanScale);
+      scale = cleanScale;
+      apply(animate);
+    };
+
+    stage.addEventListener("wheel", (event) => {
+      if (hud.contains(event.target)) return;
+      const zoomingIn = event.deltaY < 0;
+      if (!modal && scale <= 1.001 && !zoomingIn) return;
+      event.preventDefault();
+      const factor = Math.exp(-event.deltaY * 0.0016);
+      zoomAt(scale * factor, event.clientX, event.clientY, false);
+    }, {passive: false});
+
+    stage.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 || hud.contains(event.target) || scale <= 1.001) return;
+      event.preventDefault();
+      dragging = true; startX = event.clientX; startY = event.clientY; baseTx = tx; baseTy = ty;
+      stage.classList.add("is-dragging");
+      stage.setPointerCapture?.(event.pointerId);
+    });
+    stage.addEventListener("pointermove", (event) => {
+      if (!dragging) return;
+      [tx, ty] = clampPan(scale, baseTx + (event.clientX - startX), baseTy + (event.clientY - startY));
+      apply(false);
+    });
+    const endDrag = (event) => {
+      if (!dragging) return;
+      dragging = false;
+      stage.classList.remove("is-dragging");
+      if (event?.pointerId != null && stage.hasPointerCapture?.(event.pointerId)) stage.releasePointerCapture(event.pointerId);
+    };
+    stage.addEventListener("pointerup", endDrag);
+    stage.addEventListener("pointercancel", endDrag);
+    stage.addEventListener("dblclick", (event) => {
+      if (hud.contains(event.target)) return;
+      if (scale > 1.05) zoomAt(1, event.clientX, event.clientY, true);
+      else zoomAt(2.2, event.clientX, event.clientY, true);
+    });
+
+    zoomOut.addEventListener("click", (e) => { e.stopPropagation(); zoomAt(scale / 1.35, null, null, true); });
+    zoomIn.addEventListener("click", (e) => { e.stopPropagation(); zoomAt(scale * 1.35, null, null, true); });
+    readout.addEventListener("click", (e) => { e.stopPropagation(); zoomAt(1, null, null, true); });
+    apply(false);
+    return { setScale: (next) => zoomAt(next, null, null, true), reset: () => zoomAt(1, null, null, true) };
+  }
+  const isMarkdownFile = file => /\.md(?:own)?$/i.test(file.filename || file.file_name || file.relative_path || "")
+    || /^text\/markdown(?:;|$)/i.test(file.media_type || "");
+
+  function markdownPreview(source, reader) {
+    const cells = line => line.trim().replace(/^\||\|$/g, "").split("|").map(value => value.trim());
+    const markedText = (tag, value) => {
+      const node = el(tag);
+      for (const [index, part] of value.split(/(`[^`\r\n]+`|\*\*[^*\r\n]+\*\*)/g).entries()) {
+        if (index % 2) {
+          const code = part.startsWith("`");
+          const span = el(code ? "code" : "strong");
+          span.textContent = part.slice(code ? 1 : 2, code ? -1 : -2);
+          node.append(span);
+        } else {
+          node.append(part);
+        }
+      }
+      return node;
+    };
+    for (const block of source.trim().split(/\r?\n\s*\r?\n/)) {
+      const heading = /^(#{1,6})\s+([^\r\n]+)$/.exec(block);
+      if (heading) {
+        reader.append(markedText("h" + Math.min(heading[1].length + 1, 6), heading[2]));
+        continue;
+      }
+      const lines = block.split(/\r?\n/);
+      if (lines.length > 2 && /^\|?[\s:|-]+$/.test(lines[1]) && lines[1].includes("---")) {
+        const table = el("table"), head = table.createTHead().insertRow();
+        cells(lines[0]).forEach(value => head.append(markedText("th", value)));
+        const body = table.createTBody();
+        for (const line of lines.slice(2)) {
+          const row = body.insertRow();
+          cells(line).forEach(value => row.append(markedText("td", value)));
+        }
+        reader.append(table);
+      } else if (lines.every(line => /^[-*+]\s+/.test(line))) {
+        const list = el("ul");
+        lines.forEach(line => list.append(markedText("li", line.slice(2))));
+        reader.append(list);
+      } else {
+        reader.append(markedText("p", block));
+      }
+    }
+  }
+
+  async function loadMarkdownPreview(url, reader) {
+    reader.textContent = tr("正在加载 Markdown…");
+    try {
+      const response = await fetch(url, {headers: {"X-PaperSpine5-Session": state.session},
+                                        redirect: "error", signal: AbortSignal.timeout(15000)});
+      if (!response.ok || !/^text\/(plain|markdown)(;|$)/i.test(response.headers.get("Content-Type") || ""))
+        throw new Error("Unexpected Markdown response");
+      const source = await response.text();
+      if (source.length > 1000000) throw new Error("Markdown is too large for the embedded reader");
+      reader.replaceChildren();
+      markdownPreview(source, reader);
+    } catch (_) {
+      reader.textContent = tr("Markdown 无法读取，可打开原文件。");
+    }
+  }
+
+  const isWordFile = file => /\.docx$/i.test(file.filename || file.file_name || file.relative_path || "")
+    || file.media_type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+  const supportsReader = file => isMarkdownFile(file) || isWordFile(file) || isPreviewableFigureFile(file);
+  const readerUrl = file => allowedTaskUrl(file.content_url, state.taskId, location.origin)
+    || (isWordFile(file) ? allowedTaskUrl(file.download_url, state.taskId, location.origin) : null);
+
+  async function readLimited(stream, limit) {
+    const reader = stream.getReader(), chunks = [];
+    let size = 0;
+    try {
+      while (true) {
+        const {done, value} = await reader.read();
+        if (done) break;
+        size += value.length;
+        if (size > limit) {
+          await reader.cancel();
+          throw new Error("Word preview size limit exceeded");
+        }
+        chunks.push(value);
+      }
+    } finally {
+      reader.releaseLock();
+    }
+    return new Blob(chunks);
+  }
+
+  // Read only the OOXML entries the preview needs. Never extract files to disk.
+  function wordArchive(buffer) {
+    const data = new DataView(buffer), bytes = new Uint8Array(buffer), names = new Map();
+    const decode = new TextDecoder();
+    const short = offset => data.getUint16(offset, true);
+    const long = offset => data.getUint32(offset, true);
+    let end = data.byteLength - 22;
+    for (; end >= Math.max(0, data.byteLength - 65557); end--) {
+      if (long(end) === 0x06054b50 && end + 22 + short(end + 20) === data.byteLength) break;
+    }
+    if (end < 0 || end < data.byteLength - 65557 || short(end + 4) || short(end + 6))
+      throw new Error("Unsupported Word archive");
+    const count = short(end + 10), start = long(end + 16);
+    if (count > 4096 || start + long(end + 12) > end) throw new Error("Invalid Word directory");
+    let offset = start;
+    for (let i = 0; i < count; i++) {
+      if (offset + 46 > end || long(offset) !== 0x02014b50) throw new Error("Invalid Word entry");
+      const length = short(offset + 28);
+      const name = decode.decode(bytes.subarray(offset + 46, offset + 46 + length));
+      names.set(name, {method: short(offset + 10), compressed: long(offset + 20),
+                       size: long(offset + 24), offset: long(offset + 42)});
+      offset += 46 + length + short(offset + 30) + short(offset + 32);
+    }
+    return async name => {
+      const entry = names.get(name);
+      if (!entry) return null;
+      const {offset, size, compressed, method} = entry;
+      if (size > 16 * 1024 * 1024 || offset + 30 > start || long(offset) !== 0x04034b50)
+        throw new Error("Invalid Word entry bounds");
+      const body = offset + 30 + short(offset + 26) + short(offset + 28);
+      if (body + compressed > start || ![0, 8].includes(method)) throw new Error("Unsupported Word entry");
+      const blob = new Blob([bytes.subarray(body, body + compressed)]);
+      const unpacked = method === 0 ? blob : await readLimited(blob.stream().pipeThrough(new DecompressionStream("deflate-raw")), size);
+      if (unpacked.size !== size) throw new Error("Invalid Word entry size");
+      return unpacked;
+    };
+  }
+
+  const wordElements = (node, name) => [...node.getElementsByTagNameNS("*", name)];
+  const wordAttribute = (node, name) => node && [...node.attributes].find(attr => attr.localName === name)?.value;
+
+  async function loadWordPreview(url, reader) {
+    reader.textContent = tr("正在加载 Word…");
+    try {
+      const response = await fetch(url, {headers: {"X-PaperSpine5-Session": state.session},
+                                        redirect: "error", signal: AbortSignal.timeout(30000)});
+      if (!response.ok || !response.body) throw new Error("Word download failed");
+      const file = await readLimited(response.body, 32 * 1024 * 1024);
+      const entry = wordArchive(await file.arrayBuffer());
+      const parse = async name => {
+        const xml = await entry(name);
+        if (!xml) return null;
+        const doc = new DOMParser().parseFromString(await xml.text(), "application/xml");
+        if (doc.doctype || doc.querySelector("parsererror")) throw new Error("Invalid Word XML");
+        return doc;
+      };
+      const doc = await parse("word/document.xml"), body = doc && wordElements(doc, "body")[0];
+      if (!body) throw new Error("No Word document body");
+      const rels = await parse("word/_rels/document.xml.rels");
+      const media = new Map((rels ? wordElements(rels, "Relationship") : [])
+        .filter(rel => rel.getAttribute("TargetMode") !== "External" && rel.getAttribute("Type")?.endsWith("/image"))
+        .map(rel => [rel.getAttribute("Id"), rel.getAttribute("Target")]));
+      const fragment = document.createDocumentFragment();
+      let imageCount = 0, imageBytes = 0;
+      for (const block of body.children) {
+        if (block.localName === "p") {
+          const style = wordAttribute(wordElements(block, "pStyle")[0], "val") || "";
+          const level = /^Heading([1-5])$/i.exec(style);
+          const node = el(level ? "h" + (Number(level[1]) + 1) : style === "Title" ? "h2" : "p");
+          node.textContent = wordElements(block, "t").map(run => run.textContent).join("");
+          if (node.textContent) fragment.append(node);
+          for (const image of wordElements(block, "blip")) {
+            const target = media.get(wordAttribute(image, "embed"));
+            if (imageCount >= 32 || imageBytes >= 32 * 1024 * 1024
+              || !target || !/^(?:\/word\/)?media\/[a-z0-9_.-]+\.(?:png|jpe?g|gif|webp)$/i.test(target)) continue;
+            const blob = await entry(target.startsWith("/") ? target.slice(1) : "word/" + target);
+            if (!blob || imageBytes + blob.size > 32 * 1024 * 1024) continue;
+            imageCount++;
+            imageBytes += blob.size;
+            const picture = el("img");
+            picture.alt = wordAttribute(wordElements(block, "docPr")[0], "descr") || "";
+            const objectUrl = URL.createObjectURL(blob);
+            picture.addEventListener("load", () => URL.revokeObjectURL(objectUrl), {once: true});
+            picture.addEventListener("error", () => URL.revokeObjectURL(objectUrl), {once: true});
+            picture.src = objectUrl;
+            node.append(picture);
+            if (!node.parentNode) fragment.append(node);
+          }
+        } else if (block.localName === "tbl") {
+          const table = el("table"), rows = table.createTBody();
+          for (const tr of [...block.children].filter(child => child.localName === "tr")) {
+            const row = rows.insertRow();
+            for (const tc of [...tr.children].filter(child => child.localName === "tc")) {
+              const cell = row.insertCell();
+              cell.textContent = wordElements(tc, "p").map(p => wordElements(p, "t").map(t => t.textContent).join("")).join("\n");
+            }
+          }
+          fragment.append(table);
+        }
+      }
+      reader.replaceChildren(fragment);
+    } catch (_) {
+      reader.textContent = tr("Word 预览无法加载，请下载原文件。");
+    }
+  }
+
+  function filePreview(file, container, {enlarge = true, modal = false} = {}) {
+    let url = readerUrl(file);
     if (!url) { container.append(el("p", "文件尚未出现在本任务允许的预览列表中。", "muted")); return; }
     const title = file.filename || file.relative_path || "图件", media = file.media_type || "";
-    if (media === "application/pdf") {
+    if (isMarkdownFile(file) || isWordFile(file)) {
+      const reader = el("article", null, "markdown-reader");
+      reader.tabIndex = 0;
+      reader.setAttribute("aria-label", title);
+      container.append(reader);
+      if (isWordFile(file)) loadWordPreview(url, reader);
+      else loadMarkdownPreview(url, reader);
+    } else if (media === "application/pdf") {
       const preview = new URL(url, location.origin); preview.searchParams.set("preview", "1"); url = preview.pathname + preview.search;
       const frame = el("iframe"); frame.loading = "lazy"; frame.src = url; frame.title = `${title} PDF 预览`; frame.className = "public-file-preview";
       frame.addEventListener("load", () => fitFigurePdf(frame)); container.append(frame);
     } else if (["image/png", "image/jpeg", "image/svg+xml", "image/webp", "image/gif"].includes(media)) {
+      const stage = el("div", null, modal ? "figure-panzoom-stage is-modal" : "figure-panzoom-stage");
       const image = el("img"); image.loading = "lazy"; image.src = url; image.alt = title; image.className = "public-file-preview";
-      image.addEventListener("error", () => { image.replaceWith(el("p", "预览未能加载，请刷新同一任务核对文件。", "muted")); }); container.append(image);
+      stage.append(image);
+      const panzoom = attachPanZoom(stage, image, {modal});
+      image._panzoom = panzoom;
+      image.addEventListener("error", () => { stage.replaceWith(el("p", "预览未能加载，请刷新同一任务核对文件。", "muted")); });
+      container.append(stage);
     }
-    const link = el("a", "打开文件", "file-link"); link.href = url; link.target = "_blank"; link.rel = "noopener"; container.append(link);
-    if (enlarge && isPreviewableFigureFile(file)) {
-      const button = el("button", "放大查看", "button figure-enlarge"); button.type = "button";
-      button.addEventListener("click", () => openFileZoom(file, button)); container.append(button);
+    const actions = el("div", null, "figure-action-bar");
+    if (enlarge && supportsReader(file)) {
+      const button = el("button", file.artifact_id || isMarkdownFile(file) ? "全屏阅读" : "放大查看", "button figure-enlarge"); button.type = "button";
+      button.addEventListener("click", () => openFileZoom(file, button)); actions.append(button);
     }
+    const link = el("a", isWordFile(file) ? "下载" : "打开原文件 ↗", "file-link"); link.href = url;
+    if (isWordFile(file)) link.download = title;
+    else { link.target = "_blank"; link.rel = "noopener"; }
+    actions.append(link);
+    container.append(actions);
   }
-  function fitFigurePdf(frame, scale = "100") {
+  function fitFigurePdf(frame, {allDocuments = false} = {}) {
     let doc, pages;
     try {
       doc = frame.contentDocument;
       const url = doc && allowedTaskUrl(doc.URL, state.taskId, location.origin);
-      // Compact only the existing figure-file reader inside this iframe.
-      // Standalone pages and manuscript/artifact readers keep their navigation.
-      if (!url || !new URL(url).pathname.startsWith(taskPath(state.taskId) + "/figure-files/")) return false;
+      // Fit manuscript pages in the expanded reader only; inline previews keep their normal layout.
+      if (!url || (!allDocuments && !new URL(url).pathname.startsWith(taskPath(state.taskId) + "/figure-files/"))) return false;
       pages = [...doc.querySelectorAll("figure > .pdf-page")].filter(page => page.querySelector(":scope > img"));
     } catch (_) { return false; }
     if (!pages.length) return false;
@@ -827,79 +1524,66 @@ if (typeof document !== "undefined") {
       if (caption) Object.assign(caption.style, {font: "12px/16px system-ui", padding: "4px 8px"});
       const [width, height] = page.style.aspectRatio.split("/").map(Number);
       const ratio = width / height || img.naturalWidth / img.naturalHeight;
-      const fit = scale === "100" && Number.isFinite(ratio) && ratio > 0;
+      const fit = Number.isFinite(ratio) && ratio > 0;
       // Size the wrapper, preserving the original percentage link/target layers.
       // Viewport units keep cards fitted on resize without per-card observers.
-      Object.assign(figure.style, {maxWidth: "none", margin: scale === "100" ? "8px auto" : "16px",
-        width: fit ? `max(1px, min(calc(100vw - 32px), calc((100vh - 48px) * ${ratio})))`
-          : `${Math.max(1, doc.documentElement.clientWidth - 32) * Number(scale) / 100}px`});
+      Object.assign(figure.style, {maxWidth: "none", margin: "8px auto",
+        width: fit ? `max(1px, min(calc(100vw - 32px), calc((100vh - 48px) * ${ratio})))` : "calc(100vw - 32px)"});
     }
     return true;
   }
   function openFileZoom(file, trigger) {
-    if (!isPreviewableFigureFile(file)) return;
+    if (!supportsReader(file)) return;
     const dialog = el("dialog", null, "figure-zoom-dialog"), heading = el("div", null, "figure-zoom-heading");
+    if (isMarkdownFile(file) || isWordFile(file) || file.artifact_id) dialog.classList.add("document-reader-dialog");
     const title = el("h3", file.filename || file.relative_path || "文件预览"); title.id = "figure-zoom-title";
     dialog.setAttribute("aria-labelledby", title.id);
     const close = el("button", "关闭放大预览", "button"); close.type = "button"; close.autofocus = true;
     close.addEventListener("click", () => dialog.close()); heading.append(title, close);
-    const body = el("div", null, "figure-zoom-body"); filePreview(file, body, {enlarge: false});
+    const body = el("div", null, "figure-zoom-body"); filePreview(file, body, {enlarge: false, modal: true});
     const image = body.querySelector("img");
     if (image) {
-      const label = el("label", "图像缩放"), zoom = el("select");
-      for (const [value, text] of [["fit", "适合窗口"], ["100", "100%（窗口内）"], ["150", "150% 放大"], ["200", "200% 放大"]]) {
-        const option = el("option", text); option.value = value; zoom.append(option);
+      const label = el("div", null, "figure-zoom-presets");
+      for (const [value, text] of [[1, "适合窗口"], [1.5, "150% 放大"], [2, "200% 放大"]]) {
+        const btn = el("button", text, "button"); btn.type = "button";
+        btn.addEventListener("click", () => image._panzoom?.setScale(value));
+        label.append(btn);
       }
-      zoom.addEventListener("change", () => {
-        image.style.width = zoom.value === "fit" ? "100%" : zoom.value === "100" ? "auto" : zoom.value + "%";
-        image.style.height = zoom.value === "fit" ? "100%" : "auto";
-      });
-      label.append(zoom); heading.append(label);
+      heading.append(label);
     }
     const frame = body.querySelector("iframe");
     if (frame && file.media_type === "application/pdf") {
-      const label = el("label", "PDF 缩放"), zoom = el("select"); zoom.disabled = true;
-      for (const [value, text] of [["100", "适合窗口"], ["150", "150% 窗口宽度"], ["200", "200% 窗口宽度"], ["300", "300% 窗口宽度"]]) {
-        const option = el("option", text); option.value = value; zoom.append(option);
-      }
       const status = el("p", "正在加载 PDF 页面预览。", "figure-pdf-zoom-status muted"); status.setAttribute("role", "status");
       const original = el("a", "打开原 PDF", "file-link");
       original.href = allowedTaskUrl(file.content_url, state.taskId, location.origin);
       original.target = "_blank"; original.rel = "noopener";
       const escape = event => { if (event.key === "Escape") { event.preventDefault(); dialog.close(); } };
       let previewDocument = null;
-      function applyPdfZoom() {
-        let doc, pages = [];
+      function applyPdfFit() {
+        let doc;
         try {
           doc = frame.contentDocument;
-          if (doc && allowedTaskUrl(doc.URL, state.taskId, location.origin))
-            pages = [...doc.querySelectorAll("figure > .pdf-page")].filter(page => page.querySelector(":scope > img"));
         } catch (_) { /* An unavailable or different-origin viewer keeps its original link. */ }
-        zoom.disabled = !pages.length;
-        if (!pages.length) { status.textContent = "此预览暂不支持窗口内缩放，可打开原 PDF 查看。"; return; }
+        if (!doc || !fitFigurePdf(frame, {allDocuments: true})) {
+          status.textContent = tr("此文件可打开原 PDF 阅读。");
+          return;
+        }
         if (previewDocument !== doc) {
           previewDocument?.removeEventListener("keydown", escape);
           previewDocument = doc; doc.addEventListener("keydown", escape);
         }
-        // Resize the existing page wrapper: percentage link/target layers stay aligned.
-        // Never add a style attribute to .pdf-page; legacy CSS uses [style] to position its image.
-        const figurePreview = fitFigurePdf(frame, zoom.value);
-        if (!figurePreview) {
-          const width = Math.max(1, doc.documentElement.clientWidth - 32) * Number(zoom.value) / 100;
-          for (const page of pages) Object.assign(page.parentElement.style, {width: `${width}px`, maxWidth: "none", margin: "16px"});
-        }
-        status.textContent = figurePreview && zoom.value === "100" ? "图件按整页宽高适合窗口；多页可继续滚动。细节可放大或打开原 PDF 查看。"
-          : "放大后可在预览内横向滚动；清晰度受页面预览限制，可打开原 PDF 查看细节。";
+        status.textContent = tr("适合窗口 · 滚动翻页");
       }
-      label.append(zoom); heading.append(label, original, status);
-      zoom.addEventListener("change", applyPdfZoom); frame.addEventListener("load", applyPdfZoom);
-      const resize = new ResizeObserver(applyPdfZoom); resize.observe(frame);
+      heading.append(original, status);
+      frame.addEventListener("load", applyPdfFit);
+      const resize = new ResizeObserver(applyPdfFit); resize.observe(frame);
       dialog.addEventListener("close", () => {
-        resize.disconnect(); frame.removeEventListener("load", applyPdfZoom);
+        resize.disconnect(); frame.removeEventListener("load", applyPdfFit);
         previewDocument?.removeEventListener("keydown", escape);
       });
     }
     dialog.append(heading, body);
+    dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
     dialog.addEventListener("close", () => { dialog.remove(); if (trigger.isConnected) trigger.focus({preventScroll: true}); });
     document.body.append(dialog); dialog.showModal();
   }
@@ -923,11 +1607,19 @@ if (typeof document !== "undefined") {
     if (decision.status !== "pending") return "宿主记录，仅供查看";
     return optionId ? `未保存：${label}` : "待选择 · 尚未保存本图意见";
   }
+  function syncFigureChoiceStatus(node, decision, draft, pending = false) {
+    node.textContent = figureChoiceText(decision, draft, pending);
+    node.dataset.state = decision.stale ? "stale" : decision.status === "resolved" ? "resolved" : pending || draft?.option_id ? "selected" : "pending";
+  }
   function figureHeading(decision, card, index) {
-    card.append(el("h4", figureTitle(decision, index)));
-    const status = el("p", figureChoiceText(decision), "figure-choice-status"); status.setAttribute("role", "status");
-    card.append(status);
-    const details = el("details", null, "figure-instructions"); details.append(el("summary", "完整问题与方案说明"));
+    const header = el("div", null, "figure-card-header");
+    header.append(el("h4", figureTitle(decision, index)));
+    const status = el("p", "", "figure-choice-status"); status.setAttribute("role", "status");
+    syncFigureChoiceStatus(status, decision);
+    header.append(status);
+    card.append(header);
+    if (decision.prompt) card.append(el("p", shortFigureText(decision.prompt, 120), "figure-prompt-lead"));
+    const details = el("details", null, "figure-instructions"); details.append(el("summary", "查看完整问题与方案说明"));
     if (decision.figure) details.append(el("p", [decision.figure.label, decision.figure.panel_label || decision.figure.panel_id].filter(Boolean).join(" · ")));
     if (decision.figure?.reference_note) details.append(el("p", "参考说明：" + decision.figure.reference_note));
     if (Array.isArray(decision.figure?.panel_ids)) details.append(el("p", decision.figure.panel_ids.length
@@ -1009,7 +1701,9 @@ if (typeof document !== "undefined") {
     const cell = el("section", null, reference ? "paired-reference-cell" : "paired-study-cell");
     const file = optionFiles({files:[path]}, state.files, state.taskId, location.origin)[0];
     cell.dataset.figurePath = path;
-    cell.append(el("p", path.split("/").at(-1), "paired-file-name"));
+    const headerRow = el("div", null, "paired-cell-header");
+    headerRow.append(el("span", reference ? "对应参考图" : "我们的图", "paired-role-badge"), el("p", path.split("/").at(-1), "paired-file-name"));
+    cell.append(headerRow);
     if (file) filePreview(versionedFigureFile(file),cell);
     else cell.append(el("p", "文件暂不可预览，请宿主核对该确切路径。", "muted"));
     if (!reference && file) {
@@ -1042,10 +1736,14 @@ if (typeof document !== "undefined") {
   function decisionFiles(decision, container) {
     const rows=pairedFigureRows(decision,state.referencePairs);
     if(!rows.length){container.append(el("p","尚未登记可与参考图配对的当前图件。","muted"));return;}
-    const table=el("div",null,"figure-paired-table");
-    const head=el("div",null,"figure-paired-columns");head.append(el("strong","我们的图"),el("strong","对应参考图"));table.append(head);
+    const hasReferences = rows.some(row => row.references.length > 0);
+    const table=el("div",null, hasReferences ? "figure-paired-table" : "figure-paired-table is-unpaired-only");
+    if (hasReferences) {
+      const head=el("div",null,"figure-paired-columns");head.append(el("strong","我们的图"),el("strong","对应参考图"));table.append(head);
+    }
     for (const row of rows) {
-      const pair=el("div",null,"figure-paired-row");pair.dataset.studyFile=row.file;
+      const pair=el("div",null, row.references.length ? "figure-paired-row" : "figure-paired-row is-unpaired");
+      pair.dataset.studyFile=row.file;
       const study=pairedFileCell(row.file);
       const options=optionDetails(decision).filter(option=>(option.files||[]).some(path=>figureStem(path)===figureStem(row.file)));
       if(options.length){
@@ -1053,9 +1751,13 @@ if (typeof document !== "undefined") {
         study.prepend(el("p",chosen ? `已保存选择：${chosen.label || chosen.option_id}` : options.map(option=>option.label || option.option_id).join(" / "),"paired-candidate-label"));
       }
       pair.append(study);
-      const reference=el("div",null,"figure-paired-reference-list");
+      const reference=el("div",null, row.references.length ? "figure-paired-reference-list" : "figure-paired-reference-list is-empty");
       if(row.shared) reference.append(el("p","本图共用参考（尚未登记逐子图配对，不按列表顺序猜配）","muted"));
-      if(!row.references.length) reference.append(el("p",decision.figure?.reference_note || "尚未关联对应参考图；不会自动拿其他图来凑对。","muted"));
+      if(!row.references.length) {
+        const note = el("div", null, "figure-unpaired-note");
+        note.append(el("strong", "对应参考图"), el("p", decision.figure?.reference_note || "尚未关联对应参考图；不会自动拿其他图来凑对。", "muted"));
+        reference.append(note);
+      }
       for(const ref of row.references) reference.append(pairedFileCell(ref,true));
       pair.append(reference);table.append(pair);
     }
@@ -1118,6 +1820,7 @@ if (typeof document !== "undefined") {
     if (!visibleUnits.some(unit => unit.key === state.activeFigure))
       state.activeFigure = (visibleUnits.find(unit => unit.current.status === "pending") || visibleUnits[0])?.key || null;
     const navigation = el("nav", null, "figure-stepper"); navigation.setAttribute("aria-label", "图件与子图");
+    navigation.hidden = visibleUnits.length <= 1;
     const workspace = el("div", null, "figure-focus figure-paired-list");
     const history = el("details", null, "figure-versions"); history.append(el("summary", "查看历史版本"));
     const currentIds = new Set(visibleUnits.map(unit => unit.current.decision_id));
@@ -1179,14 +1882,14 @@ if (typeof document !== "undefined") {
       if (decisionStage === "figure") decisionFiles(decision, card);
       const key = keyFor("decision", decision.decision_id), pending = state.pending.get(key);
       if (pending) { draft.option_id = pending.body.payload.option_id; draft.reason = pending.body.payload.reason; }
-      if (choiceStatus) choiceStatus.textContent = figureChoiceText(decision, draft, Boolean(pending));
+      if (choiceStatus) syncFigureChoiceStatus(choiceStatus, decision, draft, Boolean(pending));
       const fields = el("fieldset"); fields.disabled = !editable(phase) || Boolean(pending) || state.inFlight.has(key);
       fields.append(el("legend", "请选择一个方案"));
       for (const option of optionDetails(decision)) {
         const label = el("label", null, "public-option"), radio = el("input"); radio.type = "radio"; radio.name = decision.decision_id;
         radio.value = option.option_id; radio.checked = draft.option_id === option.option_id; radio.required = true;
         radio.addEventListener("change", () => { draft.option_id = option.option_id; saveDraft();
-          if (choiceStatus) choiceStatus.textContent = figureChoiceText(decision, draft); });
+          if (choiceStatus) syncFigureChoiceStatus(choiceStatus, decision, draft); });
         label.append(radio, el("strong", choiceStatus ? shortFigureText(option.label || option.option_id, 70) : option.label || option.option_id));
         if (option.description && !choiceStatus) label.append(el("p", option.description));
         if (option.risk && !choiceStatus) label.append(el("p", `注意：${option.risk}`, "muted"));
@@ -1197,11 +1900,13 @@ if (typeof document !== "undefined") {
           if ((option.files || []).length > matches.length) fields.append(el("p", "部分候选文件尚不可预览，请联系宿主核对。", "muted"));
         }
       }
-      const reasonLabel = el("label", "选择理由或修改意见（选填）"), reason = el("textarea", null, "choice-reason"); reason.rows = 3; reason.placeholder = "无"; reason.value = pending && draft.reason === "无" ? "" : draft.reason;
+      const reasonLabel = el("label", "选择理由或修改意见（选填）"), reason = el("textarea", null, "choice-reason"); reason.rows = 2; reason.placeholder = tr("可选：填写选择理由、局部修改建议或细节要求…"); reason.value = pending && draft.reason === "无" ? "" : draft.reason;
       reason.addEventListener("input", () => { draft.reason = reason.value; saveDraft(); }); reasonLabel.append(reason); fields.append(reasonLabel);
+      const submitBar = el("div", null, "figure-submit-bar");
       const button = el("button", pending ? "重试原提交" : "保存我的选择", "button strong"); button.type = "submit";
       button.disabled = !editable(phase) || state.inFlight.has(key);
-      card.append(fields, button);
+      submitBar.append(button);
+      card.append(fields, submitBar);
       card.addEventListener("submit", async (event) => {
         event.preventDefault(); if (!editable(phase)) return;
         if (!pending && !draft.option_id) return;
@@ -1272,14 +1977,23 @@ if (typeof document !== "undefined") {
     row.append(el("strong", artifact.filename || artifact.file_name || artifact.artifact_type || "论文文件"));
     if (artifact.stale || artifact.historical || artifact.freshness === "stale") row.append(el("small", "历史版本／需重新核对", "muted"));
     for (const [key, title] of [["content_url", "预览"], ["download_url", "下载"]]) {
-      const url = allowedTaskUrl(artifact[key], state.taskId, location.origin);
+      const url = key === "content_url" ? readerUrl(artifact) : allowedTaskUrl(artifact[key], state.taskId, location.origin);
       if (url && key === "content_url") {
         const preview = el("details", null, "artifact-preview"), summary = el("summary", "预览");
         preview.append(summary);
         preview.addEventListener("toggle", () => {
-          if (preview.open && preview.children.length === 1) filePreview(artifact, preview);
+          if (preview.open && !preview.querySelector(".artifact-preview-content")) {
+            const body = el("div", null, "artifact-preview-content");
+            preview.append(body);
+            filePreview(artifact, body, {enlarge: false});
+          }
         });
         row.append(preview);
+        if (supportsReader(artifact)) {
+          const open = el("button", "全屏阅读", "button artifact-reader-button"); open.type = "button";
+          open.addEventListener("click", () => openFileZoom(artifact, open));
+          row.append(open);
+        }
       } else if (url) {
         const link = el("a", title, "file-link"); link.href = url;
         link.download = artifact.filename || artifact.file_name || "";
@@ -1370,13 +2084,18 @@ if (typeof document !== "undefined") {
     const unassigned = artifacts.filter(a => !knownPhase(a.stage) && !linked.has(a.artifact_id) && !artifactTypePhase(a));
     const unassignedNotes = unassigned.filter(a => a.artifact_type === "research_note");
     const reviews = state.task.reviews || [];
+    const revisions = state.task.revision_requests || (state.task.revision_request ? [state.task.revision_request] : []);
     const reviewEvents = state.events.filter(event => event.task_id === state.taskId && event.event_type === "review.submitted");
     // A task-version-only poll must not close a note the reader has opened.
-    const signature = JSON.stringify([state.taskId, milestones, artifacts, state.task.evidence_links, state.task.findings, reviews, reviewEvents]);
+    const signature = JSON.stringify([state.taskId, milestones, artifacts, state.task.evidence_links, state.task.findings, reviews, reviewEvents, revisions]);
     if (groups.research.dataset.contentKey !== signature) {
       Object.values(groups).forEach(node => { node.replaceChildren(); node.dataset.contentKey = signature; });
       for (const [phase, container] of Object.entries(groups)) {
         const relevant = milestones.filter(m => phaseOf(m) === phase);
+        if (phase === "review") {
+          renderReviewMaterials(container, artifacts, relevant, revisions);
+          continue;
+        }
         for (const milestone of relevant) {
           const row = el("div", null, "task-file-row milestone-record");
           row.append(el("small", "历史里程碑 · 登记记录，非当前运行状态", "milestone-record-label"));
@@ -1432,7 +2151,6 @@ if (typeof document !== "undefined") {
       }
     }
     const feedback = $("#feedback-history");
-    const revisions = state.task.revision_requests || (state.task.revision_request ? [state.task.revision_request] : []);
     const feedbackKey = JSON.stringify([state.taskId, revisions]);
     // Keep the reader's disclosure and scroll position through ordinary polls.
     if (feedback.dataset.contentKey !== feedbackKey) {
@@ -1453,6 +2171,42 @@ if (typeof document !== "undefined") {
         }
         feedback.append(row);
       }
+    }
+  }
+  function renderReviewMaterials(container, artifacts, milestones, revisions) {
+    const related = new Set(milestones.flatMap(milestone => milestone.artifact_ids || []));
+    const files = artifacts.filter(artifact => artifact.stage === "review" || related.has(artifact.artifact_id)
+      || (artifact.stage === "draft" && isManuscriptArtifact(artifact)));
+    const current = files.filter(artifact => !artifact.stale && !artifact.historical && !["stale", "historical"].includes(artifact.freshness));
+    const history = files.filter(artifact => !current.includes(artifact));
+    const latest = milestones.at(-1);
+    if (latest) container.append(el("p", latest.summary || latest.description, "review-latest-summary"));
+    if (current.length) {
+      const section = el("section", null, "review-materials");
+      section.append(el("h4", "当前稿件与核查材料"));
+      current.forEach(file => appendArtifact(section, file));
+      container.append(section);
+    }
+    if (revisions.length) {
+      const list = el("section", null, "review-revisions");
+      list.append(el("h4", "已保存的返修意见"));
+      [...revisions].reverse().forEach(item => {
+        const row = el("details", null, "review-revision-entry");
+        const label = Number.isInteger(item.requested_revision) ? (uiLang === "en" ? "Revision " : "返修版本 ") + item.requested_revision : "已保存的返修意见";
+        row.append(el("summary", label), el("p", item.feedback || item.text || "已保存意见"));
+        list.append(row);
+      });
+      container.append(list);
+    }
+    if (history.length || milestones.length > 1) {
+      const older = el("details", null, "review-material-history");
+      older.append(el("summary", "历史稿件与核查材料"));
+      for (const milestone of milestones.slice(0, -1).reverse()) {
+        const summary = milestone.summary || milestone.description;
+        if (summary) older.append(el("p", summary, "muted"));
+      }
+      history.forEach(file => appendArtifact(older, file));
+      container.append(older);
     }
   }
   function renderReviewRecords(container, reviews, artifacts, reviewEvents) {
@@ -1533,6 +2287,7 @@ if (typeof document !== "undefined") {
       list.append(card);
     }
     if (reviews.length) container.prepend(list);
+    else container.prepend(el("p", "正式审阅结论尚未登记", "review-verdict-note muted"));
     const unassigned = allFindings.filter(finding => !displayedFindings.has(finding));
     if (unassigned.length) {
       const remaining = el("section", null, "review-unassigned-findings"); remaining.append(el("h4", "其他问题记录"));
@@ -1566,16 +2321,20 @@ if (typeof document !== "undefined") {
     const key = keyFor("configuration"), saved = state.pending.has(key);
     $("#configuration-fields").disabled = !editable("intake") || saved || state.inFlight.has(key);
     $("#configuration-submit").disabled = !editable("intake") || state.inFlight.has(key);
-    $("#configuration-submit").textContent = saved ? "重试原提交" : "保存设置";
+    setText("#configuration-submit", saved ? "重试原提交" : "保存设置");
     const feedbackKey = keyFor("feedback");
     $("#feedback-fields").disabled = state.pending.has(feedbackKey) || state.inFlight.has(feedbackKey);
     $("#feedback-submit").disabled = state.inFlight.has(feedbackKey);
-    $("#feedback-submit").textContent = state.pending.has(feedbackKey) ? "重试原提交" : "保存意见";
+    setText("#feedback-submit", state.pending.has(feedbackKey) ? "重试原提交" : "保存意见");
   }
   $("#configuration-form").addEventListener("input", (event) => {
     if (!state.task) return;
     const field = event.target.dataset.field; if (!field) return;
     const draft = state.configDrafts.get(state.taskId) || {values: {}, base: structuredClone(state.task.configuration || {})};
+    if (field === "output_language") {
+      if (event.target.id === "output-language-custom") draft.customLanguage = $("#output-language-custom").value;
+      renderLanguageEditability();
+    }
     if (field === "literature") {
       if (event.target.id === "literature-preset") {
         if (draft.literaturePreset === "custom" || (!draft.literaturePreset && literaturePreset(literatureValues(state.task.configuration?.literature)) === "custom"))
@@ -1588,10 +2347,7 @@ if (typeof document !== "undefined") {
       renderLiteratureEditability();
     }
     const value = configValues()[field]; draft.values[field] = value; state.configDrafts.set(state.taskId, draft);
-    if (field === "target") {
-      $("#target-name").disabled = $("#target-status").value !== "known";
-      $("#target-name").required = $("#target-status").value === "known";
-    }
+    syncConfigVisuals();
     setText("#configuration-status", configurationDraftMessage(state.task, draft));
     $("#reload-saved-configuration").hidden = false;
     renderFocus();
@@ -1632,34 +2388,42 @@ if (typeof document !== "undefined") {
       if (!Object.keys(payload).length) throw new PublicError("设置没有变化。", "validation_failed");
       const base = draft?.base || state.task.configuration || {};
       if (Object.keys(payload).some((field) => !same(fresh.configuration?.[field], base[field]))) throw new PublicError("宿主已更新这些设置，请重新核对后保存。", "choice_changed");
+      writeSavedCustomLanguage(payload.output_language === "other" ? ($("#output-language-custom")?.value || "") : "");
       return entryFor("configuration", fresh, `${taskPath(fresh.task_id)}/configuration`, payload, base);
     });
   });
   $("#feedback-form").addEventListener("submit", async (event) => {
     event.preventDefault(); if (!state.task || (state.view && state.view !== currentPhase(state.task))) return;
     const key = keyFor("feedback"), id = state.taskId, scope = $("#feedback-scope").value;
-    let text = $("#feedback-text").value.trim(), file = $("#feedback-file").files[0] || state.feedbackDrafts.get(id)?.file, filename;
+    const text = $("#feedback-text").value.trim();
     if (!state.pending.has(key)) {
-      if (file) {
-        if (!/\.(md|txt)$/i.test(file.name) || file.size > 32000) { message("请上传不超过 32 KB 的 .md 或 .txt 意见文件。", true); return; }
-        text = [text, await file.text()].filter(Boolean).join("\n\n"); filename = file.name;
-      }
       if (state.taskId !== id) return;
-      if (!text.trim() || [...text].length > 32000) { message("意见不能为空且不能超过 32,000 字符。", true); return; }
+      if (!text || [...text].length > 32000) { message("意见不能为空且不能超过 32,000 字符。", true); return; }
     }
     await mutate(key, (fresh) => {
       const entry = entryFor("feedback", fresh, `${taskPath(fresh.task_id)}/feedback`, {}, null);
       const {schema_version, payload, ...body} = entry.body;
-      entry.body = {...body, feedback: text, scope, ...(filename ? {filename} : {})};
+      entry.body = {...body, feedback: text, scope};
       return entry;
     });
   });
-  $("#feedback-file").addEventListener("change", () => {
-    if (!state.taskId) return;
-    const draft = state.feedbackDrafts.get(state.taskId) || {};
-    draft.file = $("#feedback-file").files[0]; state.feedbackDrafts.set(state.taskId, draft);
-    setText("#feedback-file-name", draft.file ? `待上传：${draft.file.name}` : "");
+  const workflowToggle = $("#global-stage-toggle");
+  workflowToggle.addEventListener("click", () => {
+    const expanded = workflowToggle.getAttribute("aria-expanded") !== "true";
+    workflowToggle.setAttribute("aria-expanded", String(expanded));
+    workflowToggle.setAttribute("aria-label", tr(expanded ? "收起 Spine" : "展开 Spine"));
+    setText("#global-stage-toggle-verb", expanded ? "收起" : "展开");
+    $("#global-stage-strip").classList.toggle("is-collapsed", !expanded);
+    const shell = $("#global-workflow-shell");
+    if (shell) shell.inert = !expanded;
+    if (expanded) requestAnimationFrame(syncStageSlider);
   });
+  $("#global-workflow-shell")?.addEventListener("scroll", syncStageSlider, {passive: true});
+  window.addEventListener("resize", () => { syncStageSlider(); syncConfigVisuals(); }, {passive: true});
+  const workbenchHeader = $(".workbench-header");
+  new ResizeObserver(() => {
+    workbenchHeader.parentElement.style.setProperty("--workbench-header-height", `${workbenchHeader.offsetHeight}px`);
+  }).observe(workbenchHeader);
   $("#stage-return-current").addEventListener("click", () => { state.view = null; render(); });
   $("#copy-handoff").addEventListener("click", async () => {
     try { await navigator.clipboard.writeText($("#host-handoff-text").textContent); setText("#handoff-status", "已复制，请发给当前选定的宿主（原对话或新对话）；复制没有启动 AI。"); }
@@ -1670,7 +2434,30 @@ if (typeof document !== "undefined") {
     try { const result = await request(`${taskPath(id)}/open-package`, {}); if (id === state.taskId) setText("#package-directory", result.opened ? "已打开当前任务目录。" : result.package_directory || "目录暂不可用。"); }
     catch (error) { message(error.message, true); }
   });
-  $("#refresh").addEventListener("click", () => Promise.all([refreshTasks(), refreshTask()]).catch((error) => message(error.message, true)));
+  const refreshButton = $("#refresh");
+  refreshButton.addEventListener("click", async () => {
+    if (refreshButton.dataset.spinning === "true") return;
+    refreshButton.dataset.spinning = "true";
+    refreshButton.classList.remove("is-spinning");
+    void refreshButton.offsetWidth;
+    refreshButton.classList.add("is-spinning");
+    refreshButton.setAttribute("aria-busy", "true");
+    const minSpin = new Promise((resolve) => setTimeout(resolve, 620));
+    try {
+      await Promise.all([refreshTasks(), refreshTask(), minSpin]);
+    } catch (error) {
+      await minSpin;
+      message(error.message, true);
+    } finally {
+      delete refreshButton.dataset.spinning;
+      refreshButton.classList.remove("is-spinning");
+      refreshButton.removeAttribute("aria-busy");
+    }
+  });
+  $("#home-open-recent").addEventListener("click", () => {
+    const recent = state.tasks[0];
+    if (recent) loadTask(recent.task_id).catch((error) => message(error.message, true));
+  });
   $(".figure-file-catalog").addEventListener("toggle", (event) => {
     if (!event.currentTarget.open) {
       state.figureCatalogViews.get(state.taskId)?.previews.clear();
@@ -1678,8 +2465,118 @@ if (typeof document !== "undefined") {
     }
   });
   $("#retry-task-load").addEventListener("click", () => loadTask(state.taskId));
+  const staticTextOriginals = new WeakMap();
+  const staticAttrOriginals = new WeakMap();
+  function translateStaticDom() {
+    const roots = [".topbar-links", ".health", "#global-stage-summary", ".sidebar", "#workspace-empty", "#task-workspace", "#save-toast", "#support-milestone"];
+    for (const sel of roots) {
+      const root = $(sel);
+      if (!root) continue;
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      let node;
+      while ((node = walker.nextNode())) {
+        if (node.parentElement?.closest("#lang-toggle")) continue;
+        const trimmed = node.textContent.trim();
+        if (!trimmed) continue;
+        if (!staticTextOriginals.has(node)) {
+          const lead = node.textContent.match(/^\s*/)[0];
+          const trail = node.textContent.match(/\s*$/)[0];
+          staticTextOriginals.set(node, {lead, text: trimmed, trail});
+        }
+        const orig = staticTextOriginals.get(node);
+        const mapped = tr(orig.text);
+        if (mapped !== orig.text || uiLang === "zh") node.textContent = orig.lead + mapped + orig.trail;
+      }
+      for (const nodeEl of [root, ...root.querySelectorAll("[placeholder],[aria-label],[title]")]) {
+        if (nodeEl.closest("#lang-toggle")) continue;
+        let saved = staticAttrOriginals.get(nodeEl);
+        if (!saved) {
+          saved = {};
+          for (const attr of ["placeholder", "aria-label", "title"]) {
+            const v = nodeEl.getAttribute(attr);
+            if (v) saved[attr] = v;
+          }
+          staticAttrOriginals.set(nodeEl, saved);
+        }
+        for (const [attr, zhVal] of Object.entries(saved)) {
+          nodeEl.setAttribute(attr, tr(zhVal));
+        }
+      }
+    }
+    for (const opt of document.querySelectorAll("#configuration-form select option, #feedback-form select option")) {
+      if (!opt.dataset.zh) opt.dataset.zh = opt.textContent.trim();
+      opt.textContent = tr(opt.dataset.zh);
+    }
+  }
+  function syncLangThumb() {
+    const toggle = $("#lang-toggle"), thumb = toggle?.querySelector(".lang-thumb");
+    const active = toggle?.querySelector(`.lang-btn[data-lang="${uiLang}"]`);
+    if (!toggle || !thumb || !active) return;
+    const tr = toggle.getBoundingClientRect(), br = active.getBoundingClientRect();
+    if (!br.width) return;
+    thumb.style.width = `${br.width}px`;
+    thumb.style.transform = `translate3d(${br.left - tr.left - 2}px, 0, 0)`;
+  }
+  function applyUiLanguage(lang) {
+    uiLang = lang === "en" ? "en" : "zh";
+    try { globalThis.localStorage?.setItem(UI_LANG_KEY, uiLang); } catch (_) {}
+    document.documentElement.lang = uiLang === "en" ? "en" : "zh-CN";
+    const toggle = $("#lang-toggle");
+    if (toggle) {
+      toggle.dataset.lang = uiLang;
+      for (const btn of toggle.querySelectorAll(".lang-btn")) {
+        const active = btn.dataset.lang === uiLang;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-pressed", String(active));
+      }
+    }
+    translateStaticDom();
+    buildNavigation();
+    syncConfigLabels();
+    if (state.tasks.length) renderTaskList();
+    state.renderingChoices = "";
+    renderedMaterials = "";
+    for (const node of document.querySelectorAll("[data-content-key]")) delete node.dataset.contentKey;
+    if (state.task) render();
+    const expanded = $("#global-stage-toggle")?.getAttribute("aria-expanded") !== "false";
+    $("#global-stage-toggle")?.setAttribute("aria-label", tr(expanded ? "收起 Spine" : "展开 Spine"));
+    setText("#global-stage-toggle-verb", expanded ? "收起" : "展开");
+    if ($("#health-dot")?.classList.contains("ok")) setText("#health-label", "本机服务已连接 · AI 状态未确认");
+    setText("#build-label", "配置与文件保存在本机");
+    syncLangThumb();
+    syncStageSlider();
+    syncConfigVisuals();
+    requestAnimationFrame(() => { syncLangThumb(); syncStageSlider(); syncConfigVisuals(); });
+    setTimeout(syncStageSlider, 260);
+  }
+  if ($("#global-workflow-progress")) new ResizeObserver(syncStageSlider).observe($("#global-workflow-progress"));
+  for (const btn of document.querySelectorAll("#lang-toggle .lang-btn")) {
+    btn.addEventListener("click", () => applyUiLanguage(btn.dataset.lang));
+  }
+  const sidebar = $("#task-sidebar"), sidebarToggle = $("#task-sidebar-toggle");
+  const sidebarKey = "paperspine5.sidebar-collapsed.v1";
+  function setSidebarCollapsed(collapsed) {
+    sidebar.hidden = collapsed;
+    document.body.classList.toggle("sidebar-collapsed", collapsed);
+    sidebarToggle.setAttribute("aria-expanded", String(!collapsed));
+    sidebarToggle.textContent = tr(collapsed ? "展开任务栏" : "收起任务栏");
+  }
+  let initialSidebarCollapsed = matchMedia("(max-width: 620px)").matches;
+  try {
+    const saved = localStorage.getItem(sidebarKey);
+    if (saved !== null) initialSidebarCollapsed = saved === "true";
+  } catch (_) { /* Storage is optional. */ }
+  setSidebarCollapsed(initialSidebarCollapsed);
+  sidebarToggle.addEventListener("click", () => {
+    const collapsed = !sidebar.hidden;
+    setSidebarCollapsed(collapsed);
+    try { localStorage.setItem(sidebarKey, String(collapsed)); } catch (_) { /* Keep the in-page choice. */ }
+  });
+
   async function start() {
     buildNavigation();
+    enhanceConfigControls();
+    applyUiLanguage(uiLang);
     try {
       const session = await request("/api/v1/session");
       state.session = session.session_token || session.session || ""; state.csrf = session.csrf_token || "";
@@ -1690,7 +2587,7 @@ if (typeof document !== "undefined") {
       document.addEventListener("visibilitychange", () => { if (!document.hidden) refreshTask(); });
       window.addEventListener("focus", () => refreshTask());
       setInterval(() => { if (!document.hidden && state.taskId && !state.inFlight.size) refreshTask().catch((error) => message(error.message, true)); }, 5000);
-    } catch (error) { setText("#health-label", "连接未完成"); message(error.message, true); }
+    } catch (error) { setText("#health-label", "连接未完成"); renderHomeRecent(true); message(error.message, true); }
   }
   start();
 }

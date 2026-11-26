@@ -5,25 +5,610 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PaperSpine 使用文档</title>
   <style>
-    :root{color-scheme:light;--ink:#17243d;--muted:#5c6d86;--blue:#2459a8;--line:#d9e3f1;--paper:#f6f9fd}
-    *{box-sizing:border-box}body{max-width:920px;margin:0 auto;padding:48px 24px 72px;font:16px/1.75 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper)}
-    a{color:var(--blue)}header{margin-bottom:28px}h1{margin:8px 0;font-size:34px;letter-spacing:-.03em}h2{margin:0 0 8px;font-size:21px}p{margin:8px 0;color:var(--muted)}.eyebrow{margin:0;color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-    nav{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:14px}section{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin:14px 0;box-shadow:0 8px 24px rgba(36,89,168,.05)}ol{margin:12px 0 0;padding-left:24px}li{margin:8px 0;color:var(--muted)}strong{color:var(--ink)}code{padding:2px 5px;background:#eef4fb;border-radius:5px;color:var(--ink);font-size:.92em}.note{border-left:3px solid var(--blue);padding-left:14px}
+    :root {
+      color-scheme: light dark;
+      --canvas: light-dark(#EFE9DF, #141210);
+      --paper: light-dark(#F9F6F0, #211D19);
+      --paper-soft: light-dark(#F3EDE4, #29241F);
+      --surface-nested: light-dark(#EDE6DC, #25201B);
+      --surface-recessed: light-dark(#E4DCD0, #1A1613);
+      --ink: light-dark(#211C18, #F7EEE7);
+      --ink-soft: light-dark(#473B32, #E1D3C9);
+      --muted: light-dark(#665D56, #C4B4A7);
+      --accent: light-dark(#E56435, #FFA982);
+      --accent-hover: light-dark(#EE7548, #FFBA99);
+      --accent-on: light-dark(#FFFFFF, #28140B);
+      --accent-fill: light-dark(rgba(229, 100, 53, .86), rgba(255, 169, 130, .86));
+      --accent-fill-hover: light-dark(rgba(238, 117, 72, .94), rgba(255, 186, 153, .94));
+      --accent-soft: light-dark(rgba(229, 100, 53, .13), rgba(255, 169, 130, .18));
+      --elev-xs: 0 1px 2px light-dark(rgba(44, 33, 22, .04), rgba(0, 0, 0, .28));
+      --elev-sm: 0 2px 6px light-dark(rgba(44, 33, 22, .035), rgba(0, 0, 0, .30)),
+                 0 8px 20px -4px light-dark(rgba(44, 33, 22, .05), rgba(0, 0, 0, .38));
+      --elev-md: 0 3px 10px light-dark(rgba(44, 33, 22, .04), rgba(0, 0, 0, .32)),
+                 0 14px 36px -6px light-dark(rgba(44, 33, 22, .07), rgba(0, 0, 0, .48));
+      --elev-accent: 0 6px 20px -4px light-dark(rgba(229, 100, 53, .24), rgba(0, 0, 0, .42)),
+                     0 1px 4px light-dark(rgba(229, 100, 53, .10), rgba(0, 0, 0, .26));
+      --well-inset: inset 0 1px 2px light-dark(rgba(44, 33, 22, .06), rgba(0, 0, 0, .36));
+      --interface-font: "Instrument Sans", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --display-serif: Georgia, "Noto Serif SC", "Songti SC", SimSun, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      min-width: 320px;
+      scroll-behavior: smooth;
+      background: var(--canvas);
+      color: var(--ink);
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font: 15px/1.7 var(--interface-font);
+      color: var(--ink);
+      background: var(--canvas);
+      -webkit-font-smoothing: antialiased;
+    }
+    button, a { font: inherit; -webkit-tap-highlight-color: transparent; }
+    :where(a, button):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* Sticky frosted topbar matching main workbench */
+    .docs-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: color-mix(in srgb, var(--canvas) 84%, transparent);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      box-shadow: 0 6px 24px -8px light-dark(rgba(38, 28, 18, .10), rgba(0, 0, 0, .55));
+    }
+    .topbar {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 58px;
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      text-decoration: none;
+      flex: none;
+    }
+    .brand-logo {
+      display: block;
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      filter: light-dark(none, invert(1));
+      transition: transform 200ms cubic-bezier(.2, .72, .3, 1);
+    }
+    .brand:is(:hover, :focus-visible) .brand-logo { transform: scale(1.1) rotate(-4deg); }
+    .brand strong {
+      font-size: 19px;
+      font-weight: 750;
+      letter-spacing: -.05em;
+    }
+    .topbar-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: none;
+    }
+
+    /* Bilingual segmented toggle matching workbench */
+    .lang-toggle {
+      position: relative;
+      display: inline-grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: center;
+      padding: 2px;
+      height: 28px;
+      border-radius: 999px;
+      background: var(--surface-recessed);
+      box-shadow: var(--well-inset);
+      flex: none;
+    }
+    .lang-thumb {
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      left: 2px;
+      width: calc(50% - 2px);
+      border-radius: 999px;
+      background: var(--paper);
+      box-shadow: var(--elev-xs);
+      pointer-events: none;
+      transition: transform 240ms cubic-bezier(.22, 1, .36, 1), width 240ms cubic-bezier(.22, 1, .36, 1);
+    }
+    .lang-btn {
+      position: relative;
+      z-index: 1;
+      display: inline-grid;
+      place-items: center;
+      min-width: 28px;
+      height: 24px;
+      padding: 0 8px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 180ms ease, transform 140ms ease;
+    }
+    .lang-btn:hover { color: var(--ink); }
+    .lang-btn:active { transform: scale(.94); }
+    .lang-btn.is-active { color: var(--accent); font-weight: 750; }
+
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 32px;
+      padding: 5px 13px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--ink-soft);
+      font-size: 13px;
+      font-weight: 650;
+      text-decoration: none;
+      box-shadow: var(--elev-xs);
+      white-space: nowrap;
+      transition: background-color 170ms ease, color 170ms ease, box-shadow 170ms ease, transform 150ms cubic-bezier(.22, 1, .36, 1);
+    }
+    .pill-btn:hover {
+      background: var(--paper);
+      color: var(--accent);
+      box-shadow: var(--elev-sm);
+      transform: translateY(-1px);
+    }
+    .pill-btn:active { transform: scale(.97); }
+    .pill-btn.primary {
+      background: var(--accent-fill);
+      color: var(--accent-on);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: var(--elev-accent), inset 0 1px 0 rgba(255, 255, 255, .28);
+    }
+    .pill-btn.primary:hover {
+      background: var(--accent-fill-hover);
+      color: var(--accent-on);
+      box-shadow: 0 8px 24px -4px light-dark(rgba(229, 100, 53, .34), rgba(0, 0, 0, .52)),
+                  inset 0 1px 0 rgba(255, 255, 255, .34);
+    }
+
+    /* Main Layout */
+    .docs-shell {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 26px 0 64px;
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* Left Sticky TOC Sidebar */
+    .docs-toc {
+      position: sticky;
+      top: 84px;
+      display: grid;
+      gap: 12px;
+    }
+    .toc-card {
+      padding: 16px;
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: var(--elev-sm);
+      display: grid;
+      gap: 6px;
+    }
+    .toc-title {
+      margin: 0 0 4px;
+      padding: 0 8px;
+      font-size: 11.5px;
+      font-weight: 750;
+      letter-spacing: .04em;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 10px;
+      border-radius: 10px;
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 140ms ease;
+    }
+    .toc-link span.num {
+      display: inline-grid;
+      place-items: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: var(--surface-recessed);
+      color: var(--muted);
+      font-size: 10.5px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      flex: none;
+      transition: background-color 160ms ease, color 160ms ease;
+    }
+    .toc-link:hover {
+      background: var(--paper-soft);
+      color: var(--accent);
+      transform: translateX(2px);
+    }
+    .toc-link.is-active {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .toc-link.is-active span.num {
+      background: var(--accent-fill);
+      color: var(--accent-on);
+    }
+
+    .toc-meta-pill {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: var(--surface-nested);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .toc-meta-pill code {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: var(--surface-recessed);
+      box-shadow: var(--well-inset);
+      color: var(--ink);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 11.5px;
+    }
+
+    /* Right Reading Surface */
+    .docs-main {
+      min-width: 0;
+      display: grid;
+      gap: 18px;
+    }
+    .hero-card {
+      padding: 26px 28px;
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: var(--elev-md);
+    }
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--accent);
+      font-size: 11.5px;
+      font-weight: 750;
+      letter-spacing: .06em;
+    }
+    h1 {
+      margin: 0;
+      font-family: var(--display-serif);
+      font-weight: 400;
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1.22;
+      color: var(--ink);
+    }
+    .hero-copy {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14.5px;
+      max-width: 68ch;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .doc-section {
+      scroll-margin-top: 84px;
+      padding: 22px 26px;
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: var(--elev-sm);
+      transition: box-shadow 200ms ease, transform 200ms cubic-bezier(.22, 1, .36, 1);
+    }
+    .doc-section:hover {
+      box-shadow: var(--elev-md);
+    }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .section-num {
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      font-variant-numeric: tabular-nums;
+      flex: none;
+    }
+    h2 {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    p {
+      margin: 10px 0 0;
+      color: var(--ink-soft);
+      font-size: 14.5px;
+    }
+    .doc-steps {
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      counter-reset: doc-step;
+    }
+    .doc-steps li {
+      counter-increment: doc-step;
+      position: relative;
+      display: block;
+      padding: 11px 14px 11px 44px;
+      border-radius: 12px;
+      background: var(--surface-nested);
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+    .doc-steps li::before {
+      content: counter(doc-step);
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      display: inline-grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--accent);
+      font-size: 11.5px;
+      font-weight: 750;
+      box-shadow: var(--elev-xs);
+    }
+    code {
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: var(--surface-recessed);
+      box-shadow: var(--well-inset);
+      color: var(--ink);
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: .9em;
+    }
+    .note {
+      margin: 14px 0 0;
+      padding: 13px 16px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--ink);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 860px) {
+      .docs-shell {
+        width: calc(100% - 24px);
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        padding-top: 16px;
+      }
+      .topbar { width: calc(100% - 24px); }
+      .docs-toc {
+        position: static;
+      }
+      .toc-card {
+        display: flex;
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding: 8px;
+        gap: 6px;
+      }
+      .toc-card::-webkit-scrollbar { display: none; }
+      .toc-title, .toc-meta-pill { display: none; }
+      .toc-link { flex: none; white-space: nowrap; }
+      .hero-card, .doc-section { padding: 18px; }
+    }
+    @media (max-width: 520px) {
+      .brand strong { font-size: 17px; }
+      .brand-logo { width: 29px; height: 29px; }
+      .topbar-meta { gap: 6px; }
+      .pill-btn { padding: 4px 10px; font-size: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lang-thumb, .lang-btn, .pill-btn, .toc-link, .doc-section, .brand-logo {
+        transition: none !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+    .brand-spine { color: var(--accent); }
   </style>
 </head>
 <body>
-  <header>
-    <p class="eyebrow">PaperSpine · 使用文档</p>
-    <h1>从材料到可交付论文</h1>
-    <p>这份文档说明如何打开任务、保存配置、阅读图件和审阅结果，以及如何下载和继续返修。</p>
-    <nav aria-label="文档导航"><a href="/">返回工作台</a><a href="https://github.com/WUBING2023/PaperSpine" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://github.com/WUBING2023/PaperSpine/releases" target="_blank" rel="noopener noreferrer">公开发布页 ↗</a></nav>
+  <header class="docs-header">
+    <div class="topbar">
+      <a class="brand" href="/" aria-label="PaperSpine 工作台首页">
+        <img class="brand-logo" src="data:image/webp;base64,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" alt="" width="34" height="34" />
+        <strong>Paper<span class="brand-spine">Spine</span></strong>
+      </a>
+      <div class="topbar-meta">
+        <div id="lang-toggle" class="lang-toggle" data-lang="zh" role="group" aria-label="中英文切换">
+          <span class="lang-thumb" aria-hidden="true"></span>
+          <button type="button" class="lang-btn is-active" data-lang="zh" aria-pressed="true">中</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="pill-btn primary" id="back-to-workbench" href="/">← 返回工作台</a>
+      </div>
+    </div>
   </header>
-  <section id="start"><h2>开始一次任务</h2><ol><li>在已安装 <code>paper-spine</code> Skill 的宿主对话中说明论文主题、材料目录、目标期刊和是否需要新增研究分析。</li><li>打开宿主提供的同一任务网页，在配置区保存语言、目标期刊、工作模式、输出格式和材料授权。</li><li>需要研究时，宿主会检索公开论文并将可用来源和结果写入任务；私有材料仍按授权范围处理。</li><li>如果已有任务，从“历史论文任务”打开原任务查看记录；打开不会启动 AI。复制接手指令发给当前宿主，不要新建任务代替恢复。</li></ol></section>
-  <section id="figures"><h2>图件与选择</h2><p>辅助模式下，页面会展示候选动机、参考论文和图件。逐项阅读图注、数据来源和参考对照后保存选择；机制图应先有完整构图，再进入组件优化。自动模式由宿主根据 Skill 选择并记录理由。</p><p>页面中的“已选择”只表示页面确实收到你的提交。它不等于宿主已完成绘图、审阅或最终接纳；这些状态会在后续阶段单独显示。</p></section>
-  <section id="review"><h2>正文、审阅与返修</h2><p>宿主会把研究结果、引用、图表和目标期刊格式组织成主稿，并保留可编辑源文件。独立审阅者检查当前实际稿件、数字、图文一致性和版式；发现问题后，宿主应修改产生问题的源稿或图件并重新检查。</p><p>初稿交付后，可以在任务页面提交具体意见或附件。宿主读取同一任务的反馈，保留旧版本，完成返修并生成新的论文包。</p></section>
-  <section id="download"><h2>下载交付物</h2><ol><li>下载论文精简包，确认 PDF、DOCX 和必要引用文件可以打开。</li><li>下载完整工作区包，确认 LaTeX、BibTeX、图件、编辑源和说明文件齐全。</li><li>核对浏览器实际保存位置和文件版本。下载失败时，先查找已有文件，不要因此重跑论文。</li></ol></section>
-  <section id="recovery"><h2>中断后继续</h2><p>打开原任务网页，复制接手指令给原对话或有本地文件访问权的新宿主。接手依靠同一任务的配置、选择、成果、反馈和必要笔记，不共享原 Agent 的记忆。先核对服务地址、任务 ID 和保存版本；只同步已保存数据，不同步各浏览器的未保存草稿。页面显示“待恢复”时，表示宿主尚未继续，不代表论文仍在后台运行。</p><p class="note">网络、模型或工具中断后，先查看任务目录中已生成的文件和宿主最近输出，再决定是否安全重试。无法确认外部动作是否执行时，不重复提交。</p></section>
-  <section id="privacy"><h2>隐私与边界</h2><p>公开论文检索是 Skill 的正常能力。私有材料上传模型前，必须有明确授权；原始临床材料按本地清洗和授权范围处理。投稿、发布、付费和邮件等外部动作需要作者单独确认。</p></section>
-  <footer><p>文档源文件：<code>docs/USER_GUIDE.md</code>。该路径可随 PaperSpine 公开仓库同步发布。</p></footer>
+
+  <div class="docs-shell">
+    <aside class="docs-toc" aria-label="文档目录">
+      <nav class="toc-card" aria-label="快速跳转">
+        <p class="toc-title" data-zh="章节导航" data-en="SECTIONS">章节导航</p>
+        <a class="toc-link is-active" href="#start"><span class="num">1</span><span class="toc-text" data-zh="开始一次任务" data-en="Starting a task">开始一次任务</span></a>
+        <a class="toc-link" href="#figures"><span class="num">2</span><span class="toc-text" data-zh="图件与选择" data-en="Figures & choices">图件与选择</span></a>
+        <a class="toc-link" href="#review"><span class="num">3</span><span class="toc-text" data-zh="正文、审阅与返修" data-en="Draft, review & revision">正文、审阅与返修</span></a>
+        <a class="toc-link" href="#download"><span class="num">4</span><span class="toc-text" data-zh="下载交付物" data-en="Downloading outputs">下载交付物</span></a>
+        <a class="toc-link" href="#recovery"><span class="num">5</span><span class="toc-text" data-zh="中断后继续" data-en="Resuming work">中断后继续</span></a>
+        <a class="toc-link" href="#privacy"><span class="num">6</span><span class="toc-text" data-zh="隐私与边界" data-en="Privacy & scope">隐私与边界</span></a>
+      </nav>
+      <div class="toc-meta-pill">
+        <span data-zh="文档源文件" data-en="Source markdown">文档源文件</span>
+        <code>docs/USER_GUIDE.md</code>
+      </div>
+    </aside>
+
+    <main class="docs-main">
+      <section class="hero-card">
+        <p class="eyebrow" data-zh="PaperSpine · 使用文档" data-en="PaperSpine · User Guide">PaperSpine · 使用文档</p>
+        <h1 data-zh="从材料到可交付论文" data-en="From materials to submission-ready paper">从材料到可交付论文</h1>
+        <p class="hero-copy" data-zh="这份文档说明如何打开任务、保存配置、阅读与缩放图件、核对审阅记录，以及如何下载成果和继续返修。" data-en="Learn how to open a task, save configuration, inspect and zoom figures, review feedback, and download final bundles.">这份文档说明如何打开任务、保存配置、阅读与缩放图件、核对审阅记录，以及如何下载成果和继续返修。</p>
+        <div class="hero-links">
+          <a class="pill-btn" href="https://github.com/WUBING2023/PaperSpine" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="pill-btn" href="https://github.com/WUBING2023/PaperSpine/releases" target="_blank" rel="noopener noreferrer" data-zh="公开发布页 ↗" data-en="Releases ↗">公开发布页 ↗</a>
+        </div>
+      </section>
+
+      <section class="doc-section" id="start">
+        <div class="section-head"><span class="section-num">1</span><h2 data-zh="开始一次任务" data-en="Starting a task">开始一次任务</h2></div>
+        <ol class="doc-steps">
+          <li data-zh="在已安装 <code>paper-spine</code> Skill 的宿主对话中说明论文主题、材料目录、目标期刊和是否需要新增研究分析。" data-en="In a host session with the <code>paper-spine</code> skill installed, describe your topic, material folders, target venue, and whether new analysis is needed.">在已安装 <code>paper-spine</code> Skill 的宿主对话中说明论文主题、材料目录、目标期刊和是否需要新增研究分析。</li>
+          <li data-zh="打开宿主提供的同一任务网页，在配置区保存语言、目标期刊（留空即暂未确定）、工作模式、交付格式与文献学习偏好。" data-en="Open the task URL from the host and save your workflow type, language, optional target venue, literature preferences, and output formats.">打开宿主提供的同一任务网页，在配置区保存语言、目标期刊（留空即暂未确定）、工作模式、交付格式与文献学习偏好。</li>
+          <li data-zh="需要研究时，宿主会检索公开论文并将可用来源和结果写入任务；私有材料仍按授权范围处理。" data-en="When analysis is enabled, the host retrieves public literature and writes verified sources and results while keeping private materials local.">需要研究时，宿主会检索公开论文并将可用来源和结果写入任务；私有材料仍按授权范围处理。</li>
+          <li data-zh="如果已有任务，从“论文任务”列表打开原任务查看记录；打开不会启动 AI。复制接手指令发给当前宿主，不要新建任务代替恢复。" data-en="For existing papers, open the original task from the Tasks sidebar. Opening never launches the AI; copy the handoff prompt to resume in your host.">如果已有任务，从“论文任务”列表打开原任务查看记录；打开不会启动 AI。复制接手指令发给当前宿主，不要新建任务代替恢复。</li>
+        </ol>
+      </section>
+
+      <section class="doc-section" id="figures">
+        <div class="section-head"><span class="section-num">2</span><h2 data-zh="图件与选择" data-en="Figures & choices">图件与选择</h2></div>
+        <p data-zh="辅助模式下，页面会展示候选动机、参考论文和图件。可直接用鼠标滚轮以指针为中心缩放图件、按住鼠标左键拖拽平移查看细节，或点击右上角“放大查看”全屏核对；机制图应先有完整构图，再进入组件优化。自动模式由宿主根据 Skill 选择并记录理由。" data-en="In assisted mode, inspect candidate motivations, paired references, and figures. Use the mouse wheel to zoom toward the cursor, drag to pan magnified panels, or click Zoom for full inspection. Automated mode lets the host select and record rationale.">辅助模式下，页面会展示候选动机、参考论文和图件。可直接用鼠标滚轮以指针为中心缩放图件、按住鼠标左键拖拽平移查看细节，或点击右上角“放大查看”全屏核对；机制图应先有完整构图，再进入组件优化。自动模式由宿主根据 Skill 选择并记录理由。</p>
+        <p data-zh="页面中的“已选择”只表示页面确实收到你的提交。它不等于宿主已完成绘图、审阅或最终接纳；这些状态会在后续阶段单独显示。" data-en="A “Selected” status confirms your choice was saved to the local task file; final plotting, review, and acceptance appear separately in later stages.">页面中的“已选择”只表示页面确实收到你的提交。它不等于宿主已完成绘图、审阅或最终接纳；这些状态会在后续阶段单独显示。</p>
+      </section>
+
+      <section class="doc-section" id="review">
+        <div class="section-head"><span class="section-num">3</span><h2 data-zh="正文、审阅与返修" data-en="Draft, review & revision">正文、审阅与返修</h2></div>
+        <p data-zh="宿主会把研究结果、引用、图表和目标期刊格式组织成主稿，并保留可编辑源文件。独立审阅者检查当前实际稿件、数字、图文一致性和版式；发现问题后，宿主应修改产生问题的源稿或图件并重新检查。" data-en="The host assembles results, citations, figures, and venue formatting into the manuscript while preserving editable sources. Independent review verifies numbers, figure-text alignment, and layout.">宿主会把研究结果、引用、图表和目标期刊格式组织成主稿，并保留可编辑源文件。独立审阅者检查当前实际稿件、数字、图文一致性和版式；发现问题后，宿主应修改产生问题的源稿或图件并重新检查。</p>
+        <p data-zh="初稿交付后，可以在任务页面的“意见与返修”选择意见范围并提交修改说明。宿主读取同一任务的反馈，保留旧版本，完成返修并生成新的论文包。" data-en="Once a draft is available, choose a feedback scope and submit notes under Feedback & revisions. The host applies revisions while keeping prior saved versions.">初稿交付后，可以在任务页面的“意见与返修”选择意见范围并提交修改说明。宿主读取同一任务的反馈，保留旧版本，完成返修并生成新的论文包。</p>
+      </section>
+
+      <section class="doc-section" id="download">
+        <div class="section-head"><span class="section-num">4</span><h2 data-zh="下载交付物" data-en="Downloading outputs">下载交付物</h2></div>
+        <ol class="doc-steps">
+          <li data-zh="下载论文精简包，确认 PDF、DOCX 和必要引用文件可以打开。" data-en="Download the shareable manuscript package and verify that the PDF, DOCX, and bibliography files open cleanly.">下载论文精简包，确认 PDF、DOCX 和必要引用文件可以打开。</li>
+          <li data-zh="下载完整工作区包，确认 LaTeX、BibTeX、图件、编辑源和说明文件齐全。" data-en="Download the full local workspace bundle and check that LaTeX, BibTeX, figures, editable sources, and notes are present.">下载完整工作区包，确认 LaTeX、BibTeX、图件、编辑源和说明文件齐全。</li>
+          <li data-zh="核对浏览器实际保存位置和文件版本。下载失败时，先查找已有文件，不要因此重跑论文。" data-en="Verify your browser’s download destination and version tag. If a transfer fails, check existing files before regenerating anything.">核对浏览器实际保存位置和文件版本。下载失败时，先查找已有文件，不要因此重跑论文。</li>
+        </ol>
+      </section>
+
+      <section class="doc-section" id="recovery">
+        <div class="section-head"><span class="section-num">5</span><h2 data-zh="中断后继续" data-en="Resuming work">中断后继续</h2></div>
+        <p data-zh="打开原任务网页，复制接手指令给原对话或有本地文件访问权的新宿主。接手依靠同一任务的配置、选择、成果、反馈和必要笔记，不共享原 Agent 的记忆。先核对服务地址、任务 ID 和保存版本；只同步已保存数据，不同步各浏览器的未保存草稿。页面显示“待恢复”时，表示宿主尚未继续，不代表论文仍在后台运行。" data-en="Open the original task page and copy the handoff prompt into your active or new host conversation. Handoff relies on saved task files—not hidden agent memory. Always verify service URL, task ID, and saved version.">打开原任务网页，复制接手指令给原对话或有本地文件访问权的新宿主。接手依靠同一任务的配置、选择、成果、反馈和必要笔记，不共享原 Agent 的记忆。先核对服务地址、任务 ID 和保存版本；只同步已保存数据，不同步各浏览器的未保存草稿。页面显示“待恢复”时，表示宿主尚未继续，不代表论文仍在后台运行。</p>
+        <p class="note" data-zh="网络、模型或工具中断后，先查看任务目录中已生成的文件和宿主最近输出，再决定是否安全重试。无法确认外部动作是否执行时，不重复提交。" data-en="After any network or tool interruption, inspect generated files inside the task directory and recent host output before retrying external actions.">网络、模型或工具中断后，先查看任务目录中已生成的文件和宿主最近输出，再决定是否安全重试。无法确认外部动作是否执行时，不重复提交。</p>
+      </section>
+
+      <section class="doc-section" id="privacy">
+        <div class="section-head"><span class="section-num">6</span><h2 data-zh="隐私与边界" data-en="Privacy & scope">隐私与边界</h2></div>
+        <p data-zh="公开论文检索是 Skill 的正常能力。私有材料上传模型前，必须有明确授权；原始临床材料按本地清洗和授权范围处理。投稿、发布、付费和邮件等外部动作需要作者单独确认。" data-en="Public literature search is part of the skill workflow. Private materials require explicit local scope boundaries; external actions such as journal submission, publishing, billing, or email always require separate author approval.">公开论文检索是 Skill 的正常能力。私有材料上传模型前，必须有明确授权；原始临床材料按本地清洗和授权范围处理。投稿、发布、付费和邮件等外部动作需要作者单独确认。</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const LANG_KEY = "paperspine5.ui-lang.v1";
+      let lang = (() => {
+        try { return localStorage.getItem(LANG_KEY) === "en" ? "en" : "zh"; } catch (_) { return "zh"; }
+      })();
+      const toggle = document.getElementById("lang-toggle");
+      const thumb = toggle.querySelector(".lang-thumb");
+      const backBtn = document.getElementById("back-to-workbench");
+      try {
+        if (document.referrer && new URL(document.referrer).origin === location.origin) {
+          backBtn.href = document.referrer;
+        }
+      } catch (_) {}
+
+      function syncLangThumb() {
+        const active = toggle.querySelector(`.lang-btn[data-lang="${lang}"]`);
+        if (!active) return;
+        const tr = toggle.getBoundingClientRect(), br = active.getBoundingClientRect();
+        if (!br.width) return;
+        thumb.style.width = `${br.width}px`;
+        thumb.style.transform = `translate3d(${br.left - tr.left - 2}px, 0, 0)`;
+      }
+
+      function applyLang(next) {
+        lang = next === "en" ? "en" : "zh";
+        try { localStorage.setItem(LANG_KEY, lang); } catch (_) {}
+        document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
+        document.title = lang === "en" ? "PaperSpine User Guide" : "PaperSpine 使用文档";
+        backBtn.textContent = lang === "en" ? "← Back to workbench" : "← 返回工作台";
+        for (const btn of toggle.querySelectorAll(".lang-btn")) {
+          const active = btn.dataset.lang === lang;
+          btn.classList.toggle("is-active", active);
+          btn.setAttribute("aria-pressed", String(active));
+        }
+        for (const node of document.querySelectorAll("[data-zh][data-en]")) {
+          node.innerHTML = node.dataset[lang];
+        }
+        syncLangThumb();
+        requestAnimationFrame(syncLangThumb);
+      }
+
+      for (const btn of toggle.querySelectorAll(".lang-btn")) {
+        btn.addEventListener("click", () => applyLang(btn.dataset.lang));
+      }
+      window.addEventListener("resize", syncLangThumb, {passive: true});
+
+      const tocLinks = [...document.querySelectorAll(".toc-link")];
+      const sections = tocLinks.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+      let lockUntil = 0;
+      const setActive = (id) => {
+        for (const a of tocLinks) a.classList.toggle("is-active", a.getAttribute("href") === `#${id}`);
+      };
+      for (const a of tocLinks) {
+        a.addEventListener("click", () => {
+          lockUntil = Date.now() + 700;
+          setActive(a.getAttribute("href").slice(1));
+        });
+      }
+      if ("IntersectionObserver" in window && sections.length) {
+        const observer = new IntersectionObserver((entries) => {
+          if (Date.now() < lockUntil) return;
+          const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+          if (visible[0]) setActive(visible[0].target.id);
+        }, {rootMargin: "-84px 0px -65% 0px", threshold: 0});
+        for (const sec of sections) observer.observe(sec);
+      }
+      applyLang(lang);
+    })();
+  </script>
 </body>
 </html>
