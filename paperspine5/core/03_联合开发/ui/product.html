@@ -4,22 +4,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PaperSpine5 论文工作台</title>
-    <link rel="stylesheet" href="/product.css?v=20260921-host-continuation" />
+    <link rel="stylesheet" href="/product.css?v=20261125-word-fit" />
   </head>
   <body>
     <div class="app-shell">
+      <div class="workbench-header">
       <header class="topbar">
         <a class="brand" href="/" aria-label="PaperSpine5 论文工作台首页">
-          <img class="brand-logo" src="/assets/brand/paperspine-mark.svg" alt="" aria-hidden="true" onerror="this.hidden=true;this.nextElementSibling.hidden=false" />
-          <span class="brand-logo-fallback" aria-hidden="true" hidden>PS</span>
-          <span><strong>PaperSpine</strong><small>论文工作台</small></span>
+          <img class="brand-logo" src="data:image/webp;base64,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" alt="" width="38" height="38" />
+          <strong>Paper<span class="brand-spine">Spine</span></strong>
         </a>
         <div class="topbar-meta">
-          <span class="privacy-badge"><span aria-hidden="true">●</span> 本地工作台 · 私有材料保留本地</span>
-          <nav class="topbar-links" aria-label="PaperSpine 外部资源">
-            <a class="topbar-link" href="https://github.com/WUBING2023/PaperSpine" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-            <a class="topbar-link" href="https://github.com/WUBING2023/PaperSpine/releases" target="_blank" rel="noopener noreferrer">发布页 <span aria-hidden="true">↗</span></a>
-            <a class="topbar-link topbar-docs" href="/help">使用文档</a>
+          <button id="task-sidebar-toggle" class="button sidebar-toggle" type="button" aria-controls="task-sidebar" aria-expanded="true">收起任务栏</button>
+          <div id="lang-toggle" class="lang-toggle" data-lang="zh" role="group" aria-label="中英文切换">
+            <span class="lang-thumb" aria-hidden="true"></span>
+            <button type="button" class="lang-btn is-active" data-lang="zh" aria-pressed="true">中</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <nav class="topbar-links" aria-label="帮助">
+            <a class="topbar-link topbar-docs" href="/help?v=20261125-uiux-v14">使用文档</a>
           </nav>
           <div class="health" aria-live="polite">
             <span id="health-dot" class="dot"></span>
@@ -30,31 +33,30 @@
 
       <nav id="global-stage-strip" class="global-stage-strip hidden" aria-label="论文阶段导航">
         <div class="global-stage-inner">
-          <span class="global-stage-caption">论文流程</span>
-          <strong><span id="global-stage-number">—</span> <span id="global-stage-label">等待任务</span></strong>
-          <ol id="global-workflow-progress" class="workflow-progress" aria-label="宿主工作阶段，只读回看"></ol>
+          <div class="global-stage-bar">
+            <div id="global-stage-summary" class="global-stage-summary">
+              <span class="global-stage-caption">论文流程</span>
+              <strong><span id="global-stage-number">—</span> <span id="global-stage-label">等待任务</span></strong>
+            </div>
+            <button id="global-stage-toggle" class="global-stage-toggle" type="button" aria-label="收起 Spine" aria-expanded="true" aria-controls="global-workflow-shell">
+              <span id="global-stage-toggle-text"><span id="global-stage-toggle-verb">收起</span> <span class="spine-accent">Spine</span></span>
+              <svg class="toggle-chevron" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div id="global-workflow-shell" class="stage-slider-shell">
+            <div id="stage-slider-thumb" class="stage-slider-thumb" aria-hidden="true"></div>
+            <ol id="global-workflow-progress" class="workflow-progress stage-slider-list" aria-label="宿主工作阶段，只读回看"></ol>
+          </div>
         </div>
       </nav>
+      </div>
 
       <main class="page-shell">
-        <section class="welcome" aria-labelledby="welcome-title">
-          <div>
-            <p class="eyebrow">PAPERSPINE · 论文工作台</p>
-            <h1 id="welcome-title">把材料整理成一篇<br />可以交付的论文。</h1>
-            <p class="lede">研究、写作、图件和下载都在这里完成。需要你决定时，页面会明确提示。</p>
-          </div>
-          <div class="trust-strip" aria-label="工作区承诺">
-            <span><b>01</b> 私有材料保留本地</span>
-            <span><b>02</b> 过程持续可回溯</span>
-            <span><b>03</b> 投稿由作者确认</span>
-          </div>
-        </section>
-
         <section id="task-load-state" class="task-load-state hidden" role="status"><span class="loading-orbit" aria-hidden="true"></span><p id="task-load-message">正在打开论文…</p><button id="retry-task-load" type="button" class="button" hidden>重试打开</button></section>
         <section id="security-error" class="alert hidden" role="alert"></section>
 
         <div class="workspace-layout">
-          <aside class="sidebar" aria-label="论文任务">
+          <aside id="task-sidebar" class="sidebar" aria-label="论文任务">
             <section id="active-context-card" class="side-card active-context-card hidden" aria-live="polite">
               <div class="section-label"><span>当前论文</span><em>当前任务</em></div>
               <h2 id="sidebar-active-title">正在载入任务…</h2>
@@ -71,58 +73,223 @@
               </div>
             </section>
 
-            <section id="start-card" class="side-card start-card">
-              <div class="section-label"><span>论文任务入口</span><em>等待打开</em></div>
-              <h2>等待打开任务</h2>
-              <p class="side-copy">打开论文任务后，你可以在这里查看进度、选择图件、提出修改意见并下载文件。</p>
-            </section>
-
             <section class="side-card recent-card">
               <div class="section-heading compact">
-                <div><p class="card-kicker">历史论文任务</p><h2>打开已有任务</h2></div>
-                <button id="refresh" class="icon-button" type="button" aria-label="刷新任务列表" title="刷新任务列表">↻</button>
+                <h2>论文任务</h2>
+                <button id="refresh" class="icon-button refresh-btn" type="button" aria-label="刷新任务列表" title="刷新任务列表">
+                  <svg class="refresh-icon" viewBox="0 0 20 20" width="15" height="15" aria-hidden="true">
+                    <path d="M16.2 10a6.2 6.2 0 1 1-1.64-4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M16.5 3.3v3.3h-3.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
               </div>
-              <p class="muted">这里只打开已保存记录，不会启动 AI。接续工作请复制接手指令给当前宿主。</p><div id="task-list" class="task-list" aria-live="polite"></div>
+              <div id="task-list" class="task-list" aria-live="polite"></div>
             </section>
           </aside>
 
           <section class="workbench" aria-label="当前论文工作区">
-            <div id="workspace-empty" class="workspace-empty">
-              <div class="empty-illustration" aria-hidden="true">
-                <span class="paper-sheet sheet-back"></span>
-                <span class="paper-sheet sheet-front"><i></i><i></i><i></i></span>
-                <span class="spark">✦</span>
+            <div id="workspace-empty" class="home-overview">
+              <div class="home-primary">
+                <header class="home-intro">
+                  <h1 id="welcome-title">继续你的论文工作</h1>
+                  <p>回到最近保存的阶段，或从 Codex 开始一篇论文。</p>
+                </header>
+                <section class="home-card home-recent" aria-labelledby="home-recent-heading">
+                  <h2 id="home-recent-heading">最近任务</h2>
+                  <p id="home-recent-title" aria-live="polite">正在读取论文任务…</p>
+                  <p id="home-recent-stage" hidden></p>
+                  <button id="home-open-recent" class="button home-open-button" type="button" hidden>打开最近任务 <span aria-hidden="true">↗</span></button>
+                  <p class="home-card-note">打开已保存的工作区后，可查看继续指令。</p>
+                </section>
               </div>
-              <p class="card-kicker">当前没有打开的任务</p>
-               <h2>打开一个论文任务</h2>
-               <p>这里是未绑定任务的首页。请打开宿主给出的任务链接，或从左侧查看已有记录；打开页面不会启动 AI。</p>
-              <div class="empty-capabilities">
-                <span>设置任务</span><span>查看图件</span><span>提出意见</span><span>下载文件</span>
-              </div>
+              <aside class="home-rail" aria-label="启动指引与论文流程">
+                <section class="home-card home-start" aria-labelledby="home-start-heading">
+                  <h2 id="home-start-heading">从 Codex 开始</h2>
+                  <p>在 Codex 运行 PaperSpine Web 技能，再打开它给出的任务链接。</p>
+                  <details>
+                    <summary>查看启动命令</summary>
+                    <code>$paper-spine-web:paper-spine-web</code>
+                  </details>
+                  <a href="/help?v=20261125-uiux-v11">使用文档</a>
+                </section>
+                <section class="home-card home-workflow" aria-labelledby="home-workflow-heading">
+                  <h2 id="home-workflow-heading">论文流程</h2>
+                  <ol id="home-workflow"></ol>
+                </section>
+              </aside>
             </div>
 
 <article id="task-workspace" class="task-workspace hidden">
-  <header class="task-header"><div><p class="card-kicker">当前论文任务</p><h2 id="active-task-title">正在载入任务…</h2><p id="active-task-subtitle" class="task-subtitle"></p><p id="active-task-id" class="task-identity"></p><p id="workspace-binding" class="task-identity"></p></div><div id="active-task-state" class="status-pill"></div></header>
+  <header class="task-header">
+    <div class="task-header-main">
+      <p class="card-kicker">当前论文任务</p>
+      <h2 id="active-task-title">正在载入任务…</h2>
+      <p id="active-task-subtitle" class="task-subtitle"></p>
+      <details class="task-meta-details">
+        <summary>识别码与本机版本绑定</summary>
+        <div class="task-meta-body">
+          <p id="active-task-id" class="task-identity"></p>
+          <p id="workspace-binding" class="task-identity"></p>
+        </div>
+      </details>
+    </div>
+    <div id="active-task-state" class="status-pill"></div>
+  </header>
   <div id="stage-view-banner" class="stage-view-banner hidden"><strong id="stage-view-title"></strong><span id="stage-view-copy"></span><button id="stage-return-current" class="button" type="button">返回当前工作</button></div>
   <section class="focus-card"><div class="focus-heading"><div><p class="card-kicker">当前工作</p><h3 id="focus-title"></h3></div><span class="focus-icon" aria-hidden="true">✦</span></div><p id="focus-copy"></p><div id="other-decisions"></div><div id="pending-submissions"></div></section>
   <section class="task-data-panel" data-phase-panel="intake" hidden>
     <h3>配置与材料</h3><p class="muted">设置保存为本地文件，宿主读取后继续。研究步骤由宿主根据材料判断。</p>
-    <form id="configuration-form" class="config-panel"><fieldset id="configuration-fields"><legend>论文设置</legend><div class="form-grid two"><label>本次工作<select id="workflow" data-field="workflow" required><option value="">请选择</option><option value="build_from_materials">由材料形成论文</option><option value="rewrite_existing">改写已有稿件</option><option value="audit">核查已有论文</option><option value="review">独立审阅</option><option value="revise">按意见返修</option><option value="transfer">适配其他目标</option></select></label><label>使用场景<select id="scene" data-field="scene" required><option value="">请选择</option><option value="journal">期刊</option><option value="conference">会议</option><option value="report">研究报告</option><option value="review">综述</option><option value="competition">竞赛</option><option value="other">其他</option></select></label><label>投稿目标<select id="target-status" data-field="target"><option value="unknown">暂未确定</option><option value="known">已确定</option></select></label><label>目标名称<input id="target-name" data-field="target" placeholder="期刊、会议或其他目标" /></label><label>输出语言<select id="output-language" data-field="output_language" required><option value="">请选择</option><option value="en">英文</option><option value="zh">中文</option><option value="multilingual">多语言</option><option value="other">其他（请在意见中说明）</option></select></label><label>是否需要新增研究分析<select id="research-mode" data-field="research_mode" required><option value="">请选择</option><option value="agent_decide">由宿主结合材料判断</option><option value="required">需要研究分析</option><option value="materials_only">仅使用已有材料与结果，不新增分析</option></select></label><label>交付内容<select id="requested-scope" data-field="requested_scope" required><option value="">请选择</option><option value="manuscript">论文稿件</option><option value="local_delivery">完整本地稿包</option><option value="submission_package">投稿材料包（由作者投稿）</option></select></label><label>保留作者表达<select id="author-voice-restoration" data-field="author_voice_restoration" required><option value="">请选择</option><option value="off">不特别要求</option><option value="standard">适度保留</option><option value="strict">严格保留</option></select></label></div>
-      <fieldset><legend>期刊与文献学习</legend>
-        <div class="form-grid two">
-          <label>学习篇数<select id="literature-preset" data-field="literature"><option value="3">同方向 3 篇 + 目标期刊 3 篇（默认）</option><option value="6">同方向 6 篇 + 目标期刊 6 篇</option><option value="custom">自定义篇数</option></select></label>
-          <p class="muted">宿主学习相关研究及目标期刊同类型论文，记录实际样本与适用限制。</p>
-          <label>同方向论文篇数<input id="same-field-papers" data-field="literature" type="number" min="1" step="1" required /></label>
-          <label>目标期刊论文篇数<input id="target-venue-papers" data-field="literature" type="number" min="1" step="1" required /></label>
-          <label>参考文献目标<select id="reference-count-mode" data-field="literature"><option value="venue_average">高于目标期刊同类型论文样本平均（默认）</option><option value="custom">自定参考文献数量</option></select></label>
-          <label>自定参考文献数量<input id="reference-count" data-field="literature" type="number" min="1" step="1" /></label>
-          <label>机制、框架或方法架构图<select id="mechanism-figure" data-field="literature"><option value="prefer">优先考虑（有科学依据时，默认）</option><option value="auto">由宿主判断</option><option value="omit">不采用此类图</option></select></label>
+    <form id="configuration-form" class="config-panel">
+      <fieldset id="configuration-fields">
+        <legend>论文设置</legend>
+        <div class="config-sections">
+          <div class="config-row-block">
+            <label class="config-field-group">
+              <span class="config-label-row"><span>本次工作</span></span>
+              <select id="workflow" data-field="workflow" data-ui="chips" required>
+                <option value="">请选择</option>
+                <option value="build_from_materials">由材料形成论文</option>
+                <option value="rewrite_existing">改写已有稿件</option>
+                <option value="audit">核查已有论文</option>
+                <option value="review">独立审阅</option>
+                <option value="revise">按意见返修</option>
+                <option value="transfer">适配其他目标</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form-grid two">
+            <label class="config-field-group">
+              <span class="config-label-row"><span>使用场景</span></span>
+              <select id="scene" data-field="scene" data-ui="chips" required>
+                <option value="">请选择</option>
+                <option value="journal">期刊</option>
+                <option value="conference">会议</option>
+                <option value="report">研究报告</option>
+                <option value="review">综述</option>
+                <option value="competition">竞赛</option>
+                <option value="other">其他</option>
+              </select>
+            </label>
+            <div class="config-field-group output-language-group">
+              <label class="config-field-group">
+                <span class="config-label-row"><span>输出语言</span></span>
+                <select id="output-language" data-field="output_language" data-ui="segmented" required>
+                  <option value="">请选择</option>
+                  <option value="en">英文</option>
+                  <option value="zh">中文</option>
+                  <option value="multilingual">中英</option>
+                  <option value="other">其他</option>
+                </select>
+              </label>
+              <div id="custom-language-drawer" class="drawer-collapse" data-open="false">
+                <div class="drawer-collapse-inner">
+                  <input id="output-language-custom" data-field="output_language" type="text" placeholder="填写输出语言，例如：日文、法文" aria-label="其他输出语言" disabled />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="config-row-block">
+            <label class="config-field-group target-field-group">
+              <span class="config-label-row">
+                <span>目标名称（选填）</span>
+                <span id="target-status-pill" class="target-status-pill" data-known="false">暂未确定</span>
+              </span>
+              <input id="target-name" data-field="target" placeholder="填写目标期刊、会议或其他发表去向；留空则按暂未确定处理" />
+            </label>
+          </div>
+
+          <div class="config-row-block config-segmented-stack">
+            <label class="config-field-group">
+              <span class="config-label-row"><span>研究分析</span></span>
+              <select id="research-mode" data-field="research_mode" data-ui="segmented" required>
+                <option value="">请选择</option>
+                <option value="agent_decide">由宿主判断</option>
+                <option value="required">需要新增分析</option>
+                <option value="materials_only">仅用已有材料</option>
+              </select>
+            </label>
+            <div class="form-grid two">
+              <label class="config-field-group">
+                <span class="config-label-row"><span>交付内容</span></span>
+                <select id="requested-scope" data-field="requested_scope" data-ui="segmented" required>
+                  <option value="">请选择</option>
+                  <option value="manuscript">论文稿件</option>
+                  <option value="local_delivery">完整本地稿包</option>
+                  <option value="submission_package">投稿材料包</option>
+                </select>
+              </label>
+              <label class="config-field-group">
+                <span class="config-label-row"><span>保留作者表达</span></span>
+                <select id="author-voice-restoration" data-field="author_voice_restoration" data-ui="segmented" required>
+                  <option value="">请选择</option>
+                  <option value="off">不特别要求</option>
+                  <option value="standard">适度保留</option>
+                  <option value="strict">严格保留</option>
+                </select>
+              </label>
+            </div>
+          </div>
         </div>
-        <p class="muted">学习结果用于正文、图件和期刊格式。</p>
-      </fieldset>
-      <fieldset><legend>交付格式</legend><label class="check"><input type="checkbox" name="formats" value="pdf" data-field="formats" />PDF</label><label class="check"><input type="checkbox" name="formats" value="docx" data-field="formats" />Word</label><label class="check"><input type="checkbox" name="formats" value="tex" data-field="formats" />LaTeX 源文件</label></fieldset>
-      <p class="muted">仅使用已有材料与结果时，不新增分析、实验或模型运行；仍可学习公开文献、核对引用和读取参考图。私有材料保留在本地，明确的离线要求仍有效。</p>
-    </fieldset><button id="reload-saved-configuration" type="button" class="button" hidden>重新载入已保存配置（放弃本页未保存修改）</button><p id="configuration-status" class="muted" role="status"></p><button id="configuration-submit" class="button strong" type="submit">保存设置</button></form>
+
+        <fieldset class="config-subpanel"><legend>期刊与文献学习</legend>
+          <div class="config-sections">
+            <label class="config-field-group">
+              <span class="config-label-row">
+                <span>学习篇数</span>
+                <span id="literature-summary-chip" class="target-status-pill">同方向 3 + 目标期刊 3 篇</span>
+              </span>
+              <select id="literature-preset" data-field="literature" data-ui="segmented">
+                <option value="3">3 + 3 篇（默认）</option>
+                <option value="6">6 + 6 篇（深入）</option>
+                <option value="custom">自定义篇数</option>
+              </select>
+            </label>
+
+            <div id="custom-literature-drawer" class="drawer-collapse" data-open="false">
+              <div class="drawer-collapse-inner form-grid two">
+                <label class="config-field-group"><span>同方向论文篇数</span><div class="stepper-input"><input id="same-field-papers" data-field="literature" type="number" min="1" step="1" required /></div></label>
+                <label class="config-field-group"><span>目标期刊论文篇数</span><div class="stepper-input"><input id="target-venue-papers" data-field="literature" type="number" min="1" step="1" required /></div></label>
+              </div>
+            </div>
+
+            <div class="form-grid two">
+              <label class="config-field-group">
+                <span class="config-label-row"><span>参考文献目标</span></span>
+                <select id="reference-count-mode" data-field="literature" data-ui="segmented">
+                  <option value="venue_average">高于样本平均（默认）</option>
+                  <option value="custom">自定数量</option>
+                </select>
+              </label>
+              <label class="config-field-group">
+                <span class="config-label-row"><span>机制 / 架构图</span></span>
+                <select id="mechanism-figure" data-field="literature" data-ui="segmented">
+                  <option value="prefer">优先考虑（默认）</option>
+                  <option value="auto">由宿主判断</option>
+                  <option value="omit">不采用</option>
+                </select>
+              </label>
+            </div>
+
+            <div id="custom-reference-drawer" class="drawer-collapse" data-open="false">
+              <div class="drawer-collapse-inner">
+                <label class="config-field-group"><span>自定参考文献数量</span><div class="stepper-input"><input id="reference-count" data-field="literature" type="number" min="1" step="1" placeholder="请输入篇数" /></div></label>
+              </div>
+            </div>
+          </div>
+          <p class="muted config-helper-note">宿主学习相关研究及目标期刊同类型论文（记录实际样本与限制），用于正文、图件和期刊格式。</p>
+        </fieldset>
+
+        <fieldset class="config-formats-panel"><legend>交付格式</legend>
+          <div class="format-pill-row">
+            <label class="check format-card"><input type="checkbox" name="formats" value="pdf" data-field="formats" /><span class="format-check-box" aria-hidden="true"><svg viewBox="0 0 12 10" width="11" height="11"><path d="M1.5 5.2L4.4 8.2L10.5 1.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>PDF</span></label>
+            <label class="check format-card"><input type="checkbox" name="formats" value="docx" data-field="formats" /><span class="format-check-box" aria-hidden="true"><svg viewBox="0 0 12 10" width="11" height="11"><path d="M1.5 5.2L4.4 8.2L10.5 1.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Word</span></label>
+            <label class="check format-card"><input type="checkbox" name="formats" value="tex" data-field="formats" /><span class="format-check-box" aria-hidden="true"><svg viewBox="0 0 12 10" width="11" height="11"><path d="M1.5 5.2L4.4 8.2L10.5 1.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>LaTeX 源文件</span></label>
+          </div>
+        </fieldset>
+        <p class="muted config-helper-note">仅使用已有材料与结果时，不新增分析、实验或模型运行；仍可学习公开文献、核对引用和读取参考图。私有材料保留在本地，明确的离线要求仍有效。</p>
+      </fieldset><div class="config-actions-bar"><p id="configuration-status" class="muted" role="status"></p><div class="config-actions-buttons"><button id="reload-saved-configuration" type="button" class="button" hidden>恢复已保存配置</button><button id="configuration-submit" class="button strong" type="submit">保存设置</button></div></div></form>
     <h4>宿主提供的材料</h4><div id="task-material-roots"></div><p id="task-materials-summary" class="muted"></p><ul id="task-material-issues" class="muted" aria-label="未读取材料与原因" hidden></ul><nav id="material-pagination" class="material-pagination" aria-label="材料列表分页" hidden>
       <button id="material-previous" class="button" type="button" aria-controls="task-material-table">上一页</button>
       <label>材料页码 <select id="material-page" aria-controls="task-material-table"></select></label>
@@ -134,14 +301,18 @@
   <section class="task-data-panel" data-phase-panel="evidence" hidden><h3>论证与证据</h3><p class="muted">宿主保存的证据和论证记录，仅供查看。</p><div id="evidence-records"></div></section>
   <section class="task-data-panel" data-phase-panel="draft" hidden><h3>论文主稿</h3><p class="muted">查看已登记的论文正文、PDF、Word或TeX源文件。</p><div id="task-artifact-list" class="task-file-list"></div><div id="draft-records"></div></section>
   <section class="task-data-panel" data-phase-panel="figure" hidden><h3>图件工作台</h3><p class="muted">左列是我们的图，右列是对应参考图；按图号和子图逐行排列。参考旁可查看原文，保留／修改意见仍分别保存。</p><div id="figure-decisions"></div><div id="figure-records"></div><details class="figure-file-catalog"><summary>浏览全部目录文件（含历史文件和可编辑源）</summary><p id="task-figures-summary" class="muted"></p><div id="task-figure-records"></div></details></section>
-  <section class="task-data-panel" data-phase-panel="review" hidden><h3>审阅记录</h3><p class="muted">显示宿主提供的真实审阅记录。</p><div id="review-records"></div></section>
+  <section class="task-data-panel" data-phase-panel="review" hidden><h3>审阅与返修记录</h3><div id="review-records"></div></section>
   <section class="task-data-panel" data-phase-panel="delivery" hidden><h3>完成稿与论文包</h3><p id="task-delivery-summary"></p><ul id="task-delivery-blockers" class="task-check-list"></ul><div id="delivery-files" class="task-file-list"></div></section>
-  <section id="feedback-panel" class="task-data-panel"><h3>意见与返修</h3><p class="muted">描述希望修改的内容，保留当前版本后继续返修。</p>
-    <form id="feedback-form"><fieldset id="feedback-fields"><legend>本次意见</legend><label>意见范围<select id="feedback-scope"><option value="manuscript">稿件</option><option value="all">整项工作</option><option value="figures">图件</option></select></label><label>意见<textarea id="feedback-text" rows="5" maxlength="32000" placeholder="描述希望调整的内容，也可以上传意见文件。"></textarea></label><label>上传意见文件（.md 或 .txt）<input id="feedback-file" type="file" accept=".md,.txt,text/plain,text/markdown" /></label><p id="feedback-file-name" class="muted"></p></fieldset><button id="feedback-submit" class="button strong" type="submit">保存意见</button></form><p id="feedback-status" role="status"></p><div id="feedback-history"></div>
+  <section class="workbench-utilities" aria-label="补充意见与本地交接">
+    <section id="feedback-panel" class="task-data-panel utility-card"><h3>意见与返修</h3><p class="muted">提交跨阶段或整稿修改意见，保留当前版本后继续返修。</p>
+      <form id="feedback-form"><fieldset id="feedback-fields"><legend>本次意见</legend><label class="config-field-group"><span class="config-label-row"><span>意见范围</span></span><select id="feedback-scope" data-ui="segmented"><option value="manuscript">稿件</option><option value="all">整项工作</option><option value="figures">图件</option></select></label><label class="config-field-group"><span class="config-label-row"><span>意见</span></span><textarea id="feedback-text" rows="3" maxlength="32000" placeholder="描述希望调整的内容。"></textarea></label></fieldset><button id="feedback-submit" class="button strong" type="submit">保存意见</button></form><p id="feedback-status" role="status"></p><div id="feedback-history"></div>
+    </section>
+    <div class="utility-side-stack">
+      <section id="host-handoff-panel" class="task-data-panel host-recovery-panel utility-card"><details><summary>交给当前 AI 接手</summary><p>可发回原对话，也可交给有权访问本地文件的新宿主。接手靠任务与成果文件，不是共享原 Agent 的记忆；请勿让两个宿主同时修改同一成果。复制或打开页面都不会启动 AI。</p><pre id="host-handoff-text"></pre><button id="copy-handoff" type="button" class="button">复制接手指令</button><p id="handoff-status" role="status"></p></details></section>
+      <section class="task-data-panel utility-card"><h3>本地目录与历史</h3><p id="package-directory" class="muted"></p><button id="open-package" class="button" type="button">打开任务目录</button><details><summary>交接文件</summary><p id="task-skill-bridge-summary" class="muted"></p><div id="task-skill-bridge-files" class="task-file-list"></div></details><details id="unassigned-artifact-records" hidden><summary>归属未明的文件</summary></details><details><summary>任务历史（只读）</summary><div id="task-history-records"></div></details></section>
+    </div>
   </section>
-  <section id="host-handoff-panel" class="task-data-panel host-recovery-panel"><details><summary>交给当前 AI 接手</summary><p>可发回原对话，也可交给有权访问本地文件的新宿主。接手靠任务与成果文件，不是共享原 Agent 的记忆；请勿让两个宿主同时修改同一成果。复制或打开页面都不会启动 AI。</p><pre id="host-handoff-text"></pre><button id="copy-handoff" type="button" class="button">复制接手指令</button><p id="handoff-status" role="status"></p></details></section>
-  <section class="task-data-panel"><h3>本地目录与历史</h3><p id="package-directory" class="muted"></p><button id="open-package" class="button" type="button">打开任务目录</button><details><summary>交接文件</summary><p id="task-skill-bridge-summary" class="muted"></p><div id="task-skill-bridge-files" class="task-file-list"></div></details><details id="unassigned-artifact-records" hidden><summary>归属未明的文件</summary></details><details><summary>任务历史（只读）</summary><div id="task-history-records"></div></details></section>
-</article></section></div></main><footer class="footer">PaperSpine · 宿主科研，本地协作</footer></div><dialog id="save-toast" class="save-toast" aria-modal="true" aria-labelledby="save-toast-title" aria-describedby="save-toast-description" hidden>
+</article></section></div></main></div><dialog id="save-toast" class="save-toast" aria-modal="true" aria-labelledby="save-toast-title" aria-describedby="save-toast-description" hidden>
   <span class="save-toast-icon" aria-hidden="true">✓</span>
   <div class="save-toast-content">
     <h2 id="save-toast-title" tabindex="-1"></h2>
@@ -158,4 +329,4 @@
   <h2 id="support-milestone-title">你已经使用 PaperSpine <span id="support-milestone-count"></span> 次</h2>
   <p>如果它确实帮到了你，可以自愿支持持续维护。计数只保存在本机浏览器，不上传，也不影响任何功能。</p>
   <a class="button strong" href="https://wubing2023.github.io/PaperSpine/v5/?support=1" target="_blank" rel="noopener noreferrer">支持 PaperSpine</a>
-</aside><script src="/product.js?v=20260921-host-continuation" defer></script></body></html>
+</aside><script src="/product.js?v=20261125-word-fit" defer></script></body></html>
