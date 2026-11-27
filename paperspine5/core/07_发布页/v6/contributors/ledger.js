@@ -18,13 +18,13 @@ const METRIC_DEFINITIONS = [
 ];
 
 const LANGUAGE_KEY = 'paperspine-language';
-let language = 'zh-CN';
+let language = 'en';
 const requestedLanguage = new URLSearchParams(location.search).get('lang');
 if (requestedLanguage === 'en' || requestedLanguage === 'zh-CN') {
   language = requestedLanguage;
 } else {
   try {
-    if (localStorage.getItem(LANGUAGE_KEY) === 'en') language = 'en';
+    if (localStorage.getItem(LANGUAGE_KEY) === 'zh-CN') language = 'zh-CN';
   } catch {
     // Storage can be disabled in a standalone preview.
   }
@@ -74,12 +74,29 @@ const ROSTER = [
     github_login: 'WUBING2023',
     owner: true,
     cardEffect: 'topography',
-    bio: ['维护 PaperSpine，并参与研究工作流与审阅功能的开发。', 'Maintains PaperSpine and develops its research and review workflows.']
+    role: ['发起者与主要贡献者', 'Creator and lead contributor'],
+    bio: ['发起并维护 PaperSpine，主导核心 Skill、研究工作流与产品研发。', 'Created and maintains PaperSpine. Leads development of the core Skill, research workflows, and product.']
+  },
+  {
+    github_user_id: '199017938',
+    github_login: 'goya4140',
+    role: ['VERA Table 插件贡献者', 'VERA Table contributor'],
+    bio: ['贡献 VERA Table 制图插件，可从研究结果表生成可编辑统计图。', 'Contributed the VERA Table plugin for creating editable statistical figures from research result tables.'],
+    acknowledgement: true
   },
   {
     github_user_id: '268598926',
     github_login: 'Lauyanng',
-    bio: ['参与 PaperSpine 官网、项目文档和社区星图的更新。', 'Contributes to the PaperSpine website, documentation, and community atlas.']
+    role: ['前端贡献者', 'Frontend contributor'],
+    bio: ['通过 PR #19 和 #20 改进 V6 官网、双语文档、社区星图和贡献者页。', 'Improved the V6 site, bilingual documentation, community atlas, and contributor directory in PRs #19 and #20.'],
+    pullRequests: [19, 20]
+  },
+  {
+    github_user_id: '16056485',
+    github_login: 'yaxingwang',
+    role: ['指导与经费支持', 'Guidance and funding support'],
+    bio: ['为 PaperSpine 提供项目建议、科研指导与经费支持。', 'Provides advice, research guidance, and funding support for PaperSpine.'],
+    acknowledgement: true
   }
 ].map(account => ({
   ...account,
@@ -88,7 +105,7 @@ const ROSTER = [
   visibility: 'public'
 }));
 
-// Public PRs checked on GitHub on 2026-11-22. Also available when the API is offline.
+// Public PRs checked on GitHub. These records are available before a refresh.
 const VERIFIED_PULLS = [
   {
     id: 5321497904,
@@ -107,6 +124,14 @@ const VERIFIED_PULLS = [
     created_at: '2026-11-20T10:49:09Z',
     merged_at: '2026-11-20T13:06:51Z',
     updated_at: '2026-11-20T13:06:51Z'
+  },
+  {
+    number: 20,
+    user: { id: 268598926 },
+    title: 'Add the organization globe and V6 contributor ledger',
+    created_at: '2026-11-24T06:42:56Z',
+    merged_at: '2026-11-24T07:39:00Z',
+    updated_at: '2026-11-24T07:39:00Z'
   }
 ];
 
@@ -118,6 +143,10 @@ const PULL_DETAILS = {
   19: {
     categories: ['Design', 'Documentation', 'Community'],
     description: ['更新中英文官网和 README，并改进社区星图及嵌入视图。', 'Updates the bilingual site and README, and improves the community atlas and its embedded view.']
+  },
+  20: {
+    categories: ['Design', 'Community', 'Code'],
+    description: ['加入使用机构地球视图及双语贡献者名录、证据账本和同步日志。', 'Adds the organization globe and the bilingual contributor directory, evidence ledger, and sync log.']
   }
 };
 
@@ -130,8 +159,8 @@ function mapPull(pull, recordedAt = null) {
     source_provider: 'github',
     source_type: 'pull_request',
     source_id: `PR#${pull.number}`,
-    source_event_id: String(pull.id),
-    idempotency_key: `github:${REPOSITORY}:pull_request:${pull.id}`,
+    source_event_id: pull.id == null ? null : String(pull.id),
+    idempotency_key: `github:${REPOSITORY}:pull_request:${pull.id ?? 'PR#' + pull.number}`,
     evidence_url: `https://github.com/${REPOSITORY}/pull/${pull.number}`,
     evidence_access: 'accessible',
     title: pull.title,
@@ -420,7 +449,7 @@ function renderOverview() {
                     <div class="min-w-0">
                       <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
                         <h3 class="text-sm font-semibold text-ink-950 truncate">@${escapeHtml(c.github_login)}</h3>
-                        ${c.owner ? '<span class="owner-tag" lang="en">Owner</span>' : ''}
+                        ${c.role ? `<span class="${c.owner ? 'owner-tag' : 'card-tag'}">${escapeHtml(t(...c.role))}</span>` : ''}
                       </div>
                     </div>
                   </div>
@@ -430,7 +459,7 @@ function renderOverview() {
                   </a>
                 </div>
 
-                <p class="card-bio text-ink-500 leading-relaxed line-clamp-2">${escapeHtml(c.bio ? t(...c.bio) : t('PaperSpine 开源社区贡献者', 'PaperSpine open source contributor'))}</p>
+                <p class="card-bio text-ink-500 leading-relaxed">${escapeHtml(c.bio ? t(...c.bio) : t('PaperSpine 开源社区贡献者', 'PaperSpine open source contributor'))}</p>
 
                 <div class="flex flex-wrap gap-1.5">
                   ${getContributorCategories(c.github_user_id).map(cat => `
@@ -441,7 +470,7 @@ function renderOverview() {
 
               <div class="pt-3.5 border-t border-ink-100 space-y-2">
                 <div class="flex flex-wrap items-center justify-between gap-2">
-                  <div class="text-xs font-medium text-ink-950 font-mono">${escapeHtml(buildContributorSummaryText(getContributorRecords(c.github_user_id)))}</div>
+                  <div class="text-xs font-medium text-ink-950 font-mono">${escapeHtml(c.acknowledgement ? t('项目致谢', 'Project acknowledgement') : buildContributorSummaryText(getContributorRecords(c.github_user_id)))}</div>
                   <span class="profile-prompt" aria-hidden="true">${t('查看档案 →', 'View profile →')}</span>
                 </div>
                 <div class="flex items-center justify-between text-[11px] font-mono text-ink-400">
@@ -519,10 +548,14 @@ function renderProfile() {
             <div class="min-w-0 space-y-2">
               <div class="flex flex-wrap items-center gap-2">
                 <h1 class="text-2xl font-semibold tracking-tight text-ink-950">@${escapeHtml(contributor.github_login)}</h1>
-                ${contributor.owner ? '<span class="owner-tag" lang="en">Owner</span>' : ''}
+                ${contributor.role ? `<span class="${contributor.owner ? 'owner-tag' : 'card-tag'}">${escapeHtml(t(...contributor.role))}</span>` : ''}
                 <span class="font-mono text-[11px] px-2 py-0.5 rounded bg-ink-100 text-ink-700">ID: ${escapeHtml(contributor.github_user_id)}</span>
               </div>
               <p class="text-sm text-ink-700 max-w-2xl leading-relaxed">${escapeHtml(contributor.bio ? t(...contributor.bio) : t('PaperSpine 开源社区贡献者', 'PaperSpine open source contributor'))}</p>
+              ${(contributor.pullRequests || []).map(number => `
+                <a class="focus-ring inline-flex px-2.5 py-1 text-xs border border-ink-200 rounded-md"
+                  href="https://github.com/${REPOSITORY}/pull/${number}" target="_blank" rel="noopener noreferrer">PR #${number} ↗</a>
+              `).join('')}
               <div class="flex flex-wrap items-center gap-2 pt-1">
                 ${allCats.map(cat => `<span class="px-2.5 py-0.5 rounded-full border border-ink-200 bg-ink-50 font-mono text-[11px] text-ink-950">${escapeHtml(categoryLabel(cat))}</span>`).join('')}
               </div>
